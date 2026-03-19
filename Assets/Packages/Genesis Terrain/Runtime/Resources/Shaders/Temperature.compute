@@ -1,0 +1,26 @@
+#pragma kernel CSMain
+
+Texture2D<float> _HeightMap;
+RWTexture2D<float> _TemperatureMap;
+
+StructuredBuffer<float> _CurveData;
+int _CurveResolution;
+float _Scale;
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    float height = _HeightMap[id.xy]/_Scale;    
+    float t = saturate(height); // normalize height to [0,1]
+
+    float fIndex = t * (_CurveResolution - 1);
+    int i0 = clamp((int) floor(fIndex), 0, _CurveResolution - 1);
+    int i1 = min(i0 + 1, _CurveResolution - 1);
+    float frac = fIndex - i0;
+
+    float temp0 = _CurveData[i0];
+    float temp1 = _CurveData[i1];
+    float temperature = lerp(temp0, temp1, frac);
+
+    _TemperatureMap[id.xy] = temperature;
+}

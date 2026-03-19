@@ -1,0 +1,29 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using GraphProcessor;
+using System.Linq;
+using UnityEngine.Rendering;
+
+namespace Genesis
+{
+	[System.Serializable, NodeMenuItem("Compute/#NAME#")]
+	public class #SCRIPTNAME# : ComputeShaderNode
+	{
+		public override string name => "#NAME#";
+
+        // Override this if you want your node to not support certartain dimensions
+		// public override List<OutputDimension> supportedDimensions => new List<OutputDimension>() {
+		// 	OutputDimension.Texture2D,
+        //     OutputDimension.Texture2D,
+        //     OutputDimension.Cubemap,
+		// };
+
+		protected override string computeShaderResourcePath => "#NAME#";
+
+        // In case you want to change the compute
+		// protected override string previewKernel => null;
+        // public override string previewTexturePropertyName => previewComputeProperty;
+
+	}
+}

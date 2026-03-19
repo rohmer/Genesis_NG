@@ -1,0 +1,45 @@
+#pragma kernel CSMain
+
+Texture2D<float4> InputTexture;
+RWTexture2D<float4> OutputTexture;
+
+float2 BlurDirection;
+int Samples;
+float JitterStrength; // New: Controls how much "noise" to inject
+
+// A simple hash function to get a pseudo-random float [0, 1] based on pixel ID
+float GetRandom(uint2 id)
+{
+    return frac(sin(dot(id.xy, float2(12.9898, 78.233))) * 43758.5453);
+}
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    uint width, height;
+    OutputTexture.GetDimensions(width, height);
+
+    if (id.x >= width || id.y >= height)
+        return;
+
+    float2 uv = float2(id.xy) / float2(width, height);
+    float4 accumulatedColor = float4(0, 0, 0, 0);
+    
+    // Calculate a unique jitter offset for this specific pixel
+    float noise = GetRandom(id.xy) * JitterStrength;
+
+    for (int i = 0; i < Samples; i++)
+    {
+        // Add the noise to the progress calculation
+        // This shifts every sample slightly along the blur line
+        float progress = (float) i / (float) (Samples - 1);
+        float2 offset = BlurDirection * (progress - 0.5 + (noise / (float) Samples));
+        
+        float2 sampleUV = clamp(uv + offset, 0.0, 1.0);
+        uint2 samplePos = uint2(sampleUV.x * width, sampleUV.y * height);
+        
+        accumulatedColor += InputTexture[samplePos];
+    }
+
+    OutputTexture[id.xy] = accumulatedColor / (float) Samples;
+}

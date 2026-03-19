@@ -1,0 +1,308 @@
+//======================================================================
+// MOISTURE ADVECTION + VALLEY ACCUMULATION + RAIN SHADOWS + CONDENSATION
+//======================================================================
+
+#pragma kernel CS_InitMoisture
+#pragma kernel CS_AdvectMoisture
+#pragma kernel CS_DebugMoisture
+#pragma kernel CS_UpdateWetness
+#pragma kernel CS_CombineMoisture
+
+//======================================================================
+// INPUT RESOURCES
+//======================================================================
+
+Texture2D<float4> MoistureInput; // initial moisture (blue channel)
+Texture2D<float2> FlowMap; // wind flow map
+Texture2D<float> Heightmap; // terrain height
+Texture2D<float> Curvature; // blended curvature (valleys/ridges)
+Texture2D<float> OcclusionMask; // ridge occlusion (0–1)
+
+//======================================================================
+// OUTPUT RESOURCES
+//======================================================================
+
+RWTexture2D<float> MoisturePrev; // ping-pong A
+RWTexture2D<float> MoistureOut; // ping-pong B
+RWTexture2D<float> Precipitation; // precipitation output
+RWTexture2D<float4> DebugOut; // visualization
+
+RWTexture2D<float> RecombinationOut;   // Moisture after recombination
+
+RWTexture2D<float> WetnessPrev; // ping-pong A
+RWTexture2D<float> WetnessOut; // ping-pong B
+
+//======================================================================
+// PARAMETERS
+//======================================================================
+
+int Width;
+int Height;
+
+float StepSize = 1.0; // pixel-space backtrace
+float AdvectionStrength = 1.0; // 0–1
+
+float ValleyPull = 0.5; // 0–1
+float RainShadowStrength = 0.5; // 0–1
+float Evaporation = 0.0; // 0–1
+float HeightInfluence = 0.5; // 0–1
+
+float MoistureMin = 0.0;
+float MoistureMax = 1.0;
+
+float CondensationThreshold = 0.85; // moisture level where condensation begins
+float PrecipitationRate = 1.0; // how much excess becomes precipitation
+float ValleyRainBoost = 0.25; // valleys get more rain
+float RainShadowSuppression = 0.5; // rain reduced behind ridges
+
+int DebugMode = 0; // 0=off, 1=moisture, 2=flow, 3=combined
+
+float PrecipToWetness = 0.5; // how much precipitation increases wetness
+float MoistureToWetness = 0.2; // airborne moisture contribution
+float DrainageStrength = 0.5; // slope-based drainage
+float ValleyRetention = 0.3; // valleys retain more water
+float EvaporationRate = 0.1; // drying rate
+float WetnessMin = 0.0;
+float WetnessMax = 1.0;
+
+float Recombination = 0.25; // Amount of moisture to put back in
+
+//======================================================================
+// UTILS
+//======================================================================
+
+float sample(RWTexture2D<float> tex, int2 id)
+{
+    id.x = clamp(id.x, 0, Width - 1);
+    id.y = clamp(id.y, 0, Height - 1);
+    return tex.Load(int3(id, 0));
+}
+
+float sample1(Texture2D<float> tex, int2 id)
+{
+    id.x = clamp(id.x, 0, Width - 1);
+    id.y = clamp(id.y, 0, Height - 1);
+    return tex.Load(int3(id, 0));
+}
+
+float2 sample2(Texture2D<float2> tex, int2 id)
+{
+    id.x = clamp(id.x, 0, Width - 1);
+    id.y = clamp(id.y, 0, Height - 1);
+    return tex.Load(int3(id, 0));
+}
+
+//======================================================================
+// INITIALIZE MOISTURE
+//======================================================================
+
+[numthreads(8, 8, 1)]
+void CS_InitMoisture(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    float m = MoistureInput.Load(int3(id, 0)).b;
+    MoisturePrev[id] = m;
+}
+
+//======================================================================
+// SEMI-LAGRANGIAN MOISTURE ADVECTION + TERRAIN EFFECTS + CONDENSATION
+//======================================================================
+
+[numthreads(8, 8, 1)]
+void CS_AdvectMoisture(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    float2 flow = sample2(FlowMap, id);
+
+    // Backtrace in pixel space
+    float2 backPos = float2(id) - flow * StepSize;
+    int2 backID = int2(
+        clamp(backPos.x, 0.0, (float) (Width - 1)),
+        clamp(backPos.y, 0.0, (float) (Height - 1))
+    );
+
+    float prevMoist = sample(MoisturePrev, backID);
+
+    //==================================================================
+    // VALLEY ACCUMULATION
+    //==================================================================
+    float curv = sample1(Curvature, id);
+    float valleyFactor = saturate(-curv * ValleyPull);
+    prevMoist += valleyFactor * 0.25;
+
+    //==================================================================
+    // DOWNHILL DRIFT
+    //==================================================================
+    float h = sample1(Heightmap, id);
+    float hx = sample1(Heightmap, id + int2(1, 0));
+    float hy = sample1(Heightmap, id + int2(0, 1));
+
+    float2 downhill = float2(h - hx, h - hy);
+    prevMoist += length(downhill) * HeightInfluence * 0.1;
+
+    //==================================================================
+    // RAIN SHADOW DRYING
+    //==================================================================
+    float occ = sample1(OcclusionMask, id);
+    prevMoist *= lerp(1.0, 1.0 - occ, RainShadowStrength);
+
+    //==================================================================
+    // EVAPORATION
+    //==================================================================
+    prevMoist *= (1.0 - Evaporation);
+
+    //==================================================================
+    // STABILITY BLEND
+    //==================================================================
+    float current = sample(MoisturePrev, id);
+    float outM = lerp(current, prevMoist, AdvectionStrength);
+
+    //==================================================================
+    // CONDENSATION → PRECIPITATION
+    //==================================================================
+
+    float excess = max(0, outM - CondensationThreshold);
+
+    float rain = excess * PrecipitationRate;
+
+    // Valley boost
+    rain += valleyFactor * ValleyRainBoost;
+
+    // Rain shadow suppression
+    rain *= lerp(1.0, 1.0 - occ, RainShadowSuppression);
+
+    Precipitation[id] = rain;
+
+    // Clamp moisture to condensation threshold
+    outM = min(outM, CondensationThreshold);
+
+    //==================================================================
+    // FINAL SATURATION LIMITS
+    //==================================================================
+    outM = clamp(outM, MoistureMin, MoistureMax);
+
+    MoistureOut[id] = outM;
+}
+
+//======================================================================
+// DEBUG VISUALIZATION
+//======================================================================
+
+[numthreads(8, 8, 1)]
+void CS_DebugMoisture(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    float4 outColor = float4(0, 0, 0, 1);
+
+    if (DebugMode == 1) // Moisture grayscale
+    {
+        float m = sample(MoistureOut, id);
+        outColor = float4(m, m, m, 1);
+    }
+    else if (DebugMode == 2) // Flow direction
+    {
+        float2 f = sample2(FlowMap, id);
+        outColor = float4(f * 0.5 + 0.5, 0, 1);
+    }
+    else if (DebugMode == 3) // Combined moisture + flow hue
+    {
+        float m = sample(MoistureOut, id);
+        float2 f = sample2(FlowMap, id);
+
+        float angle = atan2(f.y, f.x);
+        float hue = (angle / 6.2831853) + 0.5;
+
+        float3 rgb;
+        float h6 = hue * 6;
+        float x = 1 - abs(fmod(h6, 2) - 1);
+
+        if (h6 < 1)
+            rgb = float3(1, x, 0);
+        else if (h6 < 2)
+            rgb = float3(x, 1, 0);
+        else if (h6 < 3)
+            rgb = float3(0, 1, x);
+        else if (h6 < 4)
+            rgb = float3(0, x, 1);
+        else if (h6 < 5)
+            rgb = float3(x, 0, 1);
+        else
+            rgb = float3(1, 0, x);
+
+        rgb *= m;
+        outColor = float4(rgb, 1);
+    }
+
+    DebugOut[id] = outColor;
+}
+
+//======================================================================
+// WETNESS UPDATE KERNEL
+//======================================================================
+
+[numthreads(8, 8, 1)]
+void CS_UpdateWetness(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    float wet = WetnessPrev[id];
+    float rain = sample(Precipitation, id);
+    float moist = sample(MoistureOut, id);
+
+    // Terrain slope for drainage
+    float h = sample1(Heightmap, id);
+    float hx = sample1(Heightmap, id + int2(1, 0));
+    float hy = sample1(Heightmap, id + int2(0, 1));
+    float slope = length(float2(h - hx, h - hy));
+
+    // Curvature for valley retention
+    float curv = sample1(Curvature, id);
+    float valleyFactor = saturate(-curv * ValleyRetention);
+
+    // Wetness accumulation
+    wet += rain * PrecipToWetness;
+    wet += moist * MoistureToWetness;
+
+    // Valley retention (more wetness in concave terrain)
+    wet += valleyFactor * 0.1;
+
+    // Drainage (steeper terrain loses water)
+    wet -= slope * DrainageStrength * 0.1;
+
+    // Evaporation
+    wet -= EvaporationRate;
+
+    // Clamp to limits
+    wet = clamp(wet, WetnessMin, WetnessMax);
+
+    WetnessOut[id] = wet;
+}
+
+[numthreads(8, 8, 1)]
+void CS_CombineMoisture(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    float initial = MoistureOut.Load(int3(id, 0));   
+    float m = MoistureInput[id].b * Recombination;
+    float occ = sample1(OcclusionMask, id);    
+    m *= lerp(1.0, 1.0 - occ, RainShadowStrength);
+    float3 newM = initial;
+    //newM.r += m;
+    //newM.g += m;
+    newM.b += m;
+    RecombinationOut[id] = newM;    
+}

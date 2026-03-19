@@ -1,0 +1,19 @@
+#pragma kernel CSMain
+
+Texture2D<float4> _Heightmap;    // Alpha
+Texture2D<float4> _Slope;     // Red
+Texture2D<float4> _Curvature; // Green
+Texture2D<float4> _Moisture;  // Blue
+
+RWTexture2D<float4> _Result;
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    float a = _Heightmap[id.xy].r;
+    float r = _Slope[id.xy].r;
+    float g = _Curvature[id.xy].r;
+    float b = _Moisture[id.xy].b;
+    
+    _Result[id.xy] = float4(r, g, b, a);
+}

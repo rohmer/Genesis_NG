@@ -1,0 +1,44 @@
+#pragma kernel FindBounds
+#pragma kernel CalculateDistance
+
+Texture2D<float4> InputTexture;
+uint2 TextureDimensions;
+
+// We store: [MinX, MaxX, MinY, MaxY]
+// Initialize Min values to a large number and Max to 0
+RWStructuredBuffer<int> BoundsBuffer;
+RWStructuredBuffer<float> ResultBuffer;
+
+[numthreads(8, 8, 1)]
+void FindBounds(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= TextureDimensions.x || id.y >= TextureDimensions.y)
+        return;
+
+    float4 color = InputTexture[id.xy];
+    
+    // Check if it's land (ARGBFloat, looking at Red channel)
+    if (color.r > 0.0f)
+    {
+        // Use atomic operations to update the global bounds
+        InterlockedMin(BoundsBuffer[0], (int) id.x); // MinX
+        InterlockedMax(BoundsBuffer[1], (int) id.x); // MaxX
+        InterlockedMin(BoundsBuffer[2], (int) id.y); // MinY
+        InterlockedMax(BoundsBuffer[3], (int) id.y); // MaxY
+    }
+}
+
+[numthreads(1, 1, 1)]
+void CalculateDistance(uint3 id : SV_DispatchThreadID)
+{
+    float minX = (float) BoundsBuffer[0];
+    float maxX = (float) BoundsBuffer[1];
+    float minY = (float) BoundsBuffer[2];
+    float maxY = (float) BoundsBuffer[3];
+
+    // The maximum distance in a bounding box is the diagonal
+    float dx = maxX - minX;
+    float dy = maxY - minY;
+
+    ResultBuffer[0] = sqrt(dx * dx + dy * dy);
+}

@@ -1,0 +1,155 @@
+// JFA_Heightmap.compute
+// Input: _SourceTex (white = land, black = water)
+// Outputs: _Heightmap (RGBAFloat, height in R)
+// Uses two integer ping-pong RTs (ARGBInt) to store seed coordinates (x,y) as ints.
+
+#pragma kernel InitSeeds
+#pragma kernel JumpFlood
+#pragma kernel Finalize
+
+Texture2D<float4> _SourceTex;
+SamplerState sampler_PointClamp;
+
+RWTexture2D<int4> _SeedRead; // int4: (seedX, seedY, unused, unused) - used as read SRV in JumpFlood
+RWTexture2D<int4> _SeedWrite; // int4: write target for JumpFlood
+RWTexture2D<float4> _Heightmap; // final output (RGBAFloat)
+
+int2 _TextureSize;
+int _Step; // current jump step (pixels)
+float _MaxDistance; // normalization distance in pixels (if <=0, uses max found in shader fallback)
+float _MaxHeight; // maximum height for farthest land (0..1)
+float _FalloffPower; // exponent for falloff (1 linear, 2 quadratic)
+int _IsInitPass; // 1 for InitSeeds, 0 otherwise
+
+// invalid seed marker
+static const int4 INVALID_SEED = int4(-1, -1, 0, 0);
+
+bool IsLand(float4 col)
+{
+    return col.r > 0.1;
+}
+
+[numthreads(8, 8, 1)]
+void InitSeeds(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _TextureSize.x || id.y >= _TextureSize.y)
+        return;
+    int2 p = int2(id.xy);
+    float2 uv = (float2(p) + 0.5) / float2(_TextureSize);
+    float4 src = _SourceTex.SampleLevel(sampler_PointClamp, uv, 0);
+
+    // We want distance from water for land. So water pixels are seeds.
+    bool land = IsLand(src);
+
+    if (!land)
+    {
+        // this pixel is water -> seed is itself
+        _SeedWrite[p] = int4(p.x, p.y, 0, 0);
+    }
+    else
+    {
+        // land -> no seed yet
+        _SeedWrite[p] = INVALID_SEED;
+    }
+
+    // initialize heightmap to zero (optional)
+    _Heightmap[p] = float4(0, 0, 0, 1);
+}
+
+[numthreads(8, 8, 1)]
+void JumpFlood(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _TextureSize.x || id.y >= _TextureSize.y)
+        return;
+    int2 p = int2(id.xy);
+
+    // read current seed at this pixel
+    int4 bestSeed = _SeedRead[p];
+    float bestDistSq = 1e30;
+
+    // if current seed valid, compute its squared distance
+    if (bestSeed.x >= 0)
+    {
+        float dx = (float) bestSeed.x - p.x;
+        float dy = (float) bestSeed.y - p.y;
+        bestDistSq = dx * dx + dy * dy;
+    }
+
+    // sample neighbors at offsets of +/- _Step in 8 directions
+    int offsetsX[3] = { -_Step, 0, _Step };
+    int offsetsY[3] = { -_Step, 0, _Step };
+
+    for (int oy = 0; oy < 3; oy++)
+    {
+        for (int ox = 0; ox < 3; ox++)
+        {
+            if (ox == 1 && oy == 1)
+                continue; // skip center
+            int nx = p.x + offsetsX[ox];
+            int ny = p.y + offsetsY[oy];
+            if (nx < 0 || ny < 0 || nx >= _TextureSize.x || ny >= _TextureSize.y)
+                continue;
+
+            int4 nSeed = _SeedRead[int2(nx, ny)];
+            if (nSeed.x < 0)
+                continue; // invalid
+
+            float dx = (float) nSeed.x - p.x;
+            float dy = (float) nSeed.y - p.y;
+            float d2 = dx * dx + dy * dy;
+            if (d2 < bestDistSq)
+            {
+                bestDistSq = d2;
+                bestSeed = nSeed;
+            }
+        }
+    }
+
+    // write best seed for this pixel
+    _SeedWrite[p] = bestSeed;
+}
+
+[numthreads(8, 8, 1)]
+void Finalize(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _TextureSize.x || id.y >= _TextureSize.y)
+        return;
+    int2 p = int2(id.xy);
+    float2 uv = (float2(p) + 0.5) / float2(_TextureSize);
+    float4 src = _SourceTex.SampleLevel(sampler_PointClamp, uv, 0);
+    bool land = IsLand(src);
+
+    int4 seed = _SeedRead[p];
+
+    float height = 0.0;
+
+    if (land)
+    {
+        if (seed.x >= 0)
+        {
+            float dx = (float) seed.x - p.x;
+            float dy = (float) seed.y - p.y;
+            float dist = sqrt(dx * dx + dy * dy);
+
+            float normMax = _MaxDistance;
+            if (normMax <= 0.0)
+                normMax = max(_TextureSize.x, _TextureSize.y); // fallback
+
+            float nd = saturate(dist / normMax);
+            nd = pow(nd, _FalloffPower);
+            height = saturate(nd * _MaxHeight);
+        }
+        else
+        {
+            // no seed found (rare) -> minimal height
+            height = 0.0;
+        }
+    }
+    else
+    {
+        // water -> height 0
+        height = 0.0;
+    }
+
+    _Heightmap[p] = float4(height, height, height, 1.0);
+}

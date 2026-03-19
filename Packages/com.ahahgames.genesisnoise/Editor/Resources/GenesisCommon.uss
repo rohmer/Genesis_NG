@@ -1,0 +1,185 @@
+.ControlsContainer {
+    border-top-width: 1px;
+    border-color: rgb(24, 24, 24);
+    padding-top: 4px;
+}
+
+.PropertyContainer {
+    padding: 6px;
+}
+
+.PreviewToggleButton {
+    font-size: 12px;
+    height: 16px;
+    background-image: resource('Icons/Maximized');
+    -unity-background-scale-mode: scale-to-fit;
+}
+
+.Collapsed {
+    background-image: resource('Icons/Minimized');
+}
+
+.PreviewToggleButton:hover {
+    background-color: rgb(68, 68, 68);
+}
+
+.PreviewToggleButton:active {
+    background-color: rgb(85, 85, 85);
+}
+
+.RTSettingsView {
+    border-top-width: 1px;
+    border-color: rgb(24, 24, 24);
+    background-color: rgb(34, 34, 34);
+    padding: 6px;
+    padding-left: 10px;
+}
+
+.PropertyEditorTitle {
+    -unity-font-style: bold;
+    font-size: 16px;
+}
+
+.PropertyEditorHeader {
+    -unity-font-style: bold;
+    font-size: 12px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+.MaterialInspector {
+    margin-left: 10px;
+}
+
+.Hidden {
+    display: none;
+}
+
+.Visible {
+    display: flex;
+}
+
+.ControlsContainer > PropertyField > * > Label {
+    min-width: 80px;
+}
+
+.ControlsContainer > * > Label {
+    min-width: 80px;
+}
+
+.Preview {
+    background-color: rgba(63, 63, 63, 0.8);
+}
+
+.Histogram {
+    background-color: rgb(0, 0, 0);
+}
+
+.PinButton {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.PinButton:hover {
+    background-color: rgba(127, 127, 127, 0.2);
+}
+
+.PinButton_Hover:hover {
+    background-color: rgb(64, 64, 64);
+}
+
+.HelpButton {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.HelpButton:hover {
+    background-color: rgba(127, 127, 127, 0.2);
+}
+
+.HelpButton_Hover:hover {
+    background-color: rgb(64, 64, 64);
+}
+
+.MinimizeButton {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.MinimizeButton:hover {
+    background-color: rgba(127, 127, 127, 0.2);
+}
+
+.MinimizeButton_Hover:hover {
+    background-color: rgb(64, 64, 64);
+}
+
+.MaximizeButton {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.MaximizeButton:hover {
+    background-color: rgba(127, 127, 127, 0.2);
+}
+
+.MaximizeButton_Hover:hover {
+    background-color: rgb(64, 64, 64);
+}
+
+.CloseButton {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.CloseButton:hover {
+    background-color: rgba(127, 127, 127, 0.2);
+}
+
+.CloseButton_Hover:hover {
+    background-color: rgb(64, 64, 64);
+}
+
+#settings-button {
+    margin-left: 0;
+}
+
+.highlight {
+    border-color: rgb(253, 216, 53);
+    border-width: 2px;
+    padding: -2px;
+    border-radius: 10px;
+}
+
+.Indent {
+    margin-left: 10px;
+}
+
+.NodeTitle {
+    background-repeat-x: space
+}

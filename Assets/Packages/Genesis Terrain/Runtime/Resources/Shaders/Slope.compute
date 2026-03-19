@@ -1,0 +1,78 @@
+// HeightmapCurvatureGaussian9x9.compute
+#pragma kernel CSMain
+
+Texture2D<float> _Heightmap;
+RWTexture2D<float4> _Result;
+
+float2 _TexelSize;
+float _CurvatureScale;
+
+// 9x9 Gaussian kernel (outer product of [1 8 28 56 70 56 28 8 1])
+// Pre-normalized by dividing by 262144 (512*512)
+static const float G9[81] =
+{
+    // Row 0
+    1.0 / 262144.0, 8.0 / 262144.0, 28.0 / 262144.0, 56.0 / 262144.0, 70.0 / 262144.0, 56.0 / 262144.0, 28.0 / 262144.0, 8.0 / 262144.0, 1.0 / 262144.0,
+    // Row 1
+    8.0 / 262144.0, 64.0 / 262144.0, 224.0 / 262144.0, 448.0 / 262144.0, 560.0 / 262144.0, 448.0 / 262144.0, 224.0 / 262144.0, 64.0 / 262144.0, 8.0 / 262144.0,
+    // Row 2
+    28.0 / 262144.0, 224.0 / 262144.0, 784.0 / 262144.0, 1568.0 / 262144.0, 1960.0 / 262144.0, 1568.0 / 262144.0, 784.0 / 262144.0, 224.0 / 262144.0, 28.0 / 262144.0,
+    // Row 3
+    56.0 / 262144.0, 448.0 / 262144.0, 1568.0 / 262144.0, 3136.0 / 262144.0, 3920.0 / 262144.0, 3136.0 / 262144.0, 1568.0 / 262144.0, 448.0 / 262144.0, 56.0 / 262144.0,
+    // Row 4
+    70.0 / 262144.0, 560.0 / 262144.0, 1960.0 / 262144.0, 3920.0 / 262144.0, 4900.0 / 262144.0, 3920.0 / 262144.0, 1960.0 / 262144.0, 560.0 / 262144.0, 70.0 / 262144.0,
+    // Row 5
+    56.0 / 262144.0, 448.0 / 262144.0, 1568.0 / 262144.0, 3136.0 / 262144.0, 3920.0 / 262144.0, 3136.0 / 262144.0, 1568.0 / 262144.0, 448.0 / 262144.0, 56.0 / 262144.0,
+    // Row 6
+    28.0 / 262144.0, 224.0 / 262144.0, 784.0 / 262144.0, 1568.0 / 262144.0, 1960.0 / 262144.0, 1568.0 / 262144.0, 784.0 / 262144.0, 224.0 / 262144.0, 28.0 / 262144.0,
+    // Row 7
+    8.0 / 262144.0, 64.0 / 262144.0, 224.0 / 262144.0, 448.0 / 262144.0, 560.0 / 262144.0, 448.0 / 262144.0, 224.0 / 262144.0, 64.0 / 262144.0, 8.0 / 262144.0,
+    // Row 8
+    1.0 / 262144.0, 8.0 / 262144.0, 28.0 / 262144.0, 56.0 / 262144.0, 70.0 / 262144.0, 56.0 / 262144.0, 28.0 / 262144.0, 8.0 / 262144.0, 1.0 / 262144.0
+};
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    uint2 coord = id.xy;
+
+    // --- 1. Gaussian blur (9×9) ---
+    float smoothed = 0.0;
+    int idx = 0;
+
+    [unroll]
+    for (int y = -4; y <= 4; y++)
+    {
+        [unroll]
+        for (int x = -4; x <= 4; x++)
+        {
+            float h = _Heightmap[coord + uint2(x, y)];
+            smoothed += h * G9[idx++];
+        }
+    }
+
+    // --- 2. Laplacian curvature on smoothed height ---
+    float hC = smoothed;
+
+    float hL = _Heightmap[coord + uint2(-1, 0)];
+    float hR = _Heightmap[coord + uint2(1, 0)];
+    float hD = _Heightmap[coord + uint2(0, -1)];
+    float hU = _Heightmap[coord + uint2(0, 1)];
+
+    float curvature = (hL + hR + hU + hD - 4.0 * hC);
+
+    // --- 3. Normalize curvature to 0–1 ---
+    float normalized = saturate(curvature * _CurvatureScale * 0.5 + 0.5);
+
+    // Write to red channel only
+    float4 outPixel = _Result[coord];
+    outPixel.r = normalized;
+    outPixel.g = 0.0; // Clear green channel
+    outPixel.b = 0.0; // Clear blue channel
+    if(_Heightmap[coord] <= 0.0)
+    {
+        outPixel.r = 0.0; // Clear red channel for non-terrain areas
+    }
+    outPixel.a = 1.0; // Set alpha to opaque
+    _Result[coord] = outPixel;
+}

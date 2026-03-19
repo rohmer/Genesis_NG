@@ -1,0 +1,87 @@
+﻿// DirectionalBlurNoise.compute
+#pragma kernel DirectionalBlurNoise
+
+// Input/output
+Texture2D<float4> _Source;
+RWTexture2D<float4> _Result;
+
+// Parameters
+float2 _Direction; // normalized direction
+float _BlurRadius; // number of samples (float, will be floored)
+float _NoiseScale; // noise frequency
+float _NoiseAmount; // how much noise perturbs blur direction
+uint2 _Resolution;
+
+// ------------------------------------------------------------
+// Hash + noise utilities (deterministic, no textures)
+// ------------------------------------------------------------
+float hash21(float2 p)
+{
+    p = frac(p * float2(123.34, 456.21));
+    p += dot(p, p + 45.32);
+    return frac(p.x * p.y);
+}
+
+float noise(float2 p)
+{
+    float2 i = floor(p);
+    float2 f = frac(p);
+
+    float a = hash21(i);
+    float b = hash21(i + float2(1, 0));
+    float c = hash21(i + float2(0, 1));
+    float d = hash21(i + float2(1, 1));
+
+    float2 u = f * f * (3.0 - 2.0 * f);
+
+    return lerp(lerp(a, b, u.x), lerp(c, d, u.x), u.y);
+}
+
+float fbm(float2 p)
+{
+    float v = 0.0;
+    float a = 0.5;
+    for (int i = 0; i < 4; i++)
+    {
+        v += noise(p) * a;
+        p *= 2.0;
+        a *= 0.5;
+    }
+    return v;
+}
+
+// ------------------------------------------------------------
+// Main kernel
+// ------------------------------------------------------------
+[numthreads(8, 8, 1)]
+void DirectionalBlurNoise(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _Resolution.x || id.y >= _Resolution.y)
+        return;
+
+    int2 coord = int2(id.xy);
+
+    float2 dir = normalize(_Direction);
+
+    // Noise modulates the blur direction
+    float n = fbm(coord * _NoiseScale);
+    float2 noisyDir = normalize(dir + (n - 0.5) * _NoiseAmount);
+
+    int samples = (int) _BlurRadius;
+    float4 accum = 0;
+    float count = 0;
+
+    for (int i = -samples; i <= samples; i++)
+    {
+        float2 offset = noisyDir * i;
+        int2 sampleCoord = coord + int2(offset);
+
+        // Clamp manually
+        sampleCoord = clamp(sampleCoord, int2(0, 0), int2(_Resolution - 1));
+
+        accum += _Source.Load(int3(sampleCoord, 0));
+        count += 1.0;
+    }
+
+    _Result[id.xy] = accum / count;
+}

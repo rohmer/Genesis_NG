@@ -1,0 +1,32 @@
+#pragma kernel CSMain
+
+float _wetness[9];
+float _elevation[7];
+
+
+Texture2D<float4> _temperatureMap;
+Texture2D<float4> _moistureMap;
+
+int _minElevation, _maxElevation, _minWetness, _maxWetness;
+
+RWTexture2D<float4> _Result;
+float4 _color;
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    float minE = _elevation[_minElevation - 1];
+    float maxE = _elevation[_maxElevation - 1];
+    float minM = _wetness[_minWetness - 1];
+    float maxM = _wetness[_maxWetness - 1];
+    
+    if (_maxElevation == 6)
+        maxE += 1;
+    if (_maxWetness == 8)
+        maxM += 1;
+    float mVal = _moistureMap[id.xy].r;
+    float tVal = _temperatureMap[id.xy].r;
+    
+    if (tVal >= minE && tVal < maxE && mVal >= minM && mVal < maxM)
+        _Result[id.xy] = _color;    
+}

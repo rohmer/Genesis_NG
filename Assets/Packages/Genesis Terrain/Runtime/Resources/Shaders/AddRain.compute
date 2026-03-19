@@ -1,0 +1,12 @@
+#pragma kernel AddRain
+
+RWTexture2D<float4> WaterMap;
+float RainAmount;
+
+[numthreads(8, 8, 1)]
+void AddRain(uint3 id : SV_DispatchThreadID)
+{
+    float4 water = WaterMap[id.xy];
+    water.x += RainAmount; // Add to water depth
+    WaterMap[id.xy] = water;
+}

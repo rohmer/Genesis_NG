@@ -1,0 +1,49 @@
+#pragma kernel CSMain
+Texture2D<float4> _Input;       // A - Height
+                                // R - Slope
+                                // G - Curvature        
+                                // B - Moisture initial
+RWTexture2D<float4> _Result;
+
+float _CurvatureInfluence;      // 0 = no curvature influence, 1 = full curvature influence on moisture
+float _SlopeInfluence;          // 0 = no slope influence, 1 = full slope influence on moisture
+float _HeightInfluence;         // 0 = no height influence, 1 = full height influence on moisture
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    uint xx, yy;
+    _Result.GetDimensions(xx, yy);
+
+    if (id.x >= xx || id.y >= yy)
+        return;
+     
+    float initialMoisture = _Input[id.xy].b;
+    float height = _Input[id.xy].a;
+    float slope = _Input[id.xy].r;
+    float curvature = _Input[id.xy].g;
+
+    // Process moisture on curvature: we want to increase moisture in concave areas (positive curvature) and decrease in convex areas (negative curvature)
+    if(curvature>0.5)
+    {
+        initialMoisture += ((curvature - 0.5) * 2) * _CurvatureInfluence; // Map curvature from 0.5..1 to 0..1 and apply influence))
+    } else
+    {
+        initialMoisture -= ((0.5 - curvature) * 2) * _CurvatureInfluence; // Map curvature from 0..0.5 to 1..0 and apply influence))
+    }
+    
+    // Process slope influence
+    if(slope>0.5)
+    {
+        initialMoisture -= ((slope - 0.5) * 2) * _SlopeInfluence; // Map slope from 0.5..1 to 0..1 and apply influence))
+    }
+    
+
+    // Process height influence: we want to decrease moisture with height, so we can directly use height as is (assuming height is normalized 0..1)
+    float lVal = log(height * 10);
+    initialMoisture -= lVal * _HeightInfluence; // Apply height influence (logarithmic to have more effect at lower heights and less at higher heights)
+    initialMoisture = saturate(initialMoisture); // Clamp to 0..1)
+    if(height==0)
+        initialMoisture = 0;
+    _Result[id.xy] = float4(0, 0, initialMoisture, 1);    
+}

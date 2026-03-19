@@ -1,0 +1,29 @@
+{
+    "name": "Genesis Noise",
+    "rootNamespace": "AhahGames.GenesisNoise",
+    "references": [
+        "GUID:3eae0364be2026648bf74846acb8a731",
+        "GUID:df380645f10b7bc4b97d4f5eb6303d95",
+        "GUID:46a67ded66a63de48b9329c593fc08de",
+        "GUID:478a2357cc57436488a56e564b08d223",
+        "GUID:d8b63aba1907145bea998dd612889d6b",
+        "GUID:adfab0925da842c4db9a0d438ad877f7",
+        "GUID:ea192c9034e11f642b47dc224f3b87e6",
+        "GUID:70ef9a24f4cfc4aec911c1414e3f90ad",
+        "GUID:d1e08c06f8f9473888c892637c83c913",
+        "GUID:466c189f864894e40a6254a14c270d7f",
+        "GUID:8c9ef94c4e33aae44bff179e64581112",
+        "GUID:6b4073e34cbc889dfad8b32a52d2dbdc"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

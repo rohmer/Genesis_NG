@@ -1,0 +1,9 @@
+﻿﻿// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel GenVoronoi
+#pragma kernel Fade
+#pragma kernel Grad
+#pragma kernel PerlinNoise
+#pragma kernel SimplexNoise3D
+#pragma kernel FBM
+#pragma kernel HashNoise3D
+

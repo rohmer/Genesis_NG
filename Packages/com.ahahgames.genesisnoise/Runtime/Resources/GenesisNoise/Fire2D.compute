@@ -1,0 +1,174 @@
+#pragma kernel Advect 
+#pragma kernel AdvectVelocity 
+#pragma kernel ApplyBuoyancy 
+#pragma kernel ComputeVorticity 
+#pragma kernel ComputeConfinement 
+#pragma kernel ComputeDivergence 
+#pragma kernel ComputePressure 
+#pragma kernel ComputeProjection 
+#pragma kernel SetObstacles 
+#pragma kernel InjectDensity 
+#pragma kernel InjectVelocity 
+#pragma kernel InjectObstacles 
+#pragma kernel ExtinguishmentImpulse
+
+// #pragma enable_d3d11_debug_symbols
+
+// Include utility stuff to handle multi-dimension input textures
+#include "../../Shaders/GenesisComputeUtils.hlsl"
+#define FLUID_2D
+#include "../../Shaders/FluidSimulation.hlsl"
+
+#line 21
+
+float4 _Up, _Pos;
+float _DeltaTime, _Dissipate, _Decay, _Extinguishment;
+float _AmbientTemperature, _Buoyancy, _Weight;
+float _Amount;
+float _Epsilon;
+
+// Cubemap not supported because we can't write to a cubemap with compute shaders :(
+
+// TODO: simplify all those textures
+Texture2D<float2> _VelocityR;
+RWTexture2D<float2> _VelocityW;
+RWTexture2D<float> _Obstacles;
+Texture2D<float> _ObstaclesR;
+Texture2D<float> _Pressure;
+Texture2D<float> _Divergence;
+
+RWTexture2D<float> _Write1f;
+Texture2D<float> _Read1f;
+
+RWTexture2D<float2> _Write3f;
+Texture2D<float2> _Read3f;
+
+RWTexture2D<float2> _Write;
+Texture2D<float> _Density, _Temperature;
+
+Texture2D<float2> _Read;
+
+Texture2D<float2> _Vorticity;
+
+Texture2D<float> _Reaction;
+
+[numthreads(8,8,1)]
+void AdvectVelocity(uint2 id : SV_DispatchThreadID)
+{
+	if (_Obstacles[id] > 0.1)
+	{
+		 _Write3f[id] = float2(0,0);
+		 return;
+	}
+
+    AdvectBuffer(_Read3f, _VelocityR, _Write3f, id, _Dissipate, _DeltaTime, _Size.xy);
+
+    // Add density weight gravity vector
+    _Write3f[id] += (_Density[id] * _Weight) * float2(0, -1);
+}
+
+// TODO: add other types of advection (BFECC amd Mac Cormack)
+[numthreads(8,8,1)]
+void Advect(uint2 id : SV_DispatchThreadID)
+{
+	if (_Obstacles[id] > 0.1)
+	{
+		 _Write1f[id] = 0;
+		 return;
+	}
+
+    AdvectBuffer(_Read1f, _VelocityR, _Write1f, id, _Dissipate - _Decay, _DeltaTime, _Size.xy);
+}
+
+[numthreads(8,8,1)]
+void SetObstacles(uint2 id : SV_DispatchThreadID)
+{
+    if (_BorderMode == 0 && any(id == 0 || id == uint2(_Size.xy - 1)))
+        _Obstacles[id] = 1;
+    else
+        _Obstacles[id] = 0;
+}
+
+[numthreads(8,8,1)]
+void ApplyBuoyancy(uint2 id : SV_DispatchThreadID)
+{
+    float T = _Temperature[id];
+    float2 V = _VelocityR[id];
+    
+    if (T > _AmbientTemperature)
+    	V += (_DeltaTime * (T - _AmbientTemperature) * _Buoyancy) * _Up.xy;
+    
+    _Write[id] = V;
+}
+
+[numthreads(8,8,1)]
+void ComputeVorticity(uint2 id : SV_DispatchThreadID)
+{
+    // TODO: remove epsilon as param
+    Vorticity(id, _Size.xy, _VelocityR, _Write, _DeltaTime, _Epsilon);
+}
+
+[numthreads(8,8,1)]
+void ComputeConfinement(uint2 id : SV_DispatchThreadID)
+{
+    VelocityConfinment(id, _Size.xy, _Vorticity, _Read, _Write, _DeltaTime, _Epsilon);
+}
+
+// TODO: move that to another file, and maybe we can merge all those similar functions
+[numthreads(8,8,1)]
+void ComputeDivergence(uint2 id : SV_DispatchThreadID)
+{
+    Divergence(id, _Size.xy, _VelocityR, _ObstaclesR, _Write1f);
+}
+
+[numthreads(8,8,1)]
+void ComputePressure(uint2 id : SV_DispatchThreadID)
+{
+    Pressure(id, _Size.xy, _Pressure, _ObstaclesR, _Divergence, _Write1f);
+}
+
+[numthreads(8,8,1)]
+void ComputeProjection(uint2 id : SV_DispatchThreadID)
+{
+    Project(id, _Size.xy, _Pressure, _ObstaclesR, _VelocityR, _Write);
+}
+
+Texture2D<float> _InputDensity;
+
+[numthreads(8,8,1)]
+void InjectDensity(uint2 id : SV_DispatchThreadID)
+{
+    float amount = _InputDensity.SampleLevel(s_linear_clamp_sampler, id / _Size.xy, 0);
+	amount *= _Amount;
+    _Write[id] = _Density[id] + amount;
+}
+
+Texture2D<float2> _InputVelocity;
+
+[numthreads(8,8,1)]
+void InjectVelocity(uint2 id : SV_DispatchThreadID)
+{
+    float2 targetVelocity = _InputVelocity.SampleLevel(s_linear_clamp_sampler, id / _Size.xy, 0);
+    _Write[id] = _VelocityR[id] + targetVelocity; // TODO:param amount
+}
+
+Texture2D<float> _InputObstacles;
+
+[numthreads(8,8,1)]
+void InjectObstacles(uint2 id : SV_DispatchThreadID)
+{
+    float isBlocking = _InputObstacles.SampleLevel(s_linear_clamp_sampler, id / _Size.xy, 0);
+    _Write[id] += isBlocking;
+}
+
+[numthreads(8,8,1)]
+void ExtinguishmentImpulse(uint2 id : SV_DispatchThreadID)
+{
+	float amount = 0.0;
+	float reaction = _Reaction[id];
+	
+	if (reaction > 0.0 && reaction < _Extinguishment) 
+		amount = _Amount * reaction;
+	
+    _Write[id] = _Read[id] + amount;
+}

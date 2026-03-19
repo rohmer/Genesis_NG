@@ -1,0 +1,133 @@
+#pragma kernel JFA_Wind 
+#pragma kernel SaltationTransport
+#pragma kernel Avalanche
+#pragma kernel SaltationPickup
+
+
+Texture2D<float> Height;
+RWTexture2D<float2> WindField; // xy = wind vector, length = strength
+RWTexture2D<float> Transport; // sand arriving here
+RWTexture2D<float> Pickup;
+Texture2D<float> HeightIn;
+RWTexture2D<float> HeightOut;
+float ErodeRate;
+
+float TalusAngle; // in degrees
+float2 WindDir;
+uint Resolution;
+uint Steps;
+float CellSize;
+
+[numthreads(8, 8, 1)]
+void JFA_Wind(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= Resolution || id.y >= Resolution)
+        return;
+
+    int2 uv = id.xy;
+    float h = Height[uv];
+
+    // Initialize with base wind
+    float2 w = normalize(WindDir);
+
+    // Jump Flooding: sample exponentially increasing offsets
+    for (int step = Resolution / 2; step >= 1; step /= 2)
+    {
+        int2 offset = int2(w * step);
+        int2 sampleUV = clamp(uv - offset, 0, Resolution - 1);
+
+        float hSample = Height[sampleUV];
+
+        // If upwind terrain is higher → shadow zone
+        if (hSample > h)
+        {
+            // Attenuate wind strength
+            w *= 0.5;
+        }
+    }
+
+    WindField[uv] = w;
+}
+
+[numthreads(8, 8, 1)]
+void SaltationPickup(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= Resolution || id.y >= Resolution)
+        return;
+
+    int2 uv = id.xy;
+    float h = Height[uv];
+    float2 w = WindField[uv];
+
+    // Downwind slope
+    int2 downUV = uv + int2(w);
+    downUV = clamp(downUV, 0, Resolution - 1);
+
+    float slope = (h - Height[downUV]) / CellSize;
+
+    float pickup = max(slope * length(w) * ErodeRate, 0.0);
+
+    Pickup[uv] = pickup;
+}
+
+
+[numthreads(8, 8, 1)]
+void SaltationTransport(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= Resolution || id.y >= Resolution)
+        return;
+
+    int2 uv = id.xy;
+    float incoming = 0;
+
+    // Trace backwards along wind direction
+    for (uint i = 1; i <= Steps; i++)
+    {
+        float2 w = WindField[uv];
+        int2 upUV = uv - int2(w * i);
+        upUV = clamp(upUV, 0, Resolution - 1);
+
+        incoming += Pickup[upUV] / Steps;
+    }
+
+    Transport[uv] = incoming;
+}
+
+[numthreads(8, 8, 1)]
+void Avalanche(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= Resolution || id.y >= Resolution)
+        return;
+
+    int2 uv = id.xy;
+    float h = HeightIn[uv];
+
+    float maxSlope = tan(radians(TalusAngle));
+
+    float totalOut = 0;
+    float4 outflow = 0;
+
+    // 8 neighbors
+    int2 offsets[8] =
+    {
+        int2(-1, 0), int2(1, 0), int2(0, -1), int2(0, 1),
+        int2(-1, -1), int2(-1, 1), int2(1, -1), int2(1, 1)
+    };
+
+    for (int i = 0; i < 8; i++)
+    {
+        int2 nUV = clamp(uv + offsets[i], 0, Resolution - 1);
+        float hn = HeightIn[nUV];
+
+        float slope = (h - hn) / CellSize;
+
+        if (slope > maxSlope)
+        {
+            float excess = slope - maxSlope;
+            float amount = excess * 0.5; // redistribution factor
+            totalOut += amount;
+        }
+    }
+
+    HeightOut[uv] = h - totalOut;
+}

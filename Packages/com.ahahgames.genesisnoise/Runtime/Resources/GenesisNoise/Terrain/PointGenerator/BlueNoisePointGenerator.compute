@@ -1,0 +1,167 @@
+// BlueNoise.compute
+#pragma kernel CS_ClearGrid
+#pragma kernel CS_GenerateAndBin
+#pragma kernel CS_CullConflicts
+#pragma kernel CS_EmitValid
+
+// Thread config
+#define THREADS 128
+
+// Parameters
+cbuffer BlueNoiseParams : register(b0)
+{
+    uint _CandidateCount;
+    uint _GridDimX;
+    uint _GridDimY;
+    uint _Seed;
+
+    float _Width;
+    float _Height;
+    float _Radius;
+    float _Padding0; // unused, keeps 16-byte alignment
+}
+
+// Buffers
+RWStructuredBuffer<float2> Positions; // [candidateCount]
+RWStructuredBuffer<uint> Priority; // [candidateCount]
+RWStructuredBuffer<uint> Valid; // [candidateCount] 1 = alive, 0 = culled
+RWStructuredBuffer<int> Next; // [candidateCount] linked-list next index or -1
+
+RWStructuredBuffer<int> CellHead; // [gridDimX * gridDimY], head index or -1
+
+AppendStructuredBuffer<float2> OutPoints; // survivors appended here
+
+// Hash / RNG
+uint PcgHash(uint v)
+{
+    v = v * 747796405u + 2891336453u;
+    uint x = ((v >> ((v >> 28u) + 4u)) ^ v) * 277803737u;
+    return (x >> 22u) ^ x;
+}
+
+float Rnd01(uint s)
+{
+    return (PcgHash(s) * 2.3283064365386963e-10f); // 1/2^32
+}
+
+// Helpers
+uint Flatten(uint2 c)
+{
+    return c.y * _GridDimX + c.x;
+}
+
+uint2 CellOf(float2 p)
+{
+    // cell size = radius
+    uint cx = (uint) min((uint) (_Width > 0 ? (p.x / _Radius) : 0), _GridDimX - 1);
+    uint cy = (uint) min((uint) (_Height > 0 ? (p.y / _Radius) : 0), _GridDimY - 1);
+    return uint2(cx, cy);
+}
+
+float Dist2(float2 a, float2 b)
+{
+    float2 d = a - b;
+    return dot(d, d);
+}
+
+// 1) Clear the grid heads to -1
+[numthreads(THREADS, 1, 1)]
+void CS_ClearGrid(uint3 gid : SV_DispatchThreadID)
+{
+    uint idx = gid.x;
+    uint cellCount = _GridDimX * _GridDimY;
+    if (idx >= cellCount)
+        return;
+    CellHead[idx] = -1;
+}
+
+// 2) Generate candidates, assign priority, and bin into per-cell linked lists
+[numthreads(THREADS, 1, 1)]
+void CS_GenerateAndBin(uint3 gid : SV_DispatchThreadID)
+{
+    uint i = gid.x;
+    if (i >= _CandidateCount)
+        return;
+
+    // Random position in [0,width) x [0,height)
+    uint baseSeed = _Seed ^ i;
+    float2 pos = float2(Rnd01(baseSeed + 0u) * _Width,
+                        Rnd01(baseSeed + 1u) * _Height);
+
+    Positions[i] = pos;
+    Priority[i] = PcgHash(baseSeed + 2u);
+    Valid[i] = 1u;
+
+    // Bin into grid (linked list per cell)
+    uint2 cell = CellOf(pos);
+    uint cellIdx = Flatten(cell);
+
+    int prev;
+    InterlockedExchange(CellHead[cellIdx], (int) i, prev);
+    Next[i] = prev; // -1 if first, else previous head
+}
+
+// 3) Cull any candidate with a higher-priority neighbor within radius
+[numthreads(THREADS, 1, 1)]
+void CS_CullConflicts(uint3 gid : SV_DispatchThreadID)
+{
+    uint i = gid.x;
+    if (i >= _CandidateCount)
+        return;
+    if (Valid[i] == 0u)
+        return;
+
+    float2 p = Positions[i];
+    uint pi = Priority[i];
+    float r2 = _Radius * _Radius;
+
+    uint2 c = CellOf(p);
+
+    // Search 3x3 neighboring cells
+    uint2 minC = uint2((c.x > 0) ? c.x - 1 : 0, (c.y > 0) ? c.y - 1 : 0);
+    uint2 maxC = uint2(min(c.x + 1, _GridDimX - 1), min(c.y + 1, _GridDimY - 1));
+
+    // If any neighbor has higher priority and is within radius, kill this point
+    [loop]
+    for (uint ny = minC.y; ny <= maxC.y; ++ny)
+    {
+        [loop]
+        for (uint nx = minC.x; nx <= maxC.x; ++nx)
+        {
+            int head = CellHead[Flatten(uint2(nx, ny))];
+            int j = head;
+            [loop]
+            while (j != -1)
+            {
+                if ((uint) j != i)
+                {
+                    float2 q = Positions[j];
+                    if (Dist2(p, q) < r2)
+                    {
+                        uint pj = Priority[j];
+                        // Keep the local maximum by priority; tiebreak on index
+                        if (pj > pi || (pj == pi && (uint) j < i))
+                        {
+                            Valid[i] = 0u;
+                            return;
+                        }
+                    }
+                }
+                j = Next[j];
+            }
+        }
+    }
+}
+
+// 4) Emit survivors into append buffer
+[numthreads(THREADS, 1, 1)]
+void CS_EmitValid(uint3 gid : SV_DispatchThreadID)
+{
+    uint i = gid.x;
+    if (i >= _CandidateCount)
+        return;
+    if (Valid[i] == 1u)
+    {
+        OutPoints.Append(Positions[i]);
+    }
+}

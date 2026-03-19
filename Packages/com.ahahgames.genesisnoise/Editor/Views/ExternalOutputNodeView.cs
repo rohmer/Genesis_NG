@@ -1,0 +1,204 @@
+using AhahGames.GenesisNoise.Nodes;
+
+using GraphProcessor;
+
+using System.Collections.Generic;
+using System.Linq;
+
+using UnityEditor;
+using UnityEditor.Experimental.GraphView;
+
+using UnityEngine;
+using UnityEngine.UIElements;
+
+namespace AhahGames.GenesisNoise.Views
+{
+    [NodeCustomEditor(typeof(ExternalOutputNode))]
+    public class ExternalOutputNodeView : OutputNodeView
+    {
+        List<(Button save, Button update)> buttons = new();
+
+        protected override bool showPreviewTextureEnum => false;
+
+        public override void Enable(bool fromInspector)
+        {
+            var stylesheet = Resources.Load<StyleSheet>("ExternalOutputNodeView");
+
+            if (styleSheets != null && !styleSheets.Contains(stylesheet))
+                styleSheets.Add(stylesheet);
+
+            base.Enable(fromInspector);
+
+            // We can delete external outputs
+            capabilities |= Capabilities.Deletable | Capabilities.Renamable;
+        }
+
+        public override void BuildOutputNodeSettings()
+        {
+            var externalOutputNode = nodeTarget as ExternalOutputNode;
+            var nodeSettings = new IMGUIContainer(() =>
+            {
+                if (externalOutputNode.asset == null)
+                {
+                    EditorGUILayout.HelpBox("This output has not been saved yet, please click Save As to save the output texture.", MessageType.Info);
+                }
+                else
+                {
+                    EditorGUI.BeginDisabledGroup(true);
+                    EditorGUILayout.ObjectField("Asset", externalOutputNode.asset, typeof(Texture), false);
+                    EditorGUI.EndDisabledGroup();
+                }
+                EditorGUI.BeginChangeCheck();
+                var outputDimension = EditorGUILayout.EnumPopup("Dimension", externalOutputNode.externalOutputDimension);
+                if (EditorGUI.EndChangeCheck())
+                {
+                    externalOutputNode.externalOutputDimension = (ExternalOutputNode.ExternalOutputDimension)outputDimension;
+                    switch (outputDimension)
+                    {
+                        case ExternalOutputNode.ExternalOutputDimension.Texture2D:
+                            externalOutputNode.settings.dimension = OutputDimension.Texture2D;
+                            break;
+                        case ExternalOutputNode.ExternalOutputDimension.Texture3D:
+                            externalOutputNode.settings.dimension = OutputDimension.Texture3D;
+                            break;
+                        case ExternalOutputNode.ExternalOutputDimension.Cubemap:
+                            externalOutputNode.settings.dimension = OutputDimension.CubeMap;
+                            break;
+                    }
+
+                    long pixelCount = nodeTarget.settings.GetResolvedWidth(graph) * nodeTarget.settings.GetResolvedHeight(graph) * nodeTarget.settings.GetResolvedDepth(graph);
+                    // Above 16M pixels in a texture3D, processing can take too long and crash the GPU when a conversion happen
+                    if (pixelCount > 16777216)
+                    {
+                        nodeTarget.settings.sizeMode = OutputSizeMode.Absolute;
+                        nodeTarget.settings.SetPOTSize(64);
+                    }
+
+                    externalOutputNode.OnSettingsChanged();
+                    ForceUpdatePorts();
+                    MarkDirtyRepaint();
+                }
+
+                if (externalOutputNode.externalOutputDimension == ExternalOutputNode.ExternalOutputDimension.Texture2D)
+                {
+                    EditorGUI.BeginChangeCheck();
+                    var outputType = EditorGUILayout.EnumPopup("Type", externalOutputNode.external2DOoutputType);
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        externalOutputNode.external2DOoutputType = (ExternalOutputNode.External2DOutputType)outputType;
+                        MarkDirtyRepaint();
+                    }
+
+                    EditorGUI.BeginChangeCheck();
+                    var outputFileType = EditorGUILayout.EnumPopup("File Type", externalOutputNode.externalFileType);
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        externalOutputNode.externalFileType = (ExternalOutputNode.ExternalFileType)outputFileType;
+                        UpdateButtons();
+                        MarkDirtyRepaint();
+                    }
+
+                }
+                else if (externalOutputNode.externalOutputDimension == ExternalOutputNode.ExternalOutputDimension.Texture3D)
+                {
+                    EditorGUI.BeginChangeCheck();
+                    var format = EditorGUILayout.EnumPopup("Format", externalOutputNode.external3DFormat);
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        externalOutputNode.external3DFormat = (ConversionFormat)format;
+                        MarkDirtyRepaint();
+                    }
+                }
+
+                if (externalOutputNode.externalOutputDimension == ExternalOutputNode.ExternalOutputDimension.Texture2D)
+                {
+                    EditorGUI.BeginChangeCheck();
+                    var exportAlpha = EditorGUILayout.Toggle("Export Alpha", externalOutputNode.exportAlpha);
+                    if (EditorGUI.EndChangeCheck())
+                    {
+                        externalOutputNode.exportAlpha = exportAlpha;
+                        MarkDirtyRepaint();
+                    }
+                }
+
+                externalOutputNode.previewSRGB =
+                    externalOutputNode.externalFileType == ExternalOutputNode.ExternalFileType.PNG &&
+                    externalOutputNode.externalOutputDimension == ExternalOutputNode.ExternalOutputDimension.Texture2D &&
+                        (externalOutputNode.external2DOoutputType == ExternalOutputNode.External2DOutputType.Color ||
+                        externalOutputNode.external2DOoutputType == ExternalOutputNode.External2DOutputType.LatLongCubemapColor);
+
+                GUILayout.Space(8);
+            }
+            );
+            nodeSettings.AddToClassList("MaterialInspector");
+
+            controlsContainer.Add(nodeSettings);
+
+            // Add Buttons
+            var saveButton = new Button(SaveExternal)
+            {
+                text = "Save As..."
+            };
+            var updateButton = new Button(UpdateExternal)
+            {
+                text = "Update"
+            };
+
+            buttons.Add((saveButton, updateButton));
+
+            var horizontal = new VisualElement();
+            horizontal.style.flexDirection = FlexDirection.Row;
+            horizontal.Add(saveButton);
+            horizontal.Add(updateButton);
+            controlsContainer.Add(horizontal);
+            UpdateButtons();
+
+        }
+
+        void UpdateButtons()
+        {
+            foreach (var button in buttons)
+            {
+                if (button.save == null || button.update == null)
+                    continue;
+
+
+                var externalOutputNode = nodeTarget as ExternalOutputNode;
+                // Manage First save or Update
+                button.save.style.display = DisplayStyle.Flex;
+                button.update.style.display = DisplayStyle.Flex;
+
+                bool valid = externalOutputNode.asset != null && (
+                    (AssetDatabase.GetAssetPath(externalOutputNode.asset).ToLower().EndsWith("exr") && externalOutputNode.externalFileType == ExternalOutputNode.ExternalFileType.EXR)
+                    || (AssetDatabase.GetAssetPath(externalOutputNode.asset).ToLower().EndsWith("png") && externalOutputNode.externalFileType == ExternalOutputNode.ExternalFileType.PNG)
+                    || (AssetDatabase.GetAssetPath(externalOutputNode.asset).ToLower().EndsWith("asset") && externalOutputNode.externalOutputDimension != ExternalOutputNode.ExternalOutputDimension.Texture2D));
+
+                button.update.SetEnabled(valid);
+
+
+            }
+        }
+
+        void SaveExternal()
+        {
+            graph.SaveExternalTexture(nodeTarget as ExternalOutputNode, true);
+            UpdateButtons();
+        }
+
+        void UpdateExternal()
+        {
+            graph.SaveExternalTexture(nodeTarget as ExternalOutputNode, false);
+            UpdateButtons();
+        }
+
+        public override void OnRemoved()
+        {
+            base.OnRemoved();
+
+            // Manually disconnect the edges because we have a custom port handling in output nodes
+            var inputPort = inputPortElements[outputNode.mainOutput.name];
+            foreach (var i in inputPort.portView.GetEdges().ToList())
+                owner.DisconnectView(i);
+        }
+    }
+}

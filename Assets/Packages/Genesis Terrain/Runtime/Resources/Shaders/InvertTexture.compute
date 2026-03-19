@@ -1,0 +1,23 @@
+#pragma kernel Invert
+
+// Input texture (any float-compatible format: ARGB32, RGBAFloat, etc.)
+Texture2D<float4> _Input;
+
+// Output texture
+RWTexture2D<float4> _Output;
+
+// Texture dimensions
+int _Width;
+int _Height;
+
+[numthreads(8, 8, 1)]
+void Invert(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _Width || id.y >= _Height)
+        return;
+
+    float4 c = _Input[id.xy];
+    c.rgb = 1.0 - c.rgb; // invert only RGB, keep alpha unchanged
+    _Output[id.xy] = c;
+}
+

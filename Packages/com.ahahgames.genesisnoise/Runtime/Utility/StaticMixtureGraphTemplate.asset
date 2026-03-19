@@ -1,0 +1,1610 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!28 &-8315651132847728183
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: StaticMixtureGraphTemplate
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 4
+  m_Width: 1
+  m_Height: 1
+  m_CompleteImageSize: 8
+  m_MipsStripped: 0
+  m_TextureFormat: 17
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 0
+  m_PlatformBlob: 
+  image data: 8
+  _typelessdata: 003c003c003c003c
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!21 &-7553459750231802364
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/Blend
+  m_Shader: {fileID: 4800000, guid: 5d69ff00d9a32944ea012824393d489a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords:
+  - _REMOVENEGATIVE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BlendMode: 13
+    - _MaskMode: 4
+    - _Opacity: 1
+    - _RemoveNegative: 1
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-6093910850964967943
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/Clouds
+  m_Shader: {fileID: 4800000, guid: 67040d9e5ed758a4a9c056f95c4e0519, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _CloudAlpha: 8
+    - _CloudCover: 0.2
+    - _CloudDark: 0.5
+    - _CloudLight: 0.3
+    - _CloudScale: 1
+    - _Grayscale: 0
+    - _Seed: 66
+    - _SkyTint: 2.04
+    - _Speed: 2
+    m_Colors:
+    - _SkyColor1: {r: 1, g: 0.003144443, b: 0.003144443, a: 1}
+    - _SkyColor2: {r: 0.4, g: 0.7, b: 1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-4952921058369608781
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-2940124512277822228
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-2094280030224779745
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/CellularNoise
+  m_Shader: {fileID: 4800000, guid: da55f2393d0f8384db177010fad4c19c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  - _TILINGMODE_TILED
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _UV_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CellSize: 2.11
+    - _CellsMode: 0
+    - _CellsModeA: 0
+    - _CellsModeB: 2
+    - _CellsModeG: 1
+    - _CellsModeR: 0
+    - _Channels: 3
+    - _DistanceMode: 0
+    - _Frequency: 15
+    - _Lacunarity: 2
+    - _Octaves: 1
+    - _Persistance: 0.3
+    - _Seed: 42
+    - _TilingMode: 1
+    - _UVMode: 0
+    m_Colors:
+    - _OutputRange: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-1599942753307304473
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-1528492976223884047
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/Blur
+  m_Shader: {fileID: 4800000, guid: c1f8bac2a6637264ea45079cfa2c04e8, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Radius: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-1189450925424418568
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-1143213647108645938
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/Blur
+  m_Shader: {fileID: 4800000, guid: c1f8bac2a6637264ea45079cfa2c04e8, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Radius: 19
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-922481959468514894
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-661968844992569263
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/CellularNoise
+  m_Shader: {fileID: 4800000, guid: da55f2393d0f8384db177010fad4c19c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  - _TILINGMODE_NONE
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _UV_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CellSize: 1
+    - _CellsMode: 0
+    - _DistanceMode: 0
+    - _Frequency: 5
+    - _Lacunarity: 2
+    - _Octaves: 3
+    - _Persistance: 0.3
+    - _Seed: 42
+    - _TilingMode: 0
+    m_Colors:
+    - _OutputRange: {r: 0, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!28 &-624844807924349477
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Height
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 4
+  m_Width: 1
+  m_Height: 1
+  m_CompleteImageSize: 8
+  m_MipsStripped: 0
+  m_TextureFormat: 17
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 0
+  m_PlatformBlob: 
+  image data: 8
+  _typelessdata: 003c003c003c003c
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!21 &-272897391736589887
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/CellularNoise
+  m_Shader: {fileID: 4800000, guid: da55f2393d0f8384db177010fad4c19c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  - _TILINGMODE_TILED
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _UV_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CellSize: 1.83
+    - _CellsMode: 0
+    - _DistanceMode: 2
+    - _Frequency: 1
+    - _Lacunarity: 2
+    - _Octaves: 5
+    - _Persistance: 1.8
+    - _Seed: 42
+    - _TilingMode: 1
+    m_Colors:
+    - _OutputRange: {r: 1, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-134466418711585249
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/ColorMatte
+  m_Shader: {fileID: 4800000, guid: c9fe3de6e0f2f1d4b8d8afc805f4ca22, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 1, g: 0.3, b: 0.1, a: 1}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b113f958e0564f309164e29c24b042d, type: 3}
+  m_Name: New Static Mixture Graph
+  m_EditorClassIdentifier: 
+  serializedNodes: []
+  nodes:
+  - rid: 5122150247260225880
+  - rid: 5122150331061633128
+  - rid: 5122150331061633135
+  edges: []
+  groups: []
+  stackNodes: []
+  pinnedElements:
+  - position:
+      serializedVersion: 2
+      x: 0
+      y: 67
+      width: 272
+      height: 396
+    opened: 1
+    editorType:
+      serializedType: Mixture.MixtureParameterView, Unity.ShaderGraph.GraphicsTests,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  - position:
+      serializedVersion: 2
+      x: 150
+      y: 131
+      width: 150
+      height: 200
+    opened: 0
+    editorType:
+      serializedType: Mixture.MixtureParameterView, Genesis Noise, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  exposedParameters: []
+  serializedParameterList: []
+  stickyNotes: []
+  nodeInspectorReference: {fileID: 0}
+  position: {x: 1173, y: 667, z: 0}
+  scale: {x: 1, y: 1, z: 1}
+  version: 1
+  type: 0
+  realtimePreview: 0
+  isRealtime: 0
+  isParameterViewOpen: 1
+  embedInBuild: 0
+  defaultNodeInheritanceMode: -2
+  objectReferences:
+  - {fileID: -272897391736589887}
+  - {fileID: -661968844992569263}
+  - {fileID: -2094280030224779745}
+  - {fileID: -922481959468514894}
+  - {fileID: 5228922437167623001}
+  - {fileID: 4358668167325092175}
+  - {fileID: 7402409556431499192}
+  - {fileID: -7553459750231802364}
+  - {fileID: 2790784585314038905}
+  - {fileID: -6093910850964967943}
+  - {fileID: -134466418711585249}
+  - {fileID: -1143213647108645938}
+  - {fileID: 2351426596593707885}
+  - {fileID: -1599942753307304473}
+  - {fileID: -1189450925424418568}
+  - {fileID: 1558117114744287993}
+  - {fileID: -2940124512277822228}
+  - {fileID: 3323827614541754121}
+  - {fileID: 5012048711899561603}
+  - {fileID: -4952921058369608781}
+  - {fileID: 7770819113676723941}
+  - {fileID: 7754984132720722551}
+  - {fileID: -1528492976223884047}
+  - {fileID: 2654823666804775981}
+  variants:
+  - {fileID: 11400000, guid: 6ac542c9b68ae5645b700d5db8f6094d, type: 2}
+  _mainOutputTexture: {fileID: -8315651132847728183}
+  _outputTextures:
+  - {fileID: 5072349667306323854}
+  - {fileID: 5072349667306323854}
+  - {fileID: -8315651132847728183}
+  - {fileID: -8315651132847728183}
+  - {fileID: -624844807924349477}
+  - {fileID: -624844807924349477}
+  settings:
+    widthScale: 1
+    heightScale: 1
+    depthScale: 1
+    width: 2048
+    height: 2048
+    depth: 2048
+    potSize: 2048
+    sizeMode: 1
+    dimension: 2
+    outputChannels: 1
+    outputPrecision: 3
+    editFlags: 128
+    doubleBuffered: 0
+    wrapMode: 0
+    filterMode: 2
+    refreshMode: 0
+    period: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 5122150247260225880
+      type: {class: OutputNode, ns: Mixture, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: c43cfb14-16fe-4dc6-8b32-38bda38025e8
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: 605.83295
+          y: -848.9887
+          width: 350
+          height: 879
+        expanded: 0
+        debug: 1
+        nodeLock: 0
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 0
+          height: 0
+          depth: 0
+          potSize: 1024
+          sizeMode: 1
+          dimension: -2
+          outputChannels: 1
+          outputPrecision: 3
+          editFlags: 471
+          doubleBuffered: 0
+          wrapMode: 0
+          filterMode: 0
+          refreshMode: 0
+          period: 0
+        rtSettings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 0
+          height: 0
+          depth: 0
+          potSize: 0
+          sizeMode: 0
+          dimension: 0
+          outputChannels: 0
+          outputPrecision: 0
+          editFlags: 0
+          doubleBuffered: 0
+          wrapMode: 0
+          filterMode: 0
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        outputTextureSettings:
+        - inputTexture: {fileID: 0}
+          name: Main Texture
+          enableCompression: 1
+          compressionFormat: 25
+          compressionQuality: 100
+          hasMipMaps: 0
+          isMain: 1
+          enableConversion: 0
+          conversionFormat: 0
+          sRGB: 1
+          finalCopyMaterial: {fileID: 2351426596593707885}
+        - inputTexture: {fileID: 0}
+          name: Normal
+          enableCompression: 1
+          compressionFormat: 27
+          compressionQuality: 100
+          hasMipMaps: 0
+          isMain: 0
+          enableConversion: 0
+          conversionFormat: 0
+          sRGB: 0
+          finalCopyMaterial: {fileID: -1599942753307304473}
+        - inputTexture: {fileID: 0}
+          name: Height
+          enableCompression: 1
+          compressionFormat: 26
+          compressionQuality: 100
+          hasMipMaps: 0
+          isMain: 0
+          enableConversion: 0
+          conversionFormat: 0
+          sRGB: 1
+          finalCopyMaterial: {fileID: -2940124512277822228}
+        - inputTexture: {fileID: 0}
+          name: Output
+          enableCompression: 0
+          compressionFormat: 12
+          compressionQuality: 100
+          hasMipMaps: 0
+          isMain: 0
+          enableConversion: 0
+          conversionFormat: 0
+          sRGB: 0
+          finalCopyMaterial: {fileID: 3323827614541754121}
+        - inputTexture: {fileID: 0}
+          name: Output (1)
+          enableCompression: 0
+          compressionFormat: 12
+          compressionQuality: 100
+          hasMipMaps: 0
+          isMain: 0
+          enableConversion: 0
+          conversionFormat: 0
+          sRGB: 0
+          finalCopyMaterial: {fileID: 5012048711899561603}
+        - inputTexture: {fileID: 0}
+          name: Color
+          enableCompression: 1
+          compressionFormat: 25
+          compressionQuality: 100
+          hasMipMaps: 0
+          isMain: 0
+          enableConversion: 0
+          conversionFormat: 0
+          sRGB: 1
+          finalCopyMaterial: {fileID: -4952921058369608781}
+        - inputTexture: {fileID: 0}
+          name: Height (1)
+          enableCompression: 1
+          compressionFormat: 26
+          compressionQuality: 100
+          hasMipMaps: 0
+          isMain: 0
+          enableConversion: 0
+          conversionFormat: 0
+          sRGB: 0
+          finalCopyMaterial: {fileID: 7770819113676723941}
+        - inputTexture: {fileID: 0}
+          name: Normal (1)
+          enableCompression: 1
+          compressionFormat: 27
+          compressionQuality: 100
+          hasMipMaps: 0
+          isMain: 0
+          enableConversion: 0
+          conversionFormat: 0
+          sRGB: 0
+          finalCopyMaterial: {fileID: 7754984132720722551}
+        _selectedPreviewIndex: 1
+    - rid: 5122150331061633128
+      type: {class: Blur, ns: Mixture, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 766ffc64-c10b-4b58-a8b9-812d55ac1d66
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: -133.87527
+          y: -429.02457
+          width: 250
+          height: 479
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 0
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 1
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        rtSettings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 0
+          height: 0
+          depth: 0
+          potSize: 0
+          sizeMode: 0
+          dimension: 0
+          outputChannels: 0
+          outputPrecision: 0
+          editFlags: 0
+          doubleBuffered: 0
+          wrapMode: 0
+          filterMode: 0
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: c1f8bac2a6637264ea45079cfa2c04e8, type: 3}
+        material: {fileID: -1528492976223884047}
+        exposedProperties:
+        - displayName: Source
+          referenceName: _Source_2D
+          tooltip: Source Texture
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Radius
+          referenceName: _Radius
+          tooltip: Blur radius in percent
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: c1f8bac2a6637264ea45079cfa2c04e8
+    - rid: 5122150331061633135
+      type: {class: PoissonVarialbleNoise, ns: Mixture, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 8b7500eb-d7cf-4d9c-96ef-53364ab0bac6
+        computeOrder: -1
+        position:
+          serializedVersion: 2
+          x: -546
+          y: -106
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 0
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        rtSettings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 0
+          height: 0
+          depth: 0
+          potSize: 0
+          sizeMode: 0
+          dimension: 0
+          outputChannels: 0
+          outputPrecision: 0
+          editFlags: 0
+          doubleBuffered: 0
+          wrapMode: 0
+          filterMode: 0
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        computeShader: {fileID: 0}
+--- !u!21 &1558117114744287993
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &2351426596593707885
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &2654823666804775981
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/PoissonDistribution
+  m_Shader: {fileID: 4800000, guid: 8768464ca6fd9244fb95d849523c4994, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Seed: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &2790784585314038905
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/PerlinNoise
+  m_Shader: {fileID: 4800000, guid: 3ff8d72a4c500ad4093607671bcd9097, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  - _TILINGMODE_TILED
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _UV_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Channels: 0
+    - _Frequency: 5
+    - _Lacunarity: 2
+    - _Octaves: 5
+    - _Persistance: 0.5
+    - _Seed: 42
+    - _TilingMode: 1
+    - _UVMode: 0
+    m_Colors:
+    - _OutputRange: {r: -1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &3323827614541754121
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &4358668167325092175
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/CellularNoise
+  m_Shader: {fileID: 4800000, guid: da55f2393d0f8384db177010fad4c19c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  - _TILINGMODE_NONE
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _UV_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CellSize: 1
+    - _CellsModeA: 0
+    - _CellsModeB: 0
+    - _CellsModeG: 0
+    - _CellsModeR: 0
+    - _Channels: 0
+    - _DistanceMode: 0
+    - _Frequency: 5
+    - _Lacunarity: 2
+    - _Octaves: 3
+    - _Persistance: 0.5
+    - _Seed: 42
+    - _TilingMode: 0
+    - _UVMode: 0
+    m_Colors:
+    - _OutputRange: {r: 0, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &5012048711899561603
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!28 &5072349667306323854
+Texture2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Normal
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_IsAlphaChannelOptional: 0
+  serializedVersion: 4
+  m_Width: 1
+  m_Height: 1
+  m_CompleteImageSize: 8
+  m_MipsStripped: 0
+  m_TextureFormat: 17
+  m_MipCount: 1
+  m_IsReadable: 1
+  m_IsPreProcessed: 0
+  m_IgnoreMipmapLimit: 1
+  m_MipmapLimitGroupName: 
+  m_StreamingMipmaps: 0
+  m_StreamingMipmapsPriority: 0
+  m_VTOnly: 0
+  m_AlphaIsTransparency: 0
+  m_ImageCount: 1
+  m_TextureDimension: 2
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 1
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
+  m_LightmapFormat: 0
+  m_ColorSpace: 0
+  m_PlatformBlob: 
+  image data: 8
+  _typelessdata: 003c003c003c003c
+  m_StreamData:
+    serializedVersion: 2
+    offset: 0
+    size: 0
+    path: 
+--- !u!21 &5228922437167623001
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &7402409556431499192
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/RidgedCellularNoise
+  m_Shader: {fileID: 4800000, guid: 709dbd2e7ab678c4cb23bcf7fcf6fb2f, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  - _TILINGMODE_TILED
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _UV_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _CellSize: 1
+    - _CellsModeA: 0
+    - _CellsModeB: 0
+    - _CellsModeG: 0
+    - _CellsModeR: 0
+    - _Channels: 0
+    - _DistanceMode: 0
+    - _Frequency: 4
+    - _Lacunarity: 1.5
+    - _Octaves: 5
+    - _Persistance: 0.9
+    - _Seed: 42
+    - _TilingMode: 1
+    - _UVMode: 0
+    m_Colors:
+    - _OutputRange: {r: -1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &7754984132720722551
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &7770819113676723941
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Mixture/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

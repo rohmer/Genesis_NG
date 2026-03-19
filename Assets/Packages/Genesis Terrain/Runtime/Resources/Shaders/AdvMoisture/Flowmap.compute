@@ -1,0 +1,318 @@
+//======================================================================
+// WIND FLOW MAP GENERATION — MULTI-SCALE + SEMI-LAGRANGIAN (NO SAMPLERS)
+//======================================================================
+
+#pragma kernel CS_GradMacro
+#pragma kernel CS_GradMeso
+#pragma kernel CS_GradMicro
+#pragma kernel CS_BlendScales
+#pragma kernel CS_WindDeflect
+#pragma kernel CS_Occlusion
+#pragma kernel CS_Advect
+#pragma kernel CS_Normalize
+#pragma kernel CS_DebugVisualize
+
+//======================================================================
+// RESOURCES
+//======================================================================
+
+Texture2D<float> Heightmap;
+
+RWTexture2D<float2> GradMacro;
+RWTexture2D<float2> GradMeso;
+RWTexture2D<float2> GradMicro;
+
+RWTexture2D<float> CurvMacro;
+RWTexture2D<float> CurvMeso;
+RWTexture2D<float> CurvMicro;
+
+RWTexture2D<float2> GradBlended;
+RWTexture2D<float> CurvBlended;
+
+RWTexture2D<float2> FlowInitial;
+RWTexture2D<float> OcclusionMask;
+
+RWTexture2D<float2> FlowPrev;
+RWTexture2D<float2> FlowOut;
+
+int Width;
+int Height;
+
+//======================================================================
+// PARAMETERS
+//======================================================================
+
+float2 BaseWind; // normalized
+float TerrainInfluence; // 0–2
+float OcclusionStrength; // 0–1
+float AdvectionStrength; // 0–1
+float StepSize; // pixel-space step for backtrace
+
+float WMacro;
+float WMeso;
+float WMicro;
+
+int RMacro;
+int RMeso;
+int RMicro;
+
+RWTexture2D<float4> DebugOut;
+int DebugMode; // 0=off, 1=gradients, 2=curvature, 3=occlusion, 4=flowDir, 5=flowMag, 6=flowHSV
+
+
+//======================================================================
+// UTILS
+//======================================================================
+
+float sampleHeight(int2 id)
+{
+    id.x = clamp(id.x, 0, Width - 1);
+    id.y = clamp(id.y, 0, Height - 1);
+    return Heightmap.Load(int3(id, 0));
+}
+
+float2 sampleFlow(RWTexture2D<float2> tex, int2 id)
+{
+    id.x = clamp(id.x, 0, Width - 1);
+    id.y = clamp(id.y, 0, Height - 1);
+    return tex.Load(int3(id, 0));
+}
+
+float2 computeGradient(int2 id, int R)
+{
+    float h0 = sampleHeight(id);
+    float hx = sampleHeight(id + int2(R, 0));
+    float hy = sampleHeight(id + int2(0, R));
+    return float2(hx - h0, hy - h0) / R;
+}
+
+float computeCurvature(int2 id, int R)
+{
+    float h0 = sampleHeight(id);
+    float hx1 = sampleHeight(id + int2(R, 0));
+    float hx2 = sampleHeight(id - int2(R, 0));
+    float hy1 = sampleHeight(id + int2(0, R));
+    float hy2 = sampleHeight(id - int2(0, R));
+    return (hx1 + hx2 + hy1 + hy2 - 4 * h0);
+}
+
+//======================================================================
+// MACRO GRADIENT
+//======================================================================
+
+[numthreads(8, 8, 1)]
+void CS_GradMacro(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    GradMacro[id] = computeGradient(id, RMacro);
+    CurvMacro[id] = computeCurvature(id, RMacro);
+}
+
+//======================================================================
+// MESO GRADIENT
+//======================================================================
+
+[numthreads(8, 8, 1)]
+void CS_GradMeso(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    GradMeso[id] = computeGradient(id, RMeso);
+    CurvMeso[id] = computeCurvature(id, RMeso);
+}
+
+//======================================================================
+// MICRO GRADIENT
+//======================================================================
+
+[numthreads(8, 8, 1)]
+void CS_GradMicro(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    GradMicro[id] = computeGradient(id, RMicro);
+    CurvMicro[id] = computeCurvature(id, RMicro);
+}
+
+//======================================================================
+// BLEND SCALES
+//======================================================================
+
+[numthreads(8, 8, 1)]
+void CS_BlendScales(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    float2 g =
+        WMacro * GradMacro[id] +
+        WMeso * GradMeso[id] +
+        WMicro * GradMicro[id];
+
+    float c =
+        WMacro * CurvMacro[id] +
+        WMeso * CurvMeso[id] +
+        WMicro * CurvMicro[id];
+
+    GradBlended[id] = normalize(g + 1e-6);
+    CurvBlended[id] = c;
+}
+
+//======================================================================
+// WIND DEFLECTION
+//======================================================================
+
+[numthreads(8, 8, 1)]
+void CS_WindDeflect(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    float2 grad = GradBlended[id];
+    float2 wind = BaseWind;
+
+    float2 deflected = normalize(wind + grad * TerrainInfluence);
+
+    FlowInitial[id] = deflected;
+}
+
+//======================================================================
+// OCCLUSION
+//======================================================================
+
+[numthreads(8, 8, 1)]
+void CS_Occlusion(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    float curv = CurvBlended[id];
+
+    float ridge = saturate(curv * 0.5);
+    float occ = ridge * OcclusionStrength;
+
+    OcclusionMask[id] = occ;
+}
+
+//======================================================================
+// SEMI-LAGRANGIAN ADVECTION (SAMPLER-FREE)
+//======================================================================
+
+[numthreads(8, 8, 1)]
+void CS_Advect(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    float2 f = FlowInitial[id];
+
+    // Backtrace in pixel space
+    float2 backPos = float2(id) - f * StepSize;
+
+    // Clamp to valid pixel range
+    int2 backID = int2(
+        clamp(backPos.x, 0.0, (float) (Width - 1)),
+        clamp(backPos.y, 0.0, (float) (Height - 1))
+    );
+
+    float2 prev = sampleFlow(FlowPrev, backID);
+
+    float2 advected = lerp(f, prev, AdvectionStrength);
+
+    FlowOut[id] = normalize(advected + 1e-6);
+}
+
+//======================================================================
+// FINAL NORMALIZATION
+//======================================================================
+
+[numthreads(8, 8, 1)]
+void CS_Normalize(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    float2 f = FlowOut[id];
+    FlowOut[id] = normalize(f + 1e-6);
+}
+
+[numthreads(8, 8, 1)]
+void CS_DebugVisualize(uint3 tid : SV_DispatchThreadID)
+{
+    if (tid.x >= Width || tid.y >= Height)
+        return;
+    int2 id = tid.xy;
+
+    float4 outColor = float4(0, 0, 0, 1);
+
+    if (DebugMode == 1) // Gradient visualization (blended)
+    {
+        float2 g = GradBlended[id];
+        outColor = float4(g * 0.5 + 0.5, 0, 1); // map [-1,1] to [0,1]
+    }
+    else if (DebugMode == 2) // Curvature visualization
+    {
+        float c = CurvBlended[id];
+        float ridge = saturate(c * 0.5);
+        float valley = saturate(-c * 0.5);
+        outColor = float4(ridge, 0, valley, 1);
+    }
+    else if (DebugMode == 3) // Occlusion mask
+    {
+        float o = OcclusionMask[id];
+        outColor = float4(o, o, o, 1);
+    }
+    else if (DebugMode == 4) // Flow direction
+    {
+        float2 f = FlowOut[id];
+        outColor = float4(f * 0.5 + 0.5, 0, 1);
+    }
+    else if (DebugMode == 5) // Flow magnitude
+    {
+        float2 f = FlowOut[id];
+        float mag = length(f);
+        outColor = float4(mag, mag, mag, 1);
+    }
+    else if (DebugMode == 6) // HSV-style flow preview
+    {
+        float2 f = FlowOut[id];
+        float angle = atan2(f.y, f.x); // [-pi,pi]
+        float hue = (angle / 6.2831853) + 0.5; // [0,1]
+        float mag = saturate(length(f));
+
+        // Simple HSV → RGB
+        float3 rgb;
+        float h6 = hue * 6;
+        float x = 1 - abs(fmod(h6, 2) - 1);
+
+        if (h6 < 1)
+            rgb = float3(1, x, 0);
+        else if (h6 < 2)
+            rgb = float3(x, 1, 0);
+        else if (h6 < 3)
+            rgb = float3(0, 1, x);
+        else if (h6 < 4)
+            rgb = float3(0, x, 1);
+        else if (h6 < 5)
+            rgb = float3(x, 0, 1);
+        else
+            rgb = float3(1, 0, x);
+
+        rgb *= mag;
+        outColor = float4(rgb, 1);
+    }
+
+    DebugOut[id] = outColor;
+}

@@ -1,0 +1,33 @@
+#pragma kernel CSFillLines
+RWTexture2D<float4> _inputImage;
+RWTexture2D<float4> _outputTexture;
+
+int TextureSize;
+
+[numthreads(8,8,1)]
+void CSFillLines(uint3 id : SV_DispatchThreadID)
+{    
+    if(id.x>=TextureSize || id.y>=TextureSize)
+        return;
+    float4 px = _inputImage.Load(int3(id.xy, 0));
+    
+    [loop]
+    if(px.r==0.0 && px.g==0.0 && px.b==0.0)
+    {
+        [loop]
+        for (int dx = -3; dx <= 3; dx++)
+        {
+            for (int dy = -3; dy <= 3; dy++)
+            {
+                float4 dPx = _inputImage.Load(int3(dx+id.x, dy+id.y, 0));
+                if (all(abs(px - float4(0, 0, 0, 1) < 0.01)))
+                {
+                    _outputTexture[id.xy] = dPx;
+                    return;
+                }
+            }
+        }
+    }
+    
+    _outputTexture[id.xy] = px;
+}

@@ -1,0 +1,24 @@
+#pragma kernel InitSeeds
+
+//======================================================================
+// Compute shader: Signed Distance Heightmap from Land/Ocean Mask
+//======================================================================
+
+RWTexture2D<float4> maskTexture; // Input mask (white = land, black = water)    
+RWTexture2D<int2> seeds;
+int resolution; 
+RWTexture2D<float4> heightMap;
+int seedCount;
+
+[numthreads(32,32,1)]
+void InitSeeds(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x > resolution || id.y > resolution)
+        return;
+
+}
+
+
+
+
+

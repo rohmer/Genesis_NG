@@ -1,0 +1,143 @@
+// FlowmapDirectionalWarpBlur_NoSampler.compute
+#pragma kernel CSMain
+
+// Textures (no SamplerState used)
+Texture2D<float4> _Source;
+Texture2D<float4> _FlowMap;
+RWTexture2D<float4> _Result;
+
+// Globals
+int2 _TexSize;
+
+// Flowmap decode flag
+int _FlowMapRemap;
+
+// Controls
+float _FlowStrength;
+float _WarpStrength;
+float _BlurRadius;
+int _Samples;
+float _NoiseScale;
+float _Time;
+
+int _UseGaussian;
+float _GaussianSigma;
+
+// -------------------- Utilities --------------------
+
+// Cheap hash for noise
+float2 Hash2(float2 p)
+{
+    float3 p3 = frac(float3(p.x, p.y, p.x) * 0.1031);
+    p3 += dot(p3, p3.yzx + 33.33);
+    return frac((p3.xx + p3.yz) * p3.zy);
+}
+
+float2 Noise2D(float2 uv)
+{
+    float2 i = floor(uv);
+    float2 f = frac(uv);
+
+    float2 a = Hash2(i + float2(0, 0));
+    float2 b = Hash2(i + float2(1, 0));
+    float2 c = Hash2(i + float2(0, 1));
+    float2 d = Hash2(i + float2(1, 1));
+
+    float2 u = f * f * (3.0 - 2.0 * f);
+
+    float2 n0 = lerp(a, b, u.x);
+    float2 n1 = lerp(c, d, u.x);
+    return lerp(n0, n1, u.y) * 2.0 - 1.0;
+}
+
+// Manual bilinear sample using Load
+float4 TexBilinearLoad(Texture2D<float4> tex, float2 uv, int2 texSize)
+{
+    // Convert uv to texel space
+    float2 px = uv * (float2) texSize - 0.5; // center texel convention
+    float2 f = frac(px);
+    int2 i0 = (int2) floor(px);
+    int2 i1 = i0 + int2(1, 0);
+    int2 i2 = i0 + int2(0, 1);
+    int2 i3 = i0 + int2(1, 1);
+
+    // Clamp coordinates
+    i0 = clamp(i0, int2(0, 0), texSize - 1);
+    i1 = clamp(i1, int2(0, 0), texSize - 1);
+    i2 = clamp(i2, int2(0, 0), texSize - 1);
+    i3 = clamp(i3, int2(0, 0), texSize - 1);
+
+    // Load texels at mip 0
+    float4 c00 = tex.Load(int3(i0, 0));
+    float4 c10 = tex.Load(int3(i1, 0));
+    float4 c01 = tex.Load(int3(i2, 0));
+    float4 c11 = tex.Load(int3(i3, 0));
+
+    float4 cx0 = lerp(c00, c10, f.x);
+    float4 cx1 = lerp(c01, c11, f.x);
+    return lerp(cx0, cx1, f.y);
+}
+
+float Gaussian(float x, float sigma)
+{
+    float s = sigma * sigma;
+    return exp(-0.5 * (x * x) / s);
+}
+
+// -------------------- Kernel --------------------
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _TexSize.x || id.y >= _TexSize.y)
+        return;
+
+    float2 uv = (float2) id.xy / (float2) _TexSize;
+
+    // Sample flowmap using Load + bilinear
+    float4 flowSample = TexBilinearLoad(_FlowMap, uv, _TexSize);
+    float2 flow = flowSample.xy;
+
+    if (_FlowMapRemap != 0)
+        flow = flow * 2.0 - 1.0;
+
+    flow *= _FlowStrength;
+    float2 dir = normalize(flow + 1e-6);
+
+    // Noise-modulated warp
+    float2 noise = Noise2D(uv * _NoiseScale + float2(_Time * 0.12, _Time * 0.07));
+    float2 warpedDir = normalize(dir + noise * _WarpStrength);
+
+    // Convert to UV-space pixel offset
+    float2 pixelDir = warpedDir * (_BlurRadius / (float2) _TexSize);
+
+    int samples = max(_Samples, 1);
+    float4 accum = 0;
+    float wsum = 0;
+
+    float sigma = max(_GaussianSigma, 0.0001);
+    float invSamplesMinusOne = (samples > 1) ? (1.0 / (samples - 1.0)) : 0.0;
+
+    for (int i = 0; i < samples; i++)
+    {
+        float t = (samples > 1) ? (i * invSamplesMinusOne) : 0.5;
+        t = t - 0.5;
+
+        float2 sampleUV = uv + pixelDir * t;
+        sampleUV = saturate(sampleUV);
+
+        float weight = 1.0;
+        if (_UseGaussian != 0)
+        {
+            float dist = t * _BlurRadius;
+            weight = Gaussian(dist, sigma);
+        }
+
+        float4 sample = TexBilinearLoad(_Source, sampleUV, _TexSize);
+        accum += sample * weight;
+        wsum += weight;
+    }
+
+    float4 outColor = accum / max(wsum, 1e-6);
+    _Result[id.xy] = outColor;
+}

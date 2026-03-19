@@ -1,0 +1,81 @@
+#pragma kernel CSMain
+
+RWTexture2D<float> Result;
+
+int2 Resolution;
+float Scale; // Base frequency
+int Octaves; // Number of fBM layers
+float Gain; // Amplitude falloff (e.g., 0.5)
+float Lacunarity; // Frequency multiplier (e.g., 2.0)
+uint Seed;
+
+// ----------------------
+// Hash → Value Noise
+// ----------------------
+uint Hash(uint x)
+{
+    x ^= x >> 16;
+    x *= 0x7feb352d;
+    x ^= x >> 15;
+    x *= 0x846ca68b;
+    x ^= x >> 16;
+    return x;
+}
+
+float Hash01(uint2 p, uint seed)
+{
+    uint h = Hash(p.x ^ Hash(p.y ^ seed));
+    return (h & 0x00FFFFFF) / 16777215.0;
+}
+
+// ----------------------
+// 2D Value Noise
+// ----------------------
+float ValueNoise(float2 p, uint seed)
+{
+    int2 i = (int2) floor(p);
+    float2 f = frac(p);
+
+    float a = Hash01(i, seed);
+    float b = Hash01(i + int2(1, 0), seed);
+    float c = Hash01(i + int2(0, 1), seed);
+    float d = Hash01(i + int2(1, 1), seed);
+
+    float2 u = f * f * (3.0 - 2.0 * f); // smoothstep
+
+    return lerp(lerp(a, b, u.x), lerp(c, d, u.x), u.y);
+}
+
+// ----------------------
+// Fractal Brownian Motion
+// ----------------------
+float FBM(float2 p, uint seed)
+{
+    float sum = 0.0;
+    float amp = 1.0;
+    float freq = 1.0;
+
+    for (int o = 0; o < Octaves; o++)
+    {
+        sum += ValueNoise(p * freq, seed + o * 17) * amp;
+        freq *= Lacunarity;
+        amp *= Gain;
+    }
+
+    return sum;
+}
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= Resolution.x || id.y >= Resolution.y)
+        return;
+
+    float2 uv = (float2) id.xy / Resolution;
+    float2 p = uv * Scale;
+
+    float n = FBM(p, Seed);
+
+    // Normalize fBM to [0,1]
+    Result[id.xy] = saturate(n);
+}

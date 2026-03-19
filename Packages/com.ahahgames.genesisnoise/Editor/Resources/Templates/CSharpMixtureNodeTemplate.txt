@@ -1,0 +1,45 @@
+using UnityEngine;
+using GraphProcessor;
+using UnityEngine.Rendering;
+
+namespace Genesis
+{
+	[System.Serializable, NodeMenuItem("Custom/#NAME#")]
+	public class #SCRIPTNAME# : GenesisNode
+	{
+        [Input]
+        public Texture input;
+
+        [Output]
+        public CustomRenderTexture output;
+
+		public override string	name => "#NAME#";
+
+		public override Texture previewTexture => output;
+		public override bool	showDefaultInspector => true; // Make the serializable field visible in the node UI.
+
+		protected override void Enable()
+		{
+			base.Enable();
+			UpdateTempRenderTexture(ref output);
+		}
+
+		protected override bool ProcessNode(CommandBuffer cmd)
+		{
+            if (!base.ProcessNode(cmd))
+                return false;
+
+            // Update temp target in case settings changes
+			UpdateTempRenderTexture(ref output);
+
+            // Insert your code here 
+
+			return true;
+		}
+
+        protected override void Disable()
+		{
+			base.Disable();
+		}
+    }
+}

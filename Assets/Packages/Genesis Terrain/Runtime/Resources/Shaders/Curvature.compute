@@ -1,0 +1,74 @@
+// CurvatureCompute.compute
+#pragma kernel CSMain
+
+// Input heightmap (single channel, float)
+Texture2D<float> _HeightMap;
+SamplerState sampler_HeightMap;
+
+// Output curvature texture (ARGBFloat, only red channel used)
+RWTexture2D<float4> _CurvatureTex;
+
+// Texture size and texel size
+int2 _TextureSize;
+float2 _TexelSize; // (1/width, 1/height)
+
+// Normalization parameters
+float _CurvatureScale; // e.g., 0.5 for symmetric mapping
+float _CurvatureBias; // e.g., 0.5 to center zero at 0.5
+
+// Utility: Safe texture fetch with clamping at borders
+float SampleHeight(int2 coord)
+{
+    coord = clamp(coord, int2(0, 0), _TextureSize - 1);
+    return _HeightMap.Load(int3(coord, 0));
+}
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    int2 coord = id.xy;
+    if (coord.x >= _TextureSize.x || coord.y >= _TextureSize.y)
+        return;
+
+    // Neighbor coordinates
+    int2 left = coord + int2(-1, 0);
+    int2 right = coord + int2(1, 0);
+    int2 up = coord + int2(0, -1);
+    int2 down = coord + int2(0, 1);
+    int2 upleft = coord + int2(-1, -1);
+    int2 upright = coord + int2(1, -1);
+    int2 downleft = coord + int2(-1, 1);
+    int2 downright = coord + int2(1, 1);
+
+    // Sample heights
+    float hC = SampleHeight(coord);
+    float hL = SampleHeight(left);
+    float hR = SampleHeight(right);
+    float hU = SampleHeight(up);
+    float hD = SampleHeight(down);
+    float hUL = SampleHeight(upleft);
+    float hUR = SampleHeight(upright);
+    float hDL = SampleHeight(downleft);
+    float hDR = SampleHeight(downright);
+
+    float dx = (hR - hL) * 0.5 / _TexelSize.x;
+    float dy = (hD - hU) * 0.5 / _TexelSize.y;
+
+    float dxx = (hR - 2.0 * hC + hL) / (_TexelSize.x * _TexelSize.x);
+    float dyy = (hD - 2.0 * hC + hU) / (_TexelSize.y * _TexelSize.y);
+    float dxy = (hUR - hUL - hDR + hDL) * 0.25 / (_TexelSize.x * _TexelSize.y);
+
+    // Mean curvature formula
+    float numer = (1.0 + dx * dx) * dyy - 2.0 * dx * dy * dxy + (1.0 + dy * dy) * dxx;
+    float denom = 2.0 * pow(1.0 + dx * dx + dy * dy, 1.5);
+    float meanCurv = numer / max(denom, 1e-6); // Avoid division by zero
+
+    // Normalize for visualization
+    float normCurv = meanCurv * _CurvatureScale + _CurvatureBias;
+    normCurv = saturate(normCurv); // Clamp to [0,1]
+
+    if (hC == 0)
+        normCurv = 0.0;
+    // Output to red channel, others zero
+        _CurvatureTex[coord] = float4(normCurv, 0, 0, 1);
+}

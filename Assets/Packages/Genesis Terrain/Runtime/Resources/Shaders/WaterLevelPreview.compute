@@ -1,0 +1,27 @@
+#pragma kernel CSMain
+
+Texture2D<float4> _HeightMap;
+RWTexture2D<float4> _Preview;
+float _WaterLevel;
+int2 _TexSize;
+
+[numthreads(8,8,1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _TexSize.x || id.y >= _TexSize.y)
+        return;
+    
+    float4 level = _HeightMap[id.xy];
+    
+    float4 color;
+    if (level.r > _WaterLevel)
+    {
+        color = level;
+    }
+    else
+    {
+        float blue = 1 - (level.r / _WaterLevel);
+        color = float4(0, 0, blue, 1);
+    }
+    _Preview[id.xy] = color;
+}

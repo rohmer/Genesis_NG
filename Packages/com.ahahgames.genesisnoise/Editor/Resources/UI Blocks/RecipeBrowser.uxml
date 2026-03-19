@@ -1,0 +1,9 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.ahahgames.genesisnoise/Editor/Resources/UI%20Blocks/RecipeBrowser.uss?fileID=7433441132597879392&amp;guid=e2be100adf5bb1b4792cf076bf6c914f&amp;type=3#RecipeBrowser" />
+    <ui:Label text="Recipe Browser" class="Heading" />
+    <ui:GroupBox text="Recipes" style="height: 331px;">
+        <ui:TreeView name="recipes"/>
+    </ui:GroupBox>
+    <ui:Toggle name="builtin" label="Show only Built-In" />
+    <ui:Button text="Add Recipe to Graph" enabled="false" name="add" />
+</ui:UXML>

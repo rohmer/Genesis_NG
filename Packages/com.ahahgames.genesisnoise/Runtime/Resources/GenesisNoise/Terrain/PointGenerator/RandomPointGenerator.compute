@@ -1,0 +1,37 @@
+#define THREADS_X 8
+#define THREADS_Y 8
+#pragma kernel GenerateRandomPoints
+
+int numberOfPoints=4096;
+float size = 4096;
+RWStructuredBuffer<float2> RandomPoints;        // Output
+
+// Simple hash-based RNG
+float Hash11(uint seed)
+{
+    seed ^= 2747636419u;
+    seed *= 2654435769u;
+    seed ^= seed >> 16;
+    seed *= 2654435769u;
+    seed ^= seed >> 16;
+    return frac(seed * 1.0e-10f);
+}
+
+float2 Hash22(uint seed)
+{
+    return float2(Hash11(seed), Hash11(seed * 0x9e3779b9u));
+}
+
+[numthreads(8, 8, 1)]
+void GenerateRandomPoints(uint3 id : SV_DispatchThreadID)
+{
+    uint index = id.y * 8 + id.x;
+    if (index >= numberOfPoints)
+        return;
+
+    float2 randPos = Hash22(index);    
+    RandomPoints[index] = float2(randPos.x * size, randPos.y * size);
+}
+
+
+

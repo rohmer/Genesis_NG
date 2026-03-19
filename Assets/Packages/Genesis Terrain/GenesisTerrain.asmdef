@@ -1,0 +1,34 @@
+{
+    "name": "Genesis Noise - Terrain",
+    "rootNamespace": "ahahgames.genesisnoise",
+    "references": [
+        "Unity.Burst",
+        "Unity.Mathematics",
+        "Unity.Collections",
+        "Unity.Mathematics.FixedPoint",
+        "Genesis Noise",
+        "AhahGames.Tools",
+        "JBooth.MicroSplat.Core",
+        "JBooth.MicroSplat.Core.Editor"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.danielmansson.mathematics.fixedpoint",
+            "expression": "0.1.0",
+            "define": "UNITY_MATHEMATICS_FIXEDPOINT"
+        },
+        {
+            "name": "com.jbooth.microsplat.core",
+            "expression": "",
+            "define": "__MICROSPLAT__"
+        }
+    ],
+    "noEngineReferences": false
+}

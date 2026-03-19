@@ -1,0 +1,129 @@
+#pragma kernel CSInitSeeds
+#pragma kernel CSFloodFill
+
+StructuredBuffer<int2> _SeedPoints;
+StructuredBuffer<float4> _SeedColors;
+
+Texture2D<float> _GridMask;
+SamplerState samplerLinear;
+
+RWTexture2D<float4> _CurrentTex; // Ping
+RWTexture2D<float4> _NextTex; // Pong
+
+int2 _TextureSize;
+
+// FloodFill_NonIterative.compute
+
+#pragma kernel CSVoronoiFill
+
+RWTexture2D<float4> _OutputTex;
+
+
+[numthreads(8, 8, 1)]
+void CSVoronoiFill(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _TextureSize.x || id.y >= _TextureSize.y)
+        return;
+
+    int2 coord = int2(id.xy);
+    float maskValue = _GridMask.Load(int3(coord, 0)).r;
+
+    if (maskValue < 0.5)
+    {
+        _OutputTex[coord] = float4(0, 0, 0, 0); // wall
+        return;
+    }
+
+    float minDist = 1e9;
+    float4 chosenColor = float4(0, 0, 0, 0);
+
+    for (uint i = 0; i < _SeedPoints.Length; ++i)
+    {
+        int2 seed = _SeedPoints[i];
+        float seedMask = _GridMask.Load(int3(seed, 0)).r;
+        if (seedMask < 0.5)
+            continue; // seed is inside wall
+
+        float dist = distance(float2(coord), float2(seed));
+        if (dist < minDist)
+        {
+            minDist = dist;
+            chosenColor = _SeedColors[i];
+        }
+    }
+
+    _OutputTex[coord] = chosenColor;
+}
+
+// ----------------------------------------
+// Kernel: Initialize seed pixels
+// ----------------------------------------
+[numthreads(64, 1, 1)]
+void CSInitSeeds(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _SeedPoints.Length)
+        return;
+
+    int2 coord = _SeedPoints[id.x];
+    float4 color = _SeedColors[id.x];
+
+    if (coord.x >= 0 && coord.y >= 0 && coord.x < _TextureSize.x && coord.y < _TextureSize.y)
+    {
+        float maskValue = _GridMask.Load(int3(coord, 0)).r;
+        if (maskValue > 0.5)
+        {
+            _CurrentTex[coord] = color;
+        }
+    }
+}
+
+// ----------------------------------------
+// Kernel: Propagate colors outward
+// ----------------------------------------
+[numthreads(8, 8, 1)]
+void CSFloodFill(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _TextureSize.x || id.y >= _TextureSize.y)
+        return;
+
+    int2 coord = int2(id.xy);
+    float4 current = _CurrentTex[coord];
+
+    // If already filled, copy to next
+    if (current.a > 0)
+    {
+        _NextTex[coord] = current;
+        return;
+    }
+
+    // Check if this pixel is fillable
+    float maskValue = _GridMask.Load(int3(coord, 0)).r;
+    if (maskValue < 0.5)
+    {
+        _NextTex[coord] = float4(0, 0, 0, 0); // blocked
+        return;
+    }
+
+    // Check 4-connected neighbors
+    int2 offsets[4] = { int2(-1, 0), int2(1, 0), int2(0, -1), int2(0, 1) };
+    for (int i = 0; i < 4; ++i)
+    {
+        int2 neighbor = coord + offsets[i];
+        if (neighbor.x < 0 || neighbor.y < 0 || neighbor.x >= _TextureSize.x || neighbor.y >= _TextureSize.y)
+            continue;
+
+        float neighborMask = _GridMask.Load(int3(neighbor, 0)).r;
+        if (neighborMask < 0.5)
+            continue; // wall
+
+        float4 neighborColor = _CurrentTex[neighbor];
+        if (neighborColor.a > 0)
+        {
+            _NextTex[coord] = neighborColor;
+            return;
+        }
+    }
+
+    // Remain unfilled
+    _NextTex[coord] = float4(0, 0, 0, 0);
+}

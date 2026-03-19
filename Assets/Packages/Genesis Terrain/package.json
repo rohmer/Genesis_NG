@@ -1,0 +1,22 @@
+{
+  "name": "com.ahahgames.genesisnoise.terrain",
+  "displayName": "Genesis Noise Terrain",
+  "version": "1.7.0",
+  "author": {
+    "name": "Ahah Games",
+    "email": "rohmer@yahoo.com",
+    "url": "http://localhost"
+  },
+  "unity": "2021.3",
+  "description": "The Genesis Noise Terrain system can be used to create terrains",
+  "keywords": [
+    "Terrain",
+    "Shader"
+  ],
+  "type": "tool",
+  "dependencies": {
+    "com.unity.mathematics": "1.2.6",
+    "com.unity.burst": "1.6.6",
+    "com.unity.collections": "1.4.0"
+  }
+}

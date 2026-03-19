@@ -1,0 +1,26 @@
+.Recipe {    
+    top: 5px;
+    left: 5px;
+    bottom: 5px;
+    right: 5px;
+    width: auto;
+    height: auto;
+    background-color: rgba(57,57,57,0.9);
+    border-width: 2px;
+    border-color: azure;
+    color: white;
+    font-size: 18;
+    -unity-font-style: bold;    
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+.RecipeIcon {
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 0;
+    margin-right: 0;
+    margin-left: 0;
+}

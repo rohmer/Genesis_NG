@@ -1,0 +1,12 @@
+#pragma kernel ComputeMaxHeight
+
+Texture2D<float4> HeightMap;
+float MaxHeight;
+
+[numthreads(8,8,1)]
+void ComputeMaxHeight(uint3 id : SV_DispatchThreadID)
+{
+    float h = HeightMap[id.xy].r;
+    if(h>MaxHeight)
+        MaxHeight = h;    
+}

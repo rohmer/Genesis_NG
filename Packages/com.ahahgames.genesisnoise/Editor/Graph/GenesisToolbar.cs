@@ -1,0 +1,350 @@
+using AhahGames.GenesisNoise.Nodes;
+using AhahGames.GenesisNoise.Views;
+
+using GraphProcessor;
+
+using System.Collections.Generic;
+
+using UnityEditor;
+
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UIElements;
+
+using PopupWindow = UnityEditor.PopupWindow;
+
+namespace AhahGames.GenesisNoise.Graph
+{
+    public class GenesisToolbar : ToolbarView
+    {
+
+        public GenesisToolbar(BaseGraphView graphView) : base(graphView) { }
+
+        GenesisGraph graph => graphView.graph as GenesisGraph;
+        new GenesisGraphView graphView => base.graphView as GenesisGraphView;
+
+        class Styles
+        {
+            public const string realtimePreviewToggleText = "Always Update";
+            public const string processButtonText = "Process";
+            public const string saveAllText = "Save";
+            public const string restart = "Restart";
+            //public const string parameterViewsText = "Parameters";
+            public static GUIContent documentation = new("Documentation", EditorUtilities.documentationIcon);
+            public static GUIContent bugReport = new("Bug Report", EditorUtilities.bugIcon);
+            public static GUIContent featureRequest = new("Feature Request", EditorUtilities.featureRequestIcon);
+            public static GUIContent improveGenesis = new("Improve Genesis", EditorUtilities.featureRequestIcon);
+            public static GUIContent discord = new("Discord", EditorUtilities.discordIcon);
+            public static GUIContent focusText = new("Fit View");
+            public static GUIContent settingsIcon = new(EditorUtilities.settingsIcon24);
+            static GUIStyle _improveButtonStyle = null;
+            public static GUIStyle improveButtonStyle => _improveButtonStyle == null ? _improveButtonStyle = new GUIStyle(GUI.skin.button) { alignment = TextAnchor.MiddleLeft } : _improveButtonStyle;
+        }
+
+        enum TextureType
+        {
+            [InspectorName("Type: 2D")]
+            Type2D = OutputDimension.Texture2D,
+            [InspectorName("Type: 3D")]
+            Type3D = OutputDimension.Texture3D,
+            [InspectorName("Type: Cubemap")]
+            TypeCubemap = OutputDimension.CubeMap,
+        }
+
+        enum Resolution
+        {
+            [InspectorName("Size: 32")]
+            Res32 = POTSize._32,
+            [InspectorName("Size: 64")]
+            Res64 = POTSize._64,
+            [InspectorName("Size: 128")]
+            Res128 = POTSize._128,
+            [InspectorName("Size: 256")]
+            Res256 = POTSize._256,
+            [InspectorName("Size: 512")]
+            Res512 = POTSize._512,
+            [InspectorName("Size: 1024")]
+            Res1024 = POTSize._1024,
+            [InspectorName("Size: 2048")]
+            Res2048 = POTSize._2048,
+            [InspectorName("Size: 4096")]
+            Res4096 = POTSize._4096,
+            [InspectorName("Size: 8192")]
+            Res8192 = POTSize._8192,
+            [InspectorName("Custom")]
+            Custom = POTSize.Custom,
+        }
+
+        public class ImproveGenesisPopupWindow : PopupWindowContent
+        {
+            public static readonly int width = 150;
+
+            public override Vector2 GetWindowSize()
+            {
+                return new Vector2(width, 124);
+            }
+
+            public override void OnGUI(Rect rect)
+            {
+                if (GUILayout.Button(Styles.documentation, Styles.improveButtonStyle))
+                    Application.OpenURL(@"https://alelievr.github.io/Genesis/");
+                if (GUILayout.Button(Styles.bugReport, Styles.improveButtonStyle))
+                    Application.OpenURL(@"https://github.com/alelievr/Genesis/issues/new?assignees=alelievr&labels=bug&template=bug_report.md&title=%5BBUG%5D");
+                if (GUILayout.Button(Styles.featureRequest, Styles.improveButtonStyle))
+                    Application.OpenURL(@"https://github.com/alelievr/Genesis/issues/new?assignees=alelievr&labels=enhancement&template=feature_request.md&title=");
+                if (GUILayout.Button(Styles.discord, Styles.improveButtonStyle))
+                    Application.OpenURL(@"https://discord.gg/DGxZRP3qeg");
+            }
+        }
+
+        public class SettingsGenesisPopupWindow : PopupWindowContent
+        {
+            public static readonly int width = 300;
+            public int height;
+
+            GenesisGraphView graphView;
+
+            public SettingsGenesisPopupWindow(GenesisGraphView graphView)
+            {
+                this.graphView = graphView;
+                height = 310;
+            }
+
+            public override Vector2 GetWindowSize()
+            {
+                return new Vector2(width, height);
+            }
+
+            public override void OnClose()
+            {
+
+            }
+
+            public override void OnGUI(Rect rect) { }
+
+            public override void OnOpen()
+            {
+                var settingsView = new GenesisSettingsView(graphView.graph.settings, graphView, "Graph Settings", false);
+                settingsView.AddToClassList("RTSettingsView");
+                settingsView.style.height = new StyleLength(new Length(100, LengthUnit.Percent));
+                settingsView.RegisterChangedCallback(() => graphView.ProcessGraph());
+
+                var otherHeader = new Label("Advanced Settings");
+                otherHeader.AddToClassList(GenesisSettingsView.headerStyleClass);
+                settingsView.Add(otherHeader);
+
+                var defaultInheritanceMode = new EnumField(graphView.graph.defaultNodeInheritanceMode)
+                {
+                    label = "Node Inheritance Mode"
+                };
+                defaultInheritanceMode.RegisterValueChangedCallback(e =>
+                {
+                    graphView.RegisterCompleteObjectUndo("Changed node inheritance mode");
+                    graphView.graph.defaultNodeInheritanceMode = (NodeInheritanceMode)e.newValue;
+
+                    graphView.graph.UpdateNodeInheritanceMode();
+                    graphView.RefreshNodeSettings();
+
+                    graphView.ProcessGraph();
+                });
+                settingsView.Add(defaultInheritanceMode);
+
+                editorWindow.rootVisualElement.Add(settingsView);
+            }
+        }
+
+        protected override void AddButtons()
+        {
+            // Left buttons
+            AddButton(Styles.processButtonText, Process, left: true);
+
+
+            AddButton(Styles.saveAllText, SaveAll);
+
+            AddSeparator(5);
+
+            AddButton("Show In Project", ShowInProject);
+
+            AddSeparator(5);
+
+            AddButton(Styles.focusText, () => graphView.FrameAll());
+
+            // Right buttons
+            AddCustom(RecipeWindow, left: false);
+
+            AddFlexibleSpace(left: false);
+
+            AddCustom(DrawResolutionAndDimensionFields, left: false);
+
+            AddFlexibleSpace(left: false);
+
+            //AddToggle(Styles.parameterViewsText, graph.isParameterViewOpen, ToggleParameterView, left: false);
+
+            AddButton(Styles.settingsIcon, ShowSettingsWindow, left: false);
+
+            AddDropDownButton(Styles.improveGenesis, ShowImproveGenesisWindow, left: false);
+        }
+
+        void ShowInProject()
+        {
+            EditorGUIUtility.PingObject(graph.mainOutputTexture);
+            ProjectWindowUtil.ShowCreatedAsset(graph.mainOutputTexture);
+        }
+
+        void RecipeWindow()
+        {
+
+        }
+
+        void DrawResolutionAndDimensionFields()
+        {
+            // Draw the resolution of the graph
+            EditorGUI.BeginChangeCheck();
+            if (graph.settings.potSize != POTSize.Custom)
+            {
+                var newPOTValue = (POTSize)EditorGUILayout.EnumPopup((Resolution)graph.settings.potSize, EditorStyles.toolbarDropDown, GUILayout.Width(116));
+                if (newPOTValue != POTSize.Custom)
+                    graph.settings.SetPOTSize((int)newPOTValue);
+                else
+                    graph.settings.potSize = newPOTValue;
+            }
+            else
+            {
+                graph.settings.potSize = (POTSize)EditorGUILayout.EnumPopup((Resolution)graph.settings.potSize, EditorStyles.toolbarDropDown, GUILayout.Width(116));
+                graph.settings.width = EditorGUILayout.IntField(graph.settings.width, GUILayout.Width(50));
+                EditorGUILayout.LabelField("x", GUILayout.Width(10));
+                graph.settings.height = EditorGUILayout.IntField(graph.settings.height, GUILayout.Width(50));
+                if (graph.settings.GetResolvedTextureDimension(graph) == TextureDimension.Tex3D)
+                {
+                    EditorGUILayout.LabelField("x", GUILayout.Width(10));
+                    graph.settings.depth = EditorGUILayout.IntField(graph.settings.depth, GUILayout.Width(50));
+                }
+            }
+            if (EditorGUI.EndChangeCheck())
+                graphView.ProcessGraph();
+
+            EditorGUI.BeginChangeCheck();
+
+            var newDimension = (OutputDimension)EditorGUILayout.EnumPopup((TextureType)graph.settings.dimension, EditorStyles.toolbarDropDown, GUILayout.Width(114));
+            if (EditorGUI.EndChangeCheck())
+            {
+                // When the dimension is updated, we need to update all the node ports in the graph
+                if (graph.settings.dimension != newDimension)
+                {
+                    // We delay the port refresh to let the settings finish it's update 
+                    schedule.Execute(() =>
+                    {
+                        {
+                            // Refresh ports on all the nodes in the graph
+                            foreach (var node in graph.nodes)
+                                node.UpdateAllPortsLocal();
+                        }
+                    }).ExecuteLater(1);
+                }
+
+                graph.settings.dimension = newDimension;
+
+                if (newDimension == OutputDimension.Texture3D)
+                {
+                    long pixelCount = graph.settings.GetResolvedWidth(graph) * graph.settings.GetResolvedHeight(graph) * graph.settings.GetResolvedDepth(graph);
+
+                    // Above 16M pixels in a texture3D, processing can take too long and crash the GPU when a conversion happen
+                    if (pixelCount > 16777216)
+                        graph.settings.SetPOTSize(64);
+                }
+
+                graphView.ProcessGraph();
+            }
+        }
+
+        void ShowImproveGenesisWindow()
+        {
+            var rect = EditorWindow.focusedWindow.position;
+            rect.xMin = rect.width - ImproveGenesisPopupWindow.width;
+            rect.yMin = 21;
+            rect.size = Vector2.zero;
+            PopupWindow.Show(rect, new ImproveGenesisPopupWindow());
+        }
+
+        void ShowSettingsWindow()
+        {
+            var rect = EditorWindow.focusedWindow.position;
+            rect.xMin = rect.width - SettingsGenesisPopupWindow.width;
+            rect.yMin = 21;
+            rect.size = Vector2.zero;
+            PopupWindow.Show(rect, new SettingsGenesisPopupWindow(graphView));
+        }
+
+        void Restart()
+        {
+            // Reset all the nodes in the realtime graph
+            //graph.RestartRealtime();
+        }
+
+        void SaveAll()
+        {
+            try
+            {
+                EditorUtility.DisplayProgressBar("Genesis", "Saving All...", 0.0f);
+
+                graph.SaveAllTextures();
+                //graph.UpdateLinkedVariants();
+
+                List<ExternalOutputNode> externalOutputs = new();
+
+                foreach (var node in graph.nodes)
+                {
+                    if (node is ExternalOutputNode && (node as ExternalOutputNode).asset != null)
+                    {
+                        externalOutputs.Add(node as ExternalOutputNode);
+                    }
+                }
+
+                int i = 0;
+                foreach (var node in externalOutputs)
+                {
+                    EditorUtility.DisplayProgressBar("Genesis", $"Saving {node.asset.name}...", (float)i / externalOutputs.Count);
+                    var cmd = new CommandBuffer();
+                    (node as ExternalOutputNode).OnProcess(cmd);
+                    Graphics.ExecuteCommandBuffer(cmd);
+                    graph.SaveExternalTexture((node as ExternalOutputNode), false);
+                    i++;
+                }
+            }
+            finally
+            {
+                EditorUtility.ClearProgressBar();
+            }
+        }
+
+        void ToggleRealtime(bool state)
+        {
+            if (state)
+            {
+                HideButton(Styles.processButtonText);
+                GenesisUpdater.Instance.AddGraphToProcess(graphView);
+            }
+            else
+            {
+                ShowButton(Styles.processButtonText);
+                GenesisUpdater.Instance.AddGraphToProcess(graphView);
+            }
+            //graph.realtimePreview = state;
+        }
+
+        void ToggleParameterView(bool state)
+        {
+            graphView.ToggleView<GenesisParameterView>();
+            graph.isParameterViewOpen = state;
+        }
+
+        void AddProcessButton()
+        {
+        }
+
+        void Process()
+        {
+            EditorApplication.delayCall += () => graphView.ProcessGraph();
+        }
+    }
+}

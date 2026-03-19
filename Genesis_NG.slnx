@@ -1,0 +1,11 @@
+﻿<Solution>
+  <Project Path="Genesis Noise.csproj" />
+  <Project Path="Mathematics.Mathx.csproj" />
+  <Project Path="OdinSerializer.csproj" />
+  <Project Path="GenesisNoise.Tests.csproj" />
+  <Project Path="JBooth.MicroSplat.Core.Editor.csproj" />
+  <Project Path="Genesis Noise - Terrain.csproj" />
+  <Project Path="JBooth.MicroSplat.Core.csproj" />
+  <Project Path="AhahGames Telemetry.csproj" />
+  <Project Path="Assembly-CSharp-Editor.csproj" />
+</Solution>

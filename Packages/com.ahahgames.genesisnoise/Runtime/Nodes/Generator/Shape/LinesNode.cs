@@ -1,0 +1,22 @@
+using GraphProcessor;
+
+using System.Collections.Generic;
+namespace AhahGames.GenesisNoise.Nodes
+{
+    [Documentation(@"
+Generates a line pattern. In 3D this node generate cylinders using a signed distance field function.
+")]
+
+    [System.Serializable, NodeMenuItem("Generators/Shapes/Lines")]
+    public class LinesNode : FixedShaderNode
+    {
+        public override string name => "Lines";
+
+        public override string ShaderName => "Hidden/Genesis/Lines";
+
+        public override bool DisplayMaterialInspector => true;
+
+        // Enumerate the list of material properties that you don't want to be turned into a connectable port.
+        protected override IEnumerable<string> filteredOutProperties => new string[] { "_Tile", "_Offset", "_Rotation" };
+    }
+}

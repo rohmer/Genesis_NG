@@ -1,0 +1,33 @@
+using GraphProcessor;
+
+using UnityEngine;
+
+
+namespace AhahGames.GenesisNoise.Nodes
+{
+    [System.Serializable, NodeMenuItem("Function/Random/Point in Box")]
+    public class RandomPointInBoxNode : ConstantNode
+    {
+        [Output]
+        public Vector2 output;
+
+        public Vector2 pt1 = new(-1, -1);
+        public Vector2 pt2 = new(1, 1);
+
+        public override string name => "Point in Box";
+        public override string NodeGroup => "Random";
+        public override float nodeWidth => GenesisNoiseUtility.smallNodeWidth;
+        public override void Process()
+        {
+            float minX = Mathf.Min(pt1.x, pt2.x);
+            float minY = Mathf.Min(pt1.y, pt2.y);
+            float maxX = Mathf.Max(pt1.x, pt2.x);
+            float maxY = Mathf.Max(pt1.y, pt2.y);
+            output = new Vector2(
+                Random.Range(minX, maxX),
+                Random.Range(minY, maxY)
+            );
+        }
+
+    }
+}

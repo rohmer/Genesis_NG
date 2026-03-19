@@ -1,0 +1,144 @@
+#pragma kernel Advect 
+#pragma kernel AdvectVelocity 
+#pragma kernel InjectDensity 
+#pragma kernel ComputeVorticity 
+#pragma kernel ComputeConfinement 
+#pragma kernel ComputeDivergence 
+#pragma kernel ComputePressure 
+#pragma kernel ComputeProjection 
+#pragma kernel SetObstacles 
+#pragma kernel InjectVelocity 
+#pragma kernel InjectObstacles 
+
+// #pragma enable_d3d11_debug_symbols
+
+// Include utility stuff to handle multi-dimension input textures
+#include "../../Shaders/GenesisComputeUtils.hlsl"
+#define FLUID_3D
+#include "../../Shaders/FluidSimulation.hlsl"
+
+float4 _Up, _Pos;
+float _DeltaTime, _Dissipate, _Decay;
+float _Weight;
+float _Radius, _Amount;
+float _Epsilon;
+
+// Cubemap not supported because we can't write to a cubemap with compute shaders :(
+
+// TODO: simplify all those textures
+Texture3D<float3> _VelocityR;
+RWTexture3D<float3> _VelocityW;
+RWTexture3D<float> _Obstacles;
+Texture3D<float> _ObstaclesR;
+Texture3D<float> _Pressure;
+Texture3D<float> _Divergence;
+
+RWTexture3D<float> _Write1f;
+Texture3D<float> _Read1f;
+
+RWTexture3D<float3> _Write3f;
+Texture3D<float3> _Read3f;
+
+RWTexture3D<float3> _Write;
+Texture3D<float> _Density;
+
+Texture3D<float3> _Read;
+
+Texture3D<float3> _Vorticity;
+
+[numthreads(8,8,1)]
+void AdvectVelocity(uint3 id : SV_DispatchThreadID)
+{
+	if(_Obstacles[id] > 0.1)
+	{
+		 _Write3f[id] = float3(0,0,0);
+		 return;
+	}
+
+    AdvectBuffer(_Read3f, _VelocityR, _Write3f, id, _Dissipate, _DeltaTime, _Size.xyz);
+
+    // Add density weight gravity vector
+    _Write3f[id] += (_Density[id] * _Weight) * float3(0, -1, 0);
+}
+
+// TODO: add other types of advection (BFECC amd Mac Cormack)
+[numthreads(8,8,1)]
+void Advect(uint3 id : SV_DispatchThreadID)
+{
+	if(_Obstacles[id] > 0.1)
+	{
+		 _Write1f[id] = 0;
+		 return;
+	}
+
+    AdvectBuffer(_Read1f, _VelocityR, _Write1f, id, _Dissipate - _Decay, _DeltaTime, _Size.xyz);
+}
+
+[numthreads(8,8,1)]
+void SetObstacles(uint3 id : SV_DispatchThreadID)
+{
+    if (_BorderMode == 0 && any(id == 0 || id == uint3(_Size.xyz - 1)))
+        _Obstacles[id] = 1;
+    else
+        _Obstacles[id] = 0;
+}
+
+[numthreads(8,8,1)]
+void ComputeVorticity(int3 id : SV_DispatchThreadID)
+{
+    // TODO: remove epsilon as param
+    Vorticity(id, _Size.xyz, _VelocityR, _Write, _DeltaTime, _Epsilon);
+}
+
+[numthreads(8,8,1)]
+void ComputeConfinement(int3 id : SV_DispatchThreadID)
+{
+    VelocityConfinment(id, _Size.xyz, _Vorticity, _Read, _Write, _DeltaTime, _Epsilon);
+}
+
+// TODO: move that to another file, and maybe we can merge all those similar functions
+[numthreads(8,8,1)]
+void ComputeDivergence(int3 id : SV_DispatchThreadID)
+{
+    Divergence(id, _Size.xyz, _VelocityR, _ObstaclesR, _Write1f);
+}
+
+[numthreads(8,8,1)]
+void ComputePressure(int3 id : SV_DispatchThreadID)
+{
+    Pressure(id, _Size.xyz, _Pressure, _ObstaclesR, _Divergence, _Write1f);
+}
+
+[numthreads(8,8,1)]
+void ComputeProjection(int3 id : SV_DispatchThreadID)
+{
+    Project(id, _Size.xyz, _Pressure, _ObstaclesR, _VelocityR, _Write);
+}
+
+Texture3D<float> _InputDensity;
+
+[numthreads(8,8,1)]
+void InjectDensity(uint3 id : SV_DispatchThreadID)
+{
+    float amount = _InputDensity.SampleLevel(s_linear_clamp_sampler, id / _Size.xyz, 0);
+	amount *= _Amount * _DeltaTime;
+    _Write[id] = _Density[id] + amount;
+}
+
+Texture3D<float3> _InputVelocity;
+
+[numthreads(8,8,1)]
+void InjectVelocity(uint3 id : SV_DispatchThreadID)
+{
+    float3 targetVelocity = _InputVelocity.SampleLevel(s_linear_clamp_sampler, id / _Size.xyz, 0);
+    _Write[id] = _VelocityR[id] + targetVelocity; // TODO:param amount
+}
+
+Texture3D<float> _InputObstacles;
+
+[numthreads(8,8,1)]
+void InjectObstacles(uint3 id : SV_DispatchThreadID)
+{
+    float isBlocking = _InputObstacles.SampleLevel(s_linear_clamp_sampler, id / _Size.xyz, 0);
+    _Write[id] += isBlocking;
+}

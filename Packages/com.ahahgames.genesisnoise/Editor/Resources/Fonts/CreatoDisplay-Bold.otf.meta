@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 9ea3d4d4231b84b4eb765e450abe56c3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 12
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Creato Display
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6d6f8ff8adbfdeb4c8e86a3dd191fcb4, type: 3}
+  - {fileID: 12800000, guid: b6d6911eb962a7449819a17c2bfae24f, type: 3}
+  - {fileID: 12800000, guid: 98216eefb0908d6438b03a544db9eea5, type: 3}
+  - {fileID: 12800000, guid: 144d20b84a212db4c86000c315e6bd9c, type: 3}
+  - {fileID: 12800000, guid: 756f0a26f06790f40b41b8450cfef259, type: 3}
+  - {fileID: 12800000, guid: 6c9294349f6678a4d8374b36a1f999b0, type: 3}
+  - {fileID: 12800000, guid: c9847913f95b0e74d81647d63648fa0a, type: 3}
+  customCharacters: 
+  fontRenderingMode: 3
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,26 @@
+using GraphProcessor;
+
+using System.Collections.Generic;
+
+
+namespace AhahGames.GenesisNoise.Nodes
+{
+    [Documentation(@"
+Apply a transformation on the input texture. This node allows you to offset, scale and rotate the input texture based on either another texture or a constant.
+
+Note that the values from the rotation map will be converted to euler angles in the node so that 1 means 360 degree. 
+")]
+
+    [System.Serializable, NodeMenuItem("Operations/Transform")]
+    public class TransformNode : FixedShaderNode
+    {
+        public override string name => "Transform";
+
+        public override string ShaderName => "Hidden/Genesis/Transform";
+
+        public override bool DisplayMaterialInspector => true;
+
+        // Enumerate the list of material properties that you don't want to be turned into a connectable port.
+        protected override IEnumerable<string> filteredOutProperties => new string[] { };
+    }
+}

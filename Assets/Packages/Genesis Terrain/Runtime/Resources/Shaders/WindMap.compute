@@ -1,0 +1,126 @@
+// FlowmapFromHeight_Simple.compute
+#pragma kernel CSMain
+
+// Heightmap input (single channel stored in .r)
+Texture2D<float4> _HeightMap; // sample .r for height
+RWTexture2D<float4> _FlowMap; // RG: flow direction (remapped to [0,1]); A: magnitude
+
+// Globals
+int2 _TexSize;
+
+// User inputs
+float2 _BaseDirection; // user direction in UV space (not necessarily normalized)
+float _FlowStrength; // overall scale of flow magnitude
+float _SlopeInfluence; // how strongly slope modifies direction (0..1+)
+float _HeightScale; // scale applied to height values (world units per normalized height)
+int _RemapTo01; // if 1, write direction remapped from [-1,1] -> [0,1]
+int _NormalizeOutput; // if 1, normalize final direction before writing
+
+// Optional smoothing of height before gradient (small kernel)
+int _SmoothRadius; // 0 = no smoothing, 1 = 3x3 box, etc.
+
+// Utility: safe fetch height at integer coords (clamped)
+float FetchHeight(int2 p)
+{
+    p = clamp(p, int2(0, 0), _TexSize - 1);
+    float4 s = _HeightMap.Load(int3(p, 0));
+    return s.r;
+}
+
+// Optional box blur for height (cheap)
+float SampleHeightSmoothed(int2 p)
+{
+    if (_SmoothRadius <= 0)
+        return FetchHeight(p);
+
+    float sum = 0;
+    int count = 0;
+    for (int oy = -_SmoothRadius; oy <= _SmoothRadius; oy++)
+        for (int ox = -_SmoothRadius; ox <= _SmoothRadius; ox++)
+        {
+            sum += FetchHeight(p + int2(ox, oy));
+            count++;
+        }
+    return sum / max(1, count);
+}
+
+// Compute gradient using central differences in pixel space
+float2 ComputeGradient(int2 p)
+{
+    // central difference in x and y
+    float hL = SampleHeightSmoothed(p + int2(-1, 0));
+    float hR = SampleHeightSmoothed(p + int2(1, 0));
+    float hD = SampleHeightSmoothed(p + int2(0, -1));
+    float hU = SampleHeightSmoothed(p + int2(0, 1));
+
+    // gradient in height per pixel
+    float dhdx = (hR - hL) * 0.5;
+    float dhdy = (hU - hD) * 0.5;
+
+    // convert to world slope by applying height scale and pixel-to-world factor
+    // assume 1 pixel = 1 unit in UV; if you have real world scale, multiply accordingly
+    float2 grad = float2(dhdx, dhdy) * _HeightScale;
+    return grad;
+}
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    if (id.x >= _TexSize.x || id.y >= _TexSize.y)
+        return;
+
+    int2 ip = int2(id.xy);
+    float2 uv = (float2) ip / (float2) _TexSize;
+
+    // 1) Base direction (user)
+    float2 baseDir = _BaseDirection;
+    // If user passed zero vector, default to right
+    if (all(baseDir == float2(0.0, 0.0)))
+        baseDir = float2(1.0, 0.0);
+
+    // Normalize base direction for blending
+    baseDir = normalize(baseDir);
+
+    // 2) Height gradient -> downhill vector
+    float2 grad = ComputeGradient(ip); // points uphill (dh/dx, dh/dy)
+    float2 downhill = -grad; // downhill points where water would flow
+    float downhillLen = length(downhill);
+
+    // If gradient is near zero, avoid NaN
+    if (downhillLen < 1e-6)
+        downhill = float2(0, 0);
+    else
+        downhill = downhill / downhillLen; // normalized downhill
+
+    // 3) Blend base direction and slope direction
+    // slope influence controls how much the downhill vector pulls the base direction
+    float slopeWeight = saturate(_SlopeInfluence); // clamp 0..1 for stable blending
+    float2 blended = normalize(lerp(baseDir, downhill, slopeWeight));
+
+    // 4) Optionally normalize output direction
+    float2 outDir = blended;
+    if (_NormalizeOutput != 0)
+        outDir = normalize(outDir);
+
+    // 5) Flow magnitude: combine downhill magnitude and user strength
+    // Use downhillLen to modulate magnitude so steep slopes produce stronger flow
+    float magnitude = _FlowStrength * (1.0 - exp(-downhillLen * 10.0)); // smooth ramp
+    // Optionally add small base magnitude so flat areas still have some flow
+    magnitude = max(magnitude, 0.0);
+
+    // 6) Pack into RGBA
+    float4 outColor;
+    if (_RemapTo01 != 0)
+    {
+        // remap direction from [-1,1] to [0,1]
+        outColor.rg = outDir * 0.5 + 0.5;
+    }
+    else
+    {
+        outColor.rg = outDir;
+    }
+    outColor.b = 0.0;
+    outColor.a = magnitude;
+
+    _FlowMap[ip] = outColor;
+}

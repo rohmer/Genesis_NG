@@ -1,0 +1,42 @@
+﻿using Supercluster.KDTree;
+
+using System;
+using System.Collections.Generic;
+
+namespace SharpVoronoiLib
+{
+
+    public class KDTreeNearestSiteLookup : INearestSiteLookup
+    {
+        private int _lastVersion = -1;
+
+        private KDTree<VoronoiSite> _kdTree = null!;
+
+
+        public VoronoiSite GetNearestSiteTo(List<VoronoiSite> sites, double x, double y, int version)
+        {
+            if (_lastVersion != version)
+            {
+                _kdTree = new KDTree<VoronoiSite>(PointsFromSites(sites), sites.ToArray());
+                _lastVersion = version;
+            }
+
+            // Replace collection expression [x, y] with array initializer
+            Tuple<double[], VoronoiSite>[] nearest = _kdTree.NearestNeighbors(new double[] { x, y }, 1);
+
+            return nearest[0].Item2;
+        }
+
+
+        private static double[][] PointsFromSites(List<VoronoiSite> sites)
+        {
+            double[][] points = new double[sites.Count][];
+
+            for (int i = 0; i < sites.Count; i++)
+                // Replace collection expression [sites[i].X, sites[i].Y] with array initializer
+                points[i] = new double[] { sites[i].X, sites[i].Y };
+
+            return points;
+        }
+    }
+}

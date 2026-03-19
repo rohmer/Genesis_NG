@@ -1,0 +1,13 @@
+{
+  "name": "com.ahahgames.genesisnoise",
+  "displayName": "Genesis Noise",
+  "version": "0.1.0",
+  "unity": "2020.3",
+  "description": "Does things",
+  "keywords": [
+    "graph",
+    "UIElements",
+    "unity"
+  ],
+  "category": "Unity"
+}
