@@ -1,14 +1,14 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!21 &-7907076442952928811
+--- !u!21 &-6604741460578873793
 Material:
   serializedVersion: 8
-  m_ObjectHideFlags: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/Genesis/WhiteNoise
-  m_Shader: {fileID: 4800000, guid: 88f45c924e1d2434bb576fea57ed02b0, type: 3}
+  m_Name: Hidden/Genesis/GrungeDirt
+  m_Shader: {fileID: 4800000, guid: 843f5bcfb210d07438a056904f7d3fdf, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -26,14 +26,250 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Mode: 0
-    m_Colors: []
+    - _BlotchDensity: 0.55
+    - _BlotchRadius: 1.4
+    - _BlotchSoftness: 3
+    - _Breakup: 0.7
+    - _Contrast: 3.33
+    - _MicroDust: 0.45
+    - _MicroDustScale: 18
+    - _OcclusionScale: 2
+    - _OcclusionStrength: 0.5
+    m_Colors:
+    - _Scale: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!21 &-1361297260755288023
+--- !u!21 &-5976751245198225046
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/Blend
+  m_Shader: {fileID: 4800000, guid: dc29c270f00ef03449511881d060a31a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords:
+  - _REMOVENEGATIVE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BlendMode: 0
+    - _MaskMode: 4
+    - _Opacity: 0.5
+    - _RemoveNegative: 1
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-5954505042871001874
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/AutoLevels
+  m_Shader: {fileID: 4800000, guid: 2ed65b83943af014497f76b97c106dc0, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AutoEstimate: 0
+    - _Contrast: 0.5
+    - _Invert: 1
+    - _Max: 0.34
+    - _Min: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-5513545445492233543
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/Invert
+  m_Shader: {fileID: 4800000, guid: f4d28858f82892b409a37c2b8f1746ab, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _alphaChannel: 0
+    - _blueChannel: 1
+    - _greenChannel: 1
+    - _hueChannel: 1
+    - _iType: 0
+    - _redChannel: 1
+    - _saturationChannel: 1
+    - _valueChannel: 1
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-4525808168379230884
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/Blend
+  m_Shader: {fileID: 4800000, guid: dc29c270f00ef03449511881d060a31a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords:
+  - _REMOVENEGATIVE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BlendMode: 0
+    - _MaskMode: 4
+    - _Opacity: 0.5
+    - _RemoveNegative: 1
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-2755908447811281664
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -70,15 +306,175 @@ Material:
     m_Ints: []
     m_Floats:
     - _Channels: 0
-    - _Frequency: 5
+    - _Frequency: 25
     - _Lacunarity: 2
-    - _Octaves: 5
-    - _Persistance: 0.5
+    - _Octaves: 8
+    - _Persistance: 0.4
     - _Seed: 42
     - _TilingMode: 1
     - _UVMode: 0
     m_Colors:
     - _OutputRange: {r: -1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-706499999721652056
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/Invert
+  m_Shader: {fileID: 4800000, guid: f4d28858f82892b409a37c2b8f1746ab, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _alphaChannel: 0
+    - _blueChannel: 1
+    - _greenChannel: 1
+    - _hueChannel: 1
+    - _iType: 0
+    - _redChannel: 1
+    - _saturationChannel: 1
+    - _valueChannel: 1
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-333843984085506463
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/Blend
+  m_Shader: {fileID: 4800000, guid: dc29c270f00ef03449511881d060a31a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords:
+  - _REMOVENEGATIVE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BlendMode: 18
+    - _MaskMode: 4
+    - _Opacity: 1
+    - _RemoveNegative: 1
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &-26772626233970429
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/NonUniformBlur
+  m_Shader: {fileID: 4800000, guid: 2cb9b1400e3bccf4bafcfe6cb4c96105, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Intensity:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Bias: -0.21
+    - _Contrast: 1.02
+    - _MaxRadius: 10
+    - _Mode: 2
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &11400000
@@ -95,123 +491,234 @@ MonoBehaviour:
   m_EditorClassIdentifier: Genesis Noise::AhahGames.GenesisNoise.Graph.GenesisGraph
   serializedNodes: []
   nodes:
-  - rid: 6864910903993171968
-  - rid: 6864910903993171969
-  - rid: 6864910903993171973
-  - rid: 6864910903993171974
-  - rid: 6864910903993172057
-  - rid: 6864910903993172058
-  - rid: 6864910903993172059
-  - rid: 6864910953283059794
-  - rid: 6864910953283059795
-  - rid: 6864910953283059798
-  - rid: 6864910953283059799
-  - rid: 6864910953283059800
-  - rid: 6864910953283059803
-  - rid: 6864911178008625246
-  - rid: 6864911178008625247
+  - rid: 6864911221206024305
+  - rid: 6864911221206024307
+  - rid: 6864911221206024314
+  - rid: 6864911221206024318
+  - rid: 6864911221206024319
+  - rid: 6864911221206024321
+  - rid: 6864911221206024323
+  - rid: 6864911221206024324
+  - rid: 6864911221206024325
+  - rid: 6864911221206024326
+  - rid: 6864911221206024328
+  - rid: 6864911221206024329
+  - rid: 6864911221206024330
+  - rid: 6864911221206024332
+  - rid: 6864911221206024333
+  - rid: 6864911221206024335
+  - rid: 6864911221206024336
+  - rid: 6864911221206024337
+  - rid: 6864911221206024338
+  - rid: 6864911221206024339
+  - rid: 6864911221206024340
   edges:
-  - GUID: b5f02a6f-7f12-4eeb-94ef-5a8240c8c478
+  - GUID: d434a3ae-12cb-45a1-abd8-23c88e355b57
     owner: {fileID: 11400000}
-    inputNodeGUID: 4a41c8fa-0a98-423d-abf3-41a2c8c8edb9
-    outputNodeGUID: 61a8a241-2567-46b6-97a5-9d99075035a7
-    inputFieldName: SeedPoints
-    outputFieldName: Output
-    inputPortIdentifier: 
-    outputPortIdentifier: 
-  - GUID: 5d1595a2-669a-419a-b19a-7fc153617dfa
-    owner: {fileID: 11400000}
-    inputNodeGUID: 5f4c20cf-b4e9-46d2-9f6a-fb58372bf9d2
-    outputNodeGUID: f61ac86f-c921-4e8a-8b9a-420ee85009c6
-    inputFieldName: NoiseFunction
+    inputNodeGUID: 5b46ef4e-fbca-470c-9265-a17a2dac7542
+    outputNodeGUID: 198b2c84-7d86-4a1d-accd-ff07388c062f
+    inputFieldName: materialInputs
     outputFieldName: output
-    inputPortIdentifier: NoiseFunction
+    inputPortIdentifier: _Source_2D
     outputPortIdentifier: output
-  - GUID: bfc4aee2-15c0-48ba-8347-7d02228c4bed
+  - GUID: bd26db7d-abff-464e-9b2f-0526ddfb32ab
     owner: {fileID: 11400000}
-    inputNodeGUID: 5f4c20cf-b4e9-46d2-9f6a-fb58372bf9d2
-    outputNodeGUID: 4a41c8fa-0a98-423d-abf3-41a2c8c8edb9
-    inputFieldName: Input
-    outputFieldName: Output
-    inputPortIdentifier: 
-    outputPortIdentifier: 
-  - GUID: eb80f29c-4c1d-4013-8e5d-e882a24cc5da
+    inputNodeGUID: 5b46ef4e-fbca-470c-9265-a17a2dac7542
+    outputNodeGUID: 1e885031-a55d-47bf-9cf3-16720ab3affd
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Target_2D
+    outputPortIdentifier: output
+  - GUID: 3ec1a47b-64e5-4583-be14-0ff091bb8046
     owner: {fileID: 11400000}
-    inputNodeGUID: 458b658b-b803-4d3d-b5fe-eb30e06fc26c
-    outputNodeGUID: 5f4c20cf-b4e9-46d2-9f6a-fb58372bf9d2
-    inputFieldName: Input
-    outputFieldName: Output
-    inputPortIdentifier: 
-    outputPortIdentifier: 
-  - GUID: debc7871-d1c6-4dfd-9226-f15d93b18cd7
+    inputNodeGUID: bc7d53b5-d5d0-4802-9cf3-36502ea39b29
+    outputNodeGUID: 5b46ef4e-fbca-470c-9265-a17a2dac7542
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Source_2D
+    outputPortIdentifier: output
+  - GUID: d724289b-be1c-4a20-aa7f-7410c36594fb
     owner: {fileID: 11400000}
-    inputNodeGUID: b7f35d2a-16a2-4047-bc90-de67928dc89a
-    outputNodeGUID: 5f4c20cf-b4e9-46d2-9f6a-fb58372bf9d2
-    inputFieldName: Input
-    outputFieldName: Output
-    inputPortIdentifier: 
-    outputPortIdentifier: 
-  - GUID: d7f81669-a0b9-47da-ac34-0877f196f3f8
+    inputNodeGUID: 0e15efaf-db37-42c7-8aa1-b426728a43fc
+    outputNodeGUID: 08fa287c-760f-433f-9b75-963816fcd3d3
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Source_2D
+    outputPortIdentifier: output
+  - GUID: 44accba8-ee6f-45ba-9ae4-af04194a5a99
     owner: {fileID: 11400000}
-    inputNodeGUID: 910c09f4-ec0c-4a01-ab5b-81c4864103e2
-    outputNodeGUID: 458b658b-b803-4d3d-b5fe-eb30e06fc26c
-    inputFieldName: TerrainInput
-    outputFieldName: Output
-    inputPortIdentifier: 
-    outputPortIdentifier: 
-  - GUID: 0668a841-c9ad-4c48-8d39-cef03029c895
+    inputNodeGUID: bc7d53b5-d5d0-4802-9cf3-36502ea39b29
+    outputNodeGUID: 0e15efaf-db37-42c7-8aa1-b426728a43fc
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Target_2D
+    outputPortIdentifier: output
+  - GUID: dfb64fde-4494-40e9-b340-7ba687725de4
     owner: {fileID: 11400000}
-    inputNodeGUID: 6634e2ee-6817-42ea-8396-f9535488c230
-    outputNodeGUID: 910c09f4-ec0c-4a01-ab5b-81c4864103e2
-    inputFieldName: WindFlowMap
-    outputFieldName: Output
-    inputPortIdentifier: 
-    outputPortIdentifier: 
-  - GUID: da3b6b7f-77bf-40fa-8297-325642bee9ef
+    inputNodeGUID: 7519c91a-2de7-46bd-a917-79d96cee7b2c
+    outputNodeGUID: 254efcd5-9960-4fc9-8925-95f45fce358f
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Target_2D
+    outputPortIdentifier: output
+  - GUID: fcce902f-36f0-4f4a-8da4-8e76ca2a371e
     owner: {fileID: 11400000}
-    inputNodeGUID: 6634e2ee-6817-42ea-8396-f9535488c230
-    outputNodeGUID: b7f35d2a-16a2-4047-bc90-de67928dc89a
-    inputFieldName: MoistureInput
-    outputFieldName: MoistureOut
-    inputPortIdentifier: MoistureInput
-    outputPortIdentifier: MoistureOut
-  - GUID: 02fd11a1-6820-4e27-9d7d-37ea84b73a88
+    inputNodeGUID: 7519c91a-2de7-46bd-a917-79d96cee7b2c
+    outputNodeGUID: bc7d53b5-d5d0-4802-9cf3-36502ea39b29
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Source_2D
+    outputPortIdentifier: output
+  - GUID: 2fe33d45-fbbe-4401-8249-2f5300d2905f
     owner: {fileID: 11400000}
-    inputNodeGUID: 222d33d9-aa16-4182-8992-cafedbdc83f8
-    outputNodeGUID: 458b658b-b803-4d3d-b5fe-eb30e06fc26c
-    inputFieldName: TerrainInput
-    outputFieldName: Output
-    inputPortIdentifier: 
-    outputPortIdentifier: 
-  - GUID: 19b66325-5a7d-4914-8c07-bf344760b2a3
+    inputNodeGUID: 65039524-0e46-409e-a9f6-174684b9cab9
+    outputNodeGUID: 7519c91a-2de7-46bd-a917-79d96cee7b2c
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _MainTex
+    outputPortIdentifier: output
+  - GUID: ebed53e9-6ee4-4327-a78f-da37e05ba901
     owner: {fileID: 11400000}
-    inputNodeGUID: 8e9ee30c-565a-4d1c-b624-affed0c13409
-    outputNodeGUID: 3e3d38d8-9c4c-4bdd-abbc-2b938275d6cb
-    inputFieldName: textureSets
-    outputFieldName: biomeSet
-    inputPortIdentifier: textureSet1
-    outputPortIdentifier: 
-  - GUID: eae54fc3-e34a-4f0c-ac38-3a0041c08c27
+    inputNodeGUID: 91a0b648-1d33-419c-abe0-c8395462717d
+    outputNodeGUID: 65039524-0e46-409e-a9f6-174684b9cab9
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: input
+    outputPortIdentifier: output
+  - GUID: 6f55eb12-0140-4ff6-bb8f-4ae515eb3e29
     owner: {fileID: 11400000}
-    inputNodeGUID: 8e9ee30c-565a-4d1c-b624-affed0c13409
-    outputNodeGUID: bf76cbbc-561e-40b1-85ab-51be6a854246
-    inputFieldName: textureSets
-    outputFieldName: biomeSet
-    inputPortIdentifier: textureSet2
-    outputPortIdentifier: 
+    inputNodeGUID: a6e620b0-60df-41c5-bc98-4ad30a245626
+    outputNodeGUID: dda52d77-c4e3-425c-a3b6-3c0be888286e
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Source_2D
+    outputPortIdentifier: output
+  - GUID: 0844b507-a7a2-470f-bf6f-e32679974c20
+    owner: {fileID: 11400000}
+    inputNodeGUID: b64c9784-2bf5-4cc6-b90a-de18795a4d18
+    outputNodeGUID: dda52d77-c4e3-425c-a3b6-3c0be888286e
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Source
+    outputPortIdentifier: output
+  - GUID: 0be9a84f-b5f9-41c7-9599-792cee7a4384
+    owner: {fileID: 11400000}
+    inputNodeGUID: b64c9784-2bf5-4cc6-b90a-de18795a4d18
+    outputNodeGUID: a6e620b0-60df-41c5-bc98-4ad30a245626
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Slope
+    outputPortIdentifier: output
+  - GUID: 562ff78f-e73f-48dc-8c90-d5cb947222c3
+    owner: {fileID: 11400000}
+    inputNodeGUID: f87dd806-2ad7-4bd5-8a04-8c406435d8af
+    outputNodeGUID: b64c9784-2bf5-4cc6-b90a-de18795a4d18
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _MainTex
+    outputPortIdentifier: output
+  - GUID: 034075d0-6440-4999-84a2-95981eb2c1c6
+    owner: {fileID: 11400000}
+    inputNodeGUID: 604ddbe6-4a10-416f-9b52-22a073248ba2
+    outputNodeGUID: f87dd806-2ad7-4bd5-8a04-8c406435d8af
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Intensity
+    outputPortIdentifier: output
+  - GUID: f2fd9654-cd90-46a1-836f-23bd91872850
+    owner: {fileID: 11400000}
+    inputNodeGUID: 604ddbe6-4a10-416f-9b52-22a073248ba2
+    outputNodeGUID: b64c9784-2bf5-4cc6-b90a-de18795a4d18
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Source
+    outputPortIdentifier: output
+  - GUID: 181f7497-f363-4cc7-a414-a2f8225d20cc
+    owner: {fileID: 11400000}
+    inputNodeGUID: a6c4743a-5b7f-4e0f-9136-07f44d1e55f6
+    outputNodeGUID: 604ddbe6-4a10-416f-9b52-22a073248ba2
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Target_2D
+    outputPortIdentifier: output
+  - GUID: 83f40db0-8832-4b9f-9cb5-91a76fc8239c
+    owner: {fileID: 11400000}
+    inputNodeGUID: a6c4743a-5b7f-4e0f-9136-07f44d1e55f6
+    outputNodeGUID: d0b8bf35-19f8-46ae-b1c3-3a14c67dd10e
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Source_2D
+    outputPortIdentifier: output
+  - GUID: d68171a0-46fd-40da-b34b-7461f689608b
+    owner: {fileID: 11400000}
+    inputNodeGUID: 17e677d1-4cb1-4148-887d-36f4c0b90ef8
+    outputNodeGUID: a6c4743a-5b7f-4e0f-9136-07f44d1e55f6
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _MainTex
+    outputPortIdentifier: output
+  - GUID: 76967417-1f03-4c68-953f-493e977b1e94
+    owner: {fileID: 11400000}
+    inputNodeGUID: d8020673-f8d3-4455-9c50-91ef0c11bbbd
+    outputNodeGUID: 1871c8b9-1198-4c3f-a66f-497ad7c8e849
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Target_2D
+    outputPortIdentifier: output
+  - GUID: a5f536f6-10d0-4526-8e33-9c5668445c73
+    owner: {fileID: 11400000}
+    inputNodeGUID: d8020673-f8d3-4455-9c50-91ef0c11bbbd
+    outputNodeGUID: 17e677d1-4cb1-4148-887d-36f4c0b90ef8
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _Source_2D
+    outputPortIdentifier: output
+  - GUID: 542c2996-2453-4c95-91fa-f53c74f5f7b9
+    owner: {fileID: 11400000}
+    inputNodeGUID: 6af3d700-6687-4549-8745-703abd3eec9b
+    outputNodeGUID: d8020673-f8d3-4455-9c50-91ef0c11bbbd
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _MainTex
+    outputPortIdentifier: output
   groups: []
   stackNodes: []
   pinnedElements: []
   exposedParameters: []
   serializedParameterList: []
-  stickyNotes: []
+  stickyNotes:
+  - position:
+      serializedVersion: 2
+      x: 3322
+      y: 6797.8506
+      width: 312
+      height: 590
+    title: Dirt Level
+    content: Description
   nodeInspectorReference: {fileID: 0}
-  position: {x: -1025, y: -634, z: 0}
-  scale: {x: 0.43232757, y: 0.43232757, z: 1}
+  position: {x: -1401, y: -3708, z: 0}
+  scale: {x: 0.57175326, y: 0.57175326, z: 1}
   objectReferences:
-  - {fileID: 3946263505566616753}
-  - {fileID: -7907076442952928811}
-  - {fileID: -1361297260755288023}
+  - {fileID: -6604741460578873793}
+  - {fileID: 7135343463397160399}
+  - {fileID: 269041776214302121}
+  - {fileID: 4545402470247412333}
+  - {fileID: -333843984085506463}
+  - {fileID: -706499999721652056}
+  - {fileID: 3583568529689143262}
+  - {fileID: -4525808168379230884}
+  - {fileID: 1499581838602689240}
+  - {fileID: -2755908447811281664}
+  - {fileID: -5513545445492233543}
+  - {fileID: 6463088246050740329}
+  - {fileID: 7632296189929536466}
+  - {fileID: -26772626233970429}
+  - {fileID: 821967877655559300}
+  - {fileID: 7605915613585397524}
+  - {fileID: -5954505042871001874}
+  - {fileID: 1222892553712123576}
+  - {fileID: -5976751245198225046}
+  - {fileID: 4690743292664532479}
   defaultNodeInheritanceMode: -2
   _mainOutputTexture: {fileID: 2800000, guid: c7438d47471f3be45be0495b30e42462, type: 3}
   recipes: []
@@ -238,23 +745,22 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 6864910903993171968
-      type: {class: PoissonNoisePointGenerationNode, ns: AhahGames.GenesisNoise.GNTerrain.Nodes,
-        asm: Genesis Noise - Terrain}
+    - rid: 6864911221206024305
+      type: {class: DirtNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
       data:
         nodeCustomName: 
-        GUID: 61a8a241-2567-46b6-97a5-9d99075035a7
+        GUID: 198b2c84-7d86-4a1d-accd-ff07388c062f
         computeOrder: 0
         position:
           serializedVersion: 2
-          x: 85.03407
-          y: -89.99997
-          width: 300
-          height: 554
+          x: 624.502
+          y: 3454
+          width: 325
+          height: 510
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: NaN
+        height: 510
         settings:
           widthScale: 1
           heightScale: 1
@@ -273,37 +779,222 @@ MonoBehaviour:
           filterMode: -2
           refreshMode: 0
           period: 0
-        isPreviewCollapsed: 0
-        previewMode: 15
+        isPreviewCollapsed: 1
+        previewMode: 7
         previewSRGB: 0
         previewMip: 0
-        previewVisible: 1
+        previewVisible: 0
         previewEV100: 0
         previewSlice: 0
         isPinned: 0
         setPosition: 0
-        NumberOfPoints: 4096
-        TerrainSize: 4
-        Radius: 2.5
-        NoiseFunction: 2
-        Seed: 52
-    - rid: 6864910903993171969
-      type: {class: VoronoiGeometryNode, ns: AhahGames.GenesisNoise.GNTerrain.Nodes,
-        asm: Genesis Noise - Terrain}
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: 843f5bcfb210d07438a056904f7d3fdf, type: 3}
+        material: {fileID: -6604741460578873793}
+        exposedProperties:
+        - displayName: Base Scale
+          referenceName: _Scale
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Blotch Density
+          referenceName: _BlotchDensity
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Blotch Radius
+          referenceName: _BlotchRadius
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Blotch Softness
+          referenceName: _BlotchSoftness
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Micro Dust
+          referenceName: _MicroDust
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Micro Dust Scale
+          referenceName: _MicroDustScale
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Occlusion Strength
+          referenceName: _OcclusionStrength
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Occlusion Scale
+          referenceName: _OcclusionScale
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Breakup Strength
+          referenceName: _Breakup
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: 843f5bcfb210d07438a056904f7d3fdf
+    - rid: 6864911221206024307
+      type: {class: Dirt2Node, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
       data:
         nodeCustomName: 
-        GUID: 4a41c8fa-0a98-423d-abf3-41a2c8c8edb9
+        GUID: 1e885031-a55d-47bf-9cf3-16720ab3affd
         computeOrder: 1
         position:
           serializedVersion: 2
-          x: 429
-          y: -90
-          width: 300
-          height: 440
+          x: 627.9999
+          y: 3992
+          width: 325
+          height: 994
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: NaN
+        height: 642
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 1
+        previewMode: 7
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 0
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: d5b1a81e67a42014cb817cf5664c133e, type: 3}
+        material: {fileID: 7135343463397160399}
+        exposedProperties:
+        - displayName: Base Scale
+          referenceName: _Scale
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Mid Blotch Density
+          referenceName: _MidBlotchDensity
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Mid Blotch Radius
+          referenceName: _MidBlotchRadius
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Mid Blotch Softness
+          referenceName: _MidBlotchSoftness
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Fine Dust
+          referenceName: _FineDust
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Fine Dust Scale
+          referenceName: _FineDustScale
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Fine Dust Sharpness
+          referenceName: _FineDustSharpness
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Micro Specks
+          referenceName: _MicroSpecks
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Micro Speck Scale
+          referenceName: _MicroSpeckScale
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Occlusion Strength
+          referenceName: _OcclusionStrength
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Occlusion Scale
+          referenceName: _OcclusionScale
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Breakup Strength
+          referenceName: _Breakup
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: d5b1a81e67a42014cb817cf5664c133e
+    - rid: 6864911221206024314
+      type: {class: BlendNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 5b46ef4e-fbca-470c-9265-a17a2dac7542
+        computeOrder: 2
+        position:
+          serializedVersion: 2
+          x: 1084.2123
+          y: 3708.5002
+          width: 300
+          height: 567
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 553
         settings:
           widthScale: 1
           heightScale: 1
@@ -331,25 +1022,70 @@ MonoBehaviour:
         previewSlice: 0
         isPinned: 0
         setPosition: 0
-        LloydsRelaxation: 1
-        LloydsIterations: 5
-        RelaxationStrength: 0.1
-    - rid: 6864910903993171973
-      type: {class: RidgedCellularNoise, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: dc29c270f00ef03449511881d060a31a, type: 3}
+        material: {fileID: 269041776214302121}
+        exposedProperties:
+        - displayName: Source
+          referenceName: _Source_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Target
+          referenceName: _Target_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Mask
+          referenceName: _Mask_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Opacity
+          referenceName: _Opacity
+          tooltip: Opacity of the Blend, 0 means that only Source is visible and
+            1 that only Target is visible
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Blend Mode
+          referenceName: _BlendMode
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Mask Mode
+          referenceName: _MaskMode
+          tooltip: Select which channel is used to sample the mask value
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Clamp Negative
+          referenceName: _RemoveNegative
+          tooltip: Avoids having negative values in the output texture
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: dc29c270f00ef03449511881d060a31a
+    - rid: 6864911221206024318
+      type: {class: FBMNoise, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
       data:
         nodeCustomName: 
-        GUID: f61ac86f-c921-4e8a-8b9a-420ee85009c6
-        computeOrder: 2
+        GUID: 08fa287c-760f-433f-9b75-963816fcd3d3
+        computeOrder: 3
         position:
           serializedVersion: 2
-          x: 429.00003
-          y: 387.8501
+          x: 1084.0001
+          y: 4364.5327
           width: 300
-          height: 695
+          height: 721
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 681
+        height: 761
         settings:
           widthScale: 1
           heightScale: 1
@@ -378,705 +1114,148 @@ MonoBehaviour:
         isPinned: 0
         setPosition: 0
         output: {fileID: 0}
-        shader: {fileID: 4800000, guid: 709dbd2e7ab678c4cb23bcf7fcf6fb2f, type: 3}
-        material: {fileID: 3946263505566616753}
+        shader: {fileID: 4800000, guid: 8446768fa883d154d94de93a3cedb25c, type: 3}
+        material: {fileID: 4545402470247412333}
         exposedProperties:
-        - displayName: UVs
+        - displayName: UV
           referenceName: _UV_2D
           tooltip: 
           type:
             serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
-        - displayName: Tiling Mode
-          referenceName: _TilingMode
-          tooltip: 
+        - displayName: FBM Type
+          referenceName: _FBMType
+          tooltip: The variant of input for FBM
           type:
             serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
               PublicKeyToken=b77a5c561934e089
-        - displayName: UV Mode
-          referenceName: _UVMode
-          tooltip: 
-          type:
-            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-              PublicKeyToken=b77a5c561934e089
-        - displayName: Distance Mode
-          referenceName: _DistanceMode
-          tooltip: 
-          type:
-            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-              PublicKeyToken=b77a5c561934e089
-        - displayName: Output Range
-          referenceName: _OutputRange
-          tooltip: 
+        - displayName: Scale
+          referenceName: _Scale
+          tooltip: Number of tiles, x and y
           type:
             serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
-        - displayName: Lacunarity
-          referenceName: _Lacunarity
-          tooltip: 
-          type:
-            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-              PublicKeyToken=b77a5c561934e089
-        - displayName: Frequency
-          referenceName: _Frequency
-          tooltip: 
-          type:
-            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-              PublicKeyToken=b77a5c561934e089
-        - displayName: Persistance
-          referenceName: _Persistance
-          tooltip: 
-          type:
-            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-              PublicKeyToken=b77a5c561934e089
         - displayName: Octaves
           referenceName: _Octaves
           tooltip: 
           type:
             serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
               PublicKeyToken=b77a5c561934e089
-        - displayName: Cell Size
-          referenceName: _CellSize
-          tooltip: Act as a multiplier for the distance function
+        - displayName: Axial Shift
+          referenceName: _AxialShift
+          tooltip: Axial or rotational shift for each octave
           type:
             serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
               PublicKeyToken=b77a5c561934e089
-        - displayName: Seed
+        - displayName: Shift
+          referenceName: _Shift
+          tooltip: Position shift for each octave
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Mode
+          referenceName: _Mode
+          tooltip: Mode used in combining the noise for the ocatves
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Time Shift
+          referenceName: _TimeShift
+          tooltip: Time shift for each octave
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Gain
+          referenceName: _Gain
+          tooltip: Gain for each octave
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Lacunarity
+          referenceName: _Lacunarity
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: OctaveFactor
+          referenceName: _OctaveFactor
+          tooltip: The octave intensity factor, the lower the more pronounced the
+            lower octaves will be
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Pow Intensity
+          referenceName: _PowIntensity
+          tooltip: Pow intensity factor
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Offset
+          referenceName: _Offset
+          tooltip: Offsets the value of the noise
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Interpolate
+          referenceName: _Interp
+          tooltip: Interpolate factor between the multiplication mode and normal
+            mode
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Jitter
+          referenceName: _Jitter
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Translate
+          referenceName: _Translate
+          tooltip: Translate factors for the value noise
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Warp Strength
+          referenceName: _WarpStrength
+          tooltip: The warp factor used for domain warping
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Width
+          referenceName: _Width
+          tooltip: Width of the metaballs
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Softness
+          referenceName: _Softness
+          tooltip: Softness of the meatballs
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Seed value
           referenceName: _Seed
           tooltip: 
           type:
             serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
               PublicKeyToken=b77a5c561934e089
-        - displayName: Channels
-          referenceName: _Channels
-          tooltip: Select how many noise to genereate and on which channel. The more
-            different channel you use the more expensive it is (max 4 noise evaluation).
-          type:
-            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-              PublicKeyToken=b77a5c561934e089
-        - displayName: Cells Mode R
-          referenceName: _CellsModeR
-          tooltip: 
-          type:
-            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-              PublicKeyToken=b77a5c561934e089
-        - displayName: Cells Mode G
-          referenceName: _CellsModeG
-          tooltip: 
-          type:
-            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-              PublicKeyToken=b77a5c561934e089
-        - displayName: Cells Mode B
-          referenceName: _CellsModeB
-          tooltip: 
-          type:
-            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-              PublicKeyToken=b77a5c561934e089
-        - displayName: Cells Mode A
-          referenceName: _CellsModeA
-          tooltip: 
-          type:
-            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-              PublicKeyToken=b77a5c561934e089
-        shaderGUID: 709dbd2e7ab678c4cb23bcf7fcf6fb2f
-    - rid: 6864910903993171974
-      type: {class: AdvIslandGeneratorNode, ns: AhahGames.GenesisNoise.GNTerrain.Nodes,
-        asm: Genesis Noise - Terrain}
+        shaderGUID: 8446768fa883d154d94de93a3cedb25c
+    - rid: 6864911221206024319
+      type: {class: BlendNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
       data:
         nodeCustomName: 
-        GUID: 5f4c20cf-b4e9-46d2-9f6a-fb58372bf9d2
-        computeOrder: 3
-        position:
-          serializedVersion: 2
-          x: 811.295
-          y: 164.5175
-          width: 300
-          height: 555
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        height: 555
-        settings:
-          widthScale: 1
-          heightScale: 1
-          depthScale: 1
-          width: 1024
-          height: 1024
-          depth: 1
-          potSize: 2048
-          sizeMode: -2
-          dimension: -2
-          outputChannels: -2
-          outputPrecision: -2
-          editFlags: -257
-          doubleBuffered: 0
-          wrapMode: -2
-          filterMode: -2
-          refreshMode: 0
-          period: 0
-        isPreviewCollapsed: 0
-        previewMode: 15
-        previewSRGB: 0
-        previewMip: 0
-        previewVisible: 1
-        previewEV100: 0
-        previewSlice: 0
-        isPinned: 0
-        setPosition: 0
-        NoiseFunction: {fileID: 0}
-        useCoasts: 1
-        forceEdgeOcean: 1
-        heightCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 1
-            value: 1
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-        noiseInfluence: 0.391
-        allowLakes: 1
-    - rid: 6864910903993172057
-      type: {class: DistanceHeightNode, ns: AhahGames.GenesisNoise.GNTerrain.Nodes,
-        asm: Genesis Noise - Terrain}
-      data:
-        nodeCustomName: 
-        GUID: 458b658b-b803-4d3d-b5fe-eb30e06fc26c
-        computeOrder: 4
-        position:
-          serializedVersion: 2
-          x: 1201.1625
-          y: 165
-          width: 300
-          height: 483
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        height: 483
-        settings:
-          widthScale: 1
-          heightScale: 1
-          depthScale: 1
-          width: 1024
-          height: 1024
-          depth: 1
-          potSize: 2048
-          sizeMode: -2
-          dimension: -2
-          outputChannels: -2
-          outputPrecision: -2
-          editFlags: -257
-          doubleBuffered: 0
-          wrapMode: -2
-          filterMode: -2
-          refreshMode: 0
-          period: 0
-        isPreviewCollapsed: 0
-        previewMode: 15
-        previewSRGB: 0
-        previewMip: 0
-        previewVisible: 1
-        previewEV100: 0
-        previewSlice: 0
-        isPinned: 0
-        setPosition: 0
-        MaximumIterations: 2048
-        maxDistance: 0
-        maxHeight: 1
-        falloffPower: 0.688
-        heightmapRT: {fileID: 0}
-        previewRT: {fileID: 0}
-        preview300: {fileID: 0}
-    - rid: 6864910903993172058
-      type: {class: MoistureGenerator, ns: AhahGames.GenesisNoise.GNTerrain.Nodes,
-        asm: Genesis Noise - Terrain}
-      data:
-        nodeCustomName: 
-        GUID: b7f35d2a-16a2-4047-bc90-de67928dc89a
+        GUID: bc7d53b5-d5d0-4802-9cf3-36502ea39b29
         computeOrder: 5
         position:
           serializedVersion: 2
-          x: 1201
-          y: -341.2472
+          x: 1861
+          y: 4166
           width: 300
-          height: 459
+          height: 567
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 459
-        settings:
-          widthScale: 1
-          heightScale: 1
-          depthScale: 1
-          width: 1024
-          height: 1024
-          depth: 1
-          potSize: 2048
-          sizeMode: -2
-          dimension: -2
-          outputChannels: -2
-          outputPrecision: -2
-          editFlags: -257
-          doubleBuffered: 0
-          wrapMode: -2
-          filterMode: -2
-          refreshMode: 0
-          period: 0
-        isPreviewCollapsed: 0
-        previewMode: 15
-        previewSRGB: 0
-        previewMip: 0
-        previewVisible: 1
-        previewEV100: 0
-        previewSlice: 0
-        isPinned: 0
-        setPosition: 0
-        MoistureOut: {fileID: 0}
-        MaximumIterations: 2048
-        maxDistance: 0
-        maxMoisture: 1.116
-        falloffPower: 0.061
-    - rid: 6864910903993172059
-      type: {class: WindFlowMapNode, ns: AhahGames.GenesisNoise.GNTerrain.Nodes, asm: Genesis Noise - Terrain}
-      data:
-        nodeCustomName: 
-        GUID: 910c09f4-ec0c-4a01-ab5b-81c4864103e2
-        computeOrder: 6
-        position:
-          serializedVersion: 2
-          x: 1625.5189
-          y: 164.99998
-          width: 300
-          height: 659
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        height: 659
-        settings:
-          widthScale: 1
-          heightScale: 1
-          depthScale: 1
-          width: 1024
-          height: 1024
-          depth: 1
-          potSize: 2048
-          sizeMode: -2
-          dimension: -2
-          outputChannels: -2
-          outputPrecision: -2
-          editFlags: -257
-          doubleBuffered: 0
-          wrapMode: -2
-          filterMode: -2
-          refreshMode: 0
-          period: 0
-        isPreviewCollapsed: 0
-        previewMode: 15
-        previewSRGB: 0
-        previewMip: 0
-        previewVisible: 1
-        previewEV100: 0
-        previewSlice: 0
-        isPinned: 0
-        setPosition: 0
-        baseWind: {x: 1, y: 0}
-        terrainInfluence: 1
-        occlusionStrength: 0.5
-        advectionStrength: 0.75
-        advectionSteps: 4
-        stepSize: 1
-        wMacro: 0.6
-        wMeso: 0.3
-        wMicro: 0.1
-        rMacro: 16
-        rMeso: 6
-        rMicro: 2
-        debugMode: 6
-        debugOutput: {fileID: 0}
-    - rid: 6864910953283059794
-      type: {class: MoistureAdvectionNode, ns: AhahGames.GenesisNoise.GNTerrain.Nodes,
-        asm: Genesis Noise - Terrain}
-      data:
-        nodeCustomName: 
-        GUID: 6634e2ee-6817-42ea-8396-f9535488c230
-        computeOrder: 7
-        position:
-          serializedVersion: 2
-          x: 2102.8054
-          y: 165.3333
-          width: 300
-          height: 686
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        height: 700
-        settings:
-          widthScale: 1
-          heightScale: 1
-          depthScale: 1
-          width: 1024
-          height: 1024
-          depth: 1
-          potSize: 2048
-          sizeMode: -2
-          dimension: -2
-          outputChannels: -2
-          outputPrecision: -2
-          editFlags: -257
-          doubleBuffered: 0
-          wrapMode: -2
-          filterMode: -2
-          refreshMode: 0
-          period: 0
-        isPreviewCollapsed: 0
-        previewMode: 15
-        previewSRGB: 0
-        previewMip: 0
-        previewVisible: 1
-        previewEV100: 0
-        previewSlice: 0
-        isPinned: 0
-        setPosition: 0
-        MoistureInput: {fileID: 0}
-        MoistureOutput: {fileID: 0}
-        Wetness: {fileID: 0}
-        RainMap: {fileID: 0}
-        iterations: 20
-        stepSize: 1.373
-        advectionStrength: 1
-        valleyPull: 0.887
-        rainShadowStrength: 1
-        evaporation: 0.095
-        heightInfluence: 0.667
-        condensationThreshold: 0.904
-        precipitationRate: 1
-        valleyRainBoost: 0.25
-        rainShadowSuppression: 0.5
-        moistureMin: 0
-        moistureMax: 1
-        wetIter: 1
-        precipToWetness: 0.5
-        moistureToWetness: 0.2
-        drainageStrength: 0.5
-        valleyRetention: 0.3
-        evaporationRate: 0.1
-        wetnessMin: 0
-        wetnessMax: 1
-        recombFactor: 0
-        debugMode: 1
-        debugOutput: {fileID: 0}
-    - rid: 6864910953283059795
-      type: {class: TemperatureNode, ns: AhahGames.GenesisNoise.GNTerrain.Nodes, asm: Genesis Noise - Terrain}
-      data:
-        nodeCustomName: 
-        GUID: 222d33d9-aa16-4182-8992-cafedbdc83f8
-        computeOrder: 8
-        position:
-          serializedVersion: 2
-          x: 2103
-          y: -317.1708
-          width: 300
-          height: 132
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        height: 459
-        settings:
-          widthScale: 1
-          heightScale: 1
-          depthScale: 1
-          width: 1024
-          height: 1024
-          depth: 1
-          potSize: 2048
-          sizeMode: -2
-          dimension: -2
-          outputChannels: -2
-          outputPrecision: -2
-          editFlags: -257
-          doubleBuffered: 0
-          wrapMode: -2
-          filterMode: -2
-          refreshMode: 0
-          period: 0
-        isPreviewCollapsed: 0
-        previewMode: 15
-        previewSRGB: 0
-        previewMip: 0
-        previewVisible: 1
-        previewEV100: 0
-        previewSlice: 0
-        isPinned: 0
-        setPosition: 0
-        TemperatureMap: {fileID: 0}
-        ScaleToMapHeight: 1
-        TemperatureCurve:
-          serializedVersion: 2
-          m_Curve:
-          - serializedVersion: 3
-            time: 0
-            value: 0
-            inSlope: 2
-            outSlope: 2
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          - serializedVersion: 3
-            time: 0.7967312
-            value: 0.78550875
-            inSlope: 0.23595649
-            outSlope: 0.23595649
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0.33333334
-            outWeight: 0.33333334
-          - serializedVersion: 3
-            time: 0.9958496
-            value: 1.0166702
-            inSlope: 0
-            outSlope: 0
-            tangentMode: 0
-            weightedMode: 0
-            inWeight: 0
-            outWeight: 0
-          m_PreInfinity: 2
-          m_PostInfinity: 2
-          m_RotationOrder: 4
-    - rid: 6864910953283059798
-      type: {class: BiomeConfiguration, ns: AhahGames.GenesisNoise.GNTerrain, asm: Genesis Noise - Terrain}
-      data:
-        nodeCustomName: 
-        GUID: 8e9ee30c-565a-4d1c-b624-affed0c13409
-        computeOrder: 11
-        position:
-          serializedVersion: 2
-          x: 722.9002
-          y: -810.7002
-          width: 300
-          height: 619
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        height: NaN
-        settings:
-          widthScale: 1
-          heightScale: 1
-          depthScale: 1
-          width: 1024
-          height: 1024
-          depth: 1
-          potSize: 2048
-          sizeMode: -2
-          dimension: -2
-          outputChannels: -2
-          outputPrecision: -2
-          editFlags: -257
-          doubleBuffered: 0
-          wrapMode: -2
-          filterMode: -2
-          refreshMode: 0
-          period: 0
-        isPreviewCollapsed: 0
-        previewMode: 15
-        previewSRGB: 0
-        previewMip: 0
-        previewVisible: 1
-        previewEV100: 0
-        previewSlice: 0
-        isPinned: 0
-        setPosition: 0
-        BiomeName: Beach
-        MoistureMin: 4
-        ElevationMin: 0
-        MoistureMax: 7
-        ElevationMax: 0
-        AntiTileFeatures: 1
-    - rid: 6864910953283059799
-      type: {class: BiomeTextureSet, ns: AhahGames.GenesisNoise.GNTerrain, asm: Genesis Noise - Terrain}
-      data:
-        nodeCustomName: 
-        GUID: 3e3d38d8-9c4c-4bdd-abbc-2b938275d6cb
-        computeOrder: 9
-        position:
-          serializedVersion: 2
-          x: 163.2311
-          y: -1212.2095
-          width: 300
-          height: 366
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        height: NaN
-        settings:
-          widthScale: 1
-          heightScale: 1
-          depthScale: 1
-          width: 1024
-          height: 1024
-          depth: 1
-          potSize: 2048
-          sizeMode: -2
-          dimension: -2
-          outputChannels: -2
-          outputPrecision: -2
-          editFlags: -257
-          doubleBuffered: 0
-          wrapMode: -2
-          filterMode: -2
-          refreshMode: 0
-          period: 0
-        isPreviewCollapsed: 0
-        previewMode: 15
-        previewSRGB: 0
-        previewMip: 0
-        previewVisible: 1
-        previewEV100: 0
-        previewSlice: 0
-        isPinned: 0
-        setPosition: 0
-        diffuseTexture: {fileID: 2800000, guid: 5abaeb270b844dd4c98089a0e06e6741,
-          type: 3}
-        normalTexture: {fileID: 2800000, guid: a2fc7c056f3b78340a52ef179b8f1869, type: 3}
-        heightTexture: {fileID: 2800000, guid: 3f5e4983e1d55614794b355d8fd39b62, type: 3}
-        smoothnessTexture: {fileID: 2800000, guid: eb976cb5c4477da46afc8c00bd168280,
-          type: 3}
-        aoTexture: {fileID: 2800000, guid: 9f09ffa491fbe3f4fb897113accae491, type: 3}
-        invertSmoothness: 1
-    - rid: 6864910953283059800
-      type: {class: BiomeTextureSet, ns: AhahGames.GenesisNoise.GNTerrain, asm: Genesis Noise - Terrain}
-      data:
-        nodeCustomName: 
-        GUID: bf76cbbc-561e-40b1-85ab-51be6a854246
-        computeOrder: 10
-        position:
-          serializedVersion: 2
-          x: 163.00003
-          y: -846
-          width: 300
-          height: 366
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        height: NaN
-        settings:
-          widthScale: 1
-          heightScale: 1
-          depthScale: 1
-          width: 1024
-          height: 1024
-          depth: 1
-          potSize: 2048
-          sizeMode: -2
-          dimension: -2
-          outputChannels: -2
-          outputPrecision: -2
-          editFlags: -257
-          doubleBuffered: 0
-          wrapMode: -2
-          filterMode: -2
-          refreshMode: 0
-          period: 0
-        isPreviewCollapsed: 0
-        previewMode: 15
-        previewSRGB: 0
-        previewMip: 0
-        previewVisible: 1
-        previewEV100: 0
-        previewSlice: 0
-        isPinned: 0
-        setPosition: 0
-        diffuseTexture: {fileID: 2800000, guid: 7752a2932a9af034bb01cc31c55683c3,
-          type: 3}
-        normalTexture: {fileID: 2800000, guid: 0afce2eb3b8ece544802dcb7f3ab7f14, type: 3}
-        heightTexture: {fileID: 2800000, guid: 0115ae63cb80d1242b49dcd937dd690c, type: 3}
-        smoothnessTexture: {fileID: 2800000, guid: b7fcc6962bcbc0541b2d2f20184d2767,
-          type: 3}
-        aoTexture: {fileID: 2800000, guid: 0fdc572aaba469444add7e607a4893bd, type: 3}
-        invertSmoothness: 1
-    - rid: 6864910953283059803
-      type: {class: BiomeTextureSet, ns: AhahGames.GenesisNoise.GNTerrain, asm: Genesis Noise - Terrain}
-      data:
-        nodeCustomName: 
-        GUID: ed35c163-9db0-4930-abd4-a2862c2bc127
-        computeOrder: 12
-        position:
-          serializedVersion: 2
-          x: 163.00003
-          y: -483.93408
-          width: 300
-          height: 366
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        height: NaN
-        settings:
-          widthScale: 1
-          heightScale: 1
-          depthScale: 1
-          width: 1024
-          height: 1024
-          depth: 1
-          potSize: 2048
-          sizeMode: -2
-          dimension: -2
-          outputChannels: -2
-          outputPrecision: -2
-          editFlags: -257
-          doubleBuffered: 0
-          wrapMode: -2
-          filterMode: -2
-          refreshMode: 0
-          period: 0
-        isPreviewCollapsed: 0
-        previewMode: 15
-        previewSRGB: 0
-        previewMip: 0
-        previewVisible: 1
-        previewEV100: 0
-        previewSlice: 0
-        isPinned: 0
-        setPosition: 0
-        diffuseTexture: {fileID: 2800000, guid: 66bdceb26ee58184e94fde01d53ac592,
-          type: 3}
-        normalTexture: {fileID: 2800000, guid: b06b43981c3e4a14cb7e9eb4379c54e0, type: 3}
-        heightTexture: {fileID: 2800000, guid: 86afdb8430707a147a83455079577142, type: 3}
-        smoothnessTexture: {fileID: 2800000, guid: d8e076743415f134abcdc1bd761ec342,
-          type: 3}
-        aoTexture: {fileID: 2800000, guid: a948885cb8c63d54392821d414d72fa6, type: 3}
-        invertSmoothness: 1
-    - rid: 6864911178008625246
-      type: {class: WhiteNoise, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
-      data:
-        nodeCustomName: 
-        GUID: 20775324-7559-4c35-b3fa-bd71768afe5d
-        computeOrder: 13
-        position:
-          serializedVersion: 2
-          x: 2860.9995
-          y: 200.41855
-          width: 300
-          height: 519
-        expanded: 0
-        debug: 0
-        nodeLock: 0
-        height: NaN
+        height: 553
         settings:
           widthScale: 1
           heightScale: 1
@@ -1105,32 +1284,489 @@ MonoBehaviour:
         isPinned: 0
         setPosition: 0
         output: {fileID: 0}
-        shader: {fileID: 4800000, guid: 88f45c924e1d2434bb576fea57ed02b0, type: 3}
-        material: {fileID: -7907076442952928811}
+        shader: {fileID: 4800000, guid: dc29c270f00ef03449511881d060a31a, type: 3}
+        material: {fileID: -333843984085506463}
         exposedProperties:
-        - displayName: Mode
-          referenceName: _Mode
+        - displayName: Source
+          referenceName: _Source_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Target
+          referenceName: _Target_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Mask
+          referenceName: _Mask_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Opacity
+          referenceName: _Opacity
+          tooltip: Opacity of the Blend, 0 means that only Source is visible and
+            1 that only Target is visible
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Blend Mode
+          referenceName: _BlendMode
           tooltip: 
           type:
             serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
               PublicKeyToken=b77a5c561934e089
-        shaderGUID: 88f45c924e1d2434bb576fea57ed02b0
-    - rid: 6864911178008625247
+        - displayName: Mask Mode
+          referenceName: _MaskMode
+          tooltip: Select which channel is used to sample the mask value
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Clamp Negative
+          referenceName: _RemoveNegative
+          tooltip: Avoids having negative values in the output texture
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: dc29c270f00ef03449511881d060a31a
+    - rid: 6864911221206024321
+      type: {class: InvertColorNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 0e15efaf-db37-42c7-8aa1-b426728a43fc
+        computeOrder: 4
+        position:
+          serializedVersion: 2
+          x: 1463
+          y: 4376.5
+          width: 300
+          height: 713
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 713
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 7
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: f4d28858f82892b409a37c2b8f1746ab, type: 3}
+        material: {fileID: -706499999721652056}
+        exposedProperties:
+        - displayName: Input
+          referenceName: _Source_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Inversion type
+          referenceName: _iType
+          tooltip: Invertion type, either RGB or HSV
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Red
+          referenceName: _redChannel
+          tooltip: Invert red channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Green
+          referenceName: _greenChannel
+          tooltip: Invert green channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Blue
+          referenceName: _blueChannel
+          tooltip: Invert blue channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Hue
+          referenceName: _hueChannel
+          tooltip: Invert hue channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Saturation
+          referenceName: _saturationChannel
+          tooltip: Invert saturation channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Value
+          referenceName: _valueChannel
+          tooltip: Invert value channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Alpha
+          referenceName: _alphaChannel
+          tooltip: Invert alpha channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: f4d28858f82892b409a37c2b8f1746ab
+    - rid: 6864911221206024323
+      type: {class: DirtFineNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 254efcd5-9960-4fc9-8925-95f45fce358f
+        computeOrder: 6
+        position:
+          serializedVersion: 2
+          x: 1850.3602
+          y: 4733
+          width: 325
+          height: 862
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 862
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 7
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: f67657b78c4276443aa30c727bd7751d, type: 3}
+        material: {fileID: 3583568529689143262}
+        exposedProperties:
+        - displayName: Base Scale
+          referenceName: _Scale
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Dust Density
+          referenceName: _DustDensity
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Dust Scale
+          referenceName: _DustScale
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Dust Sharpness
+          referenceName: _DustSharpness
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Micro Specks
+          referenceName: _MicroSpecks
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Micro Speck Scale
+          referenceName: _MicroSpeckScale
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Soft Occlusion
+          referenceName: _SoftOcclusion
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Occlusion Scale
+          referenceName: _OcclusionScale
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Breakup Strength
+          referenceName: _Breakup
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: f67657b78c4276443aa30c727bd7751d
+    - rid: 6864911221206024324
+      type: {class: BlendNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 7519c91a-2de7-46bd-a917-79d96cee7b2c
+        computeOrder: 7
+        position:
+          serializedVersion: 2
+          x: 2274.7913
+          y: 4487.136
+          width: 300
+          height: 567
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 553
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: dc29c270f00ef03449511881d060a31a, type: 3}
+        material: {fileID: -4525808168379230884}
+        exposedProperties:
+        - displayName: Source
+          referenceName: _Source_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Target
+          referenceName: _Target_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Mask
+          referenceName: _Mask_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Opacity
+          referenceName: _Opacity
+          tooltip: Opacity of the Blend, 0 means that only Source is visible and
+            1 that only Target is visible
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Blend Mode
+          referenceName: _BlendMode
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Mask Mode
+          referenceName: _MaskMode
+          tooltip: Select which channel is used to sample the mask value
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Clamp Negative
+          referenceName: _RemoveNegative
+          tooltip: Avoids having negative values in the output texture
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: dc29c270f00ef03449511881d060a31a
+    - rid: 6864911221206024325
+      type: {class: ToNormalNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 65039524-0e46-409e-a9f6-174684b9cab9
+        computeOrder: 8
+        position:
+          serializedVersion: 2
+          x: 2637.8005
+          y: 4487
+          width: 300
+          height: 567
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 553
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: 2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -321
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: 15b95822c78b5bd429da02a228c94e30, type: 3}
+        material: {fileID: 1499581838602689240}
+        exposedProperties:
+        - displayName: Source Heightmap
+          referenceName: _MainTex
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Normal Strength
+          referenceName: _Strength
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Height Bias
+          referenceName: _Bias
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Height Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: 15b95822c78b5bd429da02a228c94e30
+    - rid: 6864911221206024326
+      type: {class: Texture2DOutputNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 91a0b648-1d33-419c-abe0-c8395462717d
+        computeOrder: 9
+        position:
+          serializedVersion: 2
+          x: 2989.0107
+          y: 4487
+          width: 300
+          height: 533
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 533
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        asset: {fileID: 0}
+        wrapMode: 0
+        filterMode: 1
+        hasMipMaps: 0
+    - rid: 6864911221206024328
       type: {class: PerlinNoise, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
       data:
         nodeCustomName: 
-        GUID: 80865744-4a7c-4661-8230-b23529411ca5
-        computeOrder: 14
+        GUID: dda52d77-c4e3-425c-a3b6-3c0be888286e
+        computeOrder: 10
         position:
           serializedVersion: 2
-          x: 2861
-          y: 771.01697
+          x: -164.71216
+          y: 6260.7476
           width: 300
           height: 617
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: NaN
+        height: 617
         settings:
           widthScale: 1
           heightScale: 1
@@ -1160,7 +1796,7 @@ MonoBehaviour:
         setPosition: 0
         output: {fileID: 0}
         shader: {fileID: 4800000, guid: 3ff8d72a4c500ad4093607671bcd9097, type: 3}
-        material: {fileID: -1361297260755288023}
+        material: {fileID: -2755908447811281664}
         exposedProperties:
         - displayName: UVs
           referenceName: _UV_2D
@@ -1224,20 +1860,1086 @@ MonoBehaviour:
             serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
               PublicKeyToken=b77a5c561934e089
         shaderGUID: 3ff8d72a4c500ad4093607671bcd9097
---- !u!21 &3946263505566616753
+    - rid: 6864911221206024329
+      type: {class: InvertColorNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: a6e620b0-60df-41c5-bc98-4ad30a245626
+        computeOrder: 11
+        position:
+          serializedVersion: 2
+          x: 253.28784
+          y: 6482.7476
+          width: 300
+          height: 713
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 713
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 7
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: f4d28858f82892b409a37c2b8f1746ab, type: 3}
+        material: {fileID: -5513545445492233543}
+        exposedProperties:
+        - displayName: Input
+          referenceName: _Source_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Inversion type
+          referenceName: _iType
+          tooltip: Invertion type, either RGB or HSV
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Red
+          referenceName: _redChannel
+          tooltip: Invert red channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Green
+          referenceName: _greenChannel
+          tooltip: Invert green channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Blue
+          referenceName: _blueChannel
+          tooltip: Invert blue channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Hue
+          referenceName: _hueChannel
+          tooltip: Invert hue channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Saturation
+          referenceName: _saturationChannel
+          tooltip: Invert saturation channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Value
+          referenceName: _valueChannel
+          tooltip: Invert value channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert Alpha
+          referenceName: _alphaChannel
+          tooltip: Invert alpha channel
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: f4d28858f82892b409a37c2b8f1746ab
+    - rid: 6864911221206024330
+      type: {class: SlopeBlurNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: b64c9784-2bf5-4cc6-b90a-de18795a4d18
+        computeOrder: 12
+        position:
+          serializedVersion: 2
+          x: 643.28784
+          y: 6260.7476
+          width: 300
+          height: 665
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 665
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: 9c5e4f9b4d1e4ed42a6059c00a5f3995, type: 3}
+        material: {fileID: 6463088246050740329}
+        exposedProperties:
+        - displayName: Source Heightmap
+          referenceName: _Source
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Slope Map
+          referenceName: _Slope
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Blur Radius
+          referenceName: _Radius
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Slope Strength
+          referenceName: _Strength
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Height Bias
+          referenceName: _Bias
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Height Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Blend Mode
+          referenceName: _Mode
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: 9c5e4f9b4d1e4ed42a6059c00a5f3995
+    - rid: 6864911221206024332
+      type: {class: HistogramScanNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: f87dd806-2ad7-4bd5-8a04-8c406435d8af
+        computeOrder: 13
+        position:
+          serializedVersion: 2
+          x: 1132.288
+          y: 6810.7476
+          width: 200
+          height: 453
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 453
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: f840675fe96fa9a4488e6446a5a84c6f, type: 3}
+        material: {fileID: 7632296189929536466}
+        exposedProperties:
+        - displayName: Source Grayscale
+          referenceName: _MainTex
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Position
+          referenceName: _Position
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert
+          referenceName: _Invert
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: f840675fe96fa9a4488e6446a5a84c6f
+    - rid: 6864911221206024333
+      type: {class: SlopeBlurNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 604ddbe6-4a10-416f-9b52-22a073248ba2
+        computeOrder: 14
+        position:
+          serializedVersion: 2
+          x: 1419.288
+          y: 6290.7476
+          width: 300
+          height: 621
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 621
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: 2cb9b1400e3bccf4bafcfe6cb4c96105, type: 3}
+        material: {fileID: -26772626233970429}
+        exposedProperties:
+        - displayName: Source Heightmap
+          referenceName: _Source
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Intensity Map
+          referenceName: _Intensity
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Max Blur Radius
+          referenceName: _MaxRadius
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Blend Mode (0=min,1=max,2=avg)
+          referenceName: _Mode
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Height Bias
+          referenceName: _Bias
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Height Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: 2cb9b1400e3bccf4bafcfe6cb4c96105
+    - rid: 6864911221206024335
+      type: {class: Clouds2Node, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: d0b8bf35-19f8-46ae-b1c3-3a14c67dd10e
+        computeOrder: 15
+        position:
+          serializedVersion: 2
+          x: 1791.721
+          y: 5762.8867
+          width: 300
+          height: 617
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 617
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 7
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: 419e969d1de1a03498066508d5b7199a, type: 3}
+        material: {fileID: 821967877655559300}
+        exposedProperties:
+        - displayName: Base Scale
+          referenceName: _Scale
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Sharpness
+          referenceName: _Sharpness
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Detail Amount
+          referenceName: _Detail
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Value Offset
+          referenceName: _Offset
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: 419e969d1de1a03498066508d5b7199a
+    - rid: 6864911221206024336
+      type: {class: BlendNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: a6c4743a-5b7f-4e0f-9136-07f44d1e55f6
+        computeOrder: 16
+        position:
+          serializedVersion: 2
+          x: 2236.3477
+          y: 6247.4897
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 553
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: dc29c270f00ef03449511881d060a31a, type: 3}
+        material: {fileID: 7605915613585397524}
+        exposedProperties:
+        - displayName: Source
+          referenceName: _Source_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Target
+          referenceName: _Target_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Mask
+          referenceName: _Mask_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Opacity
+          referenceName: _Opacity
+          tooltip: Opacity of the Blend, 0 means that only Source is visible and
+            1 that only Target is visible
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Blend Mode
+          referenceName: _BlendMode
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Mask Mode
+          referenceName: _MaskMode
+          tooltip: Select which channel is used to sample the mask value
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Clamp Negative
+          referenceName: _RemoveNegative
+          tooltip: Avoids having negative values in the output texture
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: dc29c270f00ef03449511881d060a31a
+    - rid: 6864911221206024337
+      type: {class: AutoLevelsNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 17e677d1-4cb1-4148-887d-36f4c0b90ef8
+        computeOrder: 17
+        position:
+          serializedVersion: 2
+          x: 2684.255
+          y: 6247.001
+          width: 200
+          height: 555
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 555
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: 2ed65b83943af014497f76b97c106dc0, type: 3}
+        material: {fileID: -5954505042871001874}
+        exposedProperties:
+        - displayName: Source Grayscale
+          referenceName: _MainTex
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Min Value
+          referenceName: _Min
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Max Value
+          referenceName: _Max
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Auto Estimate Min/Max
+          referenceName: _AutoEstimate
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert
+          referenceName: _Invert
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: 2ed65b83943af014497f76b97c106dc0
+    - rid: 6864911221206024338
+      type: {class: Clouds1Node, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 1871c8b9-1198-4c3f-a66f-497ad7c8e849
+        computeOrder: 18
+        position:
+          serializedVersion: 2
+          x: 2492.3633
+          y: 6862.8857
+          width: 300
+          height: 617
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 631
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 7
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: 475aa33fb38468c43b1f221379fbe243, type: 3}
+        material: {fileID: 1222892553712123576}
+        exposedProperties:
+        - displayName: Base Scale
+          referenceName: _Scale
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Detail Amount
+          referenceName: _Detail
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Softness
+          referenceName: _Softness
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Value Offset
+          referenceName: _Offset
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: 475aa33fb38468c43b1f221379fbe243
+    - rid: 6864911221206024339
+      type: {class: BlendNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: d8020673-f8d3-4455-9c50-91ef0c11bbbd
+        computeOrder: 19
+        position:
+          serializedVersion: 2
+          x: 2951
+          y: 6863
+          width: 300
+          height: 567
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 567
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: dc29c270f00ef03449511881d060a31a, type: 3}
+        material: {fileID: -5976751245198225046}
+        exposedProperties:
+        - displayName: Source
+          referenceName: _Source_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Target
+          referenceName: _Target_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Mask
+          referenceName: _Mask_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Opacity
+          referenceName: _Opacity
+          tooltip: Opacity of the Blend, 0 means that only Source is visible and
+            1 that only Target is visible
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Blend Mode
+          referenceName: _BlendMode
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Mask Mode
+          referenceName: _MaskMode
+          tooltip: Select which channel is used to sample the mask value
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Clamp Negative
+          referenceName: _RemoveNegative
+          tooltip: Avoids having negative values in the output texture
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: dc29c270f00ef03449511881d060a31a
+    - rid: 6864911221206024340
+      type: {class: HistogramScanNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 6af3d700-6687-4549-8745-703abd3eec9b
+        computeOrder: 20
+        position:
+          serializedVersion: 2
+          x: 3354.0176
+          y: 6863
+          width: 200
+          height: 453
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 467
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: f840675fe96fa9a4488e6446a5a84c6f, type: 3}
+        material: {fileID: 4690743292664532479}
+        exposedProperties:
+        - displayName: Source Grayscale
+          referenceName: _MainTex
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Position
+          referenceName: _Position
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert
+          referenceName: _Invert
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: f840675fe96fa9a4488e6446a5a84c6f
+--- !u!21 &269041776214302121
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/Blend
+  m_Shader: {fileID: 4800000, guid: dc29c270f00ef03449511881d060a31a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords:
+  - _REMOVENEGATIVE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BlendMode: 24
+    - _MaskMode: 4
+    - _Opacity: 0.893
+    - _RemoveNegative: 1
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &821967877655559300
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/Genesis/RidgedCellularNoise
-  m_Shader: {fileID: 4800000, guid: 709dbd2e7ab678c4cb23bcf7fcf6fb2f, type: 3}
+  m_Name: Hidden/Genesis/ShaderNodeDefault
+  m_Shader: {fileID: 4800000, guid: 419e969d1de1a03498066508d5b7199a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - CRT_2D
-  - _TILINGMODE_TILED
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Contrast: 1.8
+    - _Detail: 0.548
+    - _Offset: -0.19
+    - _Sharpness: 3.87
+    m_Colors:
+    - _Scale: {r: 8, g: 8, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &1222892553712123576
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/Clouds1
+  m_Shader: {fileID: 4800000, guid: 475aa33fb38468c43b1f221379fbe243, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Contrast: 0.66
+    - _Detail: 0.65
+    - _Offset: 0
+    - _Softness: 3
+    m_Colors:
+    - _Scale: {r: 25, g: 25, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &1499581838602689240
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/HeightToNormal
+  m_Shader: {fileID: 4800000, guid: 15b95822c78b5bd429da02a228c94e30, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Bias: 0.04
+    - _Contrast: 0.33
+    - _Strength: 10
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &3583568529689143262
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/GrungeDirtFine
+  m_Shader: {fileID: 4800000, guid: f67657b78c4276443aa30c727bd7751d, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Breakup: 0.65
+    - _Contrast: 1.4
+    - _DustDensity: 0.55
+    - _DustScale: 22
+    - _DustSharpness: 3
+    - _MicroSpeckScale: 60
+    - _MicroSpecks: 0.45
+    - _OcclusionScale: 2.5
+    - _SoftOcclusion: 0.35
+    m_Colors:
+    - _Scale: {r: 8, g: 8, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &4545402470247412333
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/FBM
+  m_Shader: {fileID: 4800000, guid: 8446768fa883d154d94de93a3cedb25c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -1263,21 +2965,251 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CellSize: 1
-    - _CellsModeA: 0
-    - _CellsModeB: 0
-    - _CellsModeG: 0
-    - _CellsModeR: 0
-    - _Channels: 0
-    - _DistanceMode: 0
-    - _Frequency: 2
-    - _Lacunarity: 2
-    - _Octaves: 2
-    - _Persistance: 0.9
-    - _Seed: 42
-    - _TilingMode: 1
-    - _UVMode: 0
+    - _AxialShift: 0
+    - _FBMType: 1
+    - _Gain: 0.5
+    - _Interp: 0
+    - _Jitter: 1
+    - _Lacunarity: 1
+    - _Mode: 0
+    - _OctaveFactor: 0
+    - _Octaves: 5
+    - _Offset: 0
+    - _PowIntensity: 1
+    - _Seed: 0
+    - _Shift: 0
+    - _Softness: 0.01
+    - _TimeShift: 0
+    - _WarpStrength: 0.5
+    - _Width: 0.1
     m_Colors:
-    - _OutputRange: {r: -1, g: 1, b: 0, a: 0}
+    - _Scale: {r: 15, g: 15, b: 0, a: 0}
+    - _Translate: {r: 0.5, g: -0.25, b: 0.15, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &4690743292664532479
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/HistogramScan
+  m_Shader: {fileID: 4800000, guid: f840675fe96fa9a4488e6446a5a84c6f, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Contrast: 0.8
+    - _Invert: 0
+    - _Position: 0.12
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &6463088246050740329
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/SlopeBlurGrayscale
+  m_Shader: {fileID: 4800000, guid: 9c5e4f9b4d1e4ed42a6059c00a5f3995, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Slope:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Bias: -0.04
+    - _Contrast: 1.12
+    - _Mode: 2
+    - _Radius: 10
+    - _Strength: 1.85
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &7135343463397160399
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/GrungeDirt2
+  m_Shader: {fileID: 4800000, guid: d5b1a81e67a42014cb817cf5664c133e, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Breakup: 0.65
+    - _Contrast: 3.36
+    - _FineDust: 0.812
+    - _FineDustScale: 16
+    - _FineDustSharpness: 2.5
+    - _MicroSpeckScale: 50
+    - _MicroSpecks: 0.35
+    - _MidBlotchDensity: 0.927
+    - _MidBlotchRadius: 1.37
+    - _MidBlotchSoftness: 3.8
+    - _OcclusionScale: 2
+    - _OcclusionStrength: 0.45
+    m_Colors:
+    - _Scale: {r: 1, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &7605915613585397524
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/Blend
+  m_Shader: {fileID: 4800000, guid: dc29c270f00ef03449511881d060a31a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords:
+  - _REMOVENEGATIVE_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Mask_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Target_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _BlendMode: 0
+    - _MaskMode: 4
+    - _Opacity: 0.595
+    - _RemoveNegative: 1
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &7632296189929536466
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/HistogramScan
+  m_Shader: {fileID: 4800000, guid: f840675fe96fa9a4488e6446a5a84c6f, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Contrast: 0.72
+    - _Invert: 0
+    - _Position: 0.2
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

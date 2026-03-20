@@ -15,7 +15,7 @@ Takes an input texture and converts it to a normal.  Usually used on a height ma
     {
         public override string name => "Heightmap To Normal";
 
-        public override string ShaderName => "Hidden/Genesis/ToNormal";
+        public override string ShaderName => "Hidden/Genesis/HeightToNormal";
 
         public override bool DisplayMaterialInspector => true;
 
