@@ -152,6 +152,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Cast\ToBoolNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisRemapModeDrawer.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\DiffusionAnisotropicNode.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Tiling\MakeTiledPhotoNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Constant\QuaternionNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\RecipeNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\PoliginizeNode.cs" />
@@ -315,6 +316,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Utility\DebugNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Graph\Inspectors\NodeInspectorSettingsPopupWindow.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\NodeInspectorObject.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Tiling\MakeTiledNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\OutputNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Random\RandomPointInCubeNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Math\MultiplyNodeView.cs" />
@@ -551,6 +553,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Resources\GraphProcessorStyles\NodeSettings.uss" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Functions\CloudLayerDecode.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\BWSpots2.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Tiling\MakeItTilePatch.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\GenesisVoronoi.hlsl" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Utils\SelfInitialization.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\TileWrap.shader" />
@@ -722,6 +725,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\ForeachStyle.uss" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\Fur.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Math\Div.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Tiling\MakeItTilePhoto.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\FastNoiseLite.hlsl" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\FloodFillToRandomGrayscale.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Grime8.shader" />
