@@ -12,7 +12,6 @@ namespace AhahGames.GenesisNoise.Nodes
         public override string ShaderName => "Hidden/Genesis/Honeycomb";
 
         public override string name => "Honeycomb Noise";
-
-        public override string NodeGroup => "Noise";
+        public override string NodeGroup => "Noise";        
     }
 }

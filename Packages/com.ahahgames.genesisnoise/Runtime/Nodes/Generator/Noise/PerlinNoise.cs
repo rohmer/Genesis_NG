@@ -16,6 +16,6 @@ Be careful with because if you use a UV with a distorted z value, you'll get a w
     {
         public override string name => "Perlin Noise";
         public override string NodeGroup => "Noise";
-        public override string ShaderName => "Hidden/Genesis/PerlinNoise";
+        public override string ShaderName => "Hidden/Genesis/PerlinNoise";        
     }
 }

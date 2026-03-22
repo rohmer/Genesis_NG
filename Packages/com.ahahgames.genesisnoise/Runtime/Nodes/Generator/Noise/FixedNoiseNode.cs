@@ -9,7 +9,7 @@ using UnityEngine.Rendering;
 public abstract class FixedNoiseNode : FixedShaderNode
 {
     public override bool DisplayMaterialInspector => true;
-
+    public override string NodeGroup => "Noise";
     public override PreviewChannels defaultPreviewChannels => PreviewChannels.RGB; // Hide alpha channel for noise preview
 
     // Enumerate the list of material properties that you don't want to be turned into a connectable port.

@@ -13,5 +13,6 @@ This node is particularly useful for generating random points that are of a spec
         public override string name => "Blue Noise";
 
         public override string ShaderName => "Hidden/Genesis/BlueNoise";
+        public override string NodeGroup => "Noise";
     }
 }

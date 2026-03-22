@@ -13,7 +13,7 @@ The output of this node is a 2D or 3D vector field (normalized vector direction)
     public class CurlNoise : FixedNoiseNode
     {
         public override string ShaderName => "Hidden/Genesis/CurlNoise";
-
+        public override string NodeGroup => "Noise";
         public override string name => "Curl Noise";
     }
 }

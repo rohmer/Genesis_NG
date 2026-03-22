@@ -13,7 +13,6 @@ Generate white noise.
     {
         public override string name => "White Noise";
 
-        public override string NodeGroup => "Noise";
 
         public override string ShaderName => "Hidden/Genesis/WhiteNoise";
 
@@ -21,7 +20,7 @@ Generate white noise.
 
         // Enumerate the list of material properties that you don't want to be turned into a connectable port.
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
-
+        public override string NodeGroup => "Noise";
 
 
     }

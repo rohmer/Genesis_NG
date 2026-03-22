@@ -19,7 +19,7 @@ Worley noise is an extension of the Voronoi diagram that outputs a real value at
             base.filteredOutProperties.Concat(new string[] {
                 "_UseScaling", "_UseSmoothness", "_TilingMode", "_Octaves", "_ImageType",
                 "_ScaleFactor", "_DistanceFunction", "_MinkowskiPower", "_MethodType",
-                "_SearchQuality"});
+                "_SearchQuality"});        
     }
 
 }

@@ -11,11 +11,10 @@ namespace AhahGames.GenesisNoise.Nodes
     [System.Serializable, NodeMenuItem("Generators/Noise/Derivative FBM")]
     public class FBMDNoise : FixedNoiseNode
     {
-        public override string name => "FBM Noise";
+        public override string name => "Derivitive FBM Noise";
 
         public override string NodeGroup => "Noise";
-        public override string ShaderName => "Hidden/Genesis/FBMD";
-
+        public override string ShaderName => "Hidden/Genesis/FBMD";        
         protected override IEnumerable<string> filteredOutProperties => base.filteredOutProperties.Concat(new string[] {
             "_FBMType",
             "_Lacunarity",

@@ -14,8 +14,7 @@ namespace AhahGames.GenesisNoise.Nodes
         public override string name => "FBM Noise";
 
         public override string NodeGroup => "Noise";
-        public override string ShaderName => "Hidden/Genesis/FBM";
-
+        public override string ShaderName => "Hidden/Genesis/FBM";        
         protected override IEnumerable<string> filteredOutProperties => base.filteredOutProperties.Concat(new string[] {
             "_FBMType",
             "_Lacunarity",

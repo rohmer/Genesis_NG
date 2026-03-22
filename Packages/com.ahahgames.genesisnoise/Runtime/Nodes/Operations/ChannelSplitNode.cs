@@ -11,7 +11,7 @@ Return the R, G, B or A channel from an input
     [System.Serializable, NodeMenuItem("Operations/Channel Split")]
     public class ChannelSplitNode : FixedShaderNode
     {
-        public override string name => "Combine";
+        public override string name => "Channel Split";
         public override string NodeGroup => "Operations";
         public override string ShaderName => "Hidden/Genesis/Split";
 
