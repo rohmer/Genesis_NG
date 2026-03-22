@@ -1,4 +1,5 @@
 using AhahGames.GenesisNoise.Graph;
+using AhahGames.GenesisNoise.Runtime.Utility.Themes;
 using AhahGames.GenesisNoise.Utility;
 
 using GraphProcessor;
@@ -161,7 +162,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
         public Texture2D GetHeaderGradient()
         {
-            return ThemeManager.GetInstance().GetNodeGradient(NodeGroup, name, (int)nodeWidth);
+            return ThemeManager.GetInstance().GetBackground(NodeGroup, name, (int)nodeWidth, 30);            
         }
 
         public Color[] GetBorderColors()
@@ -169,6 +170,10 @@ namespace AhahGames.GenesisNoise.Nodes
             return ThemeManager.GetInstance().GetBorderColors(NodeGroup, name);
         }
 
+        public Color GetHeaderTextColor()
+        {
+            return ThemeManager.GetInstance().GetTextColor(NodeGroup, name);
+        }
         public new GenesisGraph graph => base.graph as GenesisGraph;
         [HideInInspector, SerializeField]
         public GenesisNoiseSettings settings = GenesisNoiseSettings.defaultValue;

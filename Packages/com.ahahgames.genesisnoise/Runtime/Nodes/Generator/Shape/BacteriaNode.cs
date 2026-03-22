@@ -10,8 +10,7 @@ Generates a bacteria like noise pattern
     public class BacteriaNode : FixedNoiseNode
     {
         public override string name => "Bacteria";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Shape";
         public override string ShaderName => "Hidden/Genesis/Bacteria";
-
     }
 }

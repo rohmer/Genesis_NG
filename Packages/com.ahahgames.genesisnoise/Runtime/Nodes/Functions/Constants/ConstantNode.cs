@@ -15,6 +15,6 @@ namespace AhahGames.GenesisNoise.Nodes
         internal override float processingTime => 0.0f;
         public override float nodeWidth => 150f;
 
-        public override bool hasSettings => false;
+        public override bool hasSettings => false;       
     }
 }

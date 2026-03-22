@@ -13,6 +13,6 @@ Generates a brick wall pattern
         public override string ShaderName => "Hidden/Genesis/Bricks";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

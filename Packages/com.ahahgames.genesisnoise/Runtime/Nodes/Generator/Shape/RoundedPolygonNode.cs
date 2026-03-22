@@ -13,6 +13,6 @@ Generates a n-sided polygon with optional rounding
         public override string ShaderName => "Hidden/Genesis/RoundedPolygon";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

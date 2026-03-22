@@ -18,5 +18,6 @@ Generates a line pattern. In 3D this node generate cylinders using a signed dist
 
         // Enumerate the list of material properties that you don't want to be turned into a connectable port.
         protected override IEnumerable<string> filteredOutProperties => new string[] { "_Tile", "_Offset", "_Rotation" };
+        public override string NodeGroup => "Shape";
     }
 }

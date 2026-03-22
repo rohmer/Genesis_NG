@@ -11,7 +11,7 @@ namespace AhahGames.GenesisNoise.Nodes
         [Output(name = "Animation Curve", allowMultiple =true)]
         public AnimationCurve output = new();
         public override string name => "Animation Curve";
-        public override float nodeWidth => 150f;
-
+        public override float nodeWidth => 200f;
+        public override string NodeGroup => "Constant";
     }
 }

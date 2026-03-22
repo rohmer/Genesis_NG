@@ -13,6 +13,6 @@ Generates a hexagonal lattice pattern
         public override string ShaderName => "Hidden/Genesis/HexLattice";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

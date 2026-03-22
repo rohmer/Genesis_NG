@@ -13,6 +13,6 @@ Generates a square or rectangle with rounded sides
         public override string ShaderName => "Hidden/Genesis/RoundedRectangle";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

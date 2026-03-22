@@ -13,6 +13,6 @@ Generates a spiral pattern
         public override string ShaderName => "Hidden/Genesis/Spiral";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

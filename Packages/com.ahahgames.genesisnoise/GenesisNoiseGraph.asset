@@ -129,14 +129,6 @@ MonoBehaviour:
     outputFieldName: Output
     inputPortIdentifier: 
     outputPortIdentifier: 
-  - GUID: 4ded80f8-34de-4fb8-9a16-43242686675f
-    owner: {fileID: 11400000}
-    inputNodeGUID: 9635ef41-14fe-4722-984b-a7d0ea545ff4
-    outputNodeGUID: 4bba0294-9446-4138-ba21-c7b23f6098a4
-    inputFieldName: materialInputs
-    outputFieldName: MoistureOut
-    inputPortIdentifier: _Source_2D
-    outputPortIdentifier: MoistureOut
   groups: []
   stackNodes: []
   pinnedElements: []
@@ -144,8 +136,8 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: -237, y: -117, z: 0}
-  scale: {x: 0.49717674, y: 0.49717674, z: 1}
+  position: {x: 507, y: 251, z: 0}
+  scale: {x: 0.375937, y: 0.375937, z: 1}
   objectReferences:
   - {fileID: -4252701292410589266}
   - {fileID: 503566726343436899}
@@ -191,7 +183,7 @@ MonoBehaviour:
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: NaN
+        height: 554
         settings:
           widthScale: 1
           heightScale: 1
@@ -385,7 +377,7 @@ MonoBehaviour:
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: NaN
+        height: 440
         settings:
           widthScale: 1
           heightScale: 1
@@ -432,7 +424,7 @@ MonoBehaviour:
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: NaN
+        height: 555
         settings:
           widthScale: 1
           heightScale: 1
@@ -505,7 +497,7 @@ MonoBehaviour:
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: NaN
+        height: 483
         settings:
           widthScale: 1
           heightScale: 1
@@ -656,7 +648,7 @@ MonoBehaviour:
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: NaN
+        height: 459
         settings:
           widthScale: 1
           heightScale: 1
@@ -736,22 +728,21 @@ MonoBehaviour:
         shader: {fileID: 4800000, guid: b05aef94b9d07f04a8e9b778df390ced, type: 3}
         material: {fileID: 503566726343436899}
         exposedProperties:
-        - displayName: Source
-          referenceName: _Source_2D
+        - displayName: Input
+          referenceName: _Input_2D
           tooltip: 
           type:
             serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
         - displayName: Radius
           referenceName: _Radius
-          tooltip: Radius of the blur kernel, you have a good quality under 64 pixel
-            of radius
+          tooltip: 
           type:
             serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
               PublicKeyToken=b77a5c561934e089
-        - displayName: Direction
+        - displayName: Direction (XY)
           referenceName: _Direction
-          tooltip: Direction vector, note that it does not have to be normalized
+          tooltip: 
           type:
             serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
               Culture=neutral, PublicKeyToken=null
@@ -780,6 +771,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _Input_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Input_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Input_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Source_2D:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}

@@ -11,12 +11,13 @@ namespace AhahGames.GenesisNoise.Nodes
         [Output]
         public Vector2 output;
 
+        [Input]
         public Vector2 pt1 = new(-1, -1);
+        [Input]
         public Vector2 pt2 = new(1, 1);
-
+        public override float nodeWidth => 200;
         public override string name => "Point in Box";
-        public override string NodeGroup => "Random";
-        public override float nodeWidth => GenesisNoiseUtility.smallNodeWidth;
+        public override string NodeGroup => "Random";        
         public override void Process()
         {
             float minX = Mathf.Min(pt1.x, pt2.x);

@@ -18,7 +18,7 @@ namespace AhahGames.GenesisNoise.Nodes
         [Output]
         public object output;
         public override string name => "Log";
-
+        public override string NodeGroup => "Math";
         protected override bool ProcessNode(CommandBuffer cmd)
         {
             if (inputA != null && inputB == null)

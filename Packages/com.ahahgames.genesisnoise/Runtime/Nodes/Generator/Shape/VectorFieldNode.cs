@@ -25,5 +25,6 @@ Currently these patterns are implemented:
 
         // Enumerate the list of material properties that you don't want to be turned into a connectable port.
         protected override IEnumerable<string> filteredOutProperties => new string[] { "_Mode", "_Direction", "_PointInwards", "_StripeCount", "_Randomness", "_Seed", "_Frequency", "_ScrollDirection" };
+        public override string NodeGroup => "Shape";
     }
 }

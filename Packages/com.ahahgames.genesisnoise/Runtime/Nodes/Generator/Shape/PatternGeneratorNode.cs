@@ -10,8 +10,7 @@ Pattern generator.
     public class PatternGeneratorNode : FixedNoiseNode
     {
         public override string name => "Pattern Generator";
-        public override string NodeGroup => "Generators";
         public override string ShaderName => "Hidden/Genesis/PatternGenerator";
-
+        public override string NodeGroup => "Shape";
     }
 }

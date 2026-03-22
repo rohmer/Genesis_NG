@@ -16,7 +16,7 @@ Per texture min/max remap, stretching the histogram so the darkest pixel is 0 an
 
 
         public override bool DisplayMaterialInspector => true;
-        public override float nodeWidth => GenesisNoiseUtility.smallNodeWidth;
+        public override float nodeWidth => 325;
 
         public override bool hasPreview => true;
     }

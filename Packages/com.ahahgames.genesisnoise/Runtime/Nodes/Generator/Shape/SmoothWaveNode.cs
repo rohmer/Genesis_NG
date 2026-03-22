@@ -13,6 +13,6 @@ Generates a smooth wave pattern
         public override string ShaderName => "Hidden/Genesis/SmoothWave";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

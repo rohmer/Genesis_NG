@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Dawn.Guard</id>
+    <version>1.11.0</version>
+    <authors>Şafak Gür</authors>
+    <owners>Şafak Gür</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/safakgur/guard</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/safakgur/guard/master/media/guard-64.png</iconUrl>
+    <description>A high-performance, extensible argument validation library.</description>
+    <copyright>Copyright © 2017 Şafak Gür</copyright>
+    <tags>argument parameter guard validation fluent contract assertion</tags>
+    <repository type="git" url="https://github.com/safakgur/guard" />
+    <dependencies>
+      <group targetFramework=".NETStandard1.0">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+        <dependency id="System.ValueTuple" version="4.5.0" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+</package>

@@ -9,6 +9,6 @@ namespace AhahGames.GenesisNoise.Nodes
         [Output("Float")]
         public float output = 0.0f;
         public override string name => "Float";
-
+        public override string NodeGroup => "Constant";
     }
 }

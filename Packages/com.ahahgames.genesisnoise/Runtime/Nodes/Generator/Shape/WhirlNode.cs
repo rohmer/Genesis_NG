@@ -13,6 +13,6 @@ Generates a Whirl pattern
         public override string ShaderName => "Hidden/Genesis/Whirl";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

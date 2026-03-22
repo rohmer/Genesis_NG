@@ -10,8 +10,7 @@ Dots generator.
     public class DotsGeneratorNode : FixedNoiseNode
     {
         public override string name => "Dots Generator";
-        public override string NodeGroup => "Generators";
         public override string ShaderName => "Hidden/Genesis/DotsShader";
-
+        public override string NodeGroup => "Shape";
     }
 }

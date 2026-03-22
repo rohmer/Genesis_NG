@@ -12,7 +12,7 @@ Generate a Disk, in 3D this node generate a solid spheres.
     public class CircleNode : FixedShaderNode
     {
         public override string name => "Disk";
-
+        public override string NodeGroup => "Shape";
         public override string ShaderName => "Hidden/Genesis/Circles";
 
         public override bool DisplayMaterialInspector => true;

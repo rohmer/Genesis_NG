@@ -13,6 +13,6 @@ Generates a hexagonal grid pattern
         public override string ShaderName => "Hidden/Genesis/HexGrid";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

@@ -11,12 +11,13 @@ namespace AhahGames.GenesisNoise.Nodes
         [Output]
         public Vector2 output;
 
+        [Input]
         public Vector2 pt1 = new(0, 0);
+        [Input]
         public float radius = 1;
-
+        public override float nodeWidth => 200;
         public override string name => "Point in Circle";
         public override string NodeGroup => "Random";
-        public override float nodeWidth => GenesisNoiseUtility.smallNodeWidth;
         public override void Process()
         {
             output = Random.insideUnitCircle * radius + pt1;

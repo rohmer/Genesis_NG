@@ -19,5 +19,6 @@ namespace AhahGames.GenesisNoise.Nodes
 
         public override string name => "Vector3";
         public override float nodeWidth => 210;
+        public override string NodeGroup => "Constant";
     }
 }

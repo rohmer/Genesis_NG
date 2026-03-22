@@ -18,7 +18,7 @@ namespace AhahGames.GenesisNoise.Nodes
         public override string name => "Gradient";
 
         const int SIZE = 256;
-
+        public override string NodeGroup => "Constant";
         protected override void Enable()
         {
             base.Enable();

@@ -9,6 +9,6 @@ namespace AhahGames.GenesisNoise.Nodes
         [Output("Integer")]
         public int output = 0;
         public override string name => "Integer";
-
+        public override string NodeGroup => "Constant";
     }
 }

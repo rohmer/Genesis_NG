@@ -1,5 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!21 &-8433506274839404600
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/AutoLevels
+  m_Shader: {fileID: 4800000, guid: 2ed65b83943af014497f76b97c106dc0, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AutoEstimate: 0
+    - _Contrast: 1
+    - _Invert: 0
+    - _Max: 1
+    - _Min: 0.19
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!21 &-6604741460578873793
 Material:
   serializedVersion: 8
@@ -512,6 +550,8 @@ MonoBehaviour:
   - rid: 6864911221206024338
   - rid: 6864911221206024339
   - rid: 6864911221206024340
+  - rid: 6864911271388774833
+  - rid: 6864911271388774834
   edges:
   - GUID: d434a3ae-12cb-45a1-abd8-23c88e355b57
     owner: {fileID: 11400000}
@@ -681,6 +721,14 @@ MonoBehaviour:
     outputFieldName: output
     inputPortIdentifier: _MainTex
     outputPortIdentifier: output
+  - GUID: 9586838d-9ac8-4e5d-b0e4-d0f0302ee9b5
+    owner: {fileID: 11400000}
+    inputNodeGUID: 89eb67e2-546a-4594-ad90-9840b94db06d
+    outputNodeGUID: e99baa80-1fdf-4962-b8f7-aab891efca4c
+    inputFieldName: materialInputs
+    outputFieldName: output
+    inputPortIdentifier: _MainTex
+    outputPortIdentifier: output
   groups: []
   stackNodes: []
   pinnedElements: []
@@ -689,15 +737,15 @@ MonoBehaviour:
   stickyNotes:
   - position:
       serializedVersion: 2
-      x: 3322
-      y: 6797.8506
-      width: 312
-      height: 590
+      x: 0
+      y: 0
+      width: 0
+      height: 0
     title: Dirt Level
     content: Description
   nodeInspectorReference: {fileID: 0}
-  position: {x: -1401, y: -3708, z: 0}
-  scale: {x: 0.57175326, y: 0.57175326, z: 1}
+  position: {x: -94, y: -7029, z: 0}
+  scale: {x: 1, y: 1, z: 1}
   objectReferences:
   - {fileID: -6604741460578873793}
   - {fileID: 7135343463397160399}
@@ -719,6 +767,8 @@ MonoBehaviour:
   - {fileID: 1222892553712123576}
   - {fileID: -5976751245198225046}
   - {fileID: 4690743292664532479}
+  - {fileID: 945115027090856235}
+  - {fileID: -8433506274839404600}
   defaultNodeInheritanceMode: -2
   _mainOutputTexture: {fileID: 2800000, guid: c7438d47471f3be45be0495b30e42462, type: 3}
   recipes: []
@@ -753,14 +803,14 @@ MonoBehaviour:
         computeOrder: 0
         position:
           serializedVersion: 2
-          x: 624.502
-          y: 3454
-          width: 325
-          height: 510
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 510
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -861,14 +911,14 @@ MonoBehaviour:
         computeOrder: 1
         position:
           serializedVersion: 2
-          x: 627.9999
-          y: 3992
-          width: 325
-          height: 994
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 642
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -987,14 +1037,14 @@ MonoBehaviour:
         computeOrder: 2
         position:
           serializedVersion: 2
-          x: 1084.2123
-          y: 3708.5002
-          width: 300
-          height: 567
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 553
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -1078,14 +1128,14 @@ MonoBehaviour:
         computeOrder: 3
         position:
           serializedVersion: 2
-          x: 1084.0001
-          y: 4364.5327
-          width: 300
-          height: 721
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 761
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -1248,14 +1298,14 @@ MonoBehaviour:
         computeOrder: 5
         position:
           serializedVersion: 2
-          x: 1861
-          y: 4166
-          width: 300
-          height: 567
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 553
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -1339,14 +1389,14 @@ MonoBehaviour:
         computeOrder: 4
         position:
           serializedVersion: 2
-          x: 1463
-          y: 4376.5
-          width: 300
-          height: 713
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 713
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -1441,14 +1491,14 @@ MonoBehaviour:
         computeOrder: 6
         position:
           serializedVersion: 2
-          x: 1850.3602
-          y: 4733
-          width: 325
-          height: 862
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 862
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -1549,14 +1599,14 @@ MonoBehaviour:
         computeOrder: 7
         position:
           serializedVersion: 2
-          x: 2274.7913
-          y: 4487.136
-          width: 300
-          height: 567
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 553
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -1640,14 +1690,14 @@ MonoBehaviour:
         computeOrder: 8
         position:
           serializedVersion: 2
-          x: 2637.8005
-          y: 4487
-          width: 300
-          height: 567
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 553
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -1712,14 +1762,14 @@ MonoBehaviour:
         computeOrder: 9
         position:
           serializedVersion: 2
-          x: 2989.0107
-          y: 4487
-          width: 300
-          height: 533
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 533
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -1740,7 +1790,7 @@ MonoBehaviour:
           period: 0
         isPreviewCollapsed: 0
         previewMode: 15
-        previewSRGB: 0
+        previewSRGB: 1
         previewMip: 0
         previewVisible: 1
         previewEV100: 0
@@ -1759,14 +1809,14 @@ MonoBehaviour:
         computeOrder: 10
         position:
           serializedVersion: 2
-          x: -164.71216
-          y: 6260.7476
-          width: 300
-          height: 617
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 617
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -1868,14 +1918,14 @@ MonoBehaviour:
         computeOrder: 11
         position:
           serializedVersion: 2
-          x: 253.28784
-          y: 6482.7476
-          width: 300
-          height: 713
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 713
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -1970,14 +2020,14 @@ MonoBehaviour:
         computeOrder: 12
         position:
           serializedVersion: 2
-          x: 643.28784
-          y: 6260.7476
-          width: 300
-          height: 665
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 665
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -2060,14 +2110,14 @@ MonoBehaviour:
         computeOrder: 13
         position:
           serializedVersion: 2
-          x: 1132.288
-          y: 6810.7476
-          width: 200
-          height: 453
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 453
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -2132,14 +2182,14 @@ MonoBehaviour:
         computeOrder: 14
         position:
           serializedVersion: 2
-          x: 1419.288
-          y: 6290.7476
-          width: 300
-          height: 621
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 621
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -2216,14 +2266,14 @@ MonoBehaviour:
         computeOrder: 15
         position:
           serializedVersion: 2
-          x: 1791.721
-          y: 5762.8867
-          width: 300
-          height: 617
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 617
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -2294,14 +2344,14 @@ MonoBehaviour:
         computeOrder: 16
         position:
           serializedVersion: 2
-          x: 2236.3477
-          y: 6247.4897
-          width: 100
-          height: 100
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 553
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -2385,14 +2435,14 @@ MonoBehaviour:
         computeOrder: 17
         position:
           serializedVersion: 2
-          x: 2684.255
-          y: 6247.001
-          width: 200
-          height: 555
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 555
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -2442,7 +2492,7 @@ MonoBehaviour:
           type:
             serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
               PublicKeyToken=b77a5c561934e089
-        - displayName: Auto Estimate Min/Max
+        - displayName: Estimate Min/Max
           referenceName: _AutoEstimate
           tooltip: 
           type:
@@ -2469,14 +2519,14 @@ MonoBehaviour:
         computeOrder: 18
         position:
           serializedVersion: 2
-          x: 2492.3633
-          y: 6862.8857
-          width: 300
-          height: 617
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 631
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -2547,14 +2597,14 @@ MonoBehaviour:
         computeOrder: 19
         position:
           serializedVersion: 2
-          x: 2951
-          y: 6863
-          width: 300
-          height: 567
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 567
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -2638,14 +2688,14 @@ MonoBehaviour:
         computeOrder: 20
         position:
           serializedVersion: 2
-          x: 3354.0176
-          y: 6863
-          width: 200
-          height: 453
+          x: 0
+          y: 0
+          width: 0
+          height: 0
         expanded: 0
         debug: 0
         nodeLock: 0
-        height: 467
+        height: NaN
         settings:
           widthScale: 1
           heightScale: 1
@@ -2702,6 +2752,180 @@ MonoBehaviour:
             serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
               PublicKeyToken=b77a5c561934e089
         shaderGUID: f840675fe96fa9a4488e6446a5a84c6f
+    - rid: 6864911271388774833
+      type: {class: Clouds3Node, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: e99baa80-1fdf-4962-b8f7-aab891efca4c
+        computeOrder: 21
+        position:
+          serializedVersion: 2
+          x: 284.43735
+          y: 7239
+          width: 300
+          height: 705
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: NaN
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 7
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: 8e0fb0670c46453459bc59c0524342e3, type: 3}
+        material: {fileID: 945115027090856235}
+        exposedProperties:
+        - displayName: Base Scale
+          referenceName: _Scale
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Chunkiness
+          referenceName: _Chunkiness
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Warp Amount
+          referenceName: _WarpAmount
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Warp Scale
+          referenceName: _WarpScale
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Softness
+          referenceName: _Softness
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Value Offset
+          referenceName: _Offset
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: 8e0fb0670c46453459bc59c0524342e3
+    - rid: 6864911271388774834
+      type: {class: AutoLevelsNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 89eb67e2-546a-4594-ad90-9840b94db06d
+        computeOrder: 22
+        position:
+          serializedVersion: 2
+          x: 890.85004
+          y: 7239.001
+          width: 325
+          height: 666
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: NaN
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: 2ed65b83943af014497f76b97c106dc0, type: 3}
+        material: {fileID: -8433506274839404600}
+        exposedProperties:
+        - displayName: Source Grayscale
+          referenceName: _MainTex
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Min Value
+          referenceName: _Min
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Max Value
+          referenceName: _Max
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Estimate Min/Max
+          referenceName: _AutoEstimate
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Invert
+          referenceName: _Invert
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: 2ed65b83943af014497f76b97c106dc0
 --- !u!21 &269041776214302121
 Material:
   serializedVersion: 8
@@ -2816,6 +3040,42 @@ Material:
     - _Sharpness: 3.87
     m_Colors:
     - _Scale: {r: 8, g: 8, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &945115027090856235
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/Clouds3
+  m_Shader: {fileID: 4800000, guid: 8e0fb0670c46453459bc59c0524342e3, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Chunkiness: 0.65
+    - _Contrast: 1.4
+    - _Offset: 0
+    - _Softness: 2
+    - _WarpAmount: 0.35
+    - _WarpScale: 6
+    m_Colors:
+    - _Scale: {r: 3, g: 3, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &1222892553712123576

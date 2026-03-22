@@ -20,6 +20,6 @@ namespace AhahGames.GenesisNoise.Nodes
         public float W;
         public override string name => "Quaternion";
         public override float nodeWidth => 210;
-
+        public override string NodeGroup => "Constant";
     }
 }

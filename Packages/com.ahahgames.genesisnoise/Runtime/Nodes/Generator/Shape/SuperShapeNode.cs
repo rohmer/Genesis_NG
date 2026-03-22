@@ -29,5 +29,6 @@ Parameters:
         public override bool DisplayMaterialInspector => true;
 
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
+        public override string NodeGroup => "Shape";
     }
 }

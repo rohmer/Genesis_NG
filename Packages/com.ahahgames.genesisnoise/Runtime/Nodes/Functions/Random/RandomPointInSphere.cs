@@ -11,7 +11,9 @@ namespace AhahGames.GenesisNoise.Nodes
         [Output]
         public Vector3 output;
 
+        [Input]
         public Vector3 pt1 = new(0, 0, 0);
+        [Input]
         public float radius = 1f;
 
         public override string name => "Point in Sphere";

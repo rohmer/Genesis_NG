@@ -1,0 +1,510 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919442661075d414080cdd70882ecfb6, type: 3}
+  m_Name: GenesisNoiseGraph 1
+  m_EditorClassIdentifier: Genesis Noise::AhahGames.GenesisNoise.Graph.GenesisGraph
+  serializedNodes: []
+  nodes:
+  - rid: 6864911310412841554
+  - rid: 6864911310412841556
+  - rid: 6864911310412841557
+  - rid: 6864911310412841558
+  - rid: 6864911310412841559
+  - rid: 6864911310412841560
+  - rid: 6864911310412841561
+  - rid: 6864911310412841562
+  - rid: 6864911310412841563
+  - rid: 6864911310412841564
+  edges: []
+  groups: []
+  stackNodes: []
+  pinnedElements: []
+  exposedParameters: []
+  serializedParameterList: []
+  stickyNotes: []
+  nodeInspectorReference: {fileID: 0}
+  position: {x: -1152, y: -492, z: 0}
+  scale: {x: 1.3225, y: 1.3225, z: 1}
+  objectReferences: []
+  defaultNodeInheritanceMode: -2
+  _mainOutputTexture: {fileID: 2800000, guid: c7438d47471f3be45be0495b30e42462, type: 3}
+  recipes: []
+  Filename: 
+  _outputTextures: []
+  settings:
+    widthScale: 1
+    heightScale: 1
+    depthScale: 1
+    width: 2048
+    height: 2048
+    depth: 2048
+    potSize: 2048
+    sizeMode: 0
+    dimension: 2
+    outputChannels: 1
+    outputPrecision: 3
+    editFlags: 0
+    doubleBuffered: 0
+    wrapMode: 0
+    filterMode: 0
+    refreshMode: 0
+    period: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 6864911310412841554
+      type: {class: ToBoolNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 9c352b91-d086-4a1a-9fd9-184fdbe94749
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: 184
+          y: 290.3425
+          width: 200
+          height: 80
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: NaN
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: 0
+    - rid: 6864911310412841556
+      type: {class: ToColorNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: e4032fc3-0164-4980-83ba-981ddb256765
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: 184
+          y: 382.3425
+          width: 200
+          height: 170
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: NaN
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        R: 0
+        G: 0
+        B: 0
+        A: 0
+        output: {r: 0, g: 0, b: 0, a: 0}
+    - rid: 6864911310412841557
+      type: {class: ToFloatNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 1fed8800-7adc-456d-a063-768daa747b79
+        computeOrder: 2
+        position:
+          serializedVersion: 2
+          x: 184
+          y: 564.3425
+          width: 200
+          height: 80
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: NaN
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: 0
+    - rid: 6864911310412841558
+      type: {class: ToIntNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: e902aac4-0505-49c1-b350-19ce1769ddcd
+        computeOrder: 3
+        position:
+          serializedVersion: 2
+          x: 399
+          y: 241.3425
+          width: 200
+          height: 99
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: NaN
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: 0
+    - rid: 6864911310412841559
+      type: {class: ToQuaternionNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: c082ee12-9aff-424c-8f78-e34bc3e1e535
+        computeOrder: 4
+        position:
+          serializedVersion: 2
+          x: 399
+          y: 351.3425
+          width: 200
+          height: 147
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: NaN
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        EulerX: 0
+        EulerY: 0
+        EulerZ: 0
+        output: {x: 0, y: 0, z: 0, w: 1}
+    - rid: 6864911310412841560
+      type: {class: ToStringNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: fa4ea71c-03f1-46fe-b811-f1f59f7ccfa7
+        computeOrder: 5
+        position:
+          serializedVersion: 2
+          x: 399
+          y: 512.3425
+          width: 200
+          height: 80
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: NaN
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: 
+    - rid: 6864911310412841561
+      type: {class: ToVector2Node, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 0538d7d0-461f-4afb-9c0b-9a1deb2c159d
+        computeOrder: 6
+        position:
+          serializedVersion: 2
+          x: 608
+          y: 241.3425
+          width: 150
+          height: 104
+        expanded: 1
+        debug: 0
+        nodeLock: 0
+        height: NaN
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {x: 0, y: 0}
+    - rid: 6864911310412841562
+      type: {class: ToVector2IntNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 16500760-7a7c-4750-bd57-97f2e2a84504
+        computeOrder: 7
+        position:
+          serializedVersion: 2
+          x: 608
+          y: 351.3425
+          width: 150
+          height: 104
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: NaN
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {x: 0, y: 0}
+    - rid: 6864911310412841563
+      type: {class: ToVector3Node, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 6dad8676-9752-4609-9a81-6394cab8bba2
+        computeOrder: 8
+        position:
+          serializedVersion: 2
+          x: 608
+          y: 464.3425
+          width: 210
+          height: 128
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: NaN
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {x: 0, y: 0, z: 0}
+    - rid: 6864911310412841564
+      type: {class: ToVector4Node, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: c78de77c-0766-4e60-92e3-04b26164e086
+        computeOrder: 9
+        position:
+          serializedVersion: 2
+          x: 893.5646
+          y: 207.11761
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: NaN
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {x: 0, y: 0, z: 0, w: 0}

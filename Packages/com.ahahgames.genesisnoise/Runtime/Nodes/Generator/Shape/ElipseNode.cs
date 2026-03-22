@@ -13,6 +13,6 @@ Generates a circle or elipse
         public override string ShaderName => "Hidden/Genesis/Ellipse";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

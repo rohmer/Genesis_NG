@@ -24,5 +24,6 @@ Generate a rectangle pattern. In 3D this node generates cuboid shapes.
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 
         public override float nodeWidth => 350;
+        public override string NodeGroup => "Shape";
     }
 }

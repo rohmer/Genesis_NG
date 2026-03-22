@@ -13,6 +13,6 @@ namespace AhahGames.GenesisNoise.Nodes
         public override string ShaderName => "Hidden/Genesis/GrungeFibersDual";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

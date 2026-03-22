@@ -13,6 +13,6 @@ Generates a houndstooth pattern
         public override string ShaderName => "Hidden/Genesis/Houndstooth";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

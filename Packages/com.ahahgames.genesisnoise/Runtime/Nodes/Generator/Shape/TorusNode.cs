@@ -19,5 +19,6 @@ Generates random torus(es)
 
         // Enumerate the list of material properties that you don't want to be turned into a connectable port.
         protected override IEnumerable<string> filteredOutProperties => new string[] { "_Scale", "_Offset" };
+        public override string NodeGroup => "Shape";
     }
 }

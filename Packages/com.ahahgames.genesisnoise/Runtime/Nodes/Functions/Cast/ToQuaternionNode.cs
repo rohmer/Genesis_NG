@@ -18,7 +18,7 @@ namespace AhahGames.GenesisNoise.Nodes
         [Output]
         public Quaternion output;
 
-        public new float nodeWidth = 200f;
+        public override float nodeWidth => 200;
         public override string name => "To Quaternion";
         public override string NodeGroup => "Cast";
         public override void Process()

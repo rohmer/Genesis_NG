@@ -13,6 +13,6 @@ Generates a Zig-Zag pattern
         public override string ShaderName => "Hidden/Genesis/ZigZag";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

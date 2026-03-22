@@ -13,6 +13,7 @@ namespace AhahGames.GenesisNoise.Nodes
         public override string ShaderName => "Hidden/Genesis/TriangleGrid";
 
         public override bool DisplayMaterialInspector => true;
+        public override string NodeGroup => "Shape";
 
     }
 }

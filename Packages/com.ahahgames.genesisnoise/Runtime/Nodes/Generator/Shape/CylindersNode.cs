@@ -14,7 +14,7 @@ Generates a line pattern. In 3D this node generate cylinders using a signed dist
     public class CylinderNode : FixedShaderNode
     {
         public override string name => "Cylinder";
-
+        public override string NodeGroup => "Shape";
         public override string ShaderName => "Hidden/Genesis/Cylinder";
 
         public override bool DisplayMaterialInspector => true;

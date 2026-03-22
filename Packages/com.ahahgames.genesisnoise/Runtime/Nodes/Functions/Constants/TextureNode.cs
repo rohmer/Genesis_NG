@@ -30,7 +30,7 @@ The output type of the node will update according to the type of texture provide
         public Texture textureAsset;
         [Output(name = "Texture")]
         public Texture outputTexture;
-
+        public override string NodeGroup => "Constant";
         public override bool canEditPreviewSRGB => !IsInputImportedTexture();
 
         public override bool hasSettings => false;
@@ -38,7 +38,7 @@ The output type of the node will update according to the type of texture provide
         public override Texture previewTexture => outputTexture;
         public override bool showDefaultInspector => true;
         public override bool isRenamable => true;
-
+        public override float nodeWidth => 200f;
         public PowerOf2Mode POTMode = PowerOf2Mode.None;
 
         [SerializeField, HideInInspector]

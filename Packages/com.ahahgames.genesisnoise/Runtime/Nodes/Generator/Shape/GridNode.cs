@@ -13,6 +13,6 @@ Generates a grid pattern
         public override string ShaderName => "Hidden/Genesis/Grid";
 
         public override bool DisplayMaterialInspector => true;
-
+        public override string NodeGroup => "Shape";
     }
 }

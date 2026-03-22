@@ -99,6 +99,7 @@ namespace AhahGames.GenesisNoise.Views
             Color[] borderColors = nodeTarget.GetBorderColors();
             title.style.backgroundColor = nodeTarget.GetBackgroundColor();
             title.style.backgroundSize = new BackgroundSize(BackgroundSizeType.Cover);
+            root.style.color = nodeTarget.GetHeaderTextColor();
             //root.style.color = Color.yellow; // theme.TitleTextColor;
             root.style.borderBottomColor = borderColors[2];
             root.style.borderTopColor = borderColors[0];

@@ -26,7 +26,7 @@ Converts a grayscale image to a colorized image based on a gradient
         public override bool DisplayMaterialInspector => true;
         public override string NodeGroup => "Color";
         protected override IEnumerable<string> filteredOutProperties => new string[] { "_Gradient" };
-
+        public override float nodeWidth => 300;
         public void UpdateTexture()
         {
             if (texture == null)

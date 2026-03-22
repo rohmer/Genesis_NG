@@ -11,7 +11,9 @@ namespace AhahGames.GenesisNoise.Nodes
         [Output]
         public Vector3 output;
 
+        [Input]
         public Vector3 pt1 = new(-1, -1, -1);
+        [Input]
         public Vector3 pt2 = new(1, 1, 1);
 
         public override string name => "Point in Cube";

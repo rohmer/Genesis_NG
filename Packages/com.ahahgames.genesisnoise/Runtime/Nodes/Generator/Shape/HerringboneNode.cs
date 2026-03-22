@@ -10,8 +10,7 @@ Herringbone Shape Generator
     public class HerringboneNode : FixedNoiseNode
     {
         public override string name => "Herringbone";
-        public override string NodeGroup => "Generators";
         public override string ShaderName => "Hidden/Genesis/Herringbone";
-
+        public override string NodeGroup => "Shape";
     }
 }

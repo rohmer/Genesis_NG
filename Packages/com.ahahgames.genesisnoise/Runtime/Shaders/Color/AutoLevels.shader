@@ -2,15 +2,15 @@ Shader "Hidden/Genesis/AutoLevels"
 {
     Properties
     {
-        _MainTex("Source Grayscale", 2D) = "white" {}
+        [Tooltip(Input source)]_MainTex("Source Grayscale", 2D) = "white" {}
 
-        _Min("Min Value", Range(0,1)) = 0.0
-        _Max("Max Value", Range(0,1)) = 1.0
+        [Tooltip(The lowest level, below this level the pixels will return black)]_Min("Min Value", Range(0,1)) = 0.0
+        [Tooltip(The upper level, above this level the pixels will return black)]_Max("Max Value", Range(0,1)) = 1.0
 
-        _AutoEstimate("Auto Estimate Min/Max", Range(0,1)) = 0.0
+        [Tooltip(Auto estimate min and max with a cheap 9 sample probe)]_AutoEstimate("Estimate Min/Max", Range(0,1)) = 0.0
 
-        _Contrast("Contrast", Range(0.5,4.0)) = 1.0
-        _Invert("Invert", Range(0,1)) = 0.0
+        [Tooltip(Higher levels will push increase the contrast)]_Contrast("Contrast", Range(0.5,4.0)) = 1.0
+        [Tooltip(1 will invert the results)]_Invert("Invert", Range(0,1)) = 0.0
     }
 
     SubShader

@@ -11,6 +11,6 @@ namespace AhahGames.GenesisNoise.Nodes
         [Output("Texture 2D")]
         public Texture2D output = null;
         public override string name => "Texture 2D";
-
+        public override string NodeGroup => "Constant";
     }
 }

@@ -24,5 +24,6 @@ namespace Genesis
         public override List<OutputDimension> supportedDimensions => new() {
             OutputDimension.Texture2D,
         };
+        public override string NodeGroup => "Shape";
     }
 }

@@ -10,6 +10,6 @@ namespace AhahGames.GenesisNoise.Nodes
         public bool output = true;
         public override string name => "Boolean";
         public override float nodeWidth => 150f;
-
+        public override string NodeGroup => "Constant";
     }
 }

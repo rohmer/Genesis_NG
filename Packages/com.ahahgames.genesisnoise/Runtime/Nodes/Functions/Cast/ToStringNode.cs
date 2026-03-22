@@ -13,7 +13,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
         [Output]
         public string output;
-
+        public override float nodeWidth => 200;
         public override string name => "To String";
         public override string NodeGroup => "Cast";
         public override void Process()

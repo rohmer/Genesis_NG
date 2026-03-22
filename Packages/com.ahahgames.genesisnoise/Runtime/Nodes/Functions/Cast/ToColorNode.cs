@@ -13,7 +13,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
         [Output]
         public Color output;
-
+        public override float nodeWidth => 200;
         public override string name => "To Color";
         public override string NodeGroup => "Cast";
         public override void Process()
