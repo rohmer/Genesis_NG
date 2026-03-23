@@ -18,7 +18,7 @@ namespace AhahGames.GenesisNoise.Nodes
         public override string NodeGroup => "Cast";
         public override void Process()
         {
-            output = TypeCaster.ToInt(output);
+            output = TypeCasting.ToInt(output);
         }
     }
 }

@@ -18,8 +18,8 @@ namespace AhahGames.GenesisNoise.Nodes
         public override string NodeGroup => "Cast";
         public override void Process()
         {
-            float x = TypeCaster.ToFloat(X);
-            float y = TypeCaster.ToFloat(Y);
+            float x = TypeCasting.ToFloat(X);
+            float y = TypeCasting.ToFloat(Y);
             output = new Vector2(x, y);
         }
     }

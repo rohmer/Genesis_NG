@@ -19,9 +19,9 @@ namespace AhahGames.GenesisNoise.Nodes
         public override void Process()
         {
             float x, y, z;
-            x = TypeCaster.ToFloat(X);
-            y = TypeCaster.ToFloat(Y);
-            z = TypeCaster.ToFloat(Z);
+            x = TypeCasting.ToFloat(X);
+            y = TypeCasting.ToFloat(Y);
+            z = TypeCasting.ToFloat(Z);
 
             output = new Vector3(x, y, z);
         }

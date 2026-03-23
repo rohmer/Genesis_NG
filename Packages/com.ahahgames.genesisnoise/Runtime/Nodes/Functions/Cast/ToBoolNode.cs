@@ -19,7 +19,7 @@ namespace AhahGames.GenesisNoise.Nodes
         public override float nodeWidth =>200;
         public override void Process()
         {
-            output = TypeCaster.ToBool(input);
+            output = TypeCasting.ToBool(input);
 
         }
     }
