@@ -725,6 +725,10 @@
       <HintPath>Assets\Packages\Dawn.Guard.1.11.0\lib\netstandard2.0\Dawn.Guard.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@4dfd81071c64\Runtime\Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:\Program Files\Unity\Hub\Editor\6000.4.0f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\mscorlib.dll</HintPath>
       <Private>False</Private>
@@ -1462,6 +1466,7 @@
     <ProjectReference Include="OdinSerializer.csproj" />
     <ProjectReference Include="Mathematics.Mathx.csproj" />
     <ProjectReference Include="Genesis Noise - Terrain.csproj" />
+    <ProjectReference Include="asset-store-tools-editor.csproj" />
     <ProjectReference Include="AhahGames Telemetry.csproj" />
     <ProjectReference Include="JBooth.MicroSplat.Core.Editor.csproj" />
     <ProjectReference Include="JBooth.MicroSplat.Core.csproj" />

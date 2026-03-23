@@ -2,6 +2,7 @@ Shader "Hidden/Genesis/ValueVoronoiSuite2D"
 {
     Properties
     {
+        [Tooltip(FBM Value 0, Ridge Value 1, Billow Value 2, Turbulence Value 3, FBM Voronoi 4, BIllow Voronoi 5, Turbulence Voronoi 6, Warping Value 7)]
         [Enum(FBMValue,0,RidgeValue,1,BillowValue,2,TurbulenceValue,3,FBMVoronoi,4,BillowVoronoi,5,TurbulenceVoronoi,6,WarpingValue,7)]_Mode("Mode", int) = 0
 
         [Tooltip(Frequency and tiling)]
@@ -26,7 +27,8 @@ Shader "Hidden/Genesis/ValueVoronoiSuite2D"
         _WarpShift("Warp Shift", Float) = 1.0
 
         [Tooltip(Warp rotation angle (radians))]
-        _WarpAngle("Warp Angle", Float) = 0.5 
+        _WarpAngle("Warp Angle", Float) = 0.5
+
         [Tooltip(Output amplitude)]
         _OutAmplitude("Output Amplitude", Range(0,2)) = 1.0
 
