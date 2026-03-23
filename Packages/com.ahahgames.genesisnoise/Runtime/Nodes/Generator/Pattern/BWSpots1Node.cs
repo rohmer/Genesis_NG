@@ -12,7 +12,7 @@ namespace AhahGames.GenesisNoise.Nodes
     public class BWSpots1Node : FixedNoiseNode
     {
         public override string name => "BW Spots 1";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/BWSpots";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 

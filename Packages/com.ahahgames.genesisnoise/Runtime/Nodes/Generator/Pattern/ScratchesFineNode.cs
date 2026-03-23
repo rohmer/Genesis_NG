@@ -17,7 +17,7 @@ namespace AhahGames.GenesisNoise.Nodes
     public class ScratchesFineNode : FixedNoiseNode
     {
         public override string name => "Scratches Fine";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/GrungeScratchesFine";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 

@@ -18,7 +18,7 @@ namespace AhahGames.GenesisNoise.Nodes
 	public class ScratchesDirtyNode : FixedNoiseNode
 	{
 		public override string name => "Scratches Dirty";
-		public override string NodeGroup => "Generators";
+		public override string NodeGroup => "Pattern";
 		public override string ShaderName => "Hidden/Genesis/GrungeScratchesDirty";
 		protected override IEnumerable<string> filteredOutProperties => new string[] { };
 

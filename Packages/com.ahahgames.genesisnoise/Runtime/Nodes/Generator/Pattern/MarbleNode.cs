@@ -12,7 +12,7 @@ namespace AhahGames.GenesisNoise.Nodes
     public class Marble : FixedNoiseNode
     {
         public override string name => "Marble";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/Marble";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 

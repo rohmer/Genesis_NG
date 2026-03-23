@@ -10,7 +10,7 @@ Creates a unique multilayer noise image
     public class SkyGeneratorNode : FixedNoiseNode
     {
         public override string name => "Sky Generator";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/Sky";
 
     }

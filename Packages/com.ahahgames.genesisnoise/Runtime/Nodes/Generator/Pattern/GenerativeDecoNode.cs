@@ -10,7 +10,7 @@ Creates a unique multilayer noise image
     public class GenerativeDecoNode : FixedNoiseNode
     {
         public override string name => "Generative Deco";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/GenerativeDeco";
 
     }

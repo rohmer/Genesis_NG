@@ -12,7 +12,7 @@ namespace AhahGames.GenesisNoise.Nodes
     public class DirtFineNode : FixedNoiseNode
     {
         public override string name => "Dirt Fine";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/GrungeDirtFine";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 

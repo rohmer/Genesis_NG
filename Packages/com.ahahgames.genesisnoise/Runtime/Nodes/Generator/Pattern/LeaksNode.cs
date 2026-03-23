@@ -19,7 +19,7 @@ Soft downward motion like wet grime.
     public class LeaksNode1 : FixedNoiseNode
     {
         public override string name => "Leaks 1";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/GrungeLeaks1";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 

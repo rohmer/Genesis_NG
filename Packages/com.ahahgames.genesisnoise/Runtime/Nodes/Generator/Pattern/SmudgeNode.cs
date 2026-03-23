@@ -12,7 +12,7 @@ namespace AhahGames.GenesisNoise.Nodes
     public class SmudgesNode : FixedNoiseNode
     {
         public override string name => "Smudges";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/Smudges";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 

@@ -12,7 +12,7 @@ namespace AhahGames.GenesisNoise.Nodes
     public class CobblestoneNode : FixedNoiseNode
     {
         public override string name => "Pebbles";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/Cobblestone";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 

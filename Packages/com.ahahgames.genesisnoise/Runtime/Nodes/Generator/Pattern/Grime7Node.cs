@@ -12,7 +12,7 @@ namespace AhahGames.GenesisNoise.Nodes
     public class Grime7Node : FixedNoiseNode
     {
         public override string name => "Grime 7";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/Grunge007";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 

@@ -12,7 +12,7 @@ namespace AhahGames.GenesisNoise.Nodes
     public class Clouds2Node : FixedNoiseNode
     {
         public override string name => "Clouds 2";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/Clouds2";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 
