@@ -12,7 +12,7 @@ namespace AhahGames.GenesisNoise.Nodes
     public class AuroraNode : FixedNoiseNode
     {
         public override string name => "Aurora";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Other";
         public override string ShaderName => "Hidden/Genesis/Aurora";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 
