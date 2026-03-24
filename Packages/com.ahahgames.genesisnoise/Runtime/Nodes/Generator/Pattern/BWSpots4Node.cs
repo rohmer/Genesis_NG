@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
     Macro blots, micro speckles and watercolor diffusion
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/BW Spots 4")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/BW Spots 4")]
     public class BWSpots4Node : FixedNoiseNode
     {
         public override string name => "BW Spots 4";

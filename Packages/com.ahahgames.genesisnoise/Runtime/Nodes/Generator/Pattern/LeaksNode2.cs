@@ -14,7 +14,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Leaks 2")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Leaks 2")]
     public class LeaksNode2 : FixedNoiseNode
     {
         public override string name => "Leaks 2";

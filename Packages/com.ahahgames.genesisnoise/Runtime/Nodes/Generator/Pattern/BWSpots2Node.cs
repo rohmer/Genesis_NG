@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
     Simulates an Aurora
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/BW Spots 2")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/BW Spots 2")]
     public class BWSpots2Node : FixedNoiseNode
     {
         public override string name => "BW Spots 2";

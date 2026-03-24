@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Cobblestone")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Cobblestone")]
     public class CobblestoneNode : FixedNoiseNode
     {
         public override string name => "Pebbles";

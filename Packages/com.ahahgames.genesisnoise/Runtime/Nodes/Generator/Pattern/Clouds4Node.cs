@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
     Stretched directional noise.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Clouds 4")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Clouds 4")]
     public class Clouds4Node : FixedNoiseNode
     {
         public override string name => "Clouds 4";

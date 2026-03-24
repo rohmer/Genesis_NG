@@ -13,7 +13,7 @@ namespace AhahGames.GenesisNoise.Nodes
     - Perfect for stylized clouds, marble, smoke, roughness breakup
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Anisotropic Noise 3")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Anisotropic Noise 3")]
     public class AnisotropicNode3 : FixedNoiseNode
     {
         public override string name => "Anisotropic 3";

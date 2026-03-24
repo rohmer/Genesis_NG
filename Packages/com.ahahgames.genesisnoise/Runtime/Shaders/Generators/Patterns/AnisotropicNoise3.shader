@@ -1,4 +1,4 @@
-Shader "Hidden/Genesis/Noise3"
+Shader "Hidden/Genesis/AnisotropicNoise3"
 {
     Properties
     {

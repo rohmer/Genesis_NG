@@ -6,7 +6,7 @@ namespace AhahGames.GenesisNoise.Nodes
 Creates a unique multilayer noise image
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Generative Deco")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Generative Deco")]
     public class GenerativeDecoNode : FixedNoiseNode
     {
         public override string name => "Generative Deco";

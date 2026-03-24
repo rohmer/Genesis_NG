@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
     Creates a marbalized texture, including an option for further colorization.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Marble")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Marble")]
     public class Marble : FixedNoiseNode
     {
         public override string name => "Marble";

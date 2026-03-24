@@ -19,6 +19,6 @@ namespace AhahGames.GenesisNoise.Nodes
     {
         public override string name => "Linear Gradient";
         public override string ShaderName => "Hidden/Genesis/GradientLinear1";
-        public override string NodeGroup => "Pattern";
+        public override string NodeGroup => "Shape";
     }
 }

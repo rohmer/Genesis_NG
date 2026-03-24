@@ -13,11 +13,11 @@ namespace AhahGames.GenesisNoise.Nodes
 - Perfect for stylized masks, roughness breakup, watercolor textures
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Gaussian Spots 2")]
+    [System.Serializable, NodeMenuItem("Generators/Shapes/Gaussian Spots 2")]
     public class GaussianSpots2 : FixedNoiseNode
     {
         public override string name => "Gaussian Spots 2";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Shapes";
         public override string ShaderName => "Hidden/Genesis/GaussianSpots2";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 

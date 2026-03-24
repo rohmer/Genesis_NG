@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
     Sharper, higher-contrast and more turbulent sibling of clouds 1
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Clouds 2")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Clouds 2")]
     public class Clouds2Node : FixedNoiseNode
     {
         public override string name => "Clouds 2";

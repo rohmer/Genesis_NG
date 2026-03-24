@@ -13,7 +13,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Scratches Fine")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Scratches Fine")]
     public class ScratchesFineNode : FixedNoiseNode
     {
         public override string name => "Scratches Fine";

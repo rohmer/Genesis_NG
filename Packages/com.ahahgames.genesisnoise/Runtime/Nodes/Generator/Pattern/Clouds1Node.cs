@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
     Soft, billowy fractal noise.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Clouds 1")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Clouds 1")]
     public class Clouds1Node: FixedNoiseNode
     {
         public override string name => "Clouds 1";

@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Grime 7")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Grime 7")]
     public class Grime7Node : FixedNoiseNode
     {
         public override string name => "Grime 7";

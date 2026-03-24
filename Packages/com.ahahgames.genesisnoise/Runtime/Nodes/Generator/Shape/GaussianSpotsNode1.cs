@@ -14,11 +14,11 @@ namespace AhahGames.GenesisNoise.Nodes
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Gaussian Spots 1")]
+    [System.Serializable, NodeMenuItem("Generators/Shapes/Gaussian Spots 1")]
     public class GaussianSpots1 : FixedNoiseNode
     {
         public override string name => "Gaussian Spots 1";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Shapes";
         public override string ShaderName => "Hidden/Genesis/GaussianSpots1";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 

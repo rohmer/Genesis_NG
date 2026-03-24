@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Stylized Pebbles")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Stylized Pebbles")]
     public class StylizedPebblesNode : FixedNoiseNode
     {
         public override string name => "Grass";

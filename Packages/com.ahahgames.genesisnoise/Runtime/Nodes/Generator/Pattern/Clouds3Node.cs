@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
     Chunky, blotchy with marble like swirls
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Clouds 3")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Clouds 3")]
     public class Clouds3Node : FixedNoiseNode
     {
         public override string name => "Clouds 3";

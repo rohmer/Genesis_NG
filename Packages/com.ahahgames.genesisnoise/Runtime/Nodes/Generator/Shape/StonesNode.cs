@@ -7,11 +7,11 @@ namespace AhahGames.GenesisNoise.Nodes
 Generation of a stones or pebbles like texture depending on the scale
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Stones")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Stones")]
     public class StonesNode : FixedNoiseNode
     {
         public override string name => "Stones";
-        public override string NodeGroup => "Effects";
+        public override string NodeGroup => "Shapes";
         public override string ShaderName => "Hidden/Genesis/Stones";
     }
 }

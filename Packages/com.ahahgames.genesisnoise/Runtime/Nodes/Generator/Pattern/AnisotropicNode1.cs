@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
     Long, directional fibers that follow a rotation angle
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Anisotropic Noise 1")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Anisotropic Noise 1")]
     public class AnisotropicNode1 : FixedNoiseNode
     {
         public override string name => "Anisotropic";

@@ -6,11 +6,11 @@ namespace AhahGames.GenesisNoise.Nodes
 Creates a unique multilayer noise image
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Sky")]
+    [System.Serializable, NodeMenuItem("Generators/Other/Sky Generator")]
     public class SkyGeneratorNode : FixedNoiseNode
     {
         public override string name => "Sky Generator";
-        public override string NodeGroup => "Pattern";
+        public override string NodeGroup => "Other";
         public override string ShaderName => "Hidden/Genesis/Sky";
 
     }

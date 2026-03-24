@@ -15,7 +15,7 @@ Irregular, dirty, organic edges.
 Soft downward motion like wet grime.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Leaks 1")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Leaks 1")]
     public class LeaksNode1 : FixedNoiseNode
     {
         public override string name => "Leaks 1";

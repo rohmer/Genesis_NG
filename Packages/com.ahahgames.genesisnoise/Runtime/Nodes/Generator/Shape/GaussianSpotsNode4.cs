@@ -14,11 +14,11 @@ namespace AhahGames.GenesisNoise.Nodes
 It’s the most ink‑like and diffusive variant so far — perfect for watercolor, stylized shading, roughness breakup, or organic masks.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Gaussian Spots 4")]
+    [System.Serializable, NodeMenuItem("Generators/Shapes/Gaussian Spots 4")]
     public class GaussianSpots4 : FixedNoiseNode
     {
         public override string name => "Gaussian Spots 4";
-        public override string NodeGroup => "Generators";
+        public override string NodeGroup => "Shapes";
         public override string ShaderName => "Hidden/Genesis/GaussianSpots4";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 

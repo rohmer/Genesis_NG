@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Dirt Fine")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Dirt Fine")]
     public class DirtFineNode : FixedNoiseNode
     {
         public override string name => "Dirt Fine";

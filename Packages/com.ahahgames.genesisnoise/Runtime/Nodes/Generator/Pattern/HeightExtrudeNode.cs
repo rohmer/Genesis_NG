@@ -14,7 +14,7 @@ Height Extrusion is the backbone of:
 - directional erosion/inset (with invert)
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Height Extrusion")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Height Extrusion")]
     public class HeightExtrudeNode : FixedNoiseNode
     {
         public override string name => "Height Extrusion";

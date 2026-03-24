@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
     More randomized and curled scratches
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/OrganicScratches")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/OrganicScratches")]
     public class OrganicScratchesNode : FixedNoiseNode
     {
         public override string name => "Organic Scratches";

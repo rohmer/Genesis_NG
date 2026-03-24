@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
      streaks + turbulence + cross‑flow, closer to a noisy brushed metal / fibrous chaos.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Anisotropic Noise 2")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Anisotropic Noise 2")]
     public class AnisotropicNode2 : FixedNoiseNode
     {
         public override string name => "Anisotropic 2";

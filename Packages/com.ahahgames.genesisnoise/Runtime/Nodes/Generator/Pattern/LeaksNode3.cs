@@ -12,7 +12,7 @@ namespace AhahGames.GenesisNoise.Nodes
 • 	layered stain halos and micro‑veins
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Other/Leaks 3")]
+    [System.Serializable, NodeMenuItem("Generators/Pattern/Leaks 3")]
     public class LeaksNode3 : FixedNoiseNode
     {
         public override string name => "Leaks 3";
