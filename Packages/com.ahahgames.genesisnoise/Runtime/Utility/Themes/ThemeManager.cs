@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AhahGames.GenesisNoise.Nodes;
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -143,6 +145,13 @@ namespace AhahGames.GenesisNoise.Runtime.Utility.Themes
             transform.HeaderTextColor = Color.white;
             transform.BackgroundColor = new Color(15f / 255f, 255f / 255f,1f / 255f);
             groupThemes.Add("Transforms", transform);
+            NodeTheme utility = new NodeTheme();
+            utility.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan };
+            utility.HeaderLeftColor = Color.black;
+            utility.HeaderRightColor = Color.gray1;
+            utility.HeaderTextColor = Color.white;
+            utility.BackgroundColor = Color.white;
+            groupThemes.Add("Utility", utility);
         }
 
         public Color GetTextColor(string NodeGroup, string Name)
