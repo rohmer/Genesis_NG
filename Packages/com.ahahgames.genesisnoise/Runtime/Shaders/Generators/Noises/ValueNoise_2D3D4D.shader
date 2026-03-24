@@ -2,7 +2,8 @@ Shader "Hidden/Genesis/ValueNoise_2D3D4D"
 {
     Properties
     {
-        [Enum(2D,0,3D,1,4D,2)]_Dim("Noise Dimension", int) = 2
+        [Enum(2D,0,3D,1,4D,2)]
+        _Dim("Noise Dimension", int) = 0
 
         [Tooltip(Frequency and tiling)]
         _Scale("Scale", Vector) = (4,4,4,4)
@@ -15,6 +16,11 @@ Shader "Hidden/Genesis/ValueNoise_2D3D4D"
 
         [Tooltip(Contrast shaping)]
         _Contrast("Contrast", Range(0.5,4)) = 1.0
+
+        [InlineTexture(HideInNodeInspector)] _UV_2D("UVs", 2D)   = "uv" {}
+        [InlineTexture(HideInNodeInspector)] _UV_3D("UVs", 3D)   = "uv" {}
+        [InlineTexture(HideInNodeInspector)] _UV_Cube("UVs",Cube)= "uv" {}
+        _Seed("Seed", Int) = 0
     }
 
     SubShader
@@ -28,15 +34,19 @@ Shader "Hidden/Genesis/ValueNoise_2D3D4D"
             #define BUILTIN_TARGET_API
             #include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"
 
-            #pragma vertex CustomRenderTextureVertexShader
+            #pragma vertex   CustomRenderTextureVertexShader
             #pragma fragment GenesisFragment
             #pragma shader_feature CRT_2D CRT_3D CRT_CUBE
+            #pragma shader_feature _ USE_CUSTOM_UV
 
-            int   _Dim;
+            TEXTURE_SAMPLER_X(_UV);
+
+            int    _Dim;
             float4 _Scale;
             float4 _Offset;
             float  _Amplitude;
             float  _Contrast;
+            int    _Seed;
 
             // ---------------------------------------------------------
             // Hash functions (deterministic, sampler-free)
@@ -190,7 +200,7 @@ Shader "Hidden/Genesis/ValueNoise_2D3D4D"
             // ---------------------------------------------------------
             float evaluateNoise(float3 uv)
             {
-                uv*=float3(10,10,10);
+                // uv comes in [0,1] from CRT; we just apply scale/offset
                 if (_Dim == 0) // 2D
                 {
                     float2 p = uv.xy * _Scale.xy + _Offset.xy;
@@ -211,7 +221,23 @@ Shader "Hidden/Genesis/ValueNoise_2D3D4D"
             // ---------------------------------------------------------
             float4 mixture(v2f_customrendertexture i) : SV_Target
             {
-                float v = evaluateNoise(i.localTexcoord);
+                float3 uv;
+
+                #ifdef CRT_3D
+                    #ifdef USE_CUSTOM_UV
+                        uv = GetNoiseUVs(i, SAMPLE_X(_UV, i.localTexcoord.xyz, i.direction), _Seed);
+                    #else
+                        uv = float3(GetDefaultUVs(i), 0);
+                    #endif
+                #else
+                    #ifdef USE_CUSTOM_UV
+                        uv = GetNoiseUVs(i, SAMPLE_X(_UV, i.localTexcoord.xyz, i.direction), _Seed);
+                    #else
+                        uv = float3(i.localTexcoord.xyz);
+                    #endif
+                #endif
+
+                float v = evaluateNoise(uv);
 
                 v *= _Amplitude;
                 v = saturate(pow(v, _Contrast));
