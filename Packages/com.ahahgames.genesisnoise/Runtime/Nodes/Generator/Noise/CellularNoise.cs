@@ -6,12 +6,22 @@ using System.Linq;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-Cellular Noise generator.
-This node is useful to generate cloud like textures, organic cellular patterns or more exotic patterns with stars using the Minkowski distance mode.
-
-Note that for Texture 2D, the z coordinate is used as a seed offset.
-This allows you to generate multiple noises with the same UV.
-Be careful with because if you use a UV with a distorted z value, you'll get a weird looking noise instead of the normal one.
+The CellularNoise node generates Worley‑style cellular noise in 2D, 3D, or Cube space, with full control over:
+- Distance metric
+- Cell size
+- Octaves (FBM)
+- Lacunarity & persistence
+- Tiling mode
+- Output range
+- Multi‑channel evaluation (R, RG, RGB, RGBA)
+- Multiple cell modes (distance, smooth distance, cells, valleys)
+This node is one of the most flexible and powerful procedural building blocks in the Genesis ecosystem, suitable for:
+- Stone, rock, and organic textures
+- Voronoi patterns
+- Cracks, cells, and biological structures
+- Stylized noise
+- Masks and breakup patterns
+- Terrain and material generation
 ")]
 
     [System.Serializable, NodeMenuItem("Generators/Noise/Cellular Noise")]

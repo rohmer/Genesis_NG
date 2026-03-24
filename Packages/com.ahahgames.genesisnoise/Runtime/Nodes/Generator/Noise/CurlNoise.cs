@@ -3,10 +3,16 @@ using GraphProcessor;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-Curl noise is similar math to the Perlin Noise, but with the addition of a curl function which allows it to generate a turbulent noise.
-This resulting noise is incompressible (divergence-free), which means that the genearted vectors cannot converge to sink points.
+The CurlNoise node generates 2D or 3D curl noise derived from Perlin FBM.
+Curl noise is divergence‑free, meaning it produces swirling, fluid‑like vector fields with no sinks or sources. This makes it ideal for:
+- Flow maps
+- Smoke, fire, and fluid motion
+- Stylized wind fields
+- Particle advection
+- Organic distortion fields
+- Procedural animation
+The node outputs a vector field (XYZ), not scalar noise
 
-The output of this node is a 2D or 3D vector field (normalized vector direction).
 ")]
 
     [System.Serializable, NodeMenuItem("Generators/Noise/Curl Noise")]

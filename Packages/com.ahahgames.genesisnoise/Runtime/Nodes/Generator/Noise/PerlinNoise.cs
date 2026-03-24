@@ -4,11 +4,16 @@ namespace AhahGames.GenesisNoise.Nodes
 {
 
     [Documentation(@"
-Perlin Noise generator.
+The PerlinNoise node generates 2D or 3D Perlin FBM noise with full control over:
+- Frequency
+- Octaves
+- Persistence
+- Lacunarity
+- Output range
+- Tiling mode
+- Multi‑channel evaluation (R, RG, RGB, RGBA)
+This node is a foundational building block for procedural materials, masks, terrain, clouds, and stylized effects
 
-Note that for Texture 2D, the z coordinate is used as a seed offset.
-This allows you to generate multiple noises with the same UV.
-Be careful with because if you use a UV with a distorted z value, you'll get a weird looking noise instead of the normal one.
 ")]
 
     [System.Serializable, NodeMenuItem("Generators/Noise/Perlin Noise")]

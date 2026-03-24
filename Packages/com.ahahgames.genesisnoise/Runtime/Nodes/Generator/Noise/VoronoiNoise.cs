@@ -6,9 +6,23 @@ using System.Linq;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-Worley noise, also called Voronoi noise and cellular noise, is a noise function introduced by Steven Worley in 1996. 
-Worley noise is an extension of the Voronoi diagram that outputs a real value at a given coordinate that corresponds to the distance of the nth nearest seed 
-(usually n=1) and the seeds are distributed evenly through the region. Worley noise is used to create procedural textures.")]
+The VoronoiNoise node generates 2D, 3D, or Cube‑space Voronoi (Worley) noise with an extensive set of controls:
+- Multiple distance functions
+- Multiple generation methods (Cells, Crystal, Glass, Caustic, Distance)
+- Optional smoothness and scaling maps
+- Adjustable search quality
+- Multi‑octave layering
+- Multiple output types (Noise, UV, ID)
+This node is extremely flexible and ideal for:
+- Stone, cracks, and mineral patterns
+- Organic cellular structures
+- Caustics and glass‑like effects
+- Stylized materials
+- Procedural masks
+- Animated Voronoi
+- Domain‑warped patterns (via scaling/smoothness maps)
+
+")]
     [System.Serializable, NodeMenuItem("Generators/Noise/Voronoi Noise")]
     public class VoronoiNoiseNode : FixedNoiseNode
     {

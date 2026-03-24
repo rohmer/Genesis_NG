@@ -6,6 +6,21 @@ using System.Linq;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
+The FBM node generates fractal noise by layering multiple octaves of a base noise function.
+Unlike traditional FBM nodes, this version supports five distinct FBM types, each with its own parameters and behaviors:
+- Value FBM
+- Perlin FBM
+- Voronoi FBM
+- Grid FBM
+- Meatball FBM (metaball‑based)
+This makes the node extremely versatile for:
+- Terrain
+- Clouds
+- Stylized materials
+- Organic patterns
+- Domain‑warped textures
+- Masks and breakup layers
+- Procedural animation
 ")]
 
     [System.Serializable, NodeMenuItem("Generators/Noise/FBM")]

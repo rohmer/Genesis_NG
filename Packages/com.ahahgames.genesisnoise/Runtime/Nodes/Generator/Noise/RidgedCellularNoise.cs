@@ -6,11 +6,20 @@ using System.Linq;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-Just like the cellular noise node, this one generate a cellular pattern but the octaves are accumulated with an absolute function, which create these small ""ridges"" in the noise.
-
-Note that for Texture 2D, the z coordinate is used as a seed offset.
-This allows you to generate multiple noises with the same UV.
-Be careful with because if you use a UV with a distorted z value, you'll get a weird looking noise instead of the normal one.
+The RidgedCellularNoise node generates high‑contrast, ridge‑enhanced cellular noise in 2D, 3D, or Cube space.
+It is built on top of Genesis’ CellularNoise system but applies a ridging transform to produce:
+- Sharp ridges
+- Deep valleys
+- High‑frequency cellular breakup
+- Stylized organic patterns
+- Cracks, veins, and mineral structures
+This makes it ideal for:
+- Rock and stone materials
+- Alien or organic surfaces
+- Stylized terrain
+- Cracks, veins, and branching patterns
+- Mask generation
+- Heightmap breakup
 ")]
 
     [System.Serializable, NodeMenuItem("Generators/Noise/Ridged Cellular Noise")]

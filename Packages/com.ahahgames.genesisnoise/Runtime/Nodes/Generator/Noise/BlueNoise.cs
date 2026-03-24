@@ -3,8 +3,16 @@ using GraphProcessor;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-Blue Noise generator.
-This node is particularly useful for generating random points that are of a specific density for input into other nodes.
+The BlueNoise node generates a high‑quality, tile‑free, spatially uniform blue‑noise mask using a Hilbert‑curve R1 quasirandom sequence.
+This pattern is ideal for:
+- Dithering
+- Stochastic sampling
+- Procedural scattering
+- Pattern breakup
+- Anti‑aliasing
+- Poisson‑like distributions
+Blue noise avoids clustering and low‑frequency artifacts, producing visually pleasing, evenly spaced randomness.
+
 ")]
 
     [System.Serializable, NodeMenuItem("Generators/Noise/Blue Noise")]

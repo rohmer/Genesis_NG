@@ -5,7 +5,16 @@ using System.Collections.Generic;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-Generate white noise.
+The WhiteNoise node generates pure, uncorrelated white noise in 2D, 3D, or Cube space.
+It is a lightweight, deterministic, sampler‑free noise source ideal for:
+- Random masks
+- Dithering
+- Stochastic sampling
+- Pattern breakup
+- Randomized FX
+- Seeded variation
+- Debugging procedural graphs
+The node supports single‑channel, RGB, and RGBA output modes.
 ")]
 
     [System.Serializable, NodeMenuItem("Generators/Noise/White Noise")]

@@ -3,7 +3,16 @@
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-Simplex noise
+The Simplex2D node generates 2D simplex noise using a clean, deterministic implementation of Inigo Quilez’s classic simplex algorithm.
+It is lightweight, fast, and ideal for:
+- Organic masks
+- Terrain breakup
+- Cloud and fog layers
+- Stylized materials
+- Distortion fields
+- Procedural animation
+- Noise‑driven effects
+This node outputs a single‑channel scalar noise value, with amplitude and contrast shaping for artistic control.
 ")]
 
     [System.Serializable, NodeMenuItem("Generators/Noise/Simplex 2D")]
