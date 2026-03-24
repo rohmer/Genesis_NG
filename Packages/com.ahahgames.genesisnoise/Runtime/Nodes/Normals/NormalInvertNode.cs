@@ -15,7 +15,7 @@ namespace AhahGames.GenesisNoise.Nodes
     public class NormalInvertNode : FixedNoiseNode
     {
         public override string name => "Normal Invert";
-        public override string NodeGroup => "Effects";
+        public override string NodeGroup => "Normal";
         public override string ShaderName => "Hidden/Genesis/NormalInvert";
     }
 }

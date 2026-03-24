@@ -16,7 +16,7 @@ Blends two normals
         public override string name => "Normal Blend";
 
         public override string ShaderName => "Hidden/Genesis/NormalBlend";
-
+        public override string NodeGroup => "Normal";
         public override bool DisplayMaterialInspector => true;
 
         // Enumerate the list of material properties that you don't want to be turned into a connectable port.

@@ -25,7 +25,8 @@ And it’s incredibly useful for:
     public class BentNormalNode : FixedNoiseNode
     {
         public override string name => "Bent Normal";
-        public override string NodeGroup => "Effects";
+        public override string NodeGroup => "Normal";
         public override string ShaderName => "Hidden/Genesis/BentNormal";
+
     }
 }

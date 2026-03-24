@@ -18,7 +18,7 @@ Normal Vector Rotation is a fantastic utility node — it lets you rotate a tang
     public class NormalVectorRotationNode : FixedNoiseNode
     {
         public override string name => "Normal Vector Rotation";
-        public override string NodeGroup => "Effects";
+        public override string NodeGroup => "Normal";
         public override string ShaderName => "Hidden/Genesis/NormalVectorRotation";
     }
 }

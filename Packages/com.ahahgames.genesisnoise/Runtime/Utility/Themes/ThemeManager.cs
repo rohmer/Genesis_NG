@@ -4,6 +4,8 @@ using System.Text;
 
 using Unity.Mathematics;
 
+using UnityEditor.Build;
+
 using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Runtime.Utility.Themes
@@ -52,10 +54,10 @@ namespace AhahGames.GenesisNoise.Runtime.Utility.Themes
             groupThemes.Add("Color", colorTheme);
             NodeTheme blurTheme = new NodeTheme();
             blurTheme.BorderColors = new UnityEngine.Color[4] { Color.white, Color.white, Color.white, Color.white };
-            blurTheme.HeaderLeftColor = Color.yellow;
+            blurTheme.HeaderLeftColor = Color.darkOrchid;
             blurTheme.HeaderRightColor = Color.orange;
             blurTheme.HeaderTextColor = Color.black;
-            blurTheme.BackgroundColor = Color.gray;
+            blurTheme.BackgroundColor = Color.cyan;
             groupThemes.Add("Blur", blurTheme);
             NodeTheme mathTheme = new NodeTheme();
             mathTheme.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan};
@@ -85,6 +87,62 @@ namespace AhahGames.GenesisNoise.Runtime.Utility.Themes
             randomTheme.HeaderTextColor = Color.white;
             randomTheme.BackgroundColor = Color.lightSteelBlue;
             groupThemes.Add("Random", randomTheme);
+            NodeTheme effectsTheme = new NodeTheme();
+            effectsTheme.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan };
+            effectsTheme.HeaderLeftColor = Color.darkBlue;
+            effectsTheme.HeaderRightColor = Color.cadetBlue;
+            effectsTheme.HeaderTextColor = Color.white;
+            effectsTheme.BackgroundColor = Color.cyan;
+            groupThemes.Add("Effects", effectsTheme);
+            NodeTheme modifiers = new NodeTheme();
+            modifiers.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan };
+            modifiers.HeaderLeftColor = Color.darkSlateBlue;
+            modifiers.HeaderRightColor = Color.slateBlue;
+            modifiers.HeaderTextColor = Color.white;
+            modifiers.BackgroundColor = Color.cyan;
+            groupThemes.Add("Modifiers", modifiers);
+            NodeTheme  noise = new NodeTheme();
+            noise.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan };
+            noise.HeaderLeftColor = Color.gray1;
+            noise.HeaderRightColor = Color.gray6;
+            noise.HeaderTextColor = Color.white;
+            noise.BackgroundColor = Color.darkRed;
+            groupThemes.Add("Noise", noise);
+            NodeTheme pattern = new NodeTheme();
+            pattern.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan };
+            pattern.HeaderLeftColor = Color.gray1;
+            pattern.HeaderRightColor = Color.chartreuse;
+            pattern.HeaderTextColor = Color.white;
+            pattern.BackgroundColor = Color.darkRed;
+            groupThemes.Add("Pattern", pattern);
+            NodeTheme shape = new NodeTheme();
+            shape.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan };
+            shape.HeaderLeftColor = Color.gray1;
+            shape.HeaderRightColor = Color.orchid;
+            shape.HeaderTextColor = Color.white;
+            shape.BackgroundColor = Color.darkRed;
+            groupThemes.Add("Shape", shape);
+            NodeTheme normal = new NodeTheme();
+            normal.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan };
+            normal.HeaderLeftColor = new Color(48f / 255f, 110f / 255f, 110f / 255f);
+            normal.HeaderRightColor = new Color(20f / 255f, 217f / 255f, 217f / 255f); ;
+            normal.HeaderTextColor = Color.white;
+            normal.BackgroundColor = new Color(0, 1, 1);
+            groupThemes.Add("Normal", normal);
+            NodeTheme operations = new NodeTheme();
+            operations.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan };
+            operations.HeaderLeftColor = new Color(32f / 255f, 0, 43f / 255f);
+            operations.HeaderRightColor = new Color(133f / 255f, 36f / 255f, 166f / 255f); ;
+            operations.HeaderTextColor = Color.white;
+            operations.BackgroundColor = new Color(188f / 255f, 2f / 255f, 250f / 255f);
+            groupThemes.Add("Operations", operations);
+            NodeTheme transform = new NodeTheme();
+            transform.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan };
+            transform.HeaderLeftColor = new Color(6f / 255f, 61f/255f, 2f / 255f);
+            transform.HeaderRightColor = new Color(81f / 255f, 158f / 255f, 76f / 255f); ;
+            transform.HeaderTextColor = Color.white;
+            transform.BackgroundColor = new Color(15f / 255f, 255f / 255f,1f / 255f);
+            groupThemes.Add("Transforms", transform);
         }
 
         public Color GetTextColor(string NodeGroup, string Name)

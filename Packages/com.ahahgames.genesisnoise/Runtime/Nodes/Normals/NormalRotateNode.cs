@@ -16,7 +16,7 @@ Rotate the normal map vector with a certain angle in degree.
         public override string name => "Normal Rotate";
 
         public override string ShaderName => "Hidden/Genesis/NormalRotate";
-
+        public override string NodeGroup => "Normal";
         public override bool DisplayMaterialInspector => true;
 
         // Enumerate the list of material properties that you don't want to be turned into a connectable port.

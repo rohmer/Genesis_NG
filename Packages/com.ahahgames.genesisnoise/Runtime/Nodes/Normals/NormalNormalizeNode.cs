@@ -19,7 +19,7 @@ A proper normalize step prevents shading artifacts and keeps downstream nodes st
     public class NormalNormalizeNode : FixedNoiseNode
     {
         public override string name => "Normal Normalize";
-        public override string NodeGroup => "Effects";
+        public override string NodeGroup => "Normal";
         public override string ShaderName => "Hidden/Genesis/NormalNormalize";
     }
 }

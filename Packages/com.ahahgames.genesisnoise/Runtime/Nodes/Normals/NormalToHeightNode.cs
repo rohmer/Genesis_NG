@@ -21,7 +21,7 @@ So to reconstruct height, we need to:
     public class NormalToHeightNode : FixedNoiseNode
     {
         public override string name => "Normal To Height";
-        public override string NodeGroup => "Effects";
+        public override string NodeGroup => "Normal";
         public override string ShaderName => "Hidden/Genesis/NormalToHeight";
     }
 }

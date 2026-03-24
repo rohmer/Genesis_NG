@@ -17,7 +17,7 @@ it converts a height map into a tangent‑space normal map using Sobel gradients
     public class NormalSobelNode : FixedNoiseNode
     {
         public override string name => "Normal Sobel";
-        public override string NodeGroup => "Effects";
+        public override string NodeGroup => "Normal";
         public override string ShaderName => "Hidden/Genesis/NormalSobel";
     }
 }

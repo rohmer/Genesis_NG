@@ -16,7 +16,7 @@ Add two normal maps using the surface gradient functions.
         public override string name => "Normal Add";
 
         public override string ShaderName => "Hidden/Genesis/NormalAdd";
-
+        public override string NodeGroup => "Normal";
         public override bool DisplayMaterialInspector => true;
 
         // Enumerate the list of material properties that you don't want to be turned into a connectable port.

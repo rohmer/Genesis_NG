@@ -18,7 +18,7 @@ With optional:
     public class FacingNormalNode : FixedNoiseNode
     {
         public override string name => "Facing Normal";
-        public override string NodeGroup => "Effects";
+        public override string NodeGroup => "Normal";
         public override string ShaderName => "Hidden/Genesis/FacingNormal";
     }
 }

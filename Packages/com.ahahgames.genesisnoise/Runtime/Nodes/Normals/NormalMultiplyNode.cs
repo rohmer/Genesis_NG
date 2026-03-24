@@ -16,7 +16,7 @@ Multiplies a normal by another normal and/or a constant
         public override string name => "Normal Multiply";
 
         public override string ShaderName => "Hidden/Genesis/NormalMultiply";
-
+        public override string NodeGroup => "Normal";
         public override bool DisplayMaterialInspector => true;
 
         // Enumerate the list of material properties that you don't want to be turned into a connectable port.

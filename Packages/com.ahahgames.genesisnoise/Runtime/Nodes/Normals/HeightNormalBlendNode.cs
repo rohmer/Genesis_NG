@@ -16,7 +16,7 @@ It’s basically a height‑aware normal blend, not just a linear lerp.
     public class HeightNormalBlendNode : FixedNoiseNode
     {
         public override string name => "Height Normal Blend";
-        public override string NodeGroup => "Effects";
+        public override string NodeGroup => "Normal";
         public override string ShaderName => "Hidden/Genesis/HeightNormalBlender";
     }
 }

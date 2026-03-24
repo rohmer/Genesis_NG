@@ -22,7 +22,7 @@ This gives you:
     public class HeightNormalCurvatureBlendNode : FixedNoiseNode
     {
         public override string name => "Height Normal Curvature Blend";
-        public override string NodeGroup => "Effects";
+        public override string NodeGroup => "Normal";
         public override string ShaderName => "Hidden/Genesis/CurvatureAwareHeightNormalBlender";
     }
 }
