@@ -81,6 +81,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\VoronoiNoise.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\GrassGenerator.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Color\QuantizeNode.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Blurs\HQBlurNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Math\DivideNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\Clouds1Node.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Constants\FloatNode.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Views\CreateNodeMenuWindow.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisChannelMaskDrawer.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\ComputeShaderNode.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Color\HighpassColorNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\NodeGraphProcessor\Runtime\Processing\BaseGraphProcessor.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Operations\VolumeToVectorFieldNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\SplatterShapeNode.cs" />
@@ -117,6 +119,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Cast\ToVector3IntNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Cast\ToVector2NodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisColorPropertyDrawer.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Transforms\WarpNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Cast\ToQuaternionNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Transforms\SymmetrySliceNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\Dirt3Node.cs" />
@@ -134,6 +137,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\WhirlNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Cast\ToFloatNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\ColorizeNodeView.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\GaussianNoiseNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Recipe\RecipeOutputNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Cast\ToStringNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\AnisotropicNode2.cs" />
@@ -147,6 +151,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisPropertyDrawer.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Callbacks\NodeGraphProcessorMenuItems.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\MarbleNode.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Color\HighpassGrayscaleNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\WhiteNoise.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\Clouds3Node.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\FloodFillToGradientNode.cs" />
@@ -174,6 +179,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Wear\LeatherWearNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Constant\Vector2NodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\ArcBricksNode.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Transforms\Transformation2DNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\GlowNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenisisGrayscaleDrawer.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisVector2Drawer.cs" />
@@ -221,6 +227,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\SupportVariables.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Operations\CloudLayerEncode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Operations\TileWrapNode.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisShapeTypeDrawer.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\StonesNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Cast\ToBoolNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Utility\GenesisNoiseUtility.cs" />
@@ -246,6 +253,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\HistogramView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Operations\DiscreetColorNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\ExtendShapeNode.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Transforms\DistanceNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\FloodFillToGrayScale.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Constant\Vector2IntNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Graph\GenesisNoiseSettings.cs" />
@@ -279,6 +287,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\ExternalOutputNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Utility\NodeDocumentor.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisTooltipDrawer.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\ShapeNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Constants\Vector4Node.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Constant\Vector4NodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Output\Texture2DOutputNodeView.cs" />
@@ -460,6 +469,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\OutputNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\HoneycombNoise.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\ExternalOutputNode.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\ScratchesGeneratorNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\NodeGraphProcessor\Runtime\Elements\BaseStackNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Wear\MetalWearNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\NonUniformDirWarpNode.cs" />
@@ -501,6 +511,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\SkyGenerator.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Blurs\NoiseBlurShader.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Utility\AssetCreation.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Transforms\CurveNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\GaussianSpotsNode1.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\Mesh1Node.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Operations\ChannelCombineNode.cs" />
@@ -536,6 +547,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\DiffusionNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\TruchetNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\Dirt2Node.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Color\GradientMapNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Cast\ToQuaternionNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisIRangePropertyDrawer.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Cast\ToIntNode.cs" />
@@ -556,6 +568,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\HeightExtrudeNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\VectorFieldNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\WhorleyNode.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisGradientModesDrawer.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Operations\ChannelSplitNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Operations\TilingNode.cs" />
   </ItemGroup>
@@ -581,6 +594,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\Separate.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\SplatterColor.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\ShapeGlow.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Noises\GaussianNoise.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Functions\DirectionalBlur.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Utils\Split.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\NoiseUpscale1.shader" />
@@ -603,6 +617,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\Templates\ComputeShaderTemplate.txt" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\FloodFillToGradient.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\OrganicScratches.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\GradientMap.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\GenesisCurveColors.uss" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\UI Blocks\CustomMipMap.uxml" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\Grime5.shader" />
@@ -657,13 +672,13 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Blur\GaussianBlur.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\ReplaceColorRange.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\Templates\CSharpMixtureNodeTemplate.txt" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Effects\BlurHQ.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Functions\Transform.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\Terrain\PointGenerator\FastNoise.compute" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Utils\Swizzle.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\TextureOffset3DColor.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\HSV.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\ApplyPalette.shader" />
-    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\GradientLinear3.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\MixturePreview.hlsl" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\HistogramRange.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Resources\ShaderNodeDefault.shader" />
@@ -683,6 +698,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\Dirt.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Blending.hlsl" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\NonSquareTransform.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\HighpassGrayscale.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\GenesisGradiantNoise.hlsl" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\Templates\CustomTextureShaderTemplate.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Functions\Sharpen.shader" />
@@ -697,6 +713,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\CurvatureSobel.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\TerrainTopology\TerrainTopologyUtils.hlsl" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Resources\GraphProcessorStyles\ExposedParameterView.uss" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\Curve.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Normal\ToNormal.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\Symmetry.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\BWSpots4.shader" />
@@ -717,6 +734,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Utils\PreviewNode.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\Filth.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\RTShadows.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\Downsample4x.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Utils\TextureNode.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\Grime7.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\Histogram.compute" />
@@ -733,6 +751,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\TerrainTopology\TerrainTopology.compute" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\CartesianToPolar.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Weave.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\HighpassColor.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\Stones.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Resources\Error.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\ValueNoise.hlsl" />
@@ -857,6 +876,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\GenesisFixed.hlsl" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\ShapeSplatterCircularSpiralArms.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Noises\Simplex3D.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Functions\Transform2D.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\UVPolar.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\ShapeStroke.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\TerrainTopology\TerrainResidualFunctions.hlsl" />
@@ -874,6 +894,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\interpolate.hlsl" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Procedural\Fractals\Mandelbrot.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\ShapeSplatterCircularSpiral.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Shape.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Utils\MeshToMaps.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\Fluid3D.compute" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\RoundedRectangle.shader" />
@@ -909,6 +930,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\Grime10.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\Marble.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Effects\BoxBlur.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\Downsample2x.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\AutoCrop.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\HistogramData.hlsl" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\Threshold.shader" />
@@ -930,6 +952,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Functions\ScaleBias.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\AutoLevels.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\GenesisNoiseUtil.hlsl" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\ScratchesGenerator.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Tile.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\ChannelMixer.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\UI Blocks\InspectorNodeFoldout.uxml" />
@@ -970,7 +993,9 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\CustomTexture.hlsl" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\Pixelize.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Utils\SRGBToLinear.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\Warp.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\Templates\ShaderTextTexture3DTemplate.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\DistanceTransform.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\MixtureParameterView.uss" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\QuadTransform.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Utils\LinearToSRGB.shader" />
