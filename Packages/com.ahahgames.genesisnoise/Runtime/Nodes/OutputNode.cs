@@ -238,7 +238,7 @@ namespace AhahGames.GenesisNoise.Nodes
             {
                 yield return new PortData
                 {
-                    displayName = "", // display name is handled by the port settings UI element
+                    displayName = string.Empty, // display name is handled by the port settings UI element
                     displayType = displayType,
                     identifier = output.name,
                 };

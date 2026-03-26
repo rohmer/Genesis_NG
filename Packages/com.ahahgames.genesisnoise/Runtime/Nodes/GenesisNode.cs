@@ -162,7 +162,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
         public Texture2D GetHeaderGradient()
         {
-            return ThemeManager.GetInstance().GetBackground(NodeGroup, name, (int)nodeWidth, 30);            
+            return ThemeManager.GetInstance().GetBackground(NodeGroup, name, (int)nodeWidth, 30);
         }
 
         public Color[] GetBorderColors()
@@ -427,7 +427,7 @@ namespace AhahGames.GenesisNoise.Nodes
                 target.Release();
                 target.width = outputWidth;
                 target.height = outputHeight;
-                target.graphicsFormat = (GraphicsFormat)targetFormat;
+                target.graphicsFormat = targetFormat;
                 target.dimension = dimension;
                 target.volumeDepth = outputDepth;
                 target.depth = depthBuffer ? 32 : 0;
@@ -606,7 +606,7 @@ namespace AhahGames.GenesisNoise.Nodes
                             continue;
                         if (currentDimension == TextureDimension.Cube && !isCube)
                             continue;
-                        displayName = Regex.Replace(displayName, @"_2D|_3D|_Cube", "", RegexOptions.IgnoreCase);
+                        displayName = Regex.Replace(displayName, @"_2D|_3D|_Cube", string.Empty, RegexOptions.IgnoreCase);
                     }
                 }
 
