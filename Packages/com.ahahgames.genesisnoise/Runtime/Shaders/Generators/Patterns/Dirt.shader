@@ -2,193 +2,91 @@
 {
     Properties
     {
-        [GenesisVector2]_Scale("Base Scale", Vector) = (1,1,0,0)
-
-        _BlotchDensity("Blotch Density", Range(0,1)) = 0.55
-        _BlotchRadius("Blotch Radius", Range(0.1,4.0)) = 1.4
-        _BlotchSoftness("Blotch Softness", Range(0.5,10.0)) = 3.0
-
-        _MicroDust("Micro Dust", Range(0,1)) = 0.45
-        _MicroDustScale("Micro Dust Scale", Range(4,40)) = 18.0
-
-        _OcclusionStrength("Occlusion Strength", Range(0,1)) = 0.5
-        _OcclusionScale("Occlusion Scale", Range(0.5,8.0)) = 2.0
-
-        _Breakup("Breakup Strength", Range(0,1)) = 0.7
-        _Contrast("Contrast", Range(0.5,4.0)) = 1.35
+        _Scale("Scale", Float) = 6.0
+        _Balance("Balance", Range(0,1)) = 0.5
+        _Contrast("Contrast", Float) = 1.0
+        [Enum(Normal,0,Inverted,1)]_Invert("Invert", Float) = 0.0
+        _Coverage("Coverage", Range(0,1)) = 0.5
+        _NonSquare("Non Square Expansion", Float) = 0.0
+        _Seed("Seed", Float) = 0.0
+        [Enum(None,0, RawNoise,1, Mask,2, Inverted,3)] _Debug("Debug", Float) = 0
     }
+    SubShader { Pass {
+        HLSLPROGRAM
+        #include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"
+        #pragma vertex CustomRenderTextureVertexShader
+        #pragma fragment GenesisFragment
+        #pragma target 3.0
 
-    SubShader
-    {
-        Tags { "RenderType"="Opaque" }
-        LOD 100
+        float _Scale;
+        float _Balance;
+        float _Contrast;
+        float _Invert;
+        float _Coverage;
+        float _NonSquare;
+        float _Seed;
+        float _Debug;
 
-        Pass
-        {
-            HLSLPROGRAM
-            #define BUILTIN_TARGET_API
-            #include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"
-
-            #pragma vertex   CustomRenderTextureVertexShader
-            #pragma fragment GenesisFragment
-            #pragma shader_feature CRT_2D CRT_3D CRT_CUBE
-            #pragma shader_feature _ USE_CUSTOM_UV
-
-            float2 _Scale;
-
-            float _BlotchDensity;
-            float _BlotchRadius;
-            float _BlotchSoftness;
-
-            float _MicroDust;
-            float _MicroDustScale;
-
-            float _OcclusionStrength;
-            float _OcclusionScale;
-
-            float _Breakup;
-            float _Contrast;
-
-            // ---------------------------------------------------------
-            // Hash helpers
-            // ---------------------------------------------------------
-            float hash11(float n)
-            {
-                return frac(sin(n * 127.1) * 43758.5453);
-            }
-
-            float2 hash21(float2 p)
-            {
-                float n = dot(p, float2(127.1, 311.7));
-                return frac(sin(float2(n, n + 1.234)) * 43758.5453);
-            }
-
-            // ---------------------------------------------------------
-            // Noise
-            // ---------------------------------------------------------
-            float noise(float2 p)
-            {
-                float2 i = floor(p);
-                float2 f = frac(p);
-                float2 u = f * f * (3.0 - 2.0 * f);
-
-                float a = hash11(i.x + i.y * 57.0);
-                float b = hash11(i.x + 1.0 + i.y * 57.0);
-                float c = hash11(i.x + (i.y + 1.0) * 57.0);
-                float d = hash11(i.x + 1.0 + (i.y + 1.0) * 57.0);
-
-                return lerp(lerp(a,b,u.x), lerp(c,d,u.x), u.y);
-            }
-
-            float fbm(float2 p)
-            {
-                float v = 0.0;
-                float a = 0.5;
-
-                [unroll]
-                for (int i = 0; i < 5; i++)
-                {
-                    v += noise(p) * a;
-                    p *= 2.0;
-                    a *= 0.55;
-                }
-                return v;
-            }
-
-            // ---------------------------------------------------------
-            // Gaussian falloff
-            // ---------------------------------------------------------
-            float gaussian(float d, float r, float softness)
-            {
-                float x = d / r;
-                return exp(-softness * x * x);
-            }
-
-            // ---------------------------------------------------------
-            // Blotch generator (large dirt clusters)
-            // ---------------------------------------------------------
-            float blotch(float2 uv)
-            {
-                float2 p = uv * _Scale;
-                float2 ip = floor(p);
-                float2 fp = frac(p);
-
-                float result = 0.0;
-
-                [unroll]
-                for (int y = -1; y <= 1; y++)
-                {
-                    [unroll]
-                    for (int x = -1; x <= 1; x++)
-                    {
-                        float2 cell = ip + float2(x, y);
-                        float2 rnd = hash21(cell);
-
-                        if (rnd.x > _BlotchDensity)
-                            continue;
-
-                        float2 center = rnd;
-                        float2 fp2 = fp + float2(x, y);
-
-                        float d = distance(fp2, center);
-                        float g = gaussian(d, _BlotchRadius, _BlotchSoftness);
-
-                        result = max(result, g);
-                    }
-                }
-
-                return result;
-            }
-
-            // ---------------------------------------------------------
-            // Micro dust (tiny specks)
-            // ---------------------------------------------------------
-            float microDust(float2 uv)
-            {
-                float n = fbm(uv * _MicroDustScale);
-                float m = smoothstep(0.65, 0.85, n);
-                return m * _MicroDust;
-            }
-
-            // ---------------------------------------------------------
-            // Occlusion-like dirt (broad, soft)
-            // ---------------------------------------------------------
-            float occlusion(float2 uv)
-            {
-                float d = fbm(uv * _OcclusionScale);
-                return pow(d, 2.0) * _OcclusionStrength;
-            }
-
-            // ---------------------------------------------------------
-            // Breakup modulation
-            // ---------------------------------------------------------
-            float breakup(float2 uv)
-            {
-                float b = fbm(uv * 3.0);
-                return lerp(1.0, b, _Breakup);
-            }
-
-            // ---------------------------------------------------------
-            // Genesis CRT entry
-            // ---------------------------------------------------------
-            float4 mixture(v2f_customrendertexture i) : SV_Target
-            {
-                float2 uv = i.localTexcoord.xy;
-
-                float b = blotch(uv);
-                float d = occlusion(uv);
-                float m = microDust(uv);
-                float br = breakup(uv);
-
-                float v = b + d + m;
-
-                v *= br;
-                v = pow(saturate(v), _Contrast);
-
-                return float4(v, v, v, 1.0);
-            }
-
-            ENDHLSL
+        // cheap hash / value noise
+        float hash11(float n){ return frac(sin(n*127.1+_Seed)*43758.5453); }
+        float noise2(float2 p){
+            float2 i = floor(p);
+            float2 f = frac(p);
+            float a = hash11(i.x + i.y*57.0);
+            float b = hash11(i.x+1.0 + i.y*57.0);
+            float c = hash11(i.x + (i.y+1.0)*57.0);
+            float d = hash11(i.x+1.0 + (i.y+1.0)*57.0);
+            float2 u = f*f*(3.0-2.0*f);
+            return lerp(lerp(a,b,u.x), lerp(c,d,u.x), u.y);
         }
-    }
+        // fbm
+        float fbm(float2 p){
+            float v=0.0; float a=0.5; float2 shift = float2(100,100);
+            for(int i=0;i<5;i++){
+                v += a*noise2(p);
+                p = p*2.0 + shift;
+                a *= 0.5;
+            }
+            return v;
+        }
+
+        float4 mixture(v2f_customrendertexture i) : SV_Target {
+            float2 uv = i.localTexcoord.xy;
+
+            // non-square compensation
+            if (_NonSquare > 0.0) {
+                float aspect = i.localTexcoord.z; // use z as aspect if provided by pipeline
+                uv.x = lerp(uv.x, uv.x * aspect, _NonSquare);
+            }
+
+            // scale and seed jitter
+            float2 p = uv * _Scale + _Seed;
+
+            // base grunge: fbm + spot shaping
+            float g = fbm(p * 1.0);
+            // accentuate spots by raising to power and adding small high-frequency
+            float spots = pow(saturate((g - (1.0 - _Coverage)) / max(1e-5,_Coverage)), 1.5);
+            spots += 0.15 * fbm(p * 8.0);
+
+            // balance shifts midpoint (like Substance Balance)
+            float balanced = lerp(spots, 1.0 - spots, _Balance);
+
+            // contrast
+            balanced = pow(saturate(balanced), _Contrast);
+
+            // invert
+            if (_Invert > 0.5) balanced = 1.0 - balanced;
+
+            // threshold to produce mask if desired
+            float mask = step(0.5, balanced);
+
+            // debug outputs
+            if (_Debug == 1) return float4(g,g,g,1); // raw noise
+            if (_Debug == 2) return float4(mask,mask,mask,1); // mask
+            if (_Debug == 3) return float4(1.0-balanced,1.0-balanced,1.0-balanced,1); // inverted preview
+
+            return float4(balanced, balanced, balanced, 1);
+        }
+        ENDHLSL
+    } }
 }

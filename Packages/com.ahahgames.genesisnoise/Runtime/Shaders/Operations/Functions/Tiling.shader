@@ -1,136 +1,185 @@
 Shader "Hidden/Genesis/Tiling"
-{	
-	Properties
-	{
-		// By default a shader node is supposed to handle all the input texture dimension, we use a prefix to determine which one is used
-		[Tooltip(Source Texture)][InlineTexture]_Source_2D("Source", 2D) = "white" {}
-		[Tooltip(Source Texture)][InlineTexture]_Source_3D("Source", 3D) = "white" {}
-		[Tooltip(Source Texture)][InlineTexture]_Source_Cube("Source", Cube) = "white" {}
+{
+    Properties
+    {
+        [Tooltip(Tile count X,Y)]
+        _TileCount("Tile Count", Vector) = (4,4,0,0)
 
-		[Tooltip(Tiling method, tiling is a straight copy and stochastic adds a level of randomness)]
-		[Enum(Tiling,0,Stochastic,1)]_method("Tiling Method", int)=1
+        [Tooltip(Global scale of tiles)]
+        _TileScale("Tile Scale", Float) = 1.0
 
-				
-		[Tooltip(Number of tiles to create in the X axis)]
-		_tileScaleX("Tile Scale X",Range(1,64))=3
-				
-		[Tooltip(Number of tiles to create in the Y axis)]
-		_tileScaleY("Tile Scale Y",Range(1,64))=32
-		
-		[VisibleIf(_method,0)]
-		[Tooltip(Blend softness range)]
-		_blendWidth("Blend Width", Range(0.00,0.3))=0.1
-		
+        [Tooltip(Padding between tiles)]
+        _Padding("Padding", Float) = 0.05
 
+        [Tooltip(Global rotation)]
+        _Rotation("Rotation", Float) = 0.0
 
-	}
+        [Tooltip(Random rotation per tile)]
+        _RandRot("Random Rotation", Float) = 0.0 
 
-	SubShader
-	{
-		Tags { "RenderType"="Opaque" }
-		LOD 100
+        [Tooltip(Random scale per tile)]
+        _RandScale("Random Scale", Float) = 0.0
 
-		Pass
-		{
-			HLSLPROGRAM
-			#include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"			
-			#pragma vertex CustomRenderTextureVertexShader
-			#pragma shader_feature CRT_2D CRT_3D CRT_CUBE
-			#pragma vertex CustomRenderTextureVertexShader
-			#pragma fragment GenesisFragment
+        [Tooltip(Random position jitter)]
+        _RandOffset("Random Offset", Float) = 0.0
 
-			TEXTURE_X(_Source);
-			SAMPLER_X(sampler_Source); 
-			float _blendWidth;
-			int _tileScaleX,_tileScaleY;
-			int _method;
+        [Tooltip(Shape type]
+        [Enum(Rect,0,Ellipse,1,Polygon,2)]_ShapeType("Shape Type", Int) = 0
 
-			float hash(float2 p) 
-			{
-				return frac(sin(dot(p, float2(41.32, 97.17))) * 105.97);
-			}
+        [Tooltip(Polygon sides)]
+        [VisibleIf(_ShapeType,2)]_Sides("Sides", Int) = 6
 
-			float2 rotateUV(float2 uv, float angle) 
-			{
-				float s = sin(angle), c = cos(angle);
-				uv -= 0.5;
-				uv = float2(c * uv.x - s * uv.y, s * uv.x + c * uv.y);
-				return uv + 0.5;
-			}
+        [Tooltip(Random seed)]
+        _Seed("Seed", Float) = 1.0
 
-			float4 StochasticTile(float2 uv, float2 tileScale, float3 dir)
-			{
-				float2 scaledUV1 = uv * tileScale;
-				float2 tileID = floor(scaledUV1);
-				float2 tileUV1 = frac(scaledUV1);
+        [Tooltip(Optional mask)]
+        _Mask("Mask", 2D) = "white" {} 
 
-				// Noise-based offset
-				float2 noiseOffset = frac(sin(tileID * 43.53) * float2(57.29, 19.77));
+        [Tooltip(Mask strength)]
+        _MaskStrength("Mask Strength", Float) = 1.0
+    }
 
-				// Rotation angle
-				float rotation = hash(tileID) * 6.2831853;
+    SubShader
+    {
+        Tags { "RenderType"="Opaque" }
+        LOD 100
 
-				// Flip logic
-				bool flipX = hash(tileID + 13.7) > 0.5;
-				bool flipY = hash(tileID + 3.9) > 0.5;
+        Pass
+        {
+            HLSLPROGRAM
+            #include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"
+            #pragma vertex CustomRenderTextureVertexShader
+            #pragma fragment GenesisFragment
+            #pragma target 3.0
 
-				if (flipX) tileUV1.x = 1.0 - tileUV1.x;
-				if (flipY) tileUV1.y = 1.0 - tileUV1.y;
+            #pragma shader_feature CRT_2D CRT_3D CRT_CUBE
 
-				tileUV1 = rotateUV(tileUV1, rotation);
-				float2 finalUV = frac(tileUV1 + noiseOffset);
+            float2 _TileCount;
+            float _TileScale;
+            float _Padding;
+            float _Rotation;
+            float _RandRot;
+            float _RandScale;
+            float _RandOffset;
+            int _ShapeType;
+            int _Sides;
+            float _Seed;
 
+            sampler2D _Mask;
+            float _MaskStrength;
 
-				return SAMPLE_X_SAMPLER(_Source,sampler_Source,finalUV,dir);
-			}
-			
-			float4 TileBlend(float2 uv, float3 dir)
-			{
-				float2 tileScale=float2(_tileScaleX,_tileScaleY);
-				float2 scaledUV=uv*tileScale;
-				float2 tileUV=frac(scaledUV);
+            // ---------------------------------------------------------
+            // Hash
+            // ---------------------------------------------------------
+            float hash(float2 p)
+            {
+                p = frac(p * 0.3183099 + _Seed * 0.1234);
+                p *= 17.0;
+                return frac(p.x * p.y * (p.x + p.y));
+            }
 
-				// Edge fade based on distance from tile edge
-				float2 edgeBlend = smoothstep(0.0, _blendWidth, tileUV) * 
-                       smoothstep(0.0, _blendWidth, 1.0 - tileUV);
+            float2 hash2(float2 p)
+            {
+                return float2(hash(p), hash(p + 13.37));
+            }
 
-				// Sample texture
-				float4 texColor = SAMPLE_X_SAMPLER(_Source,sampler_Source,tileUV,dir);
+            // ---------------------------------------------------------
+            // Rotation
+            // ---------------------------------------------------------
+            float2 rotate(float2 p, float a)
+            {
+                float s = sin(a);
+                float c = cos(a);
+                return float2(p.x*c - p.y*s, p.x*s + p.y*c);
+            }
 
-				// Multiply by edge alpha
-				return texColor * edgeBlend.x * edgeBlend.y;
-			}
-			
+            // ---------------------------------------------------------
+            // Shapes (SDF)
+            // ---------------------------------------------------------
+            float sdRect(float2 p)
+            {
+                float2 d = abs(p) - 0.5;
+                return max(d.x, d.y);
+            }
 
-			float4 mixture(v2f_customrendertexture i) : SV_Target
-			{
-				if(_method==0)
-				{
-					float uv=i.localTexcoord.xy;
-					float dir=i.direction;
+            float sdEllipse(float2 p)
+            {
+                return (length(p / float2(0.5,0.5)) - 1.0);
+            }
 
-					float2 tileScale=float2(_tileScaleX,_tileScaleY);
-					float2 scaledUV=uv*tileScale;
-					float2 tileUV=frac(scaledUV);
+            float sdPolygon(float2 p, int n)
+            {
+                float a = atan2(p.y, p.x);
+                float r = length(p);
+                float sector = 6.2831853 / n;
+                float d = cos(floor(0.5 + a / sector) * sector - a) * r;
+                return d - 0.5;
+            }
 
-					// Edge fade based on distance from tile edge
-					float2 edgeBlend = smoothstep(0.0, _blendWidth, tileUV) * 
-						   smoothstep(0.0, _blendWidth, 1.0 - tileUV);
+            float shape(float2 p)
+            {
+                if (_ShapeType == 0) return sdRect(p);
+                if (_ShapeType == 1) return sdEllipse(p);
+                return sdPolygon(p, _Sides);
+            }
 
-					// Sample texture
-					float4 texColor = SAMPLE_X_SAMPLER(_Source,sampler_Source,tileUV,dir);
+            // ---------------------------------------------------------
+            // Tile Generator
+            // ---------------------------------------------------------
+            float tileValue(float2 uv)
+            {
+                float2 grid = uv * _TileCount;
 
-					// Multiply by edge alpha
-					return texColor * edgeBlend.x * edgeBlend.y;
-				} else
-				if(_method==1)
-				{
-					return StochasticTile(i.localTexcoord.xy,float2(_tileScaleX,_tileScaleY), i.direction);
-				}
-				
-				return float4(1,1,1,1);
-			}
-			ENDHLSL
-		}
-	}
+                float2 cell = floor(grid);
+                float2 local = frac(grid) - 0.5;
+
+                // Random per-tile
+                float2 rnd = hash2(cell);
+                float rRot = (rnd.x - 0.5) * _RandRot * 6.2831853;
+                float rScale = 1.0 + (rnd.y - 0.5) * _RandScale;
+                float2 rOff = (rnd - 0.5) * _RandOffset;
+
+                // Apply jitter
+                local += rOff;
+
+                // Apply global + random rotation
+                local = rotate(local, radians(_Rotation) + rRot);
+
+                // Apply scale
+                local /= (_TileScale * rScale);
+
+                // Padding
+                local /= (1.0 + _Padding);
+
+                // Evaluate shape
+                float d = shape(local);
+
+                return saturate(1.0 - smoothstep(0.0, 0.01, d));
+            }
+
+            // ---------------------------------------------------------
+            // Final CRT fragment
+            // ---------------------------------------------------------
+            float4 mixture(v2f_customrendertexture IN) : SV_Target
+            {
+                float3 uv = IN.localTexcoord.xyz;
+
+                #ifdef CRT_CUBE
+                    uv.z = 0.5;
+                #endif
+
+                float2 baseUV = uv.xy;
+
+                float t = tileValue(baseUV);
+
+                // Mask
+                float m = tex2D(_Mask, baseUV).r;
+                t *= lerp(1.0, m, _MaskStrength);
+
+                return float4(t, t, t, 1.0);
+            }
+
+            ENDHLSL
+        }
+    }
 }
