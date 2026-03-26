@@ -75,14 +75,14 @@ Shader "Hidden/Genesis/ShapeSplatterCircular"
                 return float2(c*p.x - s*p.y, s*p.x + c*p.y);
             }
 
-            float sampleShape(float2 uv, float2 center, float angle, float scale, float3 dir)
+            float sampleShape(float3 uv, float2 center, float angle, float scale, float3 dir)
             {
-                float2 p = uv - center;
+                float2 p = uv.xy - center;
                 p = rotate2D(p, angle);
                 p /= scale;
                 p += 0.5;
 
-                return SAMPLE_X(_Shape, float3(p, 0), dir).r;
+                return SAMPLE_X(_Shape, float3(p, uv.z), dir).r;
             }
 
             // ---------------------------------------------------------
@@ -122,7 +122,7 @@ Shader "Hidden/Genesis/ShapeSplatterCircular"
                     float scale = lerp(_ScaleMin, _ScaleMax, rnd.y);
 
                     // Sample shape
-                    float v = sampleShape(p, center, rot, scale, dir);
+                    float v = sampleShape(float3(p, uv.z), center, rot, scale, dir);
 
                     // Soft max blend
                     outV = max(outV, v * (1.0 - _BlendSoftness) + outV * _BlendSoftness);
