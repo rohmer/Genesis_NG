@@ -179,7 +179,7 @@
                 return float4(color, 1.0);
 
             }
-            float4 mixture (v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i)
 			{
 			    #if CRT_2D
                     return createCircles(i.localTexcoord.xy);

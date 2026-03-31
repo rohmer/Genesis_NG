@@ -61,7 +61,7 @@ Shader "Hidden/Genesis/VectorField"
 				return n;
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 #ifdef USE_CUSTOM_UV
 				float3 uv = SAMPLE_X_NEAREST_CLAMP(_UV, i.localTexcoord.xyz, i.direction).xyz;

@@ -29,7 +29,7 @@ Shader "Hidden/Genesis/Split"
 			TEXTURE_SAMPLER_X(_Source);
 			float _OutputChannel;
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				float4 c=SAMPLE_X(_Source,i.localTexcoord.xyz,i.direction);
 

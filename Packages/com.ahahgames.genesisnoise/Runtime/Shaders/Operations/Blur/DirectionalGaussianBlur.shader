@@ -39,7 +39,7 @@ Shader "Hidden/Genesis/DirectionalGaussianBlur"
                 return exp(-(x * x) / (2.0 * s2));
             }
 
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 uvw = i.localTexcoord.xyz;
 

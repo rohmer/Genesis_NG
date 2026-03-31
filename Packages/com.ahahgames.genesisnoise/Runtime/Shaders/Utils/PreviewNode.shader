@@ -250,7 +250,7 @@ Shader "Hidden/Genesis/PreviewNode"
 				return lerp(backgroundValue, arrowColor, arrow(round(uv * arrowCellSize), vectorValue.xyz * ARROW_TILE_SIZE * _ArrowSize * 0.4));
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				float3 uv = (i.localTexcoord.xyz - 0.5) * _Tiling + 0.5;
 				float4 value = SAMPLE_LOD_X(_Source, uv, i.direction, _SourceMip);

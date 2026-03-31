@@ -281,7 +281,7 @@ Shader "Hidden/Genesis/GrungeDirt4"
             // contrast mapping
             float applyContrast(float v, float c) { v = (v - 0.5) * c + 0.5; return saturate(v); }
 
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float2 uv = i.localTexcoord.xy;
 

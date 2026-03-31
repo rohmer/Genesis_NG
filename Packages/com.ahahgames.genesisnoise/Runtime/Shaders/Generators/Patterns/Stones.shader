@@ -226,7 +226,7 @@
 
 
            
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
             {
 				float3 posWS = i.localTexcoord;
                 float3 geoN  = normalize(i.globalTexcoord);

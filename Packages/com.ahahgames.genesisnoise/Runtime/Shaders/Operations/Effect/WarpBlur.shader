@@ -79,7 +79,7 @@ Shader "Hidden/Genesis/WarpBlur"
 			Name "Warp Blur"			
 
 			HLSLPROGRAM
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{
 				float3 texCoord=i.localTexcoord/_ScreenParams;
 				float progress=sin(_Position)*0.5+0.5;

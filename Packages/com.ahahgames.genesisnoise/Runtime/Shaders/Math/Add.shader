@@ -34,7 +34,7 @@
 			TEXTURE_SAMPLER_X(_SourceB);
 			float4 _Value;
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis (v2f_customrendertexture i) : SV_Target
 			{
 				// The SAMPLE_X macro handles sampling for 2D, 3D and cube textures
 				return SAMPLE_X(_SourceA, i.localTexcoord.xyz, i.direction) + SAMPLE_X(_SourceB, i.localTexcoord.xyz, i.direction) + _Value;

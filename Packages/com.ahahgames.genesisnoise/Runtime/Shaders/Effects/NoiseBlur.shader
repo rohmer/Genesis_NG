@@ -105,7 +105,7 @@ HLSLINCLUDE
 			Name "Vertical Blur"
 
 			HLSLPROGRAM
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{
 				return GaussianBlur(i, float3(1, 0, 0), false);
 			}
@@ -117,7 +117,7 @@ HLSLINCLUDE
 			Name "Horizontal Blur"
 
 			HLSLPROGRAM
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{
 				return GaussianBlur(i, float3(0, 1, 0), true);
 			}
@@ -129,7 +129,7 @@ HLSLINCLUDE
 			Name "Depth Blur"
 
 			HLSLPROGRAM
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{
 				return GaussianBlur(i, float3(0, 0, 1), true);
 			}

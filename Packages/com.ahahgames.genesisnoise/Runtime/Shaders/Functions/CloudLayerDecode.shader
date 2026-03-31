@@ -27,7 +27,7 @@ Shader "Hidden/Genesis/CloudLayerDecode"
 
 			float _UpperHemisphereOnly;
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				float2 uv = DirectionToLatLongCoordinate(i.direction);
 				if (_UpperHemisphereOnly)

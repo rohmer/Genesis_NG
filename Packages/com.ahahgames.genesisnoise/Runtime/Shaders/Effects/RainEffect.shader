@@ -60,7 +60,7 @@
                 return offset;
             }
 
-            float4 mixture (v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i)
 			{
                 float t=_Time;
                 float2 uv=i.localTexcoord.xy;

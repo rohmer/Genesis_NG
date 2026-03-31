@@ -55,7 +55,7 @@ Shader "Hidden/Genesis/ClampColor"
                 return dot(c, float3(0.299, 0.587, 0.114));
             }
 
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 uv = i.localTexcoord.xyz;
                 float4 c = SAMPLE_X(_UV, uv, i.dir);

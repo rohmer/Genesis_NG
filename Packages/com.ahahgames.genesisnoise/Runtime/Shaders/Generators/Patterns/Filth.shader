@@ -141,7 +141,7 @@ Shader "Hidden/Genesis/Dirt"
 
 
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{				
 				float4 baseColor= float4(GetDefaultUVs(i),1);
 				float3 uv=i.localTexcoord;

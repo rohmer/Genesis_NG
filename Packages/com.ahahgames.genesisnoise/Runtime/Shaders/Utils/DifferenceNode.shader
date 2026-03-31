@@ -121,7 +121,7 @@ Shader "Hidden/Genesis/DifferenceNode"
 				return float4(JABDeltaE(RGBtoJAB(a), RGBtoJAB(b)).xxx * 5, 1);
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				float3 uv = i.localTexcoord;
 				float4 a = SAMPLE_X(_A, i.localTexcoord.xyz, i.direction);

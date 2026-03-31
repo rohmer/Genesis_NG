@@ -40,7 +40,7 @@
 			float _Persistance;
 			int _Seed;
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				float3 uvs = GetNoiseUVs(i, SAMPLE_X(_UV, i.localTexcoord.xyz, i.direction), _Seed);
 				SetupNoiseTiling(_Lacunarity, _Frequency);

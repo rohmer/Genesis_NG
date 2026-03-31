@@ -265,7 +265,7 @@
                 return c * 0.7;
             }
 
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float2 resolution = _ScreenParams.xy;
                 float2 p=i.localTexcoord.xy;

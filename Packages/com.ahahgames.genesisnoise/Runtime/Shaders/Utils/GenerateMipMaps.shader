@@ -85,7 +85,7 @@ Shader "Hidden/Genesis/GenerateMipMaps"
 				return max(max(h1, h2), max(h3, h4));
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				switch (_Mode)
 				{

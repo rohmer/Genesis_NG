@@ -75,7 +75,7 @@ Shader "Hidden/Genesis/Checkerboard"
 				return lerp(float4(1,1,1,1), float4(0,0,0,1), checker);
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
             {
                 float2 resolution = _ScreenParams.xy;
                 

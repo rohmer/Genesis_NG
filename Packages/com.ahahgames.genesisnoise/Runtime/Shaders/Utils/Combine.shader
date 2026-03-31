@@ -54,7 +54,7 @@ Shader "Hidden/Genesis/Combine"
 			float _CombineModeA;
 			float4 _Custom;
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				float4 r = SAMPLE_X(_SourceR, i.localTexcoord.xyz, i.direction);
 				float4 g = SAMPLE_X(_SourceG, i.localTexcoord.xyz, i.direction);

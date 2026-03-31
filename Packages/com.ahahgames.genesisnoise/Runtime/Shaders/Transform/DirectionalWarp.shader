@@ -84,9 +84,9 @@ Shader "Hidden/Genesis/DirectionalWarp"
             // ---------------------------------------------------------
             // Final CRT fragment
             // ---------------------------------------------------------
-            float4 mixture(v2f_customrendertexture IN) : SV_Target
+            float4 genesis(v2f_customrendertexture i)
             {
-                float3 uv = IN.localTexcoord.xyz;
+                float3 uv = i.localTexcoord.xyz;
 
                 #ifdef CRT_CUBE
                     uv.z = 0.5;

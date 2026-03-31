@@ -48,9 +48,9 @@ Shader "Hidden/Genesis/HighpassGrayscale"
                 return pow(abs(v - mid) * 2.0, c) * 0.5 * sign(v - mid) + mid;
             }
 
-            float4 mixture(v2f_customrendertexture IN) : SV_Target
+            float4 genesis(v2f_customrendertexture i)
             {
-                float3 uv = IN.localTexcoord.xyz;
+                float3 uv = i.localTexcoord.xyz;
 
                 #ifdef CRT_CUBE
                     uv.z = 0.5;

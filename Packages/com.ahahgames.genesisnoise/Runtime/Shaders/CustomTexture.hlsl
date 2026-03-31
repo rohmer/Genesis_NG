@@ -260,14 +260,14 @@ v2f_init_customrendertexture InitCustomRenderTextureVertexShader(appdata_init_cu
 
 
 // Declare the prototype 
-float4 mixture(v2f_customrendertexture i);
+float4 genesis(v2f_customrendertexture i); 
 
 float4 GenesisFragment(v2f_customrendertexture i) : SV_Target
 {
     // Fix the cubemap direction:
     FIX_CUBEMAP_DIRECTION(i);
     FIX_TEXTURE3D_POSITION_Z(i);
-    return mixture(i);
+    return genesis(i);
 }
 
 #endif // UNITY_CUSTOM_TEXTURE_INCLUDED

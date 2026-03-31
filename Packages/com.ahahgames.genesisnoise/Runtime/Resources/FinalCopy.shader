@@ -26,7 +26,7 @@ Shader "Hidden/Genesis/FinalCopy"
 
 			TEXTURE_X(_Source);
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				float4 color = SAMPLE_LOD_X_NEAREST_CLAMP(_Source, i.localTexcoord.xyz, i.direction, _CustomRenderTextureMipLevel);
 

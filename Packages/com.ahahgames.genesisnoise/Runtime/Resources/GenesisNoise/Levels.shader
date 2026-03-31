@@ -60,7 +60,7 @@ Shader "Hidden/Genesis/Levels"
                 maxLuminance = _Luminance[0].maxLuminance;
             }
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
                 // TODO: function to turn the id into direction / uv for cube / 3D
                 float3 uv = GetDefaultUVs(i);

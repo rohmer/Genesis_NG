@@ -156,7 +156,7 @@ Shader "Hidden/Genesis/GaussianSpots4"
             // ---------------------------------------------------------
             // Genesis CRT entry
             // ---------------------------------------------------------
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float2 uv = i.localTexcoord.xy;
 

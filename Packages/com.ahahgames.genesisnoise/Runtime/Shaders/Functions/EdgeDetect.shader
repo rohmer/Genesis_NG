@@ -80,7 +80,7 @@
 			Name "EdgeDetect"
 
 			HLSLPROGRAM
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{
 				float3x3 horizontalPixels = float3x3(
 					SamplePixelLuminance(float3(-1, -1, 0), i.localTexcoord.xyz), SamplePixelLuminance(float3( 0, -1, 0), i.localTexcoord.xyz), SamplePixelLuminance(float3( 1, -1, 0), i.localTexcoord.xyz),

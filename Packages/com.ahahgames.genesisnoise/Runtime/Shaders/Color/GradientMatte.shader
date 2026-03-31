@@ -20,7 +20,7 @@
 			HLSLPROGRAM
 			#include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"
 			#pragma vertex CustomRenderTextureVertexShader
-			#pragma fragment GenesisFragment
+			#pragma fragment GenesisFragment genesis(v2f_customrendertexture i)
 			#pragma target 3.0
 
 			#pragma shader_feature CRT_2D CRT_3D CRT_CUBE
@@ -33,9 +33,9 @@
 			float _SpiralTurnCount;
 			int _SpiralBranchCount;
 
-			float4 mixture (v2f_customrendertexture IN) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
-				float3 uv = IN.localTexcoord.xyz;
+				float3 uv = i.localTexcoord.xyz;
 				float gradient = 0.0f;
 
 // For cubemaps, we don't want the z coordinate to mess with the gradients

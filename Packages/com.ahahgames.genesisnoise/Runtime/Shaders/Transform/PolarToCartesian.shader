@@ -58,7 +58,7 @@ Shader "Hidden/Genesis/PolarToCartesian"
                 return _Center.xyz + dir * radius;
             }
 
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 polar = i.localTexcoord.xyz;
 

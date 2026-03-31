@@ -61,7 +61,7 @@ void applyPreset(int p)
         float noise2(float2 p){ float2 i=floor(p); float2 f=frac(p); float a=hash11(i.x+i.y*57.0); float b=hash11(i.x+1.0+i.y*57.0); float c=hash11(i.x+(i.y+1.0)*57.0); float d=hash11(i.x+1.0+(i.y+1.0)*57.0); float2 u=f*f*(3.0-2.0*f); return lerp(lerp(a,b,u.x), lerp(c,d,u.x), u.y); }
         float fbm_dir(float2 p, float disorder, float aniso, float angle){ float v=0; float amp=0.5; float2 dir=float2(cos(angle),sin(angle)); for(int i=0;i<5;i++){ float2 off = dir * disorder * aniso * pow(0.5,i); v += amp * noise2(p + off); float a = angle + 0.3*i; dir = float2(cos(a), sin(a)); p = p*2.0 + float2(12.34,45.67); amp *= 0.5; } return v; }
 
-        float4 mixture(v2f_customrendertexture i) : SV_Target {
+        float4 genesis(v2f_customrendertexture i) : SV_Target {
             int presetIndex = (int)round(_Preset);
             applyPreset(presetIndex);
 

@@ -102,7 +102,7 @@ Shader "Hidden/Genesis/OrganicScratches"
                 return clamp(scratches, 0.0, 1.0);
             }
 
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 // Seed drives offset; you can also add time here if desired
                 uOffset = float2(_Seed, 0.0);

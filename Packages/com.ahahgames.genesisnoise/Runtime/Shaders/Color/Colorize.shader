@@ -32,7 +32,7 @@ Shader "Hidden/Genesis/Colorize"
 				//return _Gradient.Sample(sampler_GradientTex,float2(cAvg,0.5));
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				float3 uv = GetDefaultUVs(i);
 				float4 input=SAMPLE_X(_Input, i.localTexcoord.xyz, i.direction);

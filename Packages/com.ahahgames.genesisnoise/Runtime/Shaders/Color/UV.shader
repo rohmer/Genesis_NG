@@ -23,12 +23,12 @@
 			float4 _Scale;
 			float4 _Bias;
 
-			float4 mixture (v2f_customrendertexture IN) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 #ifdef CRT_CUBE
-				return float4(IN.direction, 1) ;
+				return float4(i.direction, 1) ;
 #else
-				return float4(IN.globalTexcoord.xyz * _Scale.xyz + _Bias.xyz, 1);
+				return float4(i.globalTexcoord.xyz * _Scale.xyz + _Bias.xyz, 1);
 #endif
 			}
 			ENDHLSL

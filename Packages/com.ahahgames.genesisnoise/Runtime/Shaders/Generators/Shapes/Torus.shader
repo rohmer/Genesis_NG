@@ -126,7 +126,7 @@
             }
 
 
-            float4 mixture (v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i)
             {
                float2 uv = i.localTexcoord;
                float3 ro = float3(0, 0, -10);

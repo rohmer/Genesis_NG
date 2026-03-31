@@ -20,7 +20,7 @@
 			TextureCube _Input;
 			sampler sampler_Input;
 
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{
 				return _Input.SampleLevel(sampler_Input, LatlongToDirectionCoordinate(i.localTexcoord.xy), 0);
 			}

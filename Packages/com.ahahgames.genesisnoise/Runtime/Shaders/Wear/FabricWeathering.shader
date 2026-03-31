@@ -55,7 +55,7 @@ Shader "Hidden/Genesis/FabricWeathering"
                 return smoothstep(0.8, 1.0, n) * _Pilling;
             }
 
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 uv = i.localTexcoord.xyz;
                 float3 texel = float3(1.0 / _ScreenParams.x, 1.0 / _ScreenParams.y, 1.0 / _ScreenParams.z);

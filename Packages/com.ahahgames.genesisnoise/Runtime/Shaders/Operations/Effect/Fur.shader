@@ -73,7 +73,7 @@
 				return normal;				
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
             {
 				float texelSize=1.0/_ScreenParams.x*_ScreenParams.y;				
 				float furAlpha=SAMPLE_X_SAMPLER(_Source, sampler_Source,i.localTexcoord,i.direction).r;

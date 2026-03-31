@@ -38,7 +38,7 @@ Shader "Hidden/Genesis/Contrast"
 				return (1.0 / (-x + 1.0)) - 1.0;
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				// The SAMPLE_X macro handles sampling for 2D, 3D and cube textures
 				float4 color = SAMPLE_X(_Source, i.localTexcoord.xyz, i.direction);

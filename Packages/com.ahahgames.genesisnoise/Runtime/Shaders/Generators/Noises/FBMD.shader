@@ -78,7 +78,7 @@ Shader "Hidden/Genesis/FBMD"
             int _ChannelMask;
             float _Lacunarity;
 
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 uvs;
 

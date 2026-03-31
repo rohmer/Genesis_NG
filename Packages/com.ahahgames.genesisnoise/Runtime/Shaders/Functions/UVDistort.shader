@@ -35,16 +35,16 @@
 			float4 _Scale;
 			float4 _Bias;
 
-			float4 mixture (v2f_customrendertexture IN) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 #ifdef USE_CUSTOM_UV
-				float4 uv = SAMPLE_X_NEAREST_CLAMP(_UV, IN.localTexcoord.xyz, IN.direction);
+				float4 uv = SAMPLE_X_NEAREST_CLAMP(_UV, i.localTexcoord.xyz, i.direction);
 #else
-				float4 uv = float4(GetDefaultUVs(IN), 1);
+				float4 uv = float4(GetDefaultUVs(i), 1);
 #endif
 
 				// Scale and Bias does not works on cubemap
-				float3 distortionVector = SAMPLE_X(_Texture, IN.localTexcoord.xyz, IN.direction).rgb;
+				float3 distortionVector = SAMPLE_X(_Texture, i.localTexcoord.xyz, i.direction).rgb;
 #ifdef CRT_CUBE
 				uv.rgb += distortionVector * _Scale.xyz;
 				uv.rgb = Rotate(float3(1, 0, 0), uv.rgb, _Bias.x);

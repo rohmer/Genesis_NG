@@ -21,7 +21,7 @@
 
 			float4 _Color;
 
-			float4 mixture(v2f_customrendertexture IN) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				return _Color;
 			}

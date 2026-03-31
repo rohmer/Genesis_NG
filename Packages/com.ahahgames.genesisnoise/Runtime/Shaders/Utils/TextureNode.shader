@@ -48,7 +48,7 @@ Shader "Hidden/Genesis/TextureNode"
 			float _Mip;
 			int _POTMode;
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				TransformUVForPOT(_POTMode, i.localTexcoord.xyz, i.direction);
 				// Move compressed normal map info from AG to RG
@@ -75,7 +75,7 @@ Shader "Hidden/Genesis/TextureNode"
 			float _Mip;
 			int _POTMode;
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				TransformUVForPOT(_POTMode, i.localTexcoord.xyz, i.direction);
 				return SAMPLE_LOD_X(_Source, i.localTexcoord.xyz, i.direction, _Mip);

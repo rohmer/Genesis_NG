@@ -150,7 +150,7 @@ Shader "Hidden/Genesis/TileRandom"
             return sampleTextureByIndex(texIndex, texUV);
         }
 
-        float4 mixture(v2f_customrendertexture i) : SV_Target {
+        float4 genesis(v2f_customrendertexture i) : SV_Target {
             float2 uv = i.localTexcoord.xy;
 
             // non-square compensation if pipeline provides aspect in z

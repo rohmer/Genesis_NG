@@ -20,9 +20,9 @@ Shader "CustomTexture/#NAME#"
 
             sampler2D _Input;
 
-			float4 mixture(v2f_customrendertexture IN) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
-				return tex2D(_Input, IN.localTexcoord.xy);
+				return tex2D(_Input, i.localTexcoord.xy);
 			}
 			ENDHLSL
 		}

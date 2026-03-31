@@ -219,7 +219,7 @@ Shader "Hidden/Genesis/ValueNoise_2D3D4D"
             }
 
             // ---------------------------------------------------------
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 uv;
 

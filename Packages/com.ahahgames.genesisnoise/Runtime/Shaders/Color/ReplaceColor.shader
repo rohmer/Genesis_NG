@@ -79,7 +79,7 @@ Shader "Hidden/Genesis/ReplaceColor"
                 return min(d, 1.0 - d); // wrap around
             }
 
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 uv = i.localTexcoord.xyz;
 

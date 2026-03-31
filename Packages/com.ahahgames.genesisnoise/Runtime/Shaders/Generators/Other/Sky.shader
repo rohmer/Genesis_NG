@@ -91,7 +91,7 @@ Shader "Hidden/Genesis/Sky"
                 return total;
             }
 
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float2 p = i.localTexcoord.xy;      // 0–1 UV
                 float2 uv = p * 2.0;

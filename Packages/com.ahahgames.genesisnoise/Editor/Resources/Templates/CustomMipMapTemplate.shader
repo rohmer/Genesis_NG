@@ -58,7 +58,7 @@ Shader "Hidden/Genesis/Generate Mip Map"
 					+ SAMPLE_LOD_X_LINEAR_CLAMP(_PreviousMip, uv_p2, dir_p2, _SourceMip) * (gaussWeights[3] + gaussWeights[4]);
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				return Gaussian(i.localTexcoord.xyz, i.direction);
 			}

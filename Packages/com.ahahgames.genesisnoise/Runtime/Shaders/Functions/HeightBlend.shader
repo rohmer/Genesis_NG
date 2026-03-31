@@ -70,9 +70,9 @@ Shader "Hidden/Genesis/HeightBlend"
             // ---------------------------------------------------------
             // CRT fragment
             // ---------------------------------------------------------
-            float4 mixture(v2f_customrendertexture IN) : SV_Target
+            float4 genesis(v2f_customrendertexture i)
             {
-                float2 uv = IN.localTexcoord.xy;
+                float2 uv = i.localTexcoord.xy;
 
                 float a = tex2D(_A, uv).r;
                 float b = tex2D(_B, uv).r;

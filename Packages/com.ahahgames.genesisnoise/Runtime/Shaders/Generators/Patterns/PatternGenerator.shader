@@ -168,7 +168,7 @@ Shader "Hidden/Genesis/PatternGenerator"
 				return float3(s, normalize(grad) * smoothstep(1.0, 0.99, s) * smoothstep(0.0, 0.01, s));
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
             {
 				float2 resolution = _ScreenParams.xy;
                 

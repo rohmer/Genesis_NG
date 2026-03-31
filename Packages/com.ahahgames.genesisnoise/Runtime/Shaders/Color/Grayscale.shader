@@ -63,7 +63,7 @@ Shader "Hidden/Genesis/Grayscale"
 				return dot(lin, float3(0.3, 0.59, 0.11)); // or use linear weights
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
             {			    
 				float4	input = SAMPLE_X(_Input,i.localTexcoord.xyz, i.direction);
 				

@@ -98,7 +98,7 @@ Shader "Hidden/Genesis/DiffusionAnisotropic"
             }
 
             // ------------------------------------------------------------
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 uv = i.localTexcoord.xyz;
                 float3 texel = float3(0.01,0.01,0.01);

@@ -41,7 +41,7 @@ Shader "Hidden/Genesis/Dithering"
 				return round(value * (levels - 1)) / (levels - 1);
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
             {			    
 				float4	input = SAMPLE_X(_Input,i.localTexcoord.xyz, i.direction);
 				

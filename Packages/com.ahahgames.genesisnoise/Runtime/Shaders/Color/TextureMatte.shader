@@ -28,7 +28,7 @@ Shader "Hidden/Genesis/TextureMatte"
 			float4 _Scale;
 			float4 _Bias;
 
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{
 				i.localTexcoord.xyz = (i.localTexcoord.xyz * _Scale.xyz) + _Bias.xyz;
 				float4 col = SAMPLE_X(_Texture, i.localTexcoord.xyz, i.direction);

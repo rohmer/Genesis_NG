@@ -78,7 +78,7 @@ Shader "Hidden/Genesis/Polygon2D"
 				return length(p)*sign(p.x);
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 #ifdef USE_CUSTOM_UV
 				float4 uv = SAMPLE_X_NEAREST_CLAMP(_UV, i.localTexcoord.xyz, i.direction);

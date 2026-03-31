@@ -187,9 +187,9 @@ Shader "Hidden/Genesis/TriangleGrid"
                 return n;
             }
 
-            float4 mixture(v2f_customrendertexture IN) : SV_Target
+            float4 genesis(v2f_customrendertexture i)
             {
-                float3 uv3 = IN.localTexcoord.xyz;
+                float3 uv3 = i.localTexcoord.xyz;
                 float2 uv = uv3.xy;
 
                 // Build height

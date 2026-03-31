@@ -81,7 +81,7 @@ Shader "Hidden/Genesis/Histogram"
             // ------------------------------------------------------------
             // Main fragment: compute histogram frequency for this bin
             // ------------------------------------------------------------
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 // Get canonical UVs (0..1)
                 float3 uvs = GetNoiseUVs(i, SAMPLE_X(_UV, i.localTexcoord.xyz, i.direction), _Seed);

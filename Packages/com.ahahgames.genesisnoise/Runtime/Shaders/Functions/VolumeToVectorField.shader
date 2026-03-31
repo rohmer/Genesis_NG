@@ -37,7 +37,7 @@ Shader "Hidden/Genesis/VolumeToVectorField"
 				return value.x;
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				float4 voxelSize = float4(rcp(float3(_CustomRenderTextureWidth, _CustomRenderTextureHeight, _CustomRenderTextureDepth)), 0);
 				float3 uv = i.localTexcoord.xyz;

@@ -36,7 +36,7 @@
 			float _AMode;
 			float4 _Custom;
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				float4 source = SAMPLE_X(_Source, i.localTexcoord.xyz, i.direction);
 				float r = Swizzle(source, _RMode, _Custom.r);

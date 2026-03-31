@@ -207,7 +207,7 @@ Shader "Hidden/Genesis/FXMap"
             else return max(a,b); // Max
         }
 
-        float4 mixture(v2f_customrendertexture i) : SV_Target {
+        float4 genesis(v2f_customrendertexture i) : SV_Target {
             float2 uv = i.localTexcoord.xy;
 
             // non-square compensation

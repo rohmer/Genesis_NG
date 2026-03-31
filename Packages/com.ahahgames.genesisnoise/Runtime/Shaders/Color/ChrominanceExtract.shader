@@ -54,7 +54,7 @@ Shader "Hidden/Genesis/ChrominanceExtract"
                               q.x);
             }
 
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 uv = i.localTexcoord.xyz;
                 float3 rgb = SAMPLE_X(_UV, uv, i.dir).rgb;

@@ -111,7 +111,7 @@ Shader "Hidden/Genesis/Tile"
             }
 
             // ---------------------------------------------------------
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float v = tile(i.localTexcoord, i.direction);
                 return float4(v, v, v, 1.0);

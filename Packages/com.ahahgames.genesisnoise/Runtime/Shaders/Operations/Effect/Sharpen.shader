@@ -54,7 +54,7 @@ Shader "Hidden/Genesis/Sharpen"
 			}
 
 			
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
             {
 				float2 texelSize=float2(1.0/_ScreenParams.x*_ScreenParams.x,1.0/_ScreenParams.y);				
 				int radius=5;

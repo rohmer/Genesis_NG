@@ -127,7 +127,7 @@ Shader "Hidden/Genesis/SphynxFractal"
             // ------------------------------------------------------------
             // Fragment
             // ------------------------------------------------------------
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 uvs = GetNoiseUVs(
                     i,

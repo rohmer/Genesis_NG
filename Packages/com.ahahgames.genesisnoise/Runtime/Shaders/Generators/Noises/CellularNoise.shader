@@ -80,7 +80,7 @@
 				return RemapClamp(noise, 0, 1, _OutputRange.x, _OutputRange.y);
 			}
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				SetupNoiseTiling(_Lacunarity, _Frequency);
 				return GenerateCellularNoiseForChannels(i, _Seed);

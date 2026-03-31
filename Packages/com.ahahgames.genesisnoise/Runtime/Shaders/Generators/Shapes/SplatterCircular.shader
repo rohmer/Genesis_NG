@@ -103,9 +103,9 @@ Shader "Hidden/Genesis/SplatterCircular"
             // ---------------------------------------------------------
             // Main
             // ---------------------------------------------------------
-            float4 mixture(v2f_customrendertexture IN) : SV_Target
+            float4 genesis(v2f_customrendertexture i)
             {
-                float2 uv = IN.localTexcoord.xy;
+                float2 uv = i.localTexcoord.xy;
 
                 #ifdef CRT_CUBE
                     uv = IN.localTexcoord.xy; // cube faces handled externally

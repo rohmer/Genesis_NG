@@ -57,7 +57,7 @@ Shader "Hidden/Genesis/FacingNormal"
                 return lerp(smooth, sharp, _Softness);
             }
 
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 uv = i.localTexcoord.xyz;
 

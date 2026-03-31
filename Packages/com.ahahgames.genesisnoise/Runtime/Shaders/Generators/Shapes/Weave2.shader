@@ -104,7 +104,7 @@ Shader "Hidden/Genesis/Weave2"
             }
 
             // ---------------------------------------------------------
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float v = weave2(i.localTexcoord.xy);
                 return float4(v, v, v, 1.0);

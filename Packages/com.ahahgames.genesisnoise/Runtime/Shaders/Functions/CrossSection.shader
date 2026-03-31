@@ -30,7 +30,7 @@ Shader "Hidden/Genesis/CrossSection"
 			TEXTURE_SAMPLER_X(_Source);
 			float _Slice;
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				// TODO: slice in 3D and cubemaps
 

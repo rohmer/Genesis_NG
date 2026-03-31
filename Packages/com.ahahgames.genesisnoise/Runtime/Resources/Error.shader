@@ -17,7 +17,7 @@
             #pragma vertex CustomRenderTextureVertexShader
 			#pragma target 3.0
 
-			float4 mixture(v2f_customrendertexture IN) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				return float4(1, 0, 1, 1);
 			}

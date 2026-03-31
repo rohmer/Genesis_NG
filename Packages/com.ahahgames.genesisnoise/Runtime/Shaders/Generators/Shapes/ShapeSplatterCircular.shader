@@ -171,7 +171,7 @@ Shader "Hidden/Genesis/ShapeSplatterCircular"
             }
 
             // ---------------------------------------------------------
-            float4 mixture(v2f_customrendertexture i) : SV_Target
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 uv  = GetDefaultUVs(i);
                 float3 dir = i.direction;

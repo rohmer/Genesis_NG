@@ -60,7 +60,7 @@
 
 
 			
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
             {
 				float2 uv=i.localTexcoord.xy;
 				// Apply barrel warping
@@ -147,7 +147,7 @@
 			float _ScanIntensity;
 			float _VIntense; 
 	
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{	
 				float rX=1.0/_ResX;
 				float rY=1.0/_ResY;

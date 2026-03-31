@@ -79,7 +79,7 @@ Shader "Hidden/Genesis/TileWrap"
 			Name "U Tiling"
 
 			HLSLPROGRAM
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{
 				return UTiling(i);
 			}
@@ -91,7 +91,7 @@ Shader "Hidden/Genesis/TileWrap"
 			Name "V Tiling"
 
 			HLSLPROGRAM
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{
 				return VTiling(i);
 			}
@@ -103,7 +103,7 @@ Shader "Hidden/Genesis/TileWrap"
 			Name "W Tiling"
 
 			HLSLPROGRAM
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{
 				return WTiling(i);
 			}
@@ -115,7 +115,7 @@ Shader "Hidden/Genesis/TileWrap"
 			Name "RestoreOffset"
 
 			HLSLPROGRAM
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{
 				return RestoreOffset(i);
 			}

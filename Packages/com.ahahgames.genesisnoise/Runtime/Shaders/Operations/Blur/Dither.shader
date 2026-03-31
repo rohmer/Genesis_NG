@@ -157,7 +157,7 @@
 			Name "Dithering"			
 
 			HLSLPROGRAM
-			float4 mixture(v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i) : SV_Target
 			{
 				return Dither(i.localTexcoord.xyz, i.direction);
 			}

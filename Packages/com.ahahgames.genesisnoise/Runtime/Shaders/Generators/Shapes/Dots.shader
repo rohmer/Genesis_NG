@@ -43,7 +43,7 @@ Shader "Hidden/Genesis/DotsShader"
 			float _Roundness;
 			int _Seed;
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
             {
                 float2 resolution = _ScreenParams.xy;
                 

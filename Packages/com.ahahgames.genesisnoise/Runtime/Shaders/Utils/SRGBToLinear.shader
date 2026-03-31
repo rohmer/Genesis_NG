@@ -29,7 +29,7 @@ Shader "Hidden/Genesis/SRGBToLinear"
 			// This macro will declare a version for each dimention (2D, 3D and Cube)
 			TEXTURE_SAMPLER_X(_Source);
 
-			float4 mixture (v2f_customrendertexture i) : SV_Target
+			float4 genesis(v2f_customrendertexture i)
 			{
 				float4 value = SAMPLE_X(_Source, i.localTexcoord.xyz, i.direction);
 				return float4(SRGBToLinear(value.xyz), value.a);
