@@ -22,8 +22,10 @@ public abstract class FixedNoiseNode : FixedShaderNode
 
         if (material.IsKeywordEnabled("_TILINGMODE_TILED"))
         {
-            material.SetFloat("_Lacunarity", Mathf.Round(material.GetFloat("_Lacunarity")));
-            material.SetFloat("_Frequency", Mathf.Round(material.GetFloat("_Frequency")));
+            if(material.HasProperty("_Lacunarity"))
+                material.SetFloat("_Lacunarity", Mathf.Round(material.GetFloat("_Lacunarity")));
+            if(material.HasProperty("_Frequency"))
+                material.SetFloat("_Frequency", Mathf.Round(material.GetFloat("_Frequency")));
         }
 
         return true;

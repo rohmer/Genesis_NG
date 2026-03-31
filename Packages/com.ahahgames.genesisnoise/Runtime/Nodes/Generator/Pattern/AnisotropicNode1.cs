@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-    Long, directional fibers that follow a rotation angle
+    A compact Genesis CRT node that generates anisotropic procedural noise suitable for streaks, brushed surfaces, wood grain, and directional fabric. It produces a single grayscale output where brighter values represent higher noise intensity. The node is deterministic, CRT‑friendly, and designed to be used as a texture source inside Genesis graphs or as a mask/height input for material blending.
 ")]
 
     [System.Serializable, NodeMenuItem("Generators/Pattern/Anisotropic Noise 1")]

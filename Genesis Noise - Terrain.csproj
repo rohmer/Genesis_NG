@@ -63,8 +63,8 @@
     <Compile Include="Assets\Packages\Genesis Terrain\Runtime\Data\BiomeConfig.cs" />
     <Compile Include="Assets\Packages\Genesis Terrain\Runtime\Nodes\Biome\BiomeManagerNode.cs" />
     <Compile Include="Assets\Packages\Genesis Terrain\Runtime\Nodes\Biome\WaterLevelNode.cs" />
-    <Compile Include="Assets\Packages\Genesis Terrain\Runtime\Data\WaterMaterialsData.cs" />
     <Compile Include="Assets\Packages\Genesis Terrain\Runtime\3rdParty\SharpVoronoiLib\Tessellation\Fortune\VoronoiSiteComparer.cs" />
+    <Compile Include="Assets\Packages\Genesis Terrain\Runtime\Data\WaterMaterialsData.cs" />
     <Compile Include="Assets\Packages\Genesis Terrain\Runtime\Nodes\PointGenerators\PoissonNoisePointGenerator.cs" />
     <Compile Include="Assets\Packages\Genesis Terrain\Runtime\3rdParty\SharpVoronoiLib\Tessellation\Fortune\FortuneEvent.cs" />
     <Compile Include="Assets\Packages\Genesis Terrain\Runtime\3rdParty\VoronatorSharp\Triple.cs" />

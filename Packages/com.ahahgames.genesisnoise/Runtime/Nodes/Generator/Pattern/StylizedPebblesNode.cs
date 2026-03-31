@@ -11,11 +11,11 @@ namespace AhahGames.GenesisNoise.Nodes
     [System.Serializable, NodeMenuItem("Generators/Pattern/Stylized Pebbles")]
     public class StylizedPebblesNode : FixedNoiseNode
     {
-        public override string name => "Grass";
+        public override string name => "Stylized Pebbles";
         public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/StylizedPebbles";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 
-        public override float nodeWidth => 500;
+        public override float nodeWidth => 300;
     }
 }

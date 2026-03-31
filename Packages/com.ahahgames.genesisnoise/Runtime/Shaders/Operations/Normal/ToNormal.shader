@@ -32,18 +32,14 @@ Shader "Hidden/Genesis/HeightToNormal"
             float _Contrast;
 
             // ---------------------------------------------------------
-            // Sample height with shaping
-            // ---------------------------------------------------------
             float sampleHeight(float2 uv)
             {
                 float h = tex2D(_MainTex, uv).r;
-                h = saturate((h + _Bias));
+                h = saturate(h + _Bias);
                 h = pow(h, _Contrast);
                 return h;
             }
 
-            // ---------------------------------------------------------
-            // Sobel gradient
             // ---------------------------------------------------------
             float2 sobel(float2 uv)
             {
@@ -54,14 +50,12 @@ Shader "Hidden/Genesis/HeightToNormal"
                 float hD = sampleHeight(uv - float2(0, t.y));
                 float hU = sampleHeight(uv + float2(0, t.y));
 
-                float dx = (hR - hL);
-                float dy = (hU - hD);
+                float dx = hR - hL;
+                float dy = hU - hD;
 
                 return float2(dx, dy);
             }
 
-            // ---------------------------------------------------------
-            // Genesis CRT entry
             // ---------------------------------------------------------
             float4 mixture(v2f_customrendertexture i) : SV_Target
             {
@@ -69,12 +63,18 @@ Shader "Hidden/Genesis/HeightToNormal"
 
                 float2 g = sobel(uv) * _Strength;
 
-                float3 n = normalize(float3(-g.x, -g.y, 1.0));
+                // Tangent-space normal (Unity format)
+                float3 n;
+                n.xy = -g;
+                n.z  = 1.0;
 
-                // Convert to 0–1 range
-                n = n * 0.5 + 0.5;
+                // Normalize
+                n = normalize(n);
 
-                return float4(n, 1.0);
+                // Encode to 0–1 Unity normal map format
+                float3 outN = n * 0.5 + 0.5;
+
+                return float4(outN, 1.0);
             }
 
             ENDHLSL

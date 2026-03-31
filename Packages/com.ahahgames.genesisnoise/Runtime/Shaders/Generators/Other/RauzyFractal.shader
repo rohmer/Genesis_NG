@@ -2,30 +2,18 @@ Shader "Hidden/Genesis/RauzyFractal"
 {
     Properties
     {
-        _Iterations("Iterations", Range(100, 5000)) = 1200
-        _Scale("Scale", Float) = 1.8
-        _Brightness("Brightness", Float) = 1.0
-        _Contrast("Contrast", Float) = 1.0
+        [InlineTexture(HideInNodeInspector)] _UV_2D("UVs", 2D) = "uv" {}
+        [InlineTexture(HideInNodeInspector)] _UV_3D("UVs", 3D) = "uv" {}
+        [InlineTexture(HideInNodeInspector)] _UV_Cube("UVs", Cube) = "uv" {}
 
-        _ColorOffset("Color Offset", Float) = 0.0
-        _ColorFrequency("Color Frequency", Float) = 3.0
+        [KeywordEnum(None, Tiled)] _TilingMode("Tiling Mode", Float) = 1
+        [ShowInInspector][Enum(2D, 0, 3D, 1)] _UVMode("UV Mode", Float) = 0
 
-        [Enum(Classic,0,Pisano,1,Tribonacci,2,Custom)]_Mode("Rauzy Mode", Int) = 0
-
-        _CustomA("Custom Matrix A", Vector) = (0.5, -0.3, 0.3, 0.5)
-        _CustomT1("Custom T1", Vector) = (1.0, 0.0, 0, 0)
-        _CustomT2("Custom T2", Vector) = (0.3, 0.8, 0, 0)
-        _CustomT3("Custom T3", Vector) = (-0.6, 0.4, 0, 0)
-
-        [Enum(Circle,0,Cross,1,Point,2)]_TrapType("Orbit Trap Type", Int) = 0
-        _TrapRadius("Trap Radius", Float) = 0.25
-        _TrapSoftness("Trap Softness", Float) = 4.0
-        [GenesisColorProperty]_TrapColor("Trap Color", Color) = (1,0.5,0.1,1)
-        _TrapIntensity("Trap Intensity", Float) = 1.0
-
-        _Morph("IFS Morph Amount", Range(0,1)) = 0.0
-        _TimeScale("Time Scale", Float) = 0.0
-        _Time("Time",Range(0,256))=10
+        _Iterations("Iterations", Range(1, 200)) = 60
+        _Contraction("Contraction", Range(0.1, 0.9)) = 0.72
+        _Jitter("Jitter", Range(0,1)) = 0.15
+        _Seed("Seed", Int) = 42
+        _Scale("Scale", Float) = 4
     }
 
     SubShader
@@ -36,138 +24,119 @@ Shader "Hidden/Genesis/RauzyFractal"
         Pass
         {
             HLSLPROGRAM
-
-            #define BUILTIN_TARGET_API
             #include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"
-
+            #include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/NoiseUtils.hlsl"
             #pragma vertex CustomRenderTextureVertexShader
             #pragma fragment GenesisFragment
+            #pragma target 3.0
 
-            float _Iterations;
+            #pragma shader_feature CRT_2D CRT_3D CRT_CUBE
+            #pragma shader_feature _ USE_CUSTOM_UV
+            #pragma shader_feature _TILINGMODE_NONE _TILINGMODE_TILED
+
+            TEXTURE_SAMPLER_X(_UV);
+
+            int _Iterations;
+            float _Contraction;
+            float _Jitter;
             float _Scale;
-            float _Brightness;
-            float _Contrast;
-            float _ColorOffset;
-            float _ColorFrequency;
+            int _Seed;
+            int _UVMode;
 
-            int _Mode;
-            float4 _CustomA;
-            float4 _CustomT1;
-            float4 _CustomT2;
-            float4 _CustomT3;
-
-            int _TrapType;
-            float _TrapRadius;
-            float _TrapSoftness;
-            float4 _TrapColor;
-            float _TrapIntensity;
-
-            float _Morph;
-            float _TimeScale;
-            float _Time;
-
-            // RNG
-            float hash(float2 p)
+            // ------------------------------------------------------------
+            // Tiling (local replacement for SetupNoiseTiling)
+            // ------------------------------------------------------------
+            float2 ApplyTiling(float2 uv, float period)
             {
-                return frac(sin(dot(p, float2(12.9898, 78.233))) * 43758.5453);
+#ifdef _TILINGMODE_TILED
+                return frac(uv * period);
+#else
+                return uv;
+#endif
             }
 
-            // Orbit traps
-            float trapCircle(float2 z) { return abs(length(z) - _TrapRadius); }
-            float trapCross(float2 z)  { return min(abs(z.x), abs(z.y)); }
-            float trapPoint(float2 z)  { return length(z); }
-
-            float orbitTrap(float2 z)
+            // ------------------------------------------------------------
+            // Hash
+            // ------------------------------------------------------------
+            float Hash(float2 p)
             {
-                if (_TrapType < 0.5) return trapCircle(z);
-                if (_TrapType < 1.5) return trapCross(z);
-                return trapPoint(z);
+                p = float2(dot(p, float2(127.1, 311.7)),
+                           dot(p, float2(269.5, 183.3)));
+                return frac(sin(p.x + p.y) * 43758.5453);
             }
 
-            // Rauzy matrices
-            float2x2 A_classic = float2x2(0.5, -0.3, 0.3, 0.5);
-            float2x2 A_pisano  = float2x2(0.618, -0.2, 0.2, 0.618);
-            float2x2 A_trib    = float2x2(0.55, -0.25, 0.25, 0.55);
-
-            float2x2 getMatrix()
+            float2 Hash2(float2 p)
             {
-                if (_Mode < 0.5) return A_classic;
-                if (_Mode < 1.5) return A_pisano;
-                if (_Mode < 2.5) return A_trib;
-                return float2x2(_CustomA.x, _CustomA.y, _CustomA.z, _CustomA.w);
+                float h = Hash(p);
+                return float2(frac(h * 95.43), frac(h * 12.97));
             }
 
-            float2 getT(int idx)
+            // ------------------------------------------------------------
+            // Rauzy IFS (Tribonacci Rauzy)
+            // Three affine maps with contraction < 1
+            // ------------------------------------------------------------
+            float Rauzy(float2 uv)
             {
-                if (_Mode < 2.5)
+                float2 p = uv;
+                float density = 0;
+
+                float c = _Contraction;
+
+                [loop]
+                for (int i = 0; i < _Iterations; i++)
                 {
-                    if (idx == 0) return float2(1.0, 0.0);
-                    if (idx == 1) return float2(0.3, 0.8);
-                    return float2(-0.6, 0.4);
-                }
-                if (idx == 0) return _CustomT1.xy;
-                if (idx == 1) return _CustomT2.xy;
-                return _CustomT3.xy;
-            }
+                    float h = Hash(p + _Seed);
 
-            float3 Rauzy(float2 p, float time)
-            {
-                float2 z = p * _Scale;
+                    // Select one of three affine maps
+                    if (h < 0.33)
+                    {
+                        p = float2(c * p.x,
+                                   c * p.y);
+                    }
+                    else if (h < 0.66)
+                    {
+                        p = float2(c * p.x + (1 - c),
+                                   c * p.y);
+                    }
+                    else
+                    {
+                        p = float2(c * p.x,
+                                   c * p.y + (1 - c));
+                    }
 
-                float acc = 0.0;
-                float trapMin = 1e20;
-
-                float2x2 A = getMatrix();
-
-                int maxIter = (int)_Iterations;
-
-                for (int i = 0; i < 6000; i++)
-                {
-                    if (i >= maxIter) break;
-
-                    float r = hash(z + i * 0.123 + time * 0.1);
-
-                    int idx = (int)(r * 3.0);
-                    float2 t = getT(idx);
-
-                    // Morphing between identity and A
-                    float2x2 M = lerp(float2x2(1,0,0,1), A, _Morph);
-
-                    z = mul(M, z) + t;
+                    // Jitter for organic variation
+                    p += (Hash2(p + _Seed * 13.37) - 0.5) * _Jitter;
 
                     // Density accumulation
-                    acc += exp(-dot(z, z) * 0.8);
-
-                    // Orbit trap
-                    float d = orbitTrap(z);
-                    trapMin = min(trapMin, d);
+                    density += exp(-dot(p, p) * 4.0);
                 }
 
-                float v = acc / maxIter;
-
-                // Base palette
-                float3 baseCol =
-                    0.5 + 0.5 * cos(_ColorOffset + v * _ColorFrequency + float3(0.0, 2.0, 4.0));
-
-                baseCol = pow(saturate(baseCol * _Brightness), _Contrast);
-
-                // Trap color
-                float trapMask = exp(-trapMin * _TrapSoftness);
-                float3 trapCol = _TrapColor.rgb * trapMask * _TrapIntensity;
-
-                return baseCol + trapCol;
+                return saturate(density / _Iterations);
             }
 
+            // ------------------------------------------------------------
+            // Fragment
+            // ------------------------------------------------------------
             float4 mixture(v2f_customrendertexture i) : SV_Target
             {
-                float2 uv = i.localTexcoord.xy;
-                float2 p = uv * 2.0 - 1.0;
-                p.x *= _ScreenParams.x / _ScreenParams.y;
+                float3 uvs = GetNoiseUVs(
+                    i,
+                    SAMPLE_X(_UV, i.localTexcoord.xyz, i.direction),
+                    _Seed
+                );
 
-                float time = _Time * _TimeScale;
+                float2 tiledUV = ApplyTiling(uvs.xy, _Scale);
 
-                float3 col = Rauzy(p, time);
-                return float4(col, 1.0);
+#ifdef CRT_2D
+                if (_UVMode == 0)
+                {
+                    float v = Rauzy(tiledUV);
+                    return float4(v, v, v, 1);
+                }
+#endif
+
+                float v3 = Rauzy(tiledUV);
+                return float4(v3, v3, v3, 1);
             }
 
             ENDHLSL

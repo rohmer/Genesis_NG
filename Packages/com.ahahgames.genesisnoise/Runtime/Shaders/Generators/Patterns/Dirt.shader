@@ -3,8 +3,8 @@
     Properties
     {
         _Scale("Scale", Float) = 6.0
-        _Balance("Balance", Range(0,1)) = 0.5
-        _Contrast("Contrast", Float) = 1.0
+        _Balance("Balance", Range(0,1)) = 0.097
+        _Contrast("Contrast", Float) = 2.0
         [Enum(Normal,0,Inverted,1)]_Invert("Invert", Float) = 0.0
         _Coverage("Coverage", Range(0,1)) = 0.5
         _NonSquare("Non Square Expansion", Float) = 0.0

@@ -137,13 +137,11 @@ Shader "Hidden/Genesis/TileRandom"
             return 0.0;
         }
 
-        // sample brush from texture with rotation/scale/flip around an anchor (anchor in tile-local coords)
-        float sampleBrushTexAtAnchor(int texIndex, float2 anchorLocal, float2 uvTileLocal, float brushSize, float rotation, float flip)
+        // sample tile from texture with rotation/scale/flip about tile center
+        float sampleTileTex(int texIndex, float2 uvTileLocal, float rotation, float flip, float scale)
         {
-            // uvTileLocal is pixel position relative to tile center (-0.5..0.5)
-            // compute local relative to anchor
-            float2 local = uvTileLocal - anchorLocal;
-            float2 p = local / brushSize;
+            // uvTileLocal is position relative to tile center (-0.5..0.5)
+            float2 p = uvTileLocal * scale;
             // rotate by -rotation to align texture
             float c = cos(-rotation), s = sin(-rotation);
             float2 r = float2(p.x * c - p.y * s, p.x * s + p.y * c);
@@ -172,11 +170,6 @@ Shader "Hidden/Genesis/TileRandom"
             // per-tile deterministic id (use integer coords)
             float tileHash = hash11(cellIndexF.x + cellIndexF.y * 57.0);
 
-            // compute a randomized anchor position inside the tile (range -0.5..0.5)
-            float2 rnd = hash21(cellIndexF + float2(3.0,7.0));
-            float2 anchorOffset = (rnd - 0.5) * _RandomPosStrength; // -0.5..0.5 scaled by strength
-            float2 anchorLocal = anchorOffset;
-
             // per-tile randoms for rotation/scale/flip
             float rVal = hash11(tileHash * 12.9898 + 1.0);
             float rRot = hash11(tileHash * 78.233 + 2.0);
@@ -186,26 +179,6 @@ Shader "Hidden/Genesis/TileRandom"
             float rot = (rRot - 0.5) * 6.2831853 * _RotationJitter;
             float scaleNoise = 1.0 + (rScale - 0.5) * _ScaleJitter;
             float flip = (rFlip < _FlipChance) ? -1.0 : 1.0;
-
-            // compute randomized brush size per tile using RandomSizeStrength and Min/Max
-            // base half-tile size is 0.5; we compute a multiplier in [MinSize, MaxSize]
-            float sizeNoise = hash11(tileHash * 42.42 + 9.0); // deterministic per-tile
-            float sizeMapped = lerp(_MinSize, _MaxSize, sizeNoise); // in fraction of half-tile
-            // blend between default coverage-based size and randomized size by strength
-            float baseSize = 0.5 * _Coverage; // default half-tile coverage
-            float randSize = baseSize * sizeMapped;
-            float brushSize = lerp(baseSize, randSize, _RandomSizeStrength);
-            // apply scaleNoise (scale jitter) so final brushSize accounts for scale jitter
-            brushSize /= scaleNoise;
-
-            // compute mask for this tile's anchor (soft circular/elliptical falloff)
-            float2 localToAnchor = uvInCell - anchorLocal;
-            float dist = length(localToAnchor);
-            float nd = saturate(dist / max(1e-5, brushSize));
-            float maskAnchor = 1.0 - smoothstep(1.0 - _EdgeSoftness, 1.0, nd);
-
-            // micro breakup
-            float micro = fbm(cellUV * 2.0 + tileHash * 13.0) * 0.06;
 
             // Mode: Single -> pick one texture index per tile
             //       Stack  -> evaluate each texture with its probability and overlay
@@ -217,9 +190,7 @@ Shader "Hidden/Genesis/TileRandom"
                 // Single mode: pick index from rVal
                 int sel = 1 + (int)floor(rVal * texCount);
                 sel = clamp(sel, 1, texCount);
-                float sample = sampleBrushTexAtAnchor(sel, anchorLocal, uvInCell, brushSize, rot, flip);
-                if (sample <= 0.0001) sample = rVal; // fallback grayscale
-                result = sample * maskAnchor;
+                result = sampleTileTex(sel, uvInCell, rot, flip, scaleNoise);
             } else {
                 // Stack mode: for each texture, decide presence by probability and overlay in index order
                 float probs[4];
@@ -234,72 +205,13 @@ Shader "Hidden/Genesis/TileRandom"
                     if (r < pres) {
                         float layerRot = rot + (hash11(tileHash + t) - 0.5) * 0.2;
                         float layerFlip = flip * ((hash11(tileHash + t*3.0) < 0.5) ? -1.0 : 1.0);
-                        float s = sampleBrushTexAtAnchor(t, anchorLocal, uvInCell, brushSize, layerRot + (t*0.13), layerFlip);
-                        if (s <= 0.0001) s = r;
-                        result = blendMode(result, s * maskAnchor, _BlendMode);
+                        float s = sampleTileTex(t, uvInCell, layerRot + (t*0.13), layerFlip, scaleNoise);
+                        result = blendMode(result, s, _BlendMode);
                     }
                 }
             }
 
-            // neighbor contributions: sample 3x3 neighbor tiles because anchors are randomized and can overlap
             float accum = result;
-            for (int oy=-1; oy<=1; oy++){
-                for (int ox=-1; ox<=1; ox++){
-                    if (ox==0 && oy==0) continue; // skip center (already computed)
-                    float2 nIdx = cellIndexF + float2(ox, oy);
-                    float nHash = hash11(nIdx.x + nIdx.y * 57.0);
-                    // neighbor anchor
-                    float2 nrnd = hash21(nIdx + float2(3.0,7.0));
-                    float2 nAnchor = (nrnd - 0.5) * _RandomPosStrength;
-                    // neighbor randoms
-                    float nrVal = hash11(nHash * 12.9898 + 1.0);
-                    float nrRot = hash11(nHash * 78.233 + 2.0);
-                    float nrScale = hash11(nHash * 99.13 + 3.0);
-                    float nrFlip = hash11(nHash * 45.32 + 4.0);
-                    float nrot = (nrRot - 0.5) * 6.2831853 * _RotationJitter;
-                    float nscaleNoise = 1.0 + (nrScale - 0.5) * _ScaleJitter;
-                    float nflip = (nrFlip < _FlipChance) ? -1.0 : 1.0;
-
-                    // neighbor randomized size
-                    float nSizeNoise = hash11(nHash * 42.42 + 9.0);
-                    float nSizeMapped = lerp(_MinSize, _MaxSize, nSizeNoise);
-                    float nBaseSize = 0.5 * _Coverage;
-                    float nRandSize = nBaseSize * nSizeMapped;
-                    float nBrushSize = lerp(nBaseSize, nRandSize, _RandomSizeStrength) / nscaleNoise;
-
-                    // compute uvInCell relative to neighbor tile: shift uvInCell by tile offset
-                    float2 uvRel = frac(cellUV - float2(ox,oy)) - 0.5;
-                    float2 localToNAnchor = uvRel - nAnchor;
-                    float ndist = length(localToNAnchor);
-                    float nnd = saturate(ndist / max(1e-5, nBrushSize));
-                    float nmask = 1.0 - smoothstep(1.0 - _EdgeSoftness, 1.0, nnd);
-
-                    if (_Mode < 0.5) {
-                        int sel = 1 + (int)floor(nrVal * texCount);
-                        sel = clamp(sel, 1, texCount);
-                        float s = sampleBrushTexAtAnchor(sel, nAnchor, uvRel, nBrushSize, nrot, nflip);
-                        if (s <= 0.0001) s = nrVal;
-                        float w = smoothstep(0.9, 0.0, length(uvRel - nAnchor)); // proximity weight
-                        accum = blendMode(accum, s * nmask * w, _BlendMode);
-                    } else {
-                        for (int t=1; t<=texCount; t++){
-                            float r = hash11(nHash * (12.34 * t) + t * 7.77);
-                            float pres = (t==1)?_Prob1: (t==2)?_Prob2: (t==3)?_Prob3:_Prob4;
-                            if (r < pres) {
-                                float layerRot = nrot + (hash11(nHash + t) - 0.5) * 0.2;
-                                float layerFlip = nflip * ((hash11(nHash + t*3.0) < 0.5) ? -1.0 : 1.0);
-                                float s = sampleBrushTexAtAnchor(t, nAnchor, uvRel, nBrushSize, layerRot + (t*0.13), layerFlip);
-                                if (s <= 0.0001) s = r;
-                                float w = smoothstep(0.9, 0.0, length(uvRel - nAnchor));
-                                accum = blendMode(accum, s * nmask * w, _BlendMode);
-                            }
-                        }
-                    }
-                }
-            }
-
-            // add subtle micro breakup
-            accum = saturate(accum + micro * 0.05);
 
             // debug outputs
             if (_Debug == 1) { // TileId visualization
@@ -319,15 +231,11 @@ Shader "Hidden/Genesis/TileRandom"
                     return float4(saturate(sum/4.0),saturate(sum/4.0),saturate(sum/4.0),1);
                 }
             }
-            if (_Debug == 3) { // Anchor position visualization (normalized)
-                float2 anchorVis = anchorLocal + 0.5;
-                return float4(anchorVis.x, anchorVis.y, 0.0, 1);
+            if (_Debug == 3) { // Anchor position visualization (disabled in "texture-only" mode)
+                return float4(0.5, 0.5, 0.0, 1);
             }
-            if (_Debug == 4) { // Size visualization (normalized 0..1)
-                // show per-tile randomized size (mapped)
-                float sizeNoiseVis = hash11(tileHash * 42.42 + 9.0);
-                float sizeMappedVis = lerp(_MinSize, _MaxSize, sizeNoiseVis);
-                return float4(sizeMappedVis, sizeMappedVis, sizeMappedVis, 1);
+            if (_Debug == 4) { // Size visualization (disabled in "texture-only" mode)
+                return float4(1.0, 1.0, 1.0, 1);
             }
             if (_Debug == 6) { // Inverted final
                 return float4(1.0 - accum, 1.0 - accum, 1.0 - accum, 1);

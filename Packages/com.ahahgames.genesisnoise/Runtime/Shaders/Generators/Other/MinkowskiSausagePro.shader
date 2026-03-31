@@ -2,24 +2,19 @@ Shader "Hidden/Genesis/MinkowskiSausagePro"
 {
     Properties
     {
-        _Iterations("Iterations", Range(100, 6000)) = 2000
-        _Scale("Scale", Float) = 2.0
-        _Brightness("Brightness", Float) = 1.0
-        _Contrast("Contrast", Float) = 1.0
+        [InlineTexture(HideInNodeInspector)] _UV_2D("UVs", 2D) = "uv" {}
+        [InlineTexture(HideInNodeInspector)] _UV_3D("UVs", 3D) = "uv" {}
+        [InlineTexture(HideInNodeInspector)] _UV_Cube("UVs", Cube) = "uv" {}
 
-        _ColorOffset("Color Offset", Float) = 0.0
-        _ColorFrequency("Color Frequency", Float) = 3.0
+        [KeywordEnum(None, Tiled)] _TilingMode("Tiling Mode", Float) = 1
+        [ShowInInspector][Enum(2D, 0, 3D, 1)] _UVMode("UV Mode", Float) = 0
 
-        _Morph("IFS Morph Amount", Range(0,1)) = 1.0
-        _TimeScale("Time Scale", Float) = 0.0
-
-        [Enum(Circle,0,Cross,1,Point,2)]_TrapType("Orbit Trap Type (0=Circle,1=Cross,2=Point)", Int) = 0
-        _TrapRadius("Trap Radius", Float) = 0.25
-        _TrapSoftness("Trap Softness", Float) = 4.0
-        [GenesisColorProperty]_TrapColor("Trap Color", Color) = (1,0.5,0.1,1)
-        _TrapIntensity("Trap Intensity", Float) = 1.0
-        _Time("Time",Range(0,1024))=10
-    } 
+        _Scale("Scale", Float) = 8
+        _Jitter("Jitter", Range(0,1)) = 1
+        _MinkowskiPower("Minkowski Power", Range(0.1,4)) = 0.5
+        _Contrast("Contrast", Float) = 1
+        _Seed("Seed", Int) = 42
+    }
 
     SubShader
     {
@@ -29,138 +24,124 @@ Shader "Hidden/Genesis/MinkowskiSausagePro"
         Pass
         {
             HLSLPROGRAM
-
-            #define BUILTIN_TARGET_API
             #include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"
-
+            #include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/NoiseUtils.hlsl"
             #pragma vertex CustomRenderTextureVertexShader
             #pragma fragment GenesisFragment
+            #pragma target 3.0
 
-            float _Iterations;
+            #pragma shader_feature CRT_2D CRT_3D CRT_CUBE
+            #pragma shader_feature _ USE_CUSTOM_UV
+            #pragma shader_feature _TILINGMODE_NONE _TILINGMODE_TILED
+
+            TEXTURE_SAMPLER_X(_UV);
+
             float _Scale;
-            float _Brightness;
+            float _Jitter;
+            float _MinkowskiPower;
             float _Contrast;
-            float _ColorOffset;
-            float _ColorFrequency;
+            int   _Seed;
+            int   _UVMode;
 
-            float _Morph;
-            float _TimeScale;
-
-            int _TrapType;
-            float _TrapRadius;
-            float _TrapSoftness;
-            float4 _TrapColor;
-            float _TrapIntensity;
-            float _Time;
-
-            // RNG
-            float hash(float2 p)
+            // -----------------------------
+            // Tiling (local replacement)
+            // -----------------------------
+            float2 ApplyTiling(float2 uv, float period)
             {
-                return frac(sin(dot(p, float2(12.9898, 78.233))) * 43758.5453);
+#ifdef _TILINGMODE_TILED
+                return frac(uv * period);
+#else
+                return uv;
+#endif
             }
 
-            // Rotation
-            float2 rot(float2 p, float a)
+            // -----------------------------
+            // Hash
+            // -----------------------------
+            float2 Hash2(float2 p)
             {
-                float c = cos(a);
-                float s = sin(a);
-                return float2(c*p.x - s*p.y, s*p.x + c*p.y);
+                p = float2(dot(p, float2(127.1, 311.7)),
+                           dot(p, float2(269.5, 183.3)));
+                return frac(sin(p) * 43758.5453);
             }
 
-            // Orbit traps
-            float trapCircle(float2 z) { return abs(length(z) - _TrapRadius); }
-            float trapCross(float2 z)  { return min(abs(z.x), abs(z.y)); }
-            float trapPoint(float2 z)  { return length(z); }
-
-            float orbitTrap(float2 z)
+            // -----------------------------
+            // Minkowski distance
+            // p < 1  → sausage-like shapes
+            // -----------------------------
+            float MinkowskiDist(float2 d, float p)
             {
-                if (_TrapType < 0.5) return trapCircle(z);
-                if (_TrapType < 1.5) return trapCross(z);
-                return trapPoint(z);
+                d = abs(d);
+                float a = pow(d.x, p);
+                float b = pow(d.y, p);
+                return pow(a + b, 1.0 / p);
             }
 
-            // 6-map Minkowski IFS
-            float2 minkowskiMap(float2 z, float r)
+            // -----------------------------
+            // Minkowski Worley F1
+            // -----------------------------
+            float MinkowskiWorleyF1(float2 uv)
             {
-                float2 base = z / 3.0;
+                float2 p  = uv * _Scale;
+                float2 ip = floor(p);
+                float2 fp = frac(p);
 
-                if (r < 1.0/6.0)
-                    return base;
+                float d = 1e9;
+                float pwr = _MinkowskiPower;
 
-                if (r < 2.0/6.0)
-                    return rot(base, radians(90.0)) + float2(1.0/3.0, 0.0);
-
-                if (r < 3.0/6.0)
-                    return rot(base, radians(-90.0)) + float2(1.0/3.0, 1.0/3.0);
-
-                if (r < 4.0/6.0)
-                    return base + float2(2.0/3.0, 0.0);
-
-                if (r < 5.0/6.0)
-                    return rot(base, radians(180.0)) + float2(2.0/3.0, 1.0/3.0);
-
-                return rot(base, radians(45.0)) + float2(1.0/3.0, 2.0/3.0);
-            }
-
-            float3 Minkowski(float2 p, float time)
-            {
-                float2 z = p * _Scale;
-
-                float acc = 0.0;
-                float trapMin = 1e20;
-
-                int maxIter = (int)_Iterations;
-
-                for (int i = 0; i < 8000; i++)
+                [unroll]
+                for (int y = -1; y <= 1; y++)
                 {
-                    if (i >= maxIter) break;
+                    [unroll]
+                    for (int x = -1; x <= 1; x++)
+                    {
+                        float2 cell = ip + float2(x, y);
+                        float2 rnd  = Hash2(cell + _Seed);
 
-                    float r = hash(z + i * 0.123 + time * 0.1);
+                        float2 feature = float2(x, y) + rnd * _Jitter;
+                        float2 diff    = fp - feature;
 
-                    // Normalize into [0,1]^2
-                    z = frac(z);
-
-                    // Apply IFS
-                    float2 z0 = z;
-                    float2 z1 = minkowskiMap(z, r);
-
-                    // Morph between identity and full Minkowski
-                    z = lerp(z0, z1, _Morph);
-
-                    // Density accumulation
-                    float d = abs(z.y - 0.5); // distance to curve centerline
-                    acc += exp(-d * 40.0);
-
-                    // Orbit trap
-                    float t = orbitTrap(z);
-                    trapMin = min(trapMin, t);
+                        float dist = MinkowskiDist(diff, pwr);
+                        d = min(d, dist);
+                    }
                 }
 
-                float v = acc / maxIter;
-
-                // Base palette
-                float3 baseCol =
-                    0.5 + 0.5 * cos(_ColorOffset + v * _ColorFrequency + float3(0.0, 2.0, 4.0));
-
-                baseCol = pow(saturate(baseCol * _Brightness), _Contrast);
-
-                // Trap color
-                float trapMask = exp(-trapMin * _TrapSoftness);
-                float3 trapCol = _TrapColor.rgb * trapMask * _TrapIntensity;
-
-                return baseCol + trapCol;
+                return d;
             }
 
+            // -----------------------------
+            // Minkowski Sausage pattern
+            // -----------------------------
+            float MinkowskiSausage(float2 uv)
+            {
+                float d = MinkowskiWorleyF1(uv);
+
+                // Invert & contrast for nice bands
+                float v = 1.0 - saturate(d);
+                v = pow(v, _Contrast);
+
+                return v;
+            }
+
+            // -----------------------------
+            // Fragment
+            // -----------------------------
             float4 mixture(v2f_customrendertexture i) : SV_Target
             {
-                float2 uv = i.localTexcoord.xy;
-                float2 p = uv * 2.0 - 1.0;
-                p.x *= _ScreenParams.x / _ScreenParams.y;
+                float3 uvs = GetNoiseUVs(i, SAMPLE_X(_UV, i.localTexcoord.xyz, i.direction), _Seed);
 
-                float time = _Time * _TimeScale;
+                float2 tiledUV = ApplyTiling(uvs.xy, _Scale);
 
-                float3 col = Minkowski(p, time);
-                return float4(col, 1.0);
+#ifdef CRT_2D
+                if (_UVMode == 0)
+                {
+                    float h = MinkowskiSausage(tiledUV);
+                    return float4(h, h, h, 1);
+                }
+#endif
+                // 3D mode: still use XY slice for now
+                float h3 = MinkowskiSausage(tiledUV);
+                return float4(h3, h3, h3, 1);
             }
 
             ENDHLSL

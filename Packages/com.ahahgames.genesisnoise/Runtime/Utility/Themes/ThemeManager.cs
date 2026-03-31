@@ -124,6 +124,13 @@ namespace AhahGames.GenesisNoise.Runtime.Utility.Themes
             shape.HeaderTextColor = Color.white;
             shape.BackgroundColor = Color.darkRed;
             groupThemes.Add("Shape", shape);
+            NodeTheme other = new NodeTheme();
+            other.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan };
+            other.HeaderLeftColor = Color.darkGreen;
+            other.HeaderRightColor = Color.darkBlue;
+            other.HeaderTextColor = Color.white;
+            other.BackgroundColor = Color.darkRed;
+            groupThemes.Add("Other", other);
             NodeTheme normal = new NodeTheme();
             normal.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan };
             normal.HeaderLeftColor = new Color(48f / 255f, 110f / 255f, 110f / 255f);

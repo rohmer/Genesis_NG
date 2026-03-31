@@ -6,8 +6,8 @@ Shader "Hidden/Genesis/ApplyPalette"
         [InlineTexture]_UV_3D("Input", 3D) = "white" {}
         [InlineTexture]_UV_Cube("Input", Cube) = "white" {}
 
-        _Mode("Mode (0 = Smooth, 1 = Stepped)", Range(0,1)) = 0
-        _Steps("Steps (Stepped Mode)", Range(2, 16)) = 4
+        [Enum(Smooth,0,Stepped,1)]_Mode("Mode", int) = 0
+        [VisibleIf(_Mode,1)]_Steps("Steps", Range(2, 16)) = 4
         _Contrast("Contrast", Range(0.1, 4.0)) = 1.0
         _Dither("Dither Strength", Range(0.0, 1.0)) = 0.0
 
