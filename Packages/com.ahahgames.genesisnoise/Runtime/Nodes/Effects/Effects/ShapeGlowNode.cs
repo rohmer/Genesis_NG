@@ -14,7 +14,7 @@ It’s not bloom, not blur, not bevel — it’s a distance‑based glow with:
 - Fully shape‑aware
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Shape Glow")]
+    [System.Serializable, NodeMenuItem("Effects/Shape Glow")]
     public class ShapeGlowNode : FixedNoiseNode
     {
         public override string name => "Shape Glow";

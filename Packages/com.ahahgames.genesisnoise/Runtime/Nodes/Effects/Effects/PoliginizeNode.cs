@@ -7,7 +7,7 @@ namespace AhahGames.GenesisNoise.Nodes
 Converts an image to a poliginization of the orginal
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Poliginize")]
+    [System.Serializable, NodeMenuItem("Effects/Poliginize")]
     public class PoliginizationNode : FixedNoiseNode
     {
         public override string name => "Poliginization";

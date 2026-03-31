@@ -13,7 +13,7 @@ It’s not SSAO, not blur, not curvature — it’s a multi‑directional, weigh
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Irradiance")]
+    [System.Serializable, NodeMenuItem("Effects/Irradiance")]
     public class IrradianceNode : FixedNoiseNode
     {
         public override string name => "Irradiance";

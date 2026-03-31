@@ -10,7 +10,7 @@ A multi‑iteration blur
 • 	Producing a soft, organic spreading effect (like watercolor diffusion or clay smearing)
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Diffusion")]
+    [System.Serializable, NodeMenuItem("Effects/Diffusion")]
     public class DiffusionNode : FixedNoiseNode
     {
         public override string name => "Diffusion";

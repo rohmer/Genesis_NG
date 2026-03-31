@@ -13,7 +13,7 @@ It’s a procedural halo generator that creates:
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Glow")]
+    [System.Serializable, NodeMenuItem("Effects/Glow")]
     public class GlowNode : FixedNoiseNode
     {
         public override string name => "Glow";

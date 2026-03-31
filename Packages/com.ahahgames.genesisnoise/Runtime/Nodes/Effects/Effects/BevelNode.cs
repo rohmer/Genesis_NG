@@ -11,7 +11,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Bevel")]
+    [System.Serializable, NodeMenuItem("Effects/Bevel")]
     public class BevelNode : FixedNoiseNode
     {
         public override string name => "Bevel";

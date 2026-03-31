@@ -12,7 +12,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Flood Fill to Color")]
+    [System.Serializable, NodeMenuItem("Effects/Flood Fill to Color")]
     public class FloodFillToColorNode : FixedNoiseNode
     {
         public override string name => "Flood Fill to Color";

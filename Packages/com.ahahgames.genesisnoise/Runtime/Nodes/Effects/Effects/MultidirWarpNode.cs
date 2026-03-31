@@ -18,7 +18,7 @@ So the Genesis CRT version needs:
 - ✔ Deterministic, sampler‑free, CRT‑ready
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Multi-Direction Warp")]
+    [System.Serializable, NodeMenuItem("Effects/Multi-Direction Warp")]
     public class MultidirWarpNode : FixedNoiseNode
     {
         public override string name => "Multi-Direction Warp";

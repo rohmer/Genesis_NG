@@ -16,7 +16,7 @@ But instead of grayscale or color, each region gets a stable random 2D vector â€
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Flood Fill to Random Vector")]
+    [System.Serializable, NodeMenuItem("Effects/Flood Fill to Random Vector")]
     public class FloodFillToRandomVectorNode : FixedNoiseNode
     {
         public override string name => "Flood Fill to Grayscale";

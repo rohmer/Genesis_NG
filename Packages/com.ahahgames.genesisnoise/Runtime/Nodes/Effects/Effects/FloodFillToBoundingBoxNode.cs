@@ -14,7 +14,7 @@ Flood Fill to Bounding Box does three things:
 To do this in a single‑pass CRT shader, we use a hash‑based pseudo‑bounding‑box estimator that is stable and deterministic
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Flood Fill to Bounding Box")]
+    [System.Serializable, NodeMenuItem("Effects/Flood Fill to Bounding Box")]
     public class FloodFillToBoundingBoxNode : FixedNoiseNode
     {
         public override string name => "Flood Fill to Bounding Box";

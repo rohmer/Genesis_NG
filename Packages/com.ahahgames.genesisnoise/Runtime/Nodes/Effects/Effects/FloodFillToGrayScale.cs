@@ -11,7 +11,7 @@ namespace AhahGames.GenesisNoise.Nodes
 - Fully deterministic
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Flood Fill to Grayscale")]
+    [System.Serializable, NodeMenuItem("Effects/Flood Fill to Grayscale")]
     public class FloodFillToGrayscaleNode : FixedNoiseNode
     {
         public override string name => "Flood Fill to Grayscale";

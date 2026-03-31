@@ -14,7 +14,7 @@ Swirl node is one of those classic 2D deformation operators: a radial rotation f
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Swirl")]
+    [System.Serializable, NodeMenuItem("Effects/Swirl")]
     public class SwirlNode : FixedNoiseNode
     {
         public override string name => "Swirl";

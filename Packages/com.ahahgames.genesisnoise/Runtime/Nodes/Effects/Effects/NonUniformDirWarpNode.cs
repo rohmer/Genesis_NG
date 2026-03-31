@@ -20,7 +20,7 @@ But with:
 - ✔ Works on grayscale or color
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Non-Uniform Directional Warp")]
+    [System.Serializable, NodeMenuItem("Effects/Non-Uniform Directional Warp")]
     public class NonUniformDirWarpNode : FixedNoiseNode
     {
         public override string name => "Multi-Direction Warp";

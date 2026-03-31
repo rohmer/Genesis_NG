@@ -23,7 +23,7 @@ It can operate in two modes:
 - Generated Mode — generates color procedurally using a color gradient
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Noise/Warp Noise"), NodeMenuItem("Effects/Modifications/Warp Noise")]
+    [System.Serializable, NodeMenuItem("Generators/Noise/Warp Noise"), NodeMenuItem("Effects/Warp Noise")]
     public class WarpNoise : FixedNoiseNode
     {
         public override string NodeGroup => "Noise";

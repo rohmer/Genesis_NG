@@ -18,7 +18,7 @@ To replicate this in Genesis CRT, we combine:
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Flood Fill To Shape")]
+    [System.Serializable, NodeMenuItem("Effects/Flood Fill To Shape")]
     public class FloodFillToShapeNode : FixedNoiseNode
     {
         public override string name => "Flood Fill to Color";

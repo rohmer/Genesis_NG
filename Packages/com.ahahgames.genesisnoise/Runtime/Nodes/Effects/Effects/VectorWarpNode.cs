@@ -15,7 +15,7 @@ Think of it as:
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Vector Warp")]
+    [System.Serializable, NodeMenuItem("Effects/Vector Warp")]
     public class VectorWarpNode : FixedNoiseNode
     {
         public override string name => "VectorWarp";

@@ -16,7 +16,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Reaction Diffusion")]
+    [System.Serializable, NodeMenuItem("Effects/Reaction Diffusion")]
     public class ReactionDiffusionNode : FixedNoiseNode
     {
         public override string name => "Reaction Diffusion";

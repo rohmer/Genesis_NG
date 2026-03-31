@@ -13,7 +13,7 @@ This node takes the Region ID map and the Bounding Box map and produces a per‑
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Flood Fill to Gradient")]
+    [System.Serializable, NodeMenuItem("Effects/Flood Fill to Gradient")]
     public class FloodFillToGradientNode : FixedNoiseNode
     {
         public override string name => "Flood Fill to Gradient";

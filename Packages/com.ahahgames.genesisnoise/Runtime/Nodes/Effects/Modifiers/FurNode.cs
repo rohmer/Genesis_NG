@@ -7,7 +7,7 @@ namespace AhahGames.GenesisNoise.Nodes
 Simulates fur on a texture, color based on another texture
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Fur")]
+    [System.Serializable, NodeMenuItem("Effects/Fur")]
     public class FurNode : FixedNoiseNode
     {
         public override string name => "Fur";

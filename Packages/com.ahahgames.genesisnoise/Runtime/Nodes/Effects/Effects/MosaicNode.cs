@@ -23,7 +23,7 @@ Below is a fully Genesis CRT–compliant implementation:
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Mosaic")]
+    [System.Serializable, NodeMenuItem("Effects/Mosaic")]
     public class MosaicNode : FixedNoiseNode
     {
         public override string name => "Mosaic";

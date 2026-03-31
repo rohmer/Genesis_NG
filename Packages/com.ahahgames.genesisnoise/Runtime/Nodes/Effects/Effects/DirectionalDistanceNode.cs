@@ -14,7 +14,7 @@ It computes distance to a feature (usually black/white mask) along a specified d
 - ✔ Deterministic, no loops dependent on texture size
 ")]
 
-[System.Serializable, NodeMenuItem("Effects/Modifications/Directional Distance")]
+[System.Serializable, NodeMenuItem("Effects/Directional Distance")]
 public class DirectionalDistanceNode : FixedNoiseNode
 {
     public override string name => "Directional Distance";

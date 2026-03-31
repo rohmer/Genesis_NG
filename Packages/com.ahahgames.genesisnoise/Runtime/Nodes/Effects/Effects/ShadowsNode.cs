@@ -7,7 +7,7 @@ namespace AhahGames.GenesisNoise.Nodes
 Creates ray‑traced shadows from a height map, with light position, samples, max length, attenuation, opacity, and height scale.
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Shadows")]
+    [System.Serializable, NodeMenuItem("Effects/Shadows")]
     public class ShadowsNode : FixedNoiseNode
     {
         public override string name => "Shadows";

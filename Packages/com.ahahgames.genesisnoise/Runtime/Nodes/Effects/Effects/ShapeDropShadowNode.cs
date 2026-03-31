@@ -14,7 +14,7 @@ Shape Drop Shadow — the one that takes a shape mask and produces a soft, direc
 This is not a blur, not a bevel — it’s a ray‑marched shadow cast from a binary shape
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Shape Drop Shadow")]
+    [System.Serializable, NodeMenuItem("Effects/Shape Drop Shadow")]
     public class ShapeDropShadowNode : FixedNoiseNode
     {
         public override string name => "Shape Drop Shadow";

@@ -11,7 +11,7 @@ namespace AhahGames.GenesisNoise.Nodes
 - Fully compatible with 2D / 3D / Cube CRT sampling
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Curvature Sobel")]
+    [System.Serializable, NodeMenuItem("Effects/Curvature Sobel")]
     public class CurvatureSobelNode : FixedNoiseNode
     {
         public override string name => "Curvature Sobel";

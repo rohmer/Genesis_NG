@@ -16,6 +16,6 @@ namespace AhahGames.GenesisNoise.Nodes
         public override string ShaderName => "Hidden/Genesis/Grass";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };
 
-        public override float nodeWidth => 500;
+        public override float nodeWidth => 300;
     }
 }

@@ -12,7 +12,7 @@ namespace AhahGames.GenesisNoise.Nodes
 - ✔ Works for 2D / 3D / Cube
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Extend Shape")]
+    [System.Serializable, NodeMenuItem("Effects/Extend Shape")]
     public class ExtendShapeNode : FixedNoiseNode
     {
         public override string name => "Extend Shape";

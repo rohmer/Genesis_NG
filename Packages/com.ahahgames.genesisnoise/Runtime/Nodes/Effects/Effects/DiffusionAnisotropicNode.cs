@@ -9,7 +9,7 @@ A multi‑iteration direction influenced
 • 	Producing a soft, organic spreading effect (like watercolor diffusion or clay smearing)
 ")]
 
-[System.Serializable, NodeMenuItem("Effects/Modifications/Diffusion Anisotropic")]
+[System.Serializable, NodeMenuItem("Effects/Diffusion Anisotropic")]
 public class DiffusionNode : FixedNoiseNode
 {
     public override string name => "Diffusion Anisotropic";

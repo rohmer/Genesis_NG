@@ -19,7 +19,7 @@ To recreate this in Genesis CRT, we have:
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Shape Stroke")]
+    [System.Serializable, NodeMenuItem("Effects/Shape Stroke")]
     public class ShapeStrokeNode : FixedNoiseNode
     {
         public override string name => "Shape Glow";

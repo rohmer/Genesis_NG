@@ -19,7 +19,7 @@ It has:
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Vector Morph")]
+    [System.Serializable, NodeMenuItem("Effects/Vector Morph")]
     public class VectorMorphNode : FixedNoiseNode
     {
         public override string name => "Vector Morph";

@@ -12,7 +12,7 @@ EdgeDark strengthens wet edges and pigment pooling.
 PaperGrain and GrainScale add realistic paper texture and granulation.
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Watercolor")]
+    [System.Serializable, NodeMenuItem("Effects/Watercolor")]
     public class WatercolorNode : FixedNoiseNode
     {
         public override string name => "Watercolor";

@@ -12,7 +12,7 @@ namespace AhahGames.GenesisNoise.Nodes
 • 	No harsh transitions
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Bevel Smooth")]
+    [System.Serializable, NodeMenuItem("Effects/Bevel Smooth")]
     public class BevelSmoothNode : FixedNoiseNode
     {
         public override string name => "Bevel Smooth";

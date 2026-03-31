@@ -7,7 +7,7 @@ namespace AhahGames.GenesisNoise.Nodes
 Effect that simulates rain on the 'Camera'
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Rain")]
+    [System.Serializable, NodeMenuItem("Effects/Rain")]
     public class RainNode : FixedNoiseNode
     {
         public override string name => "Rain Effect";

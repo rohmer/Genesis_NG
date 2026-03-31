@@ -9,7 +9,7 @@ This produces a stable region ID map that you can feed into your other CRT nodes
 
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Modifications/Flood Fill")]
+    [System.Serializable, NodeMenuItem("Effects/Flood Fill")]
     public class FloodFillNode : FixedNoiseNode
     {
         public override string name => "Flood Fill";
