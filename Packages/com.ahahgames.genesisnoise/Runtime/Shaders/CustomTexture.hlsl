@@ -260,7 +260,7 @@ v2f_init_customrendertexture InitCustomRenderTextureVertexShader(appdata_init_cu
 
 
 // Declare the prototype 
-float4 genesis(v2f_customrendertexture i); 
+float4 genesis(v2f_customrendertexture i);
 
 float4 GenesisFragment(v2f_customrendertexture i) : SV_Target
 {

@@ -246,7 +246,7 @@ Shader "Hidden/Genesis/Grass"
                 return saturate(t);
             }
 
-            float4 mixture (v2f_customrendertexture i)
+            float4 genesis (v2f_customrendertexture i)
             {                
                 _Time=hash22(i.localTexcoord.xy);
                 float2 uv = i.localTexcoord.xy; // already 0..1 (remapped by properties if you wish)

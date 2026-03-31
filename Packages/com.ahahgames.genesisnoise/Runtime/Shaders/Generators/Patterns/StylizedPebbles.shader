@@ -83,7 +83,7 @@ Shader "Hidden/Genesis/StylizedPebbles"
                 return n;
             }
 
-            float4 mixture (v2f_customrendertexture i)
+            float4 genesis (v2f_customrendertexture i)
             {      
                 float2 uv = i.localTexcoord.xy * _PebbleScale;
                 float minDist;
