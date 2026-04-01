@@ -12,6 +12,6 @@ performs morphological dilation on a feature mask derived from the source textur
     {
         public override string name => "Dialate";
         public override string NodeGroup => "Effects";
-        public override string ShaderName => "Hidden/Genesis/Dilate";
+        public override string ShaderName => "Hidden/Genesis/DilationFilter";
     }
 }

@@ -1,4 +1,4 @@
-Shader "Hidden/Genesis/Distance"
+Shader "Hidden/Genesis/DistanceTransform"
 {
     Properties
     {

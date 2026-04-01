@@ -41,6 +41,42 @@ Material:
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+--- !u!21 &-1987713913335168775
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/Clouds3
+  m_Shader: {fileID: 4800000, guid: 8e0fb0670c46453459bc59c0524342e3, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Chunkiness: 0.65
+    - _Contrast: 1.4
+    - _Offset: 0
+    - _Softness: 2
+    - _WarpAmount: 0.35
+    - _WarpScale: 6
+    m_Colors:
+    - _Scale: {r: 3, g: 3, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55,8 +91,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Genesis Noise::AhahGames.GenesisNoise.Graph.GenesisGraph
   serializedNodes: []
   nodes:
-  - rid: 6864911496005025955
-  edges: []
+  - rid: 9042686026827169881
+  - rid: 9042686026827169882
+  edges:
+  - GUID: cf67806e-ac2c-43fc-9558-fec7877a248a
+    owner: {fileID: 11400000}
+    inputNodeGUID: a7754838-7664-4fb3-8254-28f6cb1ecc32
+    outputNodeGUID: 69a5aa7c-6852-40ee-9736-3e8113995b9f
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: input
+    outputPortIdentifier: output
   groups: []
   stackNodes: []
   pinnedElements: []
@@ -64,12 +109,12 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 1773, y: -2667, z: 0}
+  position: {x: 1841, y: -2786, z: 0}
   scale: {x: 0.8695652, y: 0.8695652, z: 1}
   objectReferences:
   - {fileID: -7712417407531470868}
   - {fileID: 4175342507520397932}
-  - {fileID: 340821270732735335}
+  - {fileID: -1987713913335168775}
   defaultNodeInheritanceMode: -2
   _mainOutputTexture: {fileID: 2800000, guid: c7438d47471f3be45be0495b30e42462, type: 3}
   recipes: []
@@ -79,10 +124,10 @@ MonoBehaviour:
     widthScale: 1
     heightScale: 1
     depthScale: 1
-    width: 2048
-    height: 2048
-    depth: 2048
-    potSize: 2048
+    width: 8192
+    height: 8192
+    depth: 8192
+    potSize: 8192
     sizeMode: 0
     dimension: 2
     outputChannels: 1
@@ -96,16 +141,16 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 6864911496005025955
+    - rid: 9042686026827169881
       type: {class: Clouds3Node, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
       data:
         nodeCustomName: 
-        GUID: 7c910541-96ea-43f2-b80f-1aa0a95ede5f
+        GUID: 69a5aa7c-6852-40ee-9736-3e8113995b9f
         computeOrder: 0
         position:
           serializedVersion: 2
-          x: -2035.7375
-          y: 3298.53
+          x: -1996.0007
+          y: 3292.7507
           width: 300
           height: 719
         expanded: 0
@@ -141,7 +186,7 @@ MonoBehaviour:
         setPosition: 0
         output: {fileID: 0}
         shader: {fileID: 4800000, guid: 8e0fb0670c46453459bc59c0524342e3, type: 3}
-        material: {fileID: 340821270732735335}
+        material: {fileID: -1987713913335168775}
         exposedProperties:
         - displayName: Base Scale
           referenceName: _Scale
@@ -186,42 +231,53 @@ MonoBehaviour:
             serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
               PublicKeyToken=b77a5c561934e089
         shaderGUID: 8e0fb0670c46453459bc59c0524342e3
---- !u!21 &340821270732735335
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Hidden/Genesis/Clouds3
-  m_Shader: {fileID: 4800000, guid: 8e0fb0670c46453459bc59c0524342e3, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - CRT_2D
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Ints: []
-    m_Floats:
-    - _Chunkiness: 0.65
-    - _Contrast: 1.4
-    - _Offset: 0
-    - _Softness: 2
-    - _WarpAmount: 0.35
-    - _WarpScale: 6
-    m_Colors:
-    - _Scale: {r: 3, g: 3, b: 0, a: 0}
-  m_BuildTextureStacks: []
-  m_AllowLocking: 1
+    - rid: 9042686026827169882
+      type: {class: Texture2DOutputNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: a7754838-7664-4fb3-8254-28f6cb1ecc32
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: -1594.9008
+          y: 3355.9507
+          width: 300
+          height: 533
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 190
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 1
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        asset: {fileID: 0}
+        wrapMode: 0
+        filterMode: 1
+        hasMipMaps: 0
 --- !u!21 &4175342507520397932
 Material:
   serializedVersion: 8

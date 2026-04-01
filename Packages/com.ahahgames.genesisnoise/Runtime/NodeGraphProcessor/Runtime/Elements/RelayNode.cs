@@ -6,7 +6,7 @@ using System.Linq;
 
 using UnityEngine;
 
-[System.Serializable, NodeMenuItem("Utils/Relay")]
+[System.Serializable, NodeMenuItem("Utility/Relay")]
 public class RelayNode : BaseNode
 {
     const string packIdentifier = "_Pack";

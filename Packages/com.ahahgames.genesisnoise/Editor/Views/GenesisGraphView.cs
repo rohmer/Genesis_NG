@@ -110,10 +110,11 @@ namespace AhahGames.GenesisNoise.Views
         {
             base.BuildContextualMenu(evt);
 
-            // Add Recipe to Contextual Menu
+            /*// Add Recipe to Contextual Menu
             evt.menu.AppendSeparator();
             evt.menu.AppendAction("Create Recipe", CreateRecipeCallback, DropdownMenuAction.AlwaysEnabled);
             evt.menu.AppendAction("Add Recipe", AddRecipeCallback, DropdownMenuAction.AlwaysEnabled);
+            */
             // Disable the Delete option if there is an output node view selected
             if (selection.Any(s => s is OutputNodeView && !(s is ExternalOutputNodeView)))
             {

@@ -29,7 +29,7 @@ namespace AhahGames.GenesisNoise.Graph
             public const string processButtonText = "Process";
             public const string saveAllText = "Save";
             public const string restart = "Restart";
-            //public const string parameterViewsText = "Parameters";
+            public const string parameterViewsText = "Parameters";
             public static GUIContent documentation = new("Documentation", EditorUtilities.documentationIcon);
             public static GUIContent bugReport = new("Bug Report", EditorUtilities.bugIcon);
             public static GUIContent featureRequest = new("Feature Request", EditorUtilities.featureRequestIcon);
@@ -178,7 +178,7 @@ namespace AhahGames.GenesisNoise.Graph
 
             AddFlexibleSpace(left: false);
 
-            //AddToggle(Styles.parameterViewsText, graph.isParameterViewOpen, ToggleParameterView, left: false);
+            AddToggle(Styles.parameterViewsText, graph.isParameterViewOpen, ToggleParameterView, left: false);
 
             AddButton(Styles.settingsIcon, ShowSettingsWindow, left: false);
 
