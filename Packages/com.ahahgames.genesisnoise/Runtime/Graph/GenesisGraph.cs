@@ -52,10 +52,7 @@ namespace AhahGames.GenesisNoise.Graph
         [SerializeField]
         Texture _mainOutputTexture;
 
-        public event Action<RecipeChanges> onRecipeChanges;  // Triggered when a recipe is added or removed
-        public List<RecipeNode> recipes = new();
-
-        public string Filename = string.Empty;      // Easy hook for tests and test cleanup, atm could easily be abused by bad coding
+             public string Filename = string.Empty;      // Easy hook for tests and test cleanup, atm could easily be abused by bad coding
         public Texture mainOutputTexture
         {
             get
@@ -771,22 +768,6 @@ namespace AhahGames.GenesisNoise.Graph
                 {
                 }
             }
-        }
-
-
-        public void AddRecipe(RecipeNode recipe)
-        {
-            recipes.Add(recipe);
-
-            onRecipeChanges?.Invoke(new RecipeChanges { recipeAdded = recipe });
-        }
-
-        public void RemoveRecipe(RecipeNode recipe)
-        {
-            if (recipe == null)
-                return;
-            recipes.Remove(recipe);
-            onRecipeChanges?.Invoke(new RecipeChanges { recipeRemoved = recipe });
-        }
+        }       
     }
 }

@@ -93,18 +93,7 @@ namespace AhahGames.GenesisNoise.Views
 
             return inspector;
         }
-
-        public void CreateRecipeCallback(DropdownMenuAction e)
-        {
-            RequestRecipeCreation(null, -1, e.eventInfo.mousePosition);
-        }
-
-        public void RequestRecipeCreation(VisualElement target, int index, Vector2 position)
-        {
-            RecipeNode newRecipe = new("New Recipe", position);
-            graph.AddRecipe(newRecipe);
-
-        }
+      
 
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
@@ -193,9 +182,6 @@ namespace AhahGames.GenesisNoise.Views
 
             graph.onGraphChanges -= ProcessGraphWhenChanged;
             graph.onGraphChanges += ProcessGraphWhenChanged;
-
-            graph.onRecipeChanges -= ProcessRecipeWhenChanges;
-
             // Run the processor when we open the graph
             ProcessGraph();
 
