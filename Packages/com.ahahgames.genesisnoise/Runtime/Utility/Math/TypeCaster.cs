@@ -26,9 +26,9 @@ namespace AhahGames.GenesisNoise
         {
             if(A is bool)
                 return genesisTypes.BOOL;
-            if(A is int)
+            if(A is int || A is long)
                 return genesisTypes.INT;
-            if (A is float)
+            if (A is float || A is double)
                 return genesisTypes.FLOAT;
             if (A is Vector2Int)
                 return genesisTypes.VECTOR2INT;
@@ -93,8 +93,12 @@ namespace AhahGames.GenesisNoise
             Type type = A.GetType();
             if (type == typeof(int))
                 return (int)A;
+            if (type == typeof(long))
+                return (int)(long)A;
             if (type == typeof(float))
                 return Mathf.RoundToInt((float)A);
+            if (type == typeof(double))
+                return Mathf.RoundToInt((float)(double)A);
             if (type == typeof(Vector2))
             {
                 Vector2 v = (Vector2)A;
@@ -162,9 +166,20 @@ namespace AhahGames.GenesisNoise
                     return true;
                 return false;
             }
+            if(type==typeof(long))
+            {
+                if ((long)A > 0)
+                    return true;
+                return false;
+            }
             if(type== typeof(float))
             {
                 if((float)A > 0) return true;
+                return false;
+            }
+            if(type==typeof(double))
+            {
+                if ((double)A > 0) return true;
                 return false;
             }
             if(type==typeof(Vector2))
@@ -224,8 +239,13 @@ namespace AhahGames.GenesisNoise
         {
             Type type = A.GetType();
             if (type == typeof(int))
-            {
+            {                
                 float v=(int)A;
+                return v;
+            }
+            if(type==typeof(long))
+            {
+                float v = (long)A;
                 return v;
             }
             if(type==typeof(bool))
@@ -236,6 +256,9 @@ namespace AhahGames.GenesisNoise
             }
             if (type == typeof(float))
                 return (float)A;
+            if (type == typeof(double))
+                return (float)(double)A;
+
             if (type == typeof(Vector2))
             {
                 Vector2 v = (Vector2)A;
@@ -684,6 +707,8 @@ namespace AhahGames.GenesisNoise
 
         public static string ToString(object A)
         {
+            if (A == null)
+                return "";
             Type type = A.GetType();
             if (type == typeof(string))
                 return (string)A;
@@ -735,7 +760,7 @@ namespace AhahGames.GenesisNoise
         {
             switch(type)
             {
-                case genesisTypes.INT: return ToInt(A);
+                case genesisTypes.INT: return ToInt(A);             
                 case genesisTypes.FLOAT: return ToFloat(A);
                 case genesisTypes.BOOL: return ToBool(A);
                 case genesisTypes.VECTOR2: return ToVector2(A);

@@ -361,7 +361,7 @@ namespace AhahGames.GenesisNoise.Graph
                 customRenderTextureSamplers.TryGetValue(crt, out var sampler);
                 if (sampler == null)
                 {
-                    sampler = customRenderTextureSamplers[crt] = CustomSampler.Create($"{crt.name} - {crt.GetInstanceID()}", true);
+                    sampler = customRenderTextureSamplers[crt] = CustomSampler.Create($"{crt.name} - {crt.GetEntityId()}", true);
                     sampler.GetRecorder().enabled = true;
                 }
                 cmd.BeginSample(sampler);

@@ -563,7 +563,7 @@ namespace GraphProcessor
             var script = NodeProvider.GetNodeViewScript(GetType());
 
             if (script != null)
-                AssetDatabase.OpenAsset(script.GetInstanceID(), 0, 0);
+                AssetDatabase.OpenAsset(script.GetEntityId(), 0, 0);
         }
 
         public void OpenNodeScript()
@@ -571,7 +571,7 @@ namespace GraphProcessor
             var script = NodeProvider.GetNodeScript(nodeTarget.GetType());
 
             if (script != null)
-                AssetDatabase.OpenAsset(script.GetInstanceID(), 0, 0);
+                AssetDatabase.OpenAsset(script.GetEntityId(), 0, 0);
         }
 
         public void ToggleDebug()

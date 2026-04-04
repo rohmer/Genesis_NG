@@ -54,7 +54,7 @@ namespace AhahGames.GenesisNoise.Utility
         [OnOpenAsset(0)]
         public static bool OnBaseGraphOpened(int instanceID, int line)
         {
-            var asset = EditorUtility.InstanceIDToObject(instanceID) as GenesisGraph;
+            var asset = EditorUtility.EntityIdToObject(instanceID) as GenesisGraph;
             if (asset != null)
             {
                 var path = AssetDatabase.GetAssetPath(asset);
@@ -69,12 +69,12 @@ namespace AhahGames.GenesisNoise.Utility
             return false;
         }
 
-        abstract class GenesisGraphAction : EndNameEditAction
+        abstract class GenesisGraphAction : AssetCreationEndAction
         {
             public abstract GenesisGraph CreateNoiseGraphAsset();
 
-            public override void Action(int instanceId, string pathName, string resourceFile)
-            {
+            public override void Action(EntityId entityId, string pathName, string resourceFile)
+            {                
                 var genesisNoise = CreateNoiseGraphAsset();
                 genesisNoise.name = Path.GetFileNameWithoutExtension(pathName);
                 genesisNoise.hideFlags = HideFlags.HideInHierarchy;

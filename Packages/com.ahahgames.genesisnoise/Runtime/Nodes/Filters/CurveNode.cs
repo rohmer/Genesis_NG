@@ -10,7 +10,7 @@ namespace AhahGames.GenesisNoise.Nodes
 ✔ Smooth or linear interpolation
 ")]
 
-    [System.Serializable, NodeMenuItem("Transform/Curve")]
+    [System.Serializable, NodeMenuItem("Filters/Curve")]
     public class CurveNode : FixedNoiseNode
     {
         public override string name => "Curve";

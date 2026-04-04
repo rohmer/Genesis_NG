@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -35,6 +36,8 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
         static int ntp = 0;
         static IList<GenesisNode> nodes = new List<GenesisNode>();
         static Dictionary<string, Type> ioTypes = new();
+        static Dictionary<string, string> shaderSources = new Dictionary<string, string>();
+
         [MenuItem("Tools/Genesis Documentation")]
         public static void DocumentNodes()
         {
@@ -43,6 +46,27 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
             graph.name = "Documentor";
             //graph.hideFlags = HideFlags.HideInHierarchy;
 
+            // Load all of the shaders
+            string[] shaderFiles=Directory.GetFiles(".", "*.shader", SearchOption.AllDirectories);
+            foreach(string shaderFile in shaderFiles)
+            {
+                string shaderSource=System.IO.File.ReadAllText(shaderFile);
+                string[] lines = shaderSource.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+                string shaderName = "";
+                foreach(string line in lines)
+                {
+                    if (line.Contains("Shader \""))
+                    {
+                        shaderName = line.Split("\"")[1];
+                        break;
+                    }
+                }
+                if(!String.IsNullOrEmpty(shaderName))
+                {
+                    shaderSources[shaderName]= shaderSource;
+                }
+            }
+            
             nodeTypes = GetNodes();
 
             foreach (var type in nodeTypes)
@@ -356,7 +380,22 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
             sb.Append("</table>\n");
             sb.Append("</div>\n");
             sb.Append("</div>\n");
-
+           
+            FixedShaderNode fsn= node as FixedShaderNode;
+            if(fsn!=null)
+            {
+                if(shaderSources.ContainsKey(fsn.ShaderName))
+                {
+                    sb.Append("<div class=\"card card-warning\" width=\"50%\">\n");
+                    sb.Append("<div class=\"card-header\">\n");
+                    sb.Append("<h3 class=\"card-title\">Shader Source</h3>");
+                    sb.Append("</div>");
+                    sb.Append("<div class=\"card-body\">");
+                    sb.Append(string.Format("<pre><code>\n{0}\n</code></pre>\n", shaderSources[fsn.ShaderName]));
+                    sb.Append("</div>\n");
+                    sb.Append("</div>\n");
+                }
+            }
             var pipeline = new MarkdownPipelineBuilder().UseAdvancedExtensions().Build();
             var document = Markdig.Markdown.Parse(sb.ToString(), pipeline);
             var result = document.ToHtml(pipeline);
