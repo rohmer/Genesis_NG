@@ -3,6 +3,7 @@ using GraphProcessor;
 using System;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -58,7 +59,14 @@ namespace AhahGames.GenesisNoise.Nodes
             var compute = Resources.Load<ComputeShader>(name);
 
 #if UNITY_EDITOR
-            var path = Path.GetDirectoryName(graph.mainAssetPath);
+            string path;
+            try
+            {
+                path = Path.GetDirectoryName(graph.mainAssetPath);
+            } catch
+            {
+                path = "Assets";
+            }
 
             if (compute == null)
                 compute = UnityEditor.AssetDatabase.LoadAssetAtPath<ComputeShader>(path + "/" + name);

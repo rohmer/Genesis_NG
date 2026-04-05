@@ -37,7 +37,8 @@ namespace Mixture
 
         protected override void Disable()
         {
-            output?.Release();
+            if(output!=null)
+                output?.Release();
             base.Disable();
         }
     }

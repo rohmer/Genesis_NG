@@ -339,6 +339,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Constant\IntNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\CurvatureSmoothNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Math\MultiplicationNode.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\WoodGrainNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\ShaderNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Filters\Artistic\CanvasNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Graph\RecipeData.cs" />
@@ -922,6 +923,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\HistogramShift.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\TileSamplerColor.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Elipse.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\WoodGrainNode.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\SafeTransform.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\GenesisFixed.hlsl" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\ShapeSplatterCircularSpiralArms.shader" />

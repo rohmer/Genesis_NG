@@ -72,10 +72,14 @@ Transform a 3D texture into a volume using an iso surface algorithm (Marching cu
         protected override void Disable()
         {
             base.Disable();
-            vertices.Release();
-            normals.Release();
-            triangles.Release();
-            counterReadback.Release();
+            if(vertices!=null)
+                vertices.Release();
+            if(normals!=null)
+                normals.Release();
+            if(triangles!=null)
+                triangles.Release();
+            if(counterReadback!=null)
+                counterReadback.Release();
         }
 
         protected override bool ProcessNode(CommandBuffer cmd)

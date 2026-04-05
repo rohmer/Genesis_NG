@@ -352,6 +352,8 @@ public static class RuntimePreviewGenerator
 
                 renderCamera.targetTexture = renderTexture;
 
+                if (renderCamera == null)
+                    return new Texture2D(1, 1);
                 if (!shader)
                     renderCamera.Render();
                 else

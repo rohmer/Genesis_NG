@@ -65,7 +65,7 @@ Smooth is only in alpha
 
         public override string name => "Distance";
 
-        protected override string computeShaderResourcePath => "Mixture/Distance";
+        protected override string computeShaderResourcePath => "GenesisNoise/Distance";
 
         public override bool showDefaultInspector => true;
         public override string NodeGroup => "Operations";

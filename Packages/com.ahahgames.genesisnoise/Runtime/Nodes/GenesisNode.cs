@@ -145,6 +145,7 @@ namespace AhahGames.GenesisNoise.Nodes
         public static bool Inherits(this OutputFilterMode mode) => (int)mode < 0;
     }
 
+    [System.Serializable]
     public abstract class GenesisNode : BaseNode
     {
         [HideInInspector]
