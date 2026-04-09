@@ -54,7 +54,7 @@ Converts a grayscale image to a colorized image based on a gradient
         protected override bool ProcessNode(CommandBuffer cmd)
         {
             bool r = base.ProcessNode(cmd);
-
+            UpdateTexture();
             return r;
         }
     }
