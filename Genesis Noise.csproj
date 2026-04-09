@@ -158,6 +158,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\GaussianNoiseNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Recipe\RecipeOutputNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Cast\ToStringNodeView.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Tiling\TileSamplerNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\AnisotropicNode2.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Constant\Vector3IntNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\GaussianSpotsNode2.cs" />
@@ -400,6 +401,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Tiling\MakeTiledNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Operations\ErosionNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\OutputNode.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisTilingPatternDrawer.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Transforms\SmartUpsampler2Node.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Random\RandomPointInCubeNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Math\MultiplyNodeView.cs" />
@@ -818,6 +820,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Splatter.hlsl" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\AnisotropicNoise2.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\HistogramPreview.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Tiling\TileSampler.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Resources\GraphProcessorStyles\BaseGraphView.uss" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Math\Sub.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Wear\LeatherWeathering.shader" />

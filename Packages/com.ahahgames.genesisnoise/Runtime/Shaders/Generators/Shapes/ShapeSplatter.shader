@@ -7,7 +7,8 @@ Shader "Hidden/Genesis/ShapeSplatter"
         _Shape_Cube("Shape", Cube) = "white" {}
 
         [Enum(Disabled,0,Enabled,1)] _UseShape("Use Shape", int) = 1
-
+        [Enum(Max,0,Add,1,Multiply,2,SmoothMax,3)] _BlendMode("Blend Mode", int) = 0
+        [Tooltip(Smooth max sharpness)] _SmoothK("Smooth Max K", Range(0.01,8)) = 2.0
         [Tooltip(Global tiling of splatter grid)] _Scale("Scale", Vector) = (8,8,0,0)
 
         [Tooltip(Number of shapes per cell)] _Density("Density", Range(1,16)) = 4
@@ -39,7 +40,8 @@ Shader "Hidden/Genesis/ShapeSplatter"
             #pragma shader_feature CRT_2D CRT_3D CRT_CUBE
 
             SAMPLER_X(_Shape);
-
+            int _BlendMode;
+            float _SmoothK;
             float2 _Scale;
             float  _Density;
             float  _Jitter;
@@ -51,6 +53,26 @@ Shader "Hidden/Genesis/ShapeSplatter"
             float  _Seed;
             int    _UseShape;
 
+            float blendValues(float a, float b)
+            {
+                if (_BlendMode == 0) // Max
+                    return max(a, b);
+
+                if (_BlendMode == 1) // Add
+                    return a + b;
+
+                if (_BlendMode == 2) // Multiply
+                    return a * b;
+
+                if (_BlendMode == 3) // Smooth Max
+                {
+                    float k = _SmoothK;
+                    float res = exp(k * a) + exp(k * b);
+                    return log(res) / k;
+                }
+
+                return b;
+            }
             // ---------------------------------------------------------
             // Hash helpers
             // ---------------------------------------------------------
@@ -100,28 +122,45 @@ Shader "Hidden/Genesis/ShapeSplatter"
 
                 float outV = 0.0;
 
-                // Loop over density
+                // Loop over neighboring cells (3x3)
                 [loop]
-                for (int i = 0; i < (int)_Density; i++)
+                for (int y = -1; y <= 1; y++)
                 {
-                    float2 seed = ip + float2(i * 17.0, i * 31.0);
+                    [loop]
+                    for (int x = -1; x <= 1; x++)
+                    {
+                        float2 cell = ip + float2(x, y);
 
-                    float2 rnd = hash21(seed);
+                        // Loop density per cell
+                        [loop]
+                        for (int i = 0; i < (int)_Density; i++)
+                        {
+                            float2 seed = cell + float2(i * 17.0, i * 31.0);
+                            float2 rnd = hash21(seed);
 
-                    // Random position inside cell
-                    float2 center = rnd * _Jitter + 0.5 * (1.0 - _Jitter);
+                            // Position inside neighbor cell
+                            float2 center = rnd * _Jitter + 0.5 * (1.0 - _Jitter);
 
-                    // Random rotation
-                    float angle = (rnd.x * 2.0 - 1.0) * _RotJitter;
+                            // Offset center into current cell space
+                            float2 offset = float2(x, y);
+                            float2 localCenter = center + offset;
 
-                    // Random scale
-                    float scale = lerp(_ScaleMin, _ScaleMax, rnd.y);
+                            // Rotation
+                            float angle = (rnd.x * 2.0 - 1.0) * _RotJitter;
 
-                    // Sample shape
-                    float v = sampleShape(fp, center, angle, scale, dir);
+                            // Scale
+                            float scale = lerp(_ScaleMin, _ScaleMax, rnd.y);
 
-                    // Blend (soft max)
-                    outV = max(outV, v * (1.0 - _BlendSoftness) + outV * _BlendSoftness);
+                            // Sample shape
+                            float v = sampleShape(fp, localCenter, angle, scale, dir);
+
+                            // Softness pre-blend
+                            float blended = lerp(v, outV, _BlendSoftness);
+
+                            // Apply blend mode
+                            outV = blendValues(outV, blended);
+                        }
+                    }
                 }
 
                 return pow(outV, _Contrast);
