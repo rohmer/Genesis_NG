@@ -1,8 +1,8 @@
-Shader "Hidden/Genesis/Downsample4x"
+Shader "Hidden/Genesis/Downsample4X"
 {
     Properties
     {
-        [Tooltip(Input texture)]
+        [Tooltip(Source texture to downsample)]
         _Source("Source", 2D) = "white" {}
     }
 
@@ -15,35 +15,24 @@ Shader "Hidden/Genesis/Downsample4x"
         {
             HLSLPROGRAM
             #include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"
-            #pragma vertex CustomRenderTextureVertexShader
-            #pragma fragment GenesisFragment
-            #pragma target 3.0
 
+            #pragma vertex   CustomRenderTextureVertexShader
+            #pragma fragment GenesisFragment
             #pragma shader_feature CRT_2D CRT_3D CRT_CUBE
 
             sampler2D _Source;
+            float4 _Source_TexelSize;
 
-            float4 genesis(v2f_customrendertexture i)
+            // ---------------------------------------------------------
+            // 16‑tap box downsample (4× reduction)
+            // ---------------------------------------------------------
+            float4 downsample16Tap(float2 uv)
             {
-                float3 uv = i.localTexcoord.xyz;
+                // Half‑texel offsets for a 4×4 grid
+                float2 o = _Source_TexelSize.xy * 0.5;
 
-                #ifdef CRT_CUBE
-                    uv.z = 0.5;
-                #endif
+                float4 sum = 0.0;
 
-                // Downsampled UV (4x)
-                float2 baseUV = uv.xy * 4.0;
-
-                // Pixel size
-                
-                float2 texel = float2(1.0 / _ScreenParams.x, 1.0 / _ScreenParams.y);
-
-                // Offsets for 4x4 grid
-                float2 o = texel * 0.5;
-
-                float3 c = 0.0;
-
-                // 16‑tap box filter
                 [unroll]
                 for (int y = -1; y <= 2; y++)
                 {
@@ -51,13 +40,25 @@ Shader "Hidden/Genesis/Downsample4x"
                     for (int x = -1; x <= 2; x++)
                     {
                         float2 offset = float2(x, y) * o;
-                        c += tex2D(_Source, baseUV + offset).rgb;
+                        sum += tex2D(_Source, uv + offset);
                     }
                 }
 
-                c *= 1.0 / 16.0;
+                return sum * (1.0 / 16.0);
+            }
 
-                return float4(c, 1.0);
+            // ---------------------------------------------------------
+            // Genesis CRT entry
+            // ---------------------------------------------------------
+            float4 genesis(v2f_customrendertexture i) : SV_Target
+            {
+                float3 uv = i.localTexcoord.xyz;
+
+                #ifdef CRT_CUBE
+                    uv.z = 0.5;
+                #endif
+
+                return downsample16Tap(uv.xy);
             }
 
             ENDHLSL

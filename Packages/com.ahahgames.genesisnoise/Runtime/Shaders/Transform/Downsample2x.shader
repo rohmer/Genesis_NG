@@ -1,8 +1,8 @@
-Shader "Hidden/Genesis/Downsample2x"
+﻿Shader "Hidden/Genesis/Downsample2x"
 {
     Properties
     {
-        [Tooltip(Input texture)]
+        [Tooltip(Source texture to downsample)]
         _Source("Source", 2D) = "white" {}
     }
 
@@ -15,15 +15,33 @@ Shader "Hidden/Genesis/Downsample2x"
         {
             HLSLPROGRAM
             #include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"
-            #pragma vertex CustomRenderTextureVertexShader
-            #pragma fragment GenesisFragment
-            #pragma target 3.0
 
+            #pragma vertex   CustomRenderTextureVertexShader
+            #pragma fragment GenesisFragment
             #pragma shader_feature CRT_2D CRT_3D CRT_CUBE
 
             sampler2D _Source;
+            float4 _Source_TexelSize;   // Provided by Unity
 
-            float4 genesis(v2f_customrendertexture i)
+            // ---------------------------------------------------------
+            // 4‑tap box downsample
+            // ---------------------------------------------------------
+            float4 downsample4Tap(float2 uv)
+            {
+                float2 o = _Source_TexelSize.xy * 0.5;
+
+                float4 c0 = tex2D(_Source, uv + float2(-o.x, -o.y));
+                float4 c1 = tex2D(_Source, uv + float2( o.x, -o.y));
+                float4 c2 = tex2D(_Source, uv + float2(-o.x,  o.y));
+                float4 c3 = tex2D(_Source, uv + float2( o.x,  o.y));
+
+                return (c0 + c1 + c2 + c3) * 0.25;
+            }
+
+            // ---------------------------------------------------------
+            // Genesis CRT entry
+            // ---------------------------------------------------------
+            float4 genesis(v2f_customrendertexture i) : SV_Target
             {
                 float3 uv = i.localTexcoord.xyz;
 
@@ -31,20 +49,7 @@ Shader "Hidden/Genesis/Downsample2x"
                     uv.z = 0.5;
                 #endif
 
-                // Downsampled UV
-                float2 baseUV = uv.xy * 2.0;
-
-                // Pixel size (CRT macro handles 2D/3D/Cube)
-                float3 texel = float3(1.0 / _ScreenParams.x, 1.0 / _ScreenParams.y, 1.0/_ScreenParams.z);
-
-                // 4‑tap box filter (Substance‑style)
-                float3 c =
-                    tex2D(_Source, baseUV + texel * float3(-0.25, -0.25, 0)).rgb +
-                    tex2D(_Source, baseUV + texel * float3( 0.25, -0.25, 0)).rgb +
-                    tex2D(_Source, baseUV + texel * float3(-0.25,  0.25, 0)).rgb +
-                    tex2D(_Source, baseUV + texel * float3( 0.25,  0.25, 0)).rgb;
-
-                return float4(c * 0.25, 1.0);
+                return downsample4Tap(uv.xy);
             }
 
             ENDHLSL
