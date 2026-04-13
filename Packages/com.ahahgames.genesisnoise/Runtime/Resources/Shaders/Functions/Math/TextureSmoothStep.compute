@@ -1,0 +1,12 @@
+#pragma kernel CSMain
+
+Texture2D<float4> inputA;
+RWTexture2D<float4> output;
+float lowerBound, upperBound;
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    uint2 coord = id.xy;
+    output[coord] = smoothstep(lowerBound, upperBound, inputA[coord]);
+}

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Genesis Noise::AhahGames.GenesisNoise.Graph.GenesisGraph
   serializedNodes: []
   nodes:
-  - rid: 6864911409438785902
+  - rid: 9042686212693295181
+  - rid: 9042686212693295186
   edges: []
   groups: []
   stackNodes: []
@@ -23,9 +24,11 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: -449, y: -136, z: 0}
+  position: {x: -360, y: -1132, z: 0}
   scale: {x: 0.8695652, y: 0.8695652, z: 1}
-  objectReferences: []
+  objectReferences:
+  - {fileID: 5176272817356564484}
+  - {fileID: 7840761836760365043}
   defaultNodeInheritanceMode: -2
   _mainOutputTexture: {fileID: 2800000, guid: c7438d47471f3be45be0495b30e42462, type: 3}
   Filename: 
@@ -51,19 +54,109 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 6864911409438785902
-      type: {class: URPLitMaterial, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+    - rid: 9042686212693295181
+      type: {class: BWSpots3Node, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
       data:
         nodeCustomName: 
-        GUID: b917f0bc-3f52-47b2-8d4a-a39c512b4a1d
+        GUID: 366ae302-aeb8-4ab8-87c5-bac1701520bd
         computeOrder: 0
         position:
           serializedVersion: 2
-          x: 1416.464
-          y: 253.87518
+          x: 464.79126
+          y: 1342.2112
           width: 300
-          height: 1009
+          height: 783
         expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 769
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 7
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: efd7b87b20ed3594e874449b50eb209b, type: 3}
+        material: {fileID: 7840761836760365043}
+        exposedProperties:
+        - displayName: Spot Density
+          referenceName: _Density
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Cell Scale
+          referenceName: _Scale
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Softness
+          referenceName: _Softness
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Min Radius
+          referenceName: _RadiusMin
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Max Radius
+          referenceName: _RadiusMax
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Warp Amount
+          referenceName: _Warp
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: efd7b87b20ed3594e874449b50eb209b
+    - rid: 9042686212693295186
+      type: {class: ColorNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: eb455446-858b-4dd3-b0b2-1b6bd4c17c34
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: 793.5217
+          y: 1679.9655
+          width: 150
+          height: 194
+        expanded: 1
         debug: 0
         nodeLock: 0
         height: NaN
@@ -94,24 +187,111 @@ MonoBehaviour:
         previewSlice: 0
         isPinned: 0
         setPosition: 0
-        primitiveType: 0
-        workflowMode: 0
-        surfaceType: 0
-        alphaClipping: 0
-        receiveShadows: 1
-        metallicAmount: 0
-        smoothnessAmount: 0.5
-        normalAmount: 10
-        smoothSource: 0
-        baseColor: {r: 1, g: 1, b: 1, a: 1}
-        useEmission: 0
-        emissionColor: {r: 0, g: 0, b: 0, a: 0}
-        tiling: {x: 1, y: 1}
-        offset: {x: 0, y: 0}
-        detailTiling: {x: 1, y: 1}
-        detailOffset: {x: 0, y: 0}
-        specularHighlights: 1
-        environmentReflections: 1
-        sortingPriority: 0
-        gpuInstancing: 0
-        albemic: 0
+        output: {r: 1, g: 0, b: 0, a: 1}
+        Red: 1
+        Green: 0
+        Blue: 0
+        Alpha: 1
+--- !u!21 &5176272817356564484
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/ShaderNodeDefault
+  m_Shader: {fileID: 4800000, guid: 68e563587669b3e4d8b523655cfd80bf, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SourceA_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceA_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceA_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceB_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceB_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceB_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _FloatVal: 0
+    - _MathMode: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &7840761836760365043
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/BWSpots3
+  m_Shader: {fileID: 4800000, guid: efd7b87b20ed3594e874449b50eb209b, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Contrast: 1.2
+    - _Density: 0.55
+    - _RadiusMax: 0.75
+    - _RadiusMin: 0.25
+    - _Scale: 10
+    - _Softness: 6
+    - _Warp: 0.35
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

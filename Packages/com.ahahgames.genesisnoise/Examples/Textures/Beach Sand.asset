@@ -1,5 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!21 &-3114827149899343142
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/Shape
+  m_Shader: {fileID: 4800000, guid: 6c7e9082e54e1794f89b15cc843fe495, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Radius: 0.1
+    - _Rotation: 0
+    - _ShapeType: 0
+    - _Sides: 6
+    - _Softness: 0.01
+    - _StarInner: 0.5
+    - _SuperExp: 4
+    m_Colors:
+    - _Offset: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _Scale: {r: 0.25, g: 0.5, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13,7 +51,9 @@ MonoBehaviour:
   m_Name: Beach Sand
   m_EditorClassIdentifier: Genesis Noise::AhahGames.GenesisNoise.Graph.GenesisGraph
   serializedNodes: []
-  nodes: []
+  nodes:
+  - rid: 9042686212693295154
+  - rid: 9042686212693295165
   edges: []
   groups: []
   stackNodes: []
@@ -22,9 +62,11 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 0, y: 0, z: 0}
-  scale: {x: 1, y: 1, z: 1}
-  objectReferences: []
+  position: {x: 1071, y: -454, z: 0}
+  scale: {x: 0.32690176, y: 0.32690176, z: 1}
+  objectReferences:
+  - {fileID: -3114827149899343142}
+  - {fileID: 788666322734791381}
   defaultNodeInheritanceMode: -2
   _mainOutputTexture: {fileID: 2800000, guid: c7438d47471f3be45be0495b30e42462, type: 3}
   Filename: 
@@ -49,4 +91,447 @@ MonoBehaviour:
     period: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 9042686212693295154
+      type: {class: ShapeNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 74c52b16-8aeb-4833-a12b-2c31c87bab30
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: -190.10939
+          y: 558.16113
+          width: 100
+          height: 100
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 755
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: 6c7e9082e54e1794f89b15cc843fe495, type: 3}
+        material: {fileID: -3114827149899343142}
+        exposedProperties:
+        - displayName: Shape Type
+          referenceName: _ShapeType
+          tooltip: Shape type
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Sides
+          referenceName: _Sides
+          tooltip: Number of sides for polygon or star
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Star Inner
+          referenceName: _StarInner
+          tooltip: Star inner radius multiplier
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Superellipse Exponent
+          referenceName: _SuperExp
+          tooltip: Superellipse exponent
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Scale
+          referenceName: _Scale
+          tooltip: Shape scale
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Offset
+          referenceName: _Offset
+          tooltip: Shape offset
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Rotation
+          referenceName: _Rotation
+          tooltip: Rotation in degrees
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Softness
+          referenceName: _Softness
+          tooltip: Softness (edge falloff)
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Radius
+          referenceName: _Radius
+          tooltip: Rounded corner radius
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: 6c7e9082e54e1794f89b15cc843fe495
+    - rid: 9042686212693295165
+      type: {class: TileSamplerNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 9905f933-b578-4d16-9859-f606dc3b1aa3
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: -16.364828
+          y: 1420.7866
+          width: 300
+          height: 1905
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 1104
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: 276155afa17a57342b9e82100ad0b60a, type: 3}
+        material: {fileID: 788666322734791381}
+        exposedProperties:
+        - displayName: Pattern
+          referenceName: _Pattern_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Mask
+          referenceName: _Mask_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Distribution
+          referenceName: _Distribution_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Pattern Type
+          referenceName: _PatternType
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Use Pattern
+          referenceName: _UsePattern
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Use Mask
+          referenceName: _UseMask
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Use Distribution
+          referenceName: _UseDistribution
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Tiling
+          referenceName: _Tiling
+          tooltip: Number of tiles in X,Y
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Offset
+          referenceName: _Offset
+          tooltip: Global UV offset
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Pattern Amount
+          referenceName: _PatternAmount
+          tooltip: Shapes per tile
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Position Random
+          referenceName: _PositionRandom
+          tooltip: Random position offset inside tile
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Rotation Random
+          referenceName: _RotationRandom
+          tooltip: Random rotation amount in radians
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Scale Min
+          referenceName: _ScaleMin
+          tooltip: Min random scale
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Scale Max
+          referenceName: _ScaleMax
+          tooltip: Max random scale
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Pattern Scale
+          referenceName: _PatternScale
+          tooltip: Global pattern scale
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Blending
+          referenceName: _Blending
+          tooltip: Blending mode
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Mask Influence
+          referenceName: _MaskInfluence
+          tooltip: Mask influence on output
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Distribution Influence
+          referenceName: _DistributionInfluence
+          tooltip: Distribution map influence on spawn probability
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Distribution Threshold
+          referenceName: _DistributionThreshold
+          tooltip: Minimum distribution value needed to spawn
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Distribution Contrast
+          referenceName: _DistributionContrast
+          tooltip: Contrast on distribution map
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Distribution Scale Influence
+          referenceName: _DistributionScaleInfluence
+          tooltip: Distribution map affects scale
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Distribution Rotation Influence
+          referenceName: _DistributionRotationInfluence
+          tooltip: Distribution map affects rotation
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Distribution Position Influence
+          referenceName: _DistributionPositionInfluence
+          tooltip: Distribution map affects position
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Pattern Hardness
+          referenceName: _PatternHardness
+          tooltip: Edge hardness and exponent shaping
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Pattern Aspect
+          referenceName: _PatternAspect
+          tooltip: Aspect ratio X,Y for procedural patterns
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Brick Width
+          referenceName: _BrickWidth
+          tooltip: Brick width fraction
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Brick Height
+          referenceName: _BrickHeight
+          tooltip: Brick height fraction
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Gradient Angle
+          referenceName: _GradientAngle
+          tooltip: Gradiation direction in radians
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Thorn Sharpness
+          referenceName: _ThornSharpness
+          tooltip: Thorn sharpness
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: Contrast shaping
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Clamp Output
+          referenceName: _ClampOutput
+          tooltip: Output clamp
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Seed
+          referenceName: _Seed
+          tooltip: Random seed
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Gradiation Mode
+          referenceName: _GradiationMode
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: 276155afa17a57342b9e82100ad0b60a
+--- !u!21 &788666322734791381
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/TileSampler
+  m_Shader: {fileID: 4800000, guid: 276155afa17a57342b9e82100ad0b60a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Distribution_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Distribution_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Distribution_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mask_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Pattern_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Pattern_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Pattern_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Blending: 0
+    - _BrickHeight: 1
+    - _BrickWidth: 0.8
+    - _ClampOutput: 1
+    - _Contrast: 1
+    - _DistributionContrast: 1
+    - _DistributionInfluence: 1
+    - _DistributionPositionInfluence: 0
+    - _DistributionRotationInfluence: 0
+    - _DistributionScaleInfluence: 0
+    - _DistributionThreshold: 0.079
+    - _GradiationMode: 0
+    - _GradientAngle: 0.86
+    - _MaskInfluence: 1
+    - _PatternAmount: 1
+    - _PatternHardness: 2
+    - _PatternScale: 1
+    - _PatternType: 5
+    - _PositionRandom: 0
+    - _RotationRandom: 0
+    - _ScaleMax: 1
+    - _ScaleMin: 0.31
+    - _Seed: 1
+    - _ThornSharpness: 2.9
+    - _UseDistribution: 1
+    - _UseMask: 0
+    - _UsePattern: 1
+    m_Colors:
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _PatternAspect: {r: 0.5, g: 1, b: 0, a: 0}
+    - _Tiling: {r: 8, g: 8, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
