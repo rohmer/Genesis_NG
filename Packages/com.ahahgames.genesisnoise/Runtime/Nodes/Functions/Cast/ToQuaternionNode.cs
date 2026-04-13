@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Casts the input value to Quaternion.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Cast/To Quaternion")]
     public class ToQuaternionNode : ConstantNode
     {

@@ -1,4 +1,4 @@
-﻿using AhahGames.GenesisNoise.Utility;
+using AhahGames.GenesisNoise.Utility;
 
 using Codice.Client.BaseCommands;
 
@@ -14,6 +14,10 @@ using static UnityEditor.Rendering.CameraUI;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Returns the absolute value of the input.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Math/Abs")]
     public class AbsNode : ConstantNode
     {
@@ -97,4 +101,5 @@ namespace AhahGames.GenesisNoise.Nodes
         }
     }
 }
+
 

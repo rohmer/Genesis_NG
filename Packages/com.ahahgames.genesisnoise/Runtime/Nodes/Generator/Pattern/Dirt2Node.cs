@@ -1,14 +1,14 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 
 using System.Collections.Generic;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-
+Generates a second dirt-style grunge variant for layered surface breakup and masking.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Pattern/Dirt 2")]
+[System.Serializable, NodeMenuItem("Generators/Pattern/Dirt 2")]
     public class Dirt2Node : FixedNoiseNode
     {
         public override string name => "Dirt 2";

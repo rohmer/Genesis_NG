@@ -1,4 +1,4 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 
 using System;
 
@@ -8,6 +8,10 @@ using UnityEngine.Windows;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Applies `COS(A*B)` to the source texture per pixel.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Texture/Texture COS(A*B)")]
     public class COSABTextureNode : TextureMathNode
     {

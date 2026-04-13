@@ -7,8 +7,8 @@
 ## Overview
 
 - Node count: 33
-- Inline docs from source: 31
-- Generated fallback docs: 2
+- Inline docs from source: 33
+- Generated fallback docs: 0
 
 ## General
 
@@ -144,15 +144,18 @@ You can expand to 16 if you want - the structure is already modular.
 - Shader: `Hidden/Genesis/Grayscale`
 - Source: [Runtime/Nodes/Color/GrayscaleNode.cs](../../Runtime/Nodes/Color/GrayscaleNode.cs)
 
-Convert RGB image to White and Black. With the Algorithm property you can change how the black and white color is computed:
+Converts the input image to grayscale.
 
-Name | Description
-Luminance | Uses the perceived luminance of the color to compute the grayscale value.
-Average | Uses the average of the RGB values to compute the grayscale value.
-Min/Max | Uses the minimum or maximum RGB value to compute the grayscale value.
-Desaturation | Uses the desaturation of the color to compute the grayscale value.
-One Channel | Uses only one of the RGB channels to compute the grayscale value.   The channel can be selected with the Channel property.
-Gamma Corrected | Uses the gamma corrected RGB values to compute the grayscale value.
+Use the `Algorithm` property to choose how the grayscale value is computed:
+
+| Name | Description |
+| --- | --- |
+| Luminance | Uses the perceived luminance of the color. |
+| Average | Uses the average of the RGB values. |
+| Min/Max | Uses the minimum or maximum RGB value. |
+| Desaturation | Uses the desaturation of the color. |
+| One Channel | Uses a single RGB channel selected by the `Channel` property. |
+| Gamma Corrected | Uses gamma-corrected RGB values. |
 
 ### Highpass Color
 
@@ -161,14 +164,9 @@ Gamma Corrected | Uses the gamma corrected RGB values to compute the grayscale v
 - Shader: `Hidden/Genesis/HighpassColor`
 - Source: [Runtime/Nodes/Color/HighpassColorNode.cs](../../Runtime/Nodes/Color/HighpassColorNode.cs)
 
-This node:
-Blurs the input (usually Gaussian)
+Extracts high-frequency color detail from the input by blurring it, subtracting the blurred result from the original, and remapping the difference.
 
-Subtract blurred from original
-
-Normalize / remap
-
-Optional contrast boost
+Use this to isolate fine detail before sharpening, blending, or mask creation while preserving color information.
 
 ### Highpass Grayscale
 
@@ -177,14 +175,9 @@ Optional contrast boost
 - Shader: `Hidden/Genesis/HighpassGrayscale`
 - Source: [Runtime/Nodes/Color/HighpassGrayscaleNode.cs](../../Runtime/Nodes/Color/HighpassGrayscaleNode.cs)
 
-This node:
-Blurs the input (usually Gaussian)
+Extracts high-frequency detail from the input by blurring it, subtracting the blurred result from the original, and remapping the difference into a grayscale result.
 
-Subtract blurred from original
-
-Normalize / remap
-
-Optional contrast boost
+Use this to build detail masks, sharpen monochrome data, or isolate fine surface variation.
 
 ### Histogram
 
@@ -193,7 +186,7 @@ Optional contrast boost
 - Shader: `Hidden/Genesis/Histogram`
 - Source: [Runtime/Nodes/Color/HistogramNode.cs](../../Runtime/Nodes/Color/HistogramNode.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Histogram`.
+Builds a histogram from the input texture so you can inspect value distribution and drive tonal range analysis.
 
 ### Histogram Equalize
 

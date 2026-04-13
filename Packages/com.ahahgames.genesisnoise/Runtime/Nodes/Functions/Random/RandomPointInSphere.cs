@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Generates a random point inside a sphere.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Random/Point in Sphere")]
     public class RandomPointInSphereNode : ConstantNode
     {

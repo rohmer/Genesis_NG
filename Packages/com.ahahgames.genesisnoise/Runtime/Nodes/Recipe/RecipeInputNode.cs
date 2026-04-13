@@ -10,6 +10,10 @@ namespace AhahGames.GenesisNoise.Nodes
     /// An input node for a recipe graph
     /// When minimized this will be an input port
     /// </summary>
+    [Documentation(@"
+Declares an input for a reusable recipe graph.
+")]
+
     [Serializable, NodeMenuItem("Recipe/Recipe Input")]
     public class RecipeInputNode : GenesisNode
     {

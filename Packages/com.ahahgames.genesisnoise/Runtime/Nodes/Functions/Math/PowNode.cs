@@ -9,6 +9,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Raises the input to a power.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Math/Pow")]
     public class PowNode : ConstantNode
     {

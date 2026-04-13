@@ -25,6 +25,11 @@ namespace AhahGames.GenesisNoise.Nodes
         TGA
     }
 
+    [Documentation(@"
+Writes the graph result to a 2D texture output.
+")]
+
+
     [Serializable, NodeMenuItem("Output/Texture 2D")]
     public class Texture2DOutputNode : GenesisNode
     {

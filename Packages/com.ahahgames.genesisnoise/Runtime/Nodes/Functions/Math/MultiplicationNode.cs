@@ -9,6 +9,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Multiplies the input values.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Math/Multiply")]
     public class MultiplyNode : ConstantNode
     {

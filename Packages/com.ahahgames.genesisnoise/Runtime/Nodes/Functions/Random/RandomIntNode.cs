@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Generates a random integer value.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Random/Integer")]
     public class RandomIntNode : ConstantNode
     {

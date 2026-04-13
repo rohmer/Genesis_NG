@@ -7,6 +7,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Adjusts black point, white point, gamma, and output range for the input.
+")]
+
     [System.Serializable, NodeMenuItem("Color/Levels")]
     public class Levels : ComputeShaderNode
     {

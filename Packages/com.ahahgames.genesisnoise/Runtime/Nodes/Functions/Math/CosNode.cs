@@ -1,4 +1,4 @@
-﻿using AhahGames.GenesisNoise.Utility;
+using AhahGames.GenesisNoise.Utility;
 
 using GraphProcessor;
 
@@ -9,6 +9,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Returns the cosine of the input.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Math/Cos")]
     public class CosNode : ConstantNode
     {
@@ -32,3 +36,4 @@ namespace AhahGames.GenesisNoise.Nodes
         }
     }
 }
+

@@ -1,4 +1,4 @@
-﻿using AhahGames.GenesisNoise.Utility;
+using AhahGames.GenesisNoise.Utility;
 
 using GraphProcessor;
 
@@ -9,6 +9,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Returns the sine of the input.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Math/Sin")]
     public class SinNode : ConstantNode
     {

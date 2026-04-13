@@ -3,10 +3,10 @@ using GraphProcessor;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-
+Builds a histogram from the input texture so you can inspect value distribution and drive tonal range analysis.
 ")]
 
-    [System.Serializable, NodeMenuItem("Color/Histogram")]
+[System.Serializable, NodeMenuItem("Color/Histogram")]
     public class HistogramNode : FixedShaderNode
     {
         public override string name => "Histogram";

@@ -7,6 +7,10 @@ using System.Collections.Generic;
 
 namespace Genesis
 {
+    [Documentation(@"
+Generates a random N-sided polygon.
+")]
+
     [System.Serializable, NodeMenuItem("Generators/Shapes/Random N-Gon")]
     public class RandomNGonNode : FixedShaderNode
     {

@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Casts the input value to Vector2Int.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Cast/To Vector2Int")]
     public class ToVector2IntNode : ConstantNode
     {
@@ -24,3 +28,4 @@ namespace AhahGames.GenesisNoise.Nodes
         }
     }
 }
+

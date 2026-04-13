@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Outputs a constant color value.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Constant/Color")]
     public class ColorNode : ConstantNode
     {

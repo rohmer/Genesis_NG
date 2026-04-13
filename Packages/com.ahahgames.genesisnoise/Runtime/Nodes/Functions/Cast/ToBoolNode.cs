@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Casts the input value to Boolean.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Cast/To Boolean")]
     public class ToBoolNode : ConstantNode
     {

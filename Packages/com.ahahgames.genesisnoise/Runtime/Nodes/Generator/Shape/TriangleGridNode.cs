@@ -1,11 +1,11 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-
+Generates a repeating triangular grid pattern.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Shapes/Triangle Grid")]
+[System.Serializable, NodeMenuItem("Generators/Shapes/Triangle Grid")]
     public class TriangleGridNode : FixedShaderNode
     {
         public override string name => "Triangle Grid";

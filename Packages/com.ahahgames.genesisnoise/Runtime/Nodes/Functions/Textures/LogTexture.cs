@@ -1,4 +1,4 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 
 using System;
 
@@ -8,6 +8,10 @@ using UnityEngine.Windows;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Applies `LOG(A,B)` to the source texture per pixel.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Texture/Texture LOG(A,B)")]
     public class LogTextureNode : TextureMathNode
     {

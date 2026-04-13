@@ -7,8 +7,8 @@
 ## Overview
 
 - Node count: 22
-- Inline docs from source: 17
-- Generated fallback docs: 5
+- Inline docs from source: 22
+- Generated fallback docs: 0
 
 ## General
 
@@ -117,7 +117,7 @@ Smooth is only in alpha
 - Shader: `Hidden/Genesis/Erosion`
 - Source: [Runtime/Nodes/Operations/ErosionNode.cs](../../Runtime/Nodes/Operations/ErosionNode.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Erosion`.
+Applies erosion-style wear to the input to help shape weathered heightmaps and natural surface breakup.
 
 ### Height Blend
 
@@ -141,7 +141,7 @@ Used for:
 - Shader: `Hidden/Genesis/HydraulicErosion`
 - Source: [Runtime/Nodes/Operations/HydraulicErosionNode.cs](../../Runtime/Nodes/Operations/HydraulicErosionNode.cs)
 
-Graph node backed by the shader `Hidden/Genesis/HydraulicErosion`.
+Simulates water-driven erosion to carve channels and soften the input heightmap or mask.
 
 ### Scatter
 
@@ -267,7 +267,7 @@ Converts a volume input into a vector field texture.
 - Shader: `Hidden/Genesis/WindErosion`
 - Source: [Runtime/Nodes/Operations/WindErosionNode.cs](../../Runtime/Nodes/Operations/WindErosionNode.cs)
 
-Graph node backed by the shader `Hidden/Genesis/WindErosion`.
+Simulates wind-driven erosion to wear exposed areas and add directional surface breakup.
 
 ## Textures
 

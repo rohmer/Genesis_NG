@@ -3,6 +3,10 @@ using GraphProcessor;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Outputs a constant string value.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Constant/String")]
     public class StringNode : ConstantNode
     {

@@ -1,12 +1,12 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-
+Simulates water-driven erosion to carve channels and soften the input heightmap or mask.
 ")]
 
-    [System.Serializable, NodeMenuItem("Operations/Hydraulic Erosion")]
+[System.Serializable, NodeMenuItem("Operations/Hydraulic Erosion")]
     public class HydraulicErosionNode : FixedShaderNode
     {
         public override string name => "Hydraulic Erosion";

@@ -5,10 +5,10 @@ using System.Collections.Generic;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-
+Generates a dirt-style grunge pattern for surface breakup, masking, and worn material detail.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Pattern/Dirt 1")]
+[System.Serializable, NodeMenuItem("Generators/Pattern/Dirt 1")]
     public class DirtNode : FixedNoiseNode
     {
         public override string name => "Dirt";

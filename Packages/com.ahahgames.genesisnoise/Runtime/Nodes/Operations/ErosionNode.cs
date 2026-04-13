@@ -1,12 +1,12 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-
+Applies erosion-style wear to the input to help shape weathered heightmaps and natural surface breakup.
 ")]
 
-    [System.Serializable, NodeMenuItem("Operations/Erosion")]
+[System.Serializable, NodeMenuItem("Operations/Erosion")]
     public class ErosionNode : FixedShaderNode
     {
         public override string name => "Erosion";

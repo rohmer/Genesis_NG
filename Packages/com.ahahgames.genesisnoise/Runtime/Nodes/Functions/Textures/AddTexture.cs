@@ -1,4 +1,4 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 
 using System;
 
@@ -8,6 +8,10 @@ using UnityEngine.Windows;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Adds the input textures per pixel.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Texture/Texture Addition")]
     public class AddTextureNode : TextureMathNode
     {

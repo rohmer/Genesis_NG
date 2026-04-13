@@ -9,6 +9,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Divides one input by another.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Math/Divide")]
     public class DivideNode : ConstantNode
     {

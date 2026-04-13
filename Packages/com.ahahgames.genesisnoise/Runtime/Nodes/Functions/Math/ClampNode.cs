@@ -1,4 +1,4 @@
-﻿using AhahGames.GenesisNoise.Utility;
+using AhahGames.GenesisNoise.Utility;
 
 using GraphProcessor;
 
@@ -9,6 +9,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Clamps the input to a specified range.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Math/Clamp")]
     public class ClampNode : ConstantNode
     {
@@ -47,3 +51,4 @@ namespace AhahGames.GenesisNoise.Nodes
         }
     }
 }
+

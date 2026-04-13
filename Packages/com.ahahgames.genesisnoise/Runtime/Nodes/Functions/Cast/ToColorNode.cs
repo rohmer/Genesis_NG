@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Casts the input value to Color.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Cast/To Color")]
     public class ToColorNode : ConstantNode
     {

@@ -3,6 +3,10 @@ using GraphProcessor;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Outputs a constant boolean value.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Constant/Boolean")]
     public class BoolNode : ConstantNode
     {

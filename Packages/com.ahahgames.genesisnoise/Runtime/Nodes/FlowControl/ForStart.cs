@@ -7,6 +7,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Begins a for-loop flow block.
+")]
+
     [System.Serializable, NodeMenuItem("Flow/For Start")]
     public class ForStart : GenesisNode, ILoopStart
     {

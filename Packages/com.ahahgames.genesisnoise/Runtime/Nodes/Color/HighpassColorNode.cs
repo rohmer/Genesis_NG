@@ -1,4 +1,4 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 
 using System.Collections.Generic;
 
@@ -7,18 +7,12 @@ using UnityEngine.Rendering;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-[Documentation(@""
-This node:
-Blurs the input (usually Gaussian)
+Extracts high-frequency color detail from the input by blurring it, subtracting the blurred result from the original, and remapping the difference.
 
-Subtract blurred from original
-
-Normalize / remap
-
-Optional contrast boost
+Use this to isolate fine detail before sharpening, blending, or mask creation while preserving color information.
 ")]
 
-    [System.Serializable, NodeMenuItem("Color/Highpass Color")]
+[System.Serializable, NodeMenuItem("Color/Highpass Color")]
     public class HighpassColorNode : FixedShaderNode
     {
         public override string name => "Highpass Color";

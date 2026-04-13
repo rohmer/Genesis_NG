@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Generates a random point inside a box.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Random/Point in Box")]
     public class RandomPointInBoxNode : ConstantNode
     {

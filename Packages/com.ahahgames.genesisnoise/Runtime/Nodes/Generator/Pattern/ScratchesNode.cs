@@ -5,10 +5,10 @@ using System.Collections.Generic;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-
+Generates scratch marks for worn, damaged, or weathered surface details.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Pattern/Scratches")]
+[System.Serializable, NodeMenuItem("Generators/Pattern/Scratches")]
     public class ScratchesNode : FixedNoiseNode
     {
         public override string name => "Scratches";

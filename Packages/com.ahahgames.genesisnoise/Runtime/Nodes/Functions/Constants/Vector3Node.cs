@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Outputs a constant vector3 value.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Constant/Vector3")]
     public class Vector3Node : ConstantNode
     {

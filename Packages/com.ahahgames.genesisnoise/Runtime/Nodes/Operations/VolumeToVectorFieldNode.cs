@@ -7,6 +7,10 @@ using System.Collections.Generic;
 
 namespace Mixture
 {
+    [Documentation(@"
+Converts a volume input into a vector field texture.
+")]
+
     [System.Serializable, NodeMenuItem("Operations/Volume To Vector Field")]
     public class VolumeToVectorFieldNode : FixedShaderNode
     {

@@ -11,6 +11,10 @@ using UnityEngine.Rendering;
 
 namespace Genesis
 {
+    [Documentation(@"
+Closes a for-loop flow block.
+")]
+
     [System.Serializable]
     // [NodeMenuItem("For End")]
     public class ForEnd : GenesisNode, ILoopEnd

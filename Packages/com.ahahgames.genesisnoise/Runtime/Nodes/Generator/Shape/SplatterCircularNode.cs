@@ -1,13 +1,13 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 
 using System.Collections.Generic;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-
+Scatters circular shapes across the texture for droplets, bubbles, or patterned masks.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Shapes/Splatter Circular")]
+[System.Serializable, NodeMenuItem("Generators/Shapes/Splatter Circular")]
     public class SplatterCircularNode: FixedShaderNode
     {
         public override string name => "Splatter Circular";

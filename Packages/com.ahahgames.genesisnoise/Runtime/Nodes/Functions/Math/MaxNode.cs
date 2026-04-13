@@ -1,4 +1,4 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 
 using System;
 
@@ -7,6 +7,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Returns the larger of the input values.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Math/Max")]
     public class MaxNode : ConstantNode
     {
@@ -114,3 +118,4 @@ namespace AhahGames.GenesisNoise.Nodes
         }
     }
 }
+

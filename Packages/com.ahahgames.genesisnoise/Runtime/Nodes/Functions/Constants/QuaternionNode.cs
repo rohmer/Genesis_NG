@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Outputs a constant quaternion value.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Constant/Quaternion")]
     public class QuaternionNode : ConstantNode
     {

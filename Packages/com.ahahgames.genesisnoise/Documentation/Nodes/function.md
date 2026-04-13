@@ -7,8 +7,8 @@
 ## Overview
 
 - Node count: 70
-- Inline docs from source: 1
-- Generated fallback docs: 69
+- Inline docs from source: 70
+- Generated fallback docs: 0
 
 ## Cast
 

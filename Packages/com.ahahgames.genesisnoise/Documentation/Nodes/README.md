@@ -6,32 +6,32 @@
 
 - Unique node classes: 385
 - Top-level categories: 20
-- Inline docs from source: 277
-- Generated fallback docs: 108
+- Inline docs from source: 385
+- Generated fallback docs: 0
 
 ## Categories
 
 | Category | Nodes | Inline Docs | Fallback Docs | File |
 | --- | ---: | ---: | ---: | --- |
 | Base Nodes | 1 | 1 | 0 | [Base Nodes](base-nodes.md) |
-| Color | 33 | 31 | 2 | [Color](color.md) |
+| Color | 33 | 33 | 0 | [Color](color.md) |
 | Conditional | 1 | 1 | 0 | [Conditional](conditional.md) |
 | Effects | 37 | 37 | 0 | [Effects](effects.md) |
 | External Output | 1 | 1 | 0 | [External Output](external-output.md) |
 | Filters | 27 | 27 | 0 | [Filters](filters.md) |
-| Flow | 1 | 0 | 1 | [Flow](flow.md) |
-| For End | 1 | 0 | 1 | [For End](for-end.md) |
-| Function | 70 | 1 | 69 | [Function](function.md) |
-| Generators | 132 | 107 | 25 | [Generators](generators.md) |
+| Flow | 1 | 1 | 0 | [Flow](flow.md) |
+| For End | 1 | 1 | 0 | [For End](for-end.md) |
+| Function | 70 | 70 | 0 | [Function](function.md) |
+| Generators | 132 | 132 | 0 | [Generators](generators.md) |
 | Material | 2 | 2 | 0 | [Material](material.md) |
 | Mesh | 2 | 2 | 0 | [Mesh](mesh.md) |
 | Normal | 14 | 14 | 0 | [Normal](normal.md) |
-| Operations | 22 | 17 | 5 | [Operations](operations.md) |
-| Output | 1 | 0 | 1 | [Output](output.md) |
-| Recipe | 3 | 0 | 3 | [Recipe](recipe.md) |
+| Operations | 22 | 22 | 0 | [Operations](operations.md) |
+| Output | 1 | 1 | 0 | [Output](output.md) |
+| Recipe | 3 | 3 | 0 | [Recipe](recipe.md) |
 | Tiling | 3 | 3 | 0 | [Tiling](tiling.md) |
 | Transform | 26 | 26 | 0 | [Transform](transform.md) |
-| Utility | 1 | 0 | 1 | [Utility](utility.md) |
+| Utility | 1 | 1 | 0 | [Utility](utility.md) |
 | Wear | 7 | 7 | 0 | [Wear](wear.md) |
 
 ## Regenerate

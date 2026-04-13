@@ -8,6 +8,10 @@ using UnityEngine.Windows;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Adds the input values.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Math/Addition")]
     public class AddNode : ConstantNode
     {

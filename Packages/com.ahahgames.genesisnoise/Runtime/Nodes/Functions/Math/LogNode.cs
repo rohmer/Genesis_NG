@@ -7,6 +7,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Returns the logarithm of the input.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Math/Log")]
     public class LogNode : ConstantNode
     {

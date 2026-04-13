@@ -10,6 +10,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Defines a reusable recipe graph.
+")]
+
     [Serializable, NodeMenuItem("Recipe/Recipe")]
     public class RecipeNode : GraphProcessor.Group
     {
@@ -40,3 +44,4 @@ namespace AhahGames.GenesisNoise.Nodes
         }
     }
 }
+

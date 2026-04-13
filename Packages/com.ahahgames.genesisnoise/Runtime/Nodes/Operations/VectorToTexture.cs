@@ -8,6 +8,10 @@ using UnityEngine.Rendering;
 
 namespace Mixture
 {
+    [Documentation(@"
+Converts vector data into a texture representation.
+")]
+
     [System.Serializable, NodeMenuItem("Operations/Vector To Texture")]
     public class VectorToTexture : GenesisNode
     {

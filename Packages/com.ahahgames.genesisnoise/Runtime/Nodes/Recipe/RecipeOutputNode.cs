@@ -10,6 +10,10 @@ namespace AhahGames.GenesisNoise.Nodes
     /// An output node for a recipe graph
     /// When minimized this will be an output port
     /// </summary>
+    [Documentation(@"
+Declares an output for a reusable recipe graph.
+")]
+
     [Serializable, NodeMenuItem("Recipe/Recipe Output")]
     public class RecipeOutputNode : GenesisNode
     {

@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Outputs a constant vector2int value.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Constant/Vector2Int")]
     public class Vector2IntNode : ConstantNode
     {

@@ -6,6 +6,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Outputs a constant gradient value.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Constant/Gradient")]
     public class GradientNode : ConstantNode
     {

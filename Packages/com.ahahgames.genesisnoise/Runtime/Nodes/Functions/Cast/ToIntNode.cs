@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Casts the input value to Int.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Cast/To Int")]
     public class ToIntNode : ConstantNode
     {

@@ -7,8 +7,8 @@
 ## Overview
 
 - Node count: 132
-- Inline docs from source: 107
-- Generated fallback docs: 25
+- Inline docs from source: 132
+- Generated fallback docs: 0
 
 ## Noise
 
@@ -670,7 +670,7 @@ This is the Crystal HQ node you'll use for:
 - Shader: `Hidden/Genesis/GrungeDirt`
 - Source: [Runtime/Nodes/Generator/Pattern/DirtNode.cs](../../Runtime/Nodes/Generator/Pattern/DirtNode.cs)
 
-Graph node backed by the shader `Hidden/Genesis/GrungeDirt`.
+Generates a dirt-style grunge pattern for surface breakup, masking, and worn material detail.
 
 ### Dirt 2
 
@@ -679,7 +679,7 @@ Graph node backed by the shader `Hidden/Genesis/GrungeDirt`.
 - Shader: `Hidden/Genesis/GrungeDirt2`
 - Source: [Runtime/Nodes/Generator/Pattern/Dirt2Node.cs](../../Runtime/Nodes/Generator/Pattern/Dirt2Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/GrungeDirt2`.
+Generates a second dirt-style grunge variant for layered surface breakup and masking.
 
 ### Dirt 3
 
@@ -688,7 +688,7 @@ Graph node backed by the shader `Hidden/Genesis/GrungeDirt2`.
 - Shader: `Hidden/Genesis/GrungeDirt3`
 - Source: [Runtime/Nodes/Generator/Pattern/Dirt3Node.cs](../../Runtime/Nodes/Generator/Pattern/Dirt3Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/GrungeDirt3`.
+Generates a third dirt-style grunge variant with alternate breakup for worn surface detail.
 
 ### Dirt 4
 
@@ -697,7 +697,7 @@ Graph node backed by the shader `Hidden/Genesis/GrungeDirt3`.
 - Shader: `Hidden/Genesis/GrungeDirt4`
 - Source: [Runtime/Nodes/Generator/Pattern/Dirt4Node.cs](../../Runtime/Nodes/Generator/Pattern/Dirt4Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/GrungeDirt4`.
+Generates a fourth dirt-style grunge variant for adding irregular debris and breakup.
 
 ### Dirt Fine
 
@@ -706,7 +706,7 @@ Graph node backed by the shader `Hidden/Genesis/GrungeDirt4`.
 - Shader: `Hidden/Genesis/GrungeDirtFine`
 - Source: [Runtime/Nodes/Generator/Pattern/DirtFineNode.cs](../../Runtime/Nodes/Generator/Pattern/DirtFineNode.cs)
 
-Graph node backed by the shader `Hidden/Genesis/GrungeDirtFine`.
+Generates a finer dirt pattern for subtle grime, dust, and high-frequency surface breakup.
 
 ### Dirt Gradient
 
@@ -724,7 +724,7 @@ A Genesis Noise shader node that produces a vertical dirt gradient (dark at top 
 - Shader: `Hidden/Genesis/Grass`
 - Source: [Runtime/Nodes/Generator/Pattern/GrassGenerator.cs](../../Runtime/Nodes/Generator/Pattern/GrassGenerator.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Grass`.
+Generates a grass-like pattern useful for organic masks, terrain breakup, and stylized foliage textures.
 
 ### Grime 1
 
@@ -733,7 +733,7 @@ Graph node backed by the shader `Hidden/Genesis/Grass`.
 - Shader: `Hidden/Genesis/Grunge001`
 - Source: [Runtime/Nodes/Generator/Pattern/GrimeNode.cs](../../Runtime/Nodes/Generator/Pattern/GrimeNode.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Grunge001`.
+Generates a grime pattern variant for aging surfaces, building dirt accumulation, and breaking up masks.
 
 ### Grime 10
 
@@ -742,7 +742,7 @@ Graph node backed by the shader `Hidden/Genesis/Grunge001`.
 - Shader: `Hidden/Genesis/Grunge010`
 - Source: [Runtime/Nodes/Generator/Pattern/Grime10Node.cs](../../Runtime/Nodes/Generator/Pattern/Grime10Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Grunge010`.
+Generates a tenth grime pattern variant for complex aged-surface breakup and masking.
 
 ### Grime 2
 
@@ -751,7 +751,7 @@ Graph node backed by the shader `Hidden/Genesis/Grunge010`.
 - Shader: `Hidden/Genesis/Grunge002`
 - Source: [Runtime/Nodes/Generator/Pattern/Grime2Node.cs](../../Runtime/Nodes/Generator/Pattern/Grime2Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Grunge002`.
+Generates a second grime pattern variant for dirty, aged, and weathered surface detail.
 
 ### Grime 3
 
@@ -760,7 +760,7 @@ Graph node backed by the shader `Hidden/Genesis/Grunge002`.
 - Shader: `Hidden/Genesis/Grunge003`
 - Source: [Runtime/Nodes/Generator/Pattern/Grime3Node.cs](../../Runtime/Nodes/Generator/Pattern/Grime3Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Grunge003`.
+Generates a third grime pattern variant for layered dirt buildup and irregular masking.
 
 ### Grime 4
 
@@ -769,7 +769,7 @@ Graph node backed by the shader `Hidden/Genesis/Grunge003`.
 - Shader: `Hidden/Genesis/Grunge004`
 - Source: [Runtime/Nodes/Generator/Pattern/Grime4Node.cs](../../Runtime/Nodes/Generator/Pattern/Grime4Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Grunge004`.
+Generates a fourth grime pattern variant for worn materials and accumulated debris.
 
 ### Grime 5
 
@@ -778,7 +778,7 @@ Graph node backed by the shader `Hidden/Genesis/Grunge004`.
 - Shader: `Hidden/Genesis/Grunge005`
 - Source: [Runtime/Nodes/Generator/Pattern/Grime5Node.cs](../../Runtime/Nodes/Generator/Pattern/Grime5Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Grunge005`.
+Generates a fifth grime pattern variant for adding aged surface breakup and dirt clustering.
 
 ### Grime 6
 
@@ -787,7 +787,7 @@ Graph node backed by the shader `Hidden/Genesis/Grunge005`.
 - Shader: `Hidden/Genesis/Grunge006`
 - Source: [Runtime/Nodes/Generator/Pattern/Grime6Node.cs](../../Runtime/Nodes/Generator/Pattern/Grime6Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Grunge006`.
+Generates a sixth grime pattern variant for subtle wear, buildup, and masking detail.
 
 ### Grime 7
 
@@ -796,7 +796,7 @@ Graph node backed by the shader `Hidden/Genesis/Grunge006`.
 - Shader: `Hidden/Genesis/Grunge007`
 - Source: [Runtime/Nodes/Generator/Pattern/Grime7Node.cs](../../Runtime/Nodes/Generator/Pattern/Grime7Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Grunge007`.
+Generates a seventh grime pattern variant for broad dirty breakup and weathered surfaces.
 
 ### Grime 8
 
@@ -805,7 +805,7 @@ Graph node backed by the shader `Hidden/Genesis/Grunge007`.
 - Shader: `Hidden/Genesis/Grunge008`
 - Source: [Runtime/Nodes/Generator/Pattern/Grime8Node.cs](../../Runtime/Nodes/Generator/Pattern/Grime8Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Grunge008`.
+Generates an eighth grime pattern variant for dense dirt accumulation and surface wear.
 
 ### Grime 9
 
@@ -814,7 +814,7 @@ Graph node backed by the shader `Hidden/Genesis/Grunge008`.
 - Shader: `Hidden/Genesis/Grunge009`
 - Source: [Runtime/Nodes/Generator/Pattern/Grime9Node.cs](../../Runtime/Nodes/Generator/Pattern/Grime9Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Grunge009`.
+Generates a ninth grime pattern variant for layered dirty masks and worn material detail.
 
 ### Height Extrusion
 
@@ -901,7 +901,7 @@ It's not just "FBM" and not just "noise turbulence"-it's a fractal interference 
 - Shader: `Hidden/Genesis/Scratches`
 - Source: [Runtime/Nodes/Generator/Pattern/ScratchesNode.cs](../../Runtime/Nodes/Generator/Pattern/ScratchesNode.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Scratches`.
+Generates scratch marks for worn, damaged, or weathered surface details.
 
 ### Scratches Dirty
 
@@ -955,7 +955,7 @@ Deterministic, atomic-free
 - Shader: `Hidden/Genesis/Smudges`
 - Source: [Runtime/Nodes/Generator/Pattern/SmudgeNode.cs](../../Runtime/Nodes/Generator/Pattern/SmudgeNode.cs)
 
-Graph node backed by the shader `Hidden/Genesis/Smudges`.
+Generates soft smudged streaks for dirt, fingerprints, and directional surface breakup.
 
 ### Stones
 
@@ -973,7 +973,7 @@ Generation of a stones or pebbles like texture depending on the scale
 - Shader: `Hidden/Genesis/StylizedPebbles`
 - Source: [Runtime/Nodes/Generator/Pattern/StylizedPebblesNode.cs](../../Runtime/Nodes/Generator/Pattern/StylizedPebblesNode.cs)
 
-Graph node backed by the shader `Hidden/Genesis/StylizedPebbles`.
+Generates a stylized pebble pattern suitable for ground textures, masks, and decorative surfaces.
 
 ### Wood Grain
 
@@ -1095,7 +1095,7 @@ Generates a circle or elipse
 - Shader: `Hidden/Genesis/GrungeFibers`
 - Source: [Runtime/Nodes/Generator/Shape/FibersNode1.cs](../../Runtime/Nodes/Generator/Shape/FibersNode1.cs)
 
-Graph node backed by the shader `Hidden/Genesis/GrungeFibers`.
+Generates a fibrous pattern useful for fabric, paper, hairline streaks, and brushed surfaces.
 
 ### Fibers 2
 
@@ -1104,7 +1104,7 @@ Graph node backed by the shader `Hidden/Genesis/GrungeFibers`.
 - Shader: `Hidden/Genesis/GrungeFibersDual`
 - Source: [Runtime/Nodes/Generator/Shape/Fibers2Node.cs](../../Runtime/Nodes/Generator/Shape/Fibers2Node.cs)
 
-Graph node backed by the shader `Hidden/Genesis/GrungeFibersDual`.
+Generates a denser fibrous pattern variant for cloth, paper, or brushed-surface detail.
 
 ### Gaussian Axis
 
@@ -1491,7 +1491,7 @@ This node scatters shape instances around a spiral path, giving you:
 - Shader: `Hidden/Genesis/SplatterCircular`
 - Source: [Runtime/Nodes/Generator/Shape/SplatterCircularNode.cs](../../Runtime/Nodes/Generator/Shape/SplatterCircularNode.cs)
 
-Graph node backed by the shader `Hidden/Genesis/SplatterCircular`.
+Scatters circular shapes across the texture for droplets, bubbles, or patterned masks.
 
 ### Splatter Shape
 
@@ -1559,7 +1559,7 @@ Parameters:
 - Shader: `Hidden/Genesis/TriangleGrid`
 - Source: [Runtime/Nodes/Generator/Shape/TriangleGridNode.cs](../../Runtime/Nodes/Generator/Shape/TriangleGridNode.cs)
 
-Graph node backed by the shader `Hidden/Genesis/TriangleGrid`.
+Generates a repeating triangular grid pattern.
 
 ### Truchet
 

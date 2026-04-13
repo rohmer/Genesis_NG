@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Outputs a constant animation curve value.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Constant/Animation Curve")]
     public class AnimationCurveNode : ConstantNode
     {

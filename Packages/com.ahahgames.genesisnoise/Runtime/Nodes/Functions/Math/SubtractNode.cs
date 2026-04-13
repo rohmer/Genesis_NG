@@ -9,6 +9,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Subtracts one input from another.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Math/Subtract")]
     public class SubtractNode : ConstantNode
     {

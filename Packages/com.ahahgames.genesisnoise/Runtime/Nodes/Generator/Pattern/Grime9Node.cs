@@ -1,14 +1,14 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 
 using System.Collections.Generic;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-
+Generates a ninth grime pattern variant for layered dirty masks and worn material detail.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Pattern/Grime 9")]
+[System.Serializable, NodeMenuItem("Generators/Pattern/Grime 9")]
     public class Grime9Node : FixedNoiseNode
     {
         public override string name => "Grime 9";

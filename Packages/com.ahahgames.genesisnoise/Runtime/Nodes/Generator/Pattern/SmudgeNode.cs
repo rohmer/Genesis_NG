@@ -5,10 +5,10 @@ using System.Collections.Generic;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-
+Generates soft smudged streaks for dirt, fingerprints, and directional surface breakup.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Pattern/Smudges")]
+[System.Serializable, NodeMenuItem("Generators/Pattern/Smudges")]
     public class SmudgesNode : FixedNoiseNode
     {
         public override string name => "Smudges";

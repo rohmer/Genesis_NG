@@ -7,8 +7,8 @@
 ## Overview
 
 - Node count: 1
-- Inline docs from source: 0
-- Generated fallback docs: 1
+- Inline docs from source: 1
+- Generated fallback docs: 0
 
 ## General
 

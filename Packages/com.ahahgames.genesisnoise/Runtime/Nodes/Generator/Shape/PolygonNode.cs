@@ -7,6 +7,10 @@ using System.Collections.Generic;
 
 namespace Genesis
 {
+    [Documentation(@"
+Generates a 2D polygon shape.
+")]
+
     [System.Serializable, NodeMenuItem("Generators/Shapes/Polygon 2D")]
     public class Polygon2DNode : FixedShaderNode
     {

@@ -3,6 +3,10 @@ using GraphProcessor;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Outputs a constant float value.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Constant/Float")]
     public class FloatNode : ConstantNode
     {

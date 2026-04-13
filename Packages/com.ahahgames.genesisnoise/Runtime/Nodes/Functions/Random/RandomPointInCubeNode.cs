@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Generates a random point inside a cube.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Random/Point in Cube")]
     public class RandomPointInCubeNode : ConstantNode
     {

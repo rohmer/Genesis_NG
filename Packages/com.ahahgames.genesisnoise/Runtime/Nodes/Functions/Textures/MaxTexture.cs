@@ -1,4 +1,4 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 
 using System;
 
@@ -8,6 +8,10 @@ using UnityEngine.Windows;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Returns the per-pixel maximum of the input textures.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Texture/Texture Maximum")]
     public class MaxTextureNode : TextureMathNode
     {

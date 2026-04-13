@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Generates a random point inside a circle.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Random/Point in Circle")]
     public class RandomPointInCircleNode : ConstantNode
     {

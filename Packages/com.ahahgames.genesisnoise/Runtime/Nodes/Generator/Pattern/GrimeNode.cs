@@ -1,14 +1,14 @@
-﻿using GraphProcessor;
+using GraphProcessor;
 
 using System.Collections.Generic;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-
+Generates a grime pattern variant for aging surfaces, building dirt accumulation, and breaking up masks.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Pattern/Grime 1")]
+[System.Serializable, NodeMenuItem("Generators/Pattern/Grime 1")]
     public class Grime1Node : FixedNoiseNode
     {
         public override string name => "Grime 1";

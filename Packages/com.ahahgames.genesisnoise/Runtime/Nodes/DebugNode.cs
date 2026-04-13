@@ -7,6 +7,10 @@ using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Inspects values during graph authoring and debugging.
+")]
+
     [System.Serializable, NodeMenuItem("Utility/Debug")]
     public class DebugNode : GenesisNode
     {

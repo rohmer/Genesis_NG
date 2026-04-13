@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
+    [Documentation(@"
+Generates a random float value.
+")]
+
     [System.Serializable, NodeMenuItem("Function/Random/Float")]
     public class RandomFloatNode : ConstantNode
     {
