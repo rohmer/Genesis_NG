@@ -116,7 +116,7 @@ Shader "Hidden/Genesis/BWSpots3"
                 float2 uv = i.localTexcoord.xy;
 
                 float v = bwSpots3(uv);
-
+                v=smoothstep(0.0, 1.0, v); // Optional: increase contrast
                 return float4(v, v, v, 1.0);
             }
 

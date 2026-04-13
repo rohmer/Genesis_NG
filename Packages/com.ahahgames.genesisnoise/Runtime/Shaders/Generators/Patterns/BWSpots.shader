@@ -88,6 +88,7 @@ Shader "Hidden/Genesis/BWSpots"
 
                 float v = bwSpots(uv, _Density, _Scale, _Softness);
 
+                v=smoothstep(0.0, 1.0, v); // Optional: increase contrast
                 return float4(v, v, v, 1.0);
             }
 

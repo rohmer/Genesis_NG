@@ -116,7 +116,7 @@ Shader "Hidden/Genesis/BWSpots2"
                 float2 uv = i.localTexcoord.xy;
 
                 float v = bwSpots2(uv);
-
+                v=smoothstep(0.0,1.0,v);
                 return float4(v, v, v, 1.0);
             }
 
