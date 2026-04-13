@@ -791,6 +791,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\Templates\CustomTextureShaderTemplate.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Filters\Sharpen.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Wear\FabricWeathering.shader" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Filters\FXAA.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Noises\WarpNoise.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\AnisotropicNoise.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\Bevel.shader" />

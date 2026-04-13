@@ -4,18 +4,19 @@ namespace AhahGames.GenesisNoise.Nodes
 {
 
     [Documentation(@"
-single‑pass, luma‑based edge detection, adaptive blending, CRT‑ready.
+FXAA-style antialiasing for generated textures.
 - Input: source color
-- Output: anti‑aliased color
-- Works 2D / 3D / Cube via SAMPLE_X
-- Tunable edge threshold and subpixel quality
+- Output: smoothed color with preserved detail
+- Works on 2D textures, 3D slices, and cube faces
+- Tunable thresholds, span, and subpixel blending
 ")]
 
     [System.Serializable, NodeMenuItem("Filters/Enhance/Antialias")]
-    public class AntialiasNode : FixedNoiseNode
+    public class AntialiasNode : FixedShaderNode
     {
         public override string name => "Antialias";
         public override string NodeGroup => "Effects";
         public override string ShaderName => "Hidden/Genesis/FXAA";
+        public override bool DisplayMaterialInspector => true;
     }
 }
