@@ -1,0 +1,31 @@
+#pragma kernel CSMain
+
+Texture2D<float4> inputA, inputB;
+RWTexture2D<float4> output;
+
+float floatInput;
+float4 vectorInput;
+
+int mathType; // 0 = texture + texture, 1=texture+floatInput, 2=texture+vectorInput
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    uint2 coord = id.xy;
+
+    float4 a = inputA[coord];
+
+    if (mathType == 0)
+    {
+        float4 b = inputB[coord];
+        output[coord] = min(a, b);
+    }
+    else if (mathType == 1)
+    {
+        output[coord] = min(a, float4(floatInput, floatInput, floatInput, floatInput));
+    }
+    else if (mathType == 2)
+    {
+        output[coord] = min(a, vectorInput);
+    }
+} 

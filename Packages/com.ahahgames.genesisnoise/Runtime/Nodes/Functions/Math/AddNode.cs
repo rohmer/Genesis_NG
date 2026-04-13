@@ -1,7 +1,3 @@
-using AhahGames.GenesisNoise.Utility;
-
-using Codice.Client.BaseCommands;
-
 using GraphProcessor;
 
 using System;
@@ -25,7 +21,7 @@ namespace AhahGames.GenesisNoise.Nodes
 
         public override string name => "Addition";
         public override string NodeGroup => "Math";
-
+        
         protected override bool ProcessNode(CommandBuffer cmd)
         {
             if (inputA != null && inputB == null)

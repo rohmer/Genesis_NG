@@ -11,7 +11,7 @@ namespace AhahGames.GenesisNoise.Nodes
     [System.Serializable, NodeMenuItem("Generators/Pattern/Anisotropic Noise 1")]
     public class AnisotropicNode1 : FixedNoiseNode
     {
-        public override string name => "Anisotropic";
+        public override string name => "Anisotropic Pattern";
         public override string NodeGroup => "Pattern";
         public override string ShaderName => "Hidden/Genesis/AnisotropicNoise";
         protected override IEnumerable<string> filteredOutProperties => new string[] { };

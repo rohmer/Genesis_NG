@@ -1,0 +1,25 @@
+#pragma kernel CSMain
+
+Texture2D<float4> inputA, inputB;
+RWTexture2D<float4> output;
+
+float floatInput;
+float4 vectorInput;
+
+int mathType; // 0 = texture + texture, 1=texture+floatInput, 2=texture+vectorInput
+
+[numthreads(8, 8, 1)]
+void CSMain(uint3 id : SV_DispatchThreadID)
+{
+    uint2 coord = id.xy;
+    float a = inputA[coord];
+    float4 bVal;
+    if (mathType == 0)
+        bVal = inputB[coord];
+    if (mathType == 1)
+        bVal = float4(floatInput, floatInput, floatInput, floatInput);
+    if (mathType == 2)
+        bVal = vectorInput;
+    output[coord] = log(a) / log(bVal);    
+     
+}
