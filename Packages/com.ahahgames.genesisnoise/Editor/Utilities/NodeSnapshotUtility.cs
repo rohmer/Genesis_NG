@@ -44,12 +44,19 @@ namespace AhahGames.GenesisNoise
             public bool windowCreatedForRequest;
             public bool hasFramedNode;
             public bool captureQueued;
+            public bool hasStoredViewState;
+            public bool restoreViewAfterCapture;
+            public Vector3 originalViewPosition;
+            public Vector3 originalViewScale;
             public int waitFrames;
             public bool isFinished;
         }
 
         static readonly List<SnapshotRequest> pendingRequests = new();
 
+        /// <summary>
+        /// Opens the supplied graph, frames an existing node, captures it, and writes the result to a PNG file.
+        /// </summary>
         public static void DisplayNodeAndCapturePng(
             GenesisGraph graph,
             GenesisNode node,
@@ -82,9 +89,13 @@ namespace AhahGames.GenesisNoise
                 removeNodeAfterCapture = false,
                 destroyGraphAfterCapture = false,
                 closeWindowAfterCapture = false,
+                restoreViewAfterCapture = true,
             });
         }
 
+        /// <summary>
+        /// Creates a temporary graph, displays a cloned copy of the node, captures it, and writes the result to a PNG file.
+        /// </summary>
         public static void DisplayStandaloneNodeAndCapturePng(
             GenesisNode node,
             string outputPath,
@@ -101,11 +112,12 @@ namespace AhahGames.GenesisNoise
             var graph = ScriptableObject.CreateInstance<GenesisGraph>();
             graph.name = $"{node.name} Snapshot";
             graph.ClearObjectReferences();
+            var snapshotNode = CloneNodeForSnapshot(node);
 
             QueueRequest(new SnapshotRequest
             {
                 graph = graph,
-                node = node,
+                node = snapshotNode,
                 outputPath = Path.GetFullPath(outputPath),
                 onCompleted = onCompleted,
                 onFailed = onFailed,
@@ -114,7 +126,18 @@ namespace AhahGames.GenesisNoise
                 removeNodeAfterCapture = true,
                 destroyGraphAfterCapture = true,
                 closeWindowAfterCapture = true,
+                restoreViewAfterCapture = false,
             });
+        }
+
+        static GenesisNode CloneNodeForSnapshot(GenesisNode node)
+        {
+            var clonedNode = JsonSerializer.DeserializeNode(JsonSerializer.SerializeNode(node)) as GenesisNode;
+            if (clonedNode == null)
+                throw new InvalidOperationException($"Unable to clone node '{node.name}' for snapshot capture.");
+
+            clonedNode.position = node.position;
+            return clonedNode;
         }
 
         static void QueueRequest(SnapshotRequest request)
@@ -186,7 +209,7 @@ namespace AhahGames.GenesisNoise
             if (request.shouldAddNode && !request.graph.nodes.Contains(request.node))
             {
                 request.node.OnNodeCreated();
-                request.graph.AddNode(request.node);
+                request.window.view.AddNode(request.node);
                 EditorUtility.SetDirty(request.graph);
                 request.window.Repaint();
                 return;
@@ -208,6 +231,13 @@ namespace AhahGames.GenesisNoise
             {
                 request.window.Repaint();
                 return;
+            }
+
+            if (!request.hasStoredViewState)
+            {
+                request.originalViewPosition = request.graph.position;
+                request.originalViewScale = request.graph.scale;
+                request.hasStoredViewState = true;
             }
 
             if (!request.hasFramedNode)
@@ -277,18 +307,13 @@ namespace AhahGames.GenesisNoise
             if (request.captureOverlay != null)
                 request.captureOverlay.RemoveFromHierarchy();
 
-            request.captureOverlay = new IMGUIContainer(() => CaptureOnGui(request))
-            {
-                pickingMode = PickingMode.Ignore,
-                style =
-                {
-                    position = Position.Absolute,
-                    left = 0,
-                    top = 0,
-                    right = 0,
-                    bottom = 0,
-                }
-            };
+            request.captureOverlay = new IMGUIContainer(() => CaptureOnGui(request));
+            request.captureOverlay.pickingMode = PickingMode.Ignore;
+            request.captureOverlay.style.position = Position.Absolute;
+            request.captureOverlay.style.left = 0;
+            request.captureOverlay.style.top = 0;
+            request.captureOverlay.style.right = 0;
+            request.captureOverlay.style.bottom = 0;
 
             request.window.rootVisualElement.Add(request.captureOverlay);
         }
@@ -376,8 +401,16 @@ namespace AhahGames.GenesisNoise
                 request.captureOverlay = null;
             }
 
+            if (request.restoreViewAfterCapture && request.hasStoredViewState && request.window?.view != null)
+                request.window.view.UpdateViewTransform(request.originalViewPosition, request.originalViewScale);
+
             if (request.removeNodeAfterCapture && request.graph != null && request.graph.nodes.Contains(request.node))
-                request.graph.RemoveNode(request.node);
+            {
+                if (request.window?.view != null && request.window.view.nodeViewsPerNode.ContainsKey(request.node))
+                    request.window.view.RemoveNode(request.node);
+                else
+                    request.graph.RemoveNode(request.node);
+            }
 
             if (request.closeWindowAfterCapture && request.window != null && request.windowCreatedForRequest)
                 request.window.Close();

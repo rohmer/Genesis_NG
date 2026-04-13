@@ -91,9 +91,10 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
             nodes = nodes.OrderBy(x => x.name).ToList();
             groups = groups.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
 
+            saveImage(nodeDocDir,graph, nodes[0]);
             foreach (GenesisNode n in nodes)
             {
-                createDocFile(System.IO.Path.Combine(nodeDocDir, string.Format("{0}.html", n.name.Replace(" ", ""))), n);
+                createDocFile(System.IO.Path.Combine(nodeDocDir, string.Format("{0}.html", n.name.Replace(" ", ""))), n);                
             }
 
             foreach (var t in ioTypes)
@@ -107,6 +108,15 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
             }
         }
 
+        private static void saveImage(string docDir, GenesisGraph graph, GenesisNode node)
+        {
+            string name = node.name;
+            name.Replace(" ", "");
+            name+= ".png";
+            string png = System.IO.Path.Combine(docDir, name);
+            Debug.LogError(png);
+            NodeSnapshotUtility.DisplayNodeAndCapturePng(graph, node, png, null, null, 20);
+        }
         private static List<Type> GetNodes()
         {
 
@@ -403,6 +413,7 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
             sb.Clear();            
             sb.Append(result);
             sb.Append("</body></html>");
+            docFile = docFile.Replace("*", "");
             System.IO.File.WriteAllText(docFile, sb.ToString());
                         
             /*

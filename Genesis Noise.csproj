@@ -547,6 +547,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Textures\MultiplyTexture.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Normals\ToNormalNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Views\StickyNoteView.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Utilities\NodeSnapshotUtility.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Filters\Distort\KaleidoscopeNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\ElipseNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Color\ColorizeNode.cs" />

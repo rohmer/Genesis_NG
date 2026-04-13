@@ -13,18 +13,28 @@ MonoBehaviour:
   m_Name: GenesisNoiseGraph
   m_EditorClassIdentifier: Genesis Noise::AhahGames.GenesisNoise.Graph.GenesisGraph
   serializedNodes: []
-  nodes:
-  - rid: 9042686212693295186
+  nodes: []
   edges: []
   groups: []
   stackNodes: []
-  pinnedElements: []
-  exposedParameters: []
+  pinnedElements:
+  - position:
+      serializedVersion: 2
+      x: 3
+      y: 24
+      width: 150
+      height: 200
+    opened: 0
+    editorType:
+      serializedType: AhahGames.GenesisNoise.Graph.GenesisParameterView, Genesis
+        Noise, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  exposedParameters:
+  - rid: 9042686300973432864
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: -217, y: -1280, z: 0}
-  scale: {x: 1, y: 1, z: 1}
+  position: {x: -59, y: -596, z: 0}
+  scale: {x: 0.65751624, y: 0.65751624, z: 1}
   objectReferences:
   - {fileID: 5176272817356564484}
   defaultNodeInheritanceMode: -2
@@ -35,10 +45,10 @@ MonoBehaviour:
     widthScale: 1
     heightScale: 1
     depthScale: 1
-    width: 2048
-    height: 2048
-    depth: 2048
-    potSize: 2048
+    width: 4096
+    height: 4096
+    depth: 4096
+    potSize: 4096
     sizeMode: 0
     dimension: 2
     outputChannels: 1
@@ -52,54 +62,27 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
-    - rid: 9042686212693295186
-      type: {class: ColorNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+    - rid: 9042686300973432864
+      type: {class: BoundsIntParameter, ns: GraphProcessor, asm: Genesis Noise}
       data:
-        nodeCustomName: 
-        GUID: eb455446-858b-4dd3-b0b2-1b6bd4c17c34
-        computeOrder: 0
-        position:
-          serializedVersion: 2
-          x: 793.5217
-          y: 1679.9655
-          width: 150
-          height: 194
-        expanded: 1
-        debug: 0
-        nodeLock: 0
-        height: 194
+        guid: a853d47a-e7a4-4504-b104-d622c9f8ded7
+        name: New Bounds Int
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
         settings:
-          widthScale: 1
-          heightScale: 1
-          depthScale: 1
-          width: 1024
-          height: 1024
-          depth: 1
-          potSize: 2048
-          sizeMode: -2
-          dimension: -2
-          outputChannels: -2
-          outputPrecision: -2
-          editFlags: -257
-          doubleBuffered: 0
-          wrapMode: -2
-          filterMode: -2
-          refreshMode: 0
-          period: 0
-        isPreviewCollapsed: 0
-        previewMode: 15
-        previewSRGB: 0
-        previewMip: 0
-        previewVisible: 1
-        previewEV100: 0
-        previewSlice: 0
-        isPinned: 0
-        setPosition: 0
-        output: {r: 1, g: 0, b: 0, a: 1}
-        Red: 1
-        Green: 0
-        Blue: 0
-        Alpha: 1
+          rid: 9042686300973432865
+        val:
+          m_Position: {x: 0, y: 0, z: 0}
+          m_Size: {x: 0, y: 0, z: 0}
+    - rid: 9042686300973432865
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: Genesis Noise}
+      data:
+        isHidden: 0
+        expanded: 1
 --- !u!21 &5176272817356564484
 Material:
   serializedVersion: 8
