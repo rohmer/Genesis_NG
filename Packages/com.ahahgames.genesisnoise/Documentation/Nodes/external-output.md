@@ -12,13 +12,6 @@
 
 ## General
 
-### External Output
-
-- Menu: `External Output`
-- Source: [Runtime/Nodes/ExternalOutputNode.cs](../../Runtime/Nodes/ExternalOutputNode.cs)
-
-TODO: Make every node able to export their data, this node is just a placeholder for now.
-Export a texture from the graph, the texture can also be exported outside of unity.
-
-Note that for 2D textures, the file is exported either in png or exr depending on the current floating precision.
-For 3D and Cube textures, the file is exported as a .asset and can be use in another Unity project.
+| Node | Summary |
+| --- | --- |
+| [External Output](_nodes/external-output/index.md) | TODO: Make every node able to export their data, this node is just a placeholder for now. |

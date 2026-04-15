@@ -12,18 +12,7 @@
 
 ## General
 
-### Marching Cubes
-
-- Menu: `Mesh/IsoSurface (Marching Cubes)`
-- Source: [Runtime/Nodes/Mesh/IsoSurfaceNode.cs](../../Runtime/Nodes/Mesh/IsoSurfaceNode.cs)
-
-Transform a 3D texture into a volume using an iso surface algorithm (Marching cubes currently).
-
-### Mesh To Distance Field
-
-- Menu: `Mesh/Mesh To Volume`
-- Source: [Runtime/Nodes/Mesh/MeshToVolumeNode.cs](../../Runtime/Nodes/Mesh/MeshToVolumeNode.cs)
-
-Transform a Mesh into a distance field. The distance field can be either signed or unsigned depending on the mode.
-
-Note that the unsigned distance field is faster to compute.
+| Node | Summary |
+| --- | --- |
+| [Marching Cubes](_nodes/mesh/isosurface-marching-cubes.md) | Transform a 3D texture into a volume using an iso surface algorithm (Marching cubes currently). |
+| [Mesh To Distance Field](_nodes/mesh/mesh-to-volume.md) | Transform a Mesh into a distance field. The distance field can be either signed or unsigned depending on the mode. |

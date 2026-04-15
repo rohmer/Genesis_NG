@@ -1,5 +1,358 @@
 ﻿using AhahGames.GenesisNoise.Graph;
 using AhahGames.GenesisNoise.Nodes;
+using AhahGames.GenesisNoise;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+
+using UnityEditor;
+
+using UnityEngine;
+using System.Threading;
+
+namespace AhahGames.GenesisNoise.Runtime.Utility
+{
+    public static class NodeDocumentor
+    {
+        const string PackageName = "com.ahahgames.genesisnoise";
+        const string PackageAssetRoot = "Packages/" + PackageName;
+        const float SnapshotPadding = 24.0f;
+        static readonly Regex NodeMenuRegex = new Regex("NodeMenuItem\\(\"([^\"]+)\"", RegexOptions.Compiled);
+        static readonly List<CaptureJob> captureQueue = new List<CaptureJob>();
+        static readonly List<string> captureFailures = new List<string>();
+
+        static string packageRoot;
+        static int captureIndex;
+        static int captureSuccessCount;
+        static bool isRunning;
+
+        sealed class CaptureJob
+        {
+            public Type NodeType;
+            public string DisplayName;
+            public string PrimaryMenu;
+            public string CategorySlug;
+            public string NodeSlug;
+            public string FileSlug;
+            public string OutputPath;
+        }
+
+        [MenuItem("Tools/Genesis Documentation")]
+        public static void GenerateDocumentation()
+        {
+            if (isRunning)
+            {
+                Debug.LogWarning("Genesis documentation generation is already running.");
+                return;
+            }
+
+            try
+            {
+                packageRoot = GetPackageRoot();
+                if (!Directory.Exists(packageRoot))
+                    throw new DirectoryNotFoundException("Could not locate the Genesis package root.");
+
+                string imageRoot = Path.Combine(packageRoot, "Documentation", "Nodes", "_images");
+                RecreateDirectory(imageRoot);
+
+                captureQueue.Clear();
+                captureQueue.AddRange(BuildCaptureQueue(imageRoot));
+                captureFailures.Clear();
+                captureSuccessCount = 0;
+                captureIndex = -1;
+                isRunning = true;
+
+                if (captureQueue.Count == 0)
+                {
+                    FinishGeneration();
+                    return;
+                }
+
+                Debug.Log(string.Format("Generating Genesis node documentation for {0} nodes.", captureQueue.Count));
+                CaptureNext();
+            }
+            catch (Exception ex)
+            {
+                Cleanup();
+                Debug.LogError(string.Format("Unable to generate Genesis documentation: {0}", ex));
+            }
+        }
+
+        static void CaptureNext()
+        {
+            captureIndex++;
+
+            if (captureIndex >= captureQueue.Count)
+            {
+                FinishGeneration();
+                return;
+            }
+
+            CaptureJob job = captureQueue[captureIndex];
+            
+            GenesisNode node;
+            try
+            {
+                node = (GenesisNode)Activator.CreateInstance(job.NodeType);
+                node.OnNodeCreated();               
+                Thread.Sleep(1000);
+                if (node.position.position == Vector2.zero)
+                    node.position = new Rect(64.0f, 64.0f, node.position.width, node.position.height);
+            }
+            catch (Exception ex)
+            {
+                captureFailures.Add(string.Format("{0}: failed to instantiate node ({1})", job.PrimaryMenu, ex.Message));
+                CaptureNext();
+                return;
+            }
+
+            NodeSnapshotUtility.DisplayStandaloneNodeAndCapturePng(
+                node,
+                job.OutputPath,
+                _ =>
+                {
+                    captureSuccessCount++;
+                    CaptureNext();
+                },
+                error =>
+                {
+                    captureFailures.Add(string.Format("{0}: {1}", job.PrimaryMenu, error));
+                    CaptureNext();
+                },
+                SnapshotPadding);
+        }
+
+        static void FinishGeneration()
+        {
+            EditorUtility.DisplayProgressBar("Genesis Documentation", "Refreshing markdown pages...", 1.0f);
+
+            bool markdownSucceeded = RunMarkdownGenerator();
+            AssetDatabase.Refresh();
+
+            StringBuilder summary = new StringBuilder();
+            summary.AppendLine(string.Format(
+                "Genesis documentation generation finished. Captured {0}/{1} screenshots.",
+                captureSuccessCount,
+                captureQueue.Count));
+
+            if (captureFailures.Count > 0)
+            {
+                summary.AppendLine(string.Format("Screenshot failures: {0}", captureFailures.Count));
+                foreach (string failure in captureFailures.Take(10))
+                    summary.AppendLine("- " + failure);
+
+                if (captureFailures.Count > 10)
+                    summary.AppendLine(string.Format("- ...and {0} more.", captureFailures.Count - 10));
+            }
+
+            if (!markdownSucceeded)
+                summary.AppendLine("Markdown regeneration failed. Check the console output for details.");
+
+            Cleanup();
+
+            if (captureFailures.Count > 0 || !markdownSucceeded)
+                Debug.LogWarning(summary.ToString().TrimEnd());
+            else
+                Debug.Log(summary.ToString().TrimEnd());
+        }
+
+        static void Cleanup()
+        {
+            EditorUtility.ClearProgressBar();
+            captureQueue.Clear();
+            captureFailures.Clear();
+            captureIndex = -1;
+            captureSuccessCount = 0;
+            isRunning = false;
+        }
+
+        static List<CaptureJob> BuildCaptureQueue(string imageRoot)
+        {
+            List<CaptureJob> jobs = new List<CaptureJob>();
+            string[] guids = AssetDatabase.FindAssets("t:MonoScript", new[] { PackageAssetRoot + "/Runtime/Nodes" });
+
+            foreach (string guid in guids)
+            {
+                string assetPath = AssetDatabase.GUIDToAssetPath(guid);
+                MonoScript script = AssetDatabase.LoadAssetAtPath<MonoScript>(assetPath);
+                Type nodeType = script != null ? script.GetClass() : null;
+
+                if (nodeType == null || nodeType.IsAbstract || !typeof(GenesisNode).IsAssignableFrom(nodeType))
+                    continue;
+
+                string fullScriptPath = GetFullPathFromAssetPath(assetPath);
+                if (!File.Exists(fullScriptPath))
+                    continue;
+
+                string source = File.ReadAllText(fullScriptPath);
+                List<string> menus = NodeMenuRegex.Matches(source)
+                    .Cast<Match>()
+                    .Select(match => match.Groups[1].Value)
+                    .Distinct()
+                    .ToList();
+
+                if (menus.Count == 0)
+                    continue;
+
+                string primaryMenu = menus[0];
+                string[] segments = primaryMenu.Split('/');
+                string categorySlug = Slug(segments[0]);
+                string nodeSlug = Slug(string.Join(" ", segments.Skip(1).ToArray()));
+                if (string.IsNullOrWhiteSpace(nodeSlug))
+                    nodeSlug = Slug(nodeType.Name);
+                string fileSlug = Slug(Path.GetFileNameWithoutExtension(fullScriptPath));
+
+                jobs.Add(new CaptureJob
+                {
+                    NodeType = nodeType,
+                    DisplayName = segments.Length > 0 ? segments[segments.Length - 1] : nodeType.Name,
+                    PrimaryMenu = primaryMenu,
+                    CategorySlug = categorySlug,
+                    NodeSlug = nodeSlug,
+                    FileSlug = fileSlug,
+                    OutputPath = Path.Combine(imageRoot, categorySlug, nodeSlug + ".png"),
+                });
+            }
+
+            foreach (IGrouping<string, CaptureJob> duplicateGroup in jobs
+                .GroupBy(job => job.OutputPath, StringComparer.OrdinalIgnoreCase)
+                .Where(group => group.Count() > 1)
+                .ToList())
+            {
+                foreach (CaptureJob job in duplicateGroup)
+                {
+                    string resolvedSlug = string.Format("{0}-{1}", job.NodeSlug, job.FileSlug);
+                    job.OutputPath = Path.Combine(imageRoot, job.CategorySlug, resolvedSlug + ".png");
+                }
+            }
+
+            List<IGrouping<string, CaptureJob>> duplicates = jobs
+                .GroupBy(job => job.OutputPath, StringComparer.OrdinalIgnoreCase)
+                .Where(group => group.Count() > 1)
+                .ToList();
+
+            if (duplicates.Count > 0)
+                throw new InvalidOperationException("Duplicate node screenshot paths remain after resolution.");
+
+            return jobs.OrderBy(job => job.PrimaryMenu).ToList();
+        }
+
+        static bool RunMarkdownGenerator()
+        {
+            string scriptPath = Path.Combine(packageRoot, "Documentation", "Generate-GenesisNodeDocs.ps1");
+            if (!File.Exists(scriptPath))
+            {
+                Debug.LogError("Documentation generator script was not found: " + scriptPath);
+                return false;
+            }
+
+            string[] shells = { "pwsh", "powershell" };
+            foreach (string shell in shells)
+            {
+                if (TryRunMarkdownGenerator(shell, scriptPath))
+                    return true;
+            }
+
+            return false;
+        }
+
+        static bool TryRunMarkdownGenerator(string shellExecutable, string scriptPath)
+        {
+            try
+            {
+                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = shellExecutable,
+                    Arguments = string.Format("-NoProfile -ExecutionPolicy Bypass -File \"{0}\"", scriptPath),
+                    WorkingDirectory = packageRoot,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    CreateNoWindow = true,
+                };
+
+                using (System.Diagnostics.Process process = System.Diagnostics.Process.Start(startInfo))
+                {
+                    if (process == null)
+                    {
+                        Debug.LogError("Failed to start the markdown generator process.");
+                        return false;
+                    }
+
+                    string stdout = process.StandardOutput.ReadToEnd();
+                    string stderr = process.StandardError.ReadToEnd();
+                    process.WaitForExit();
+
+                    if (!string.IsNullOrWhiteSpace(stdout))
+                        Debug.Log(stdout.Trim());
+
+                    if (process.ExitCode == 0)
+                    {
+                        if (!string.IsNullOrWhiteSpace(stderr))
+                            Debug.LogWarning(stderr.Trim());
+
+                        return true;
+                    }
+
+                    string errorMessage = string.IsNullOrWhiteSpace(stderr) ? "No error output was provided." : stderr.Trim();
+                    Debug.LogError(string.Format(
+                        "Markdown generation failed via {0} with exit code {1}. {2}",
+                        shellExecutable,
+                        process.ExitCode,
+                        errorMessage));
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning(string.Format("Unable to start {0}: {1}", shellExecutable, ex.Message));
+                return false;
+            }
+        }
+
+        static string GetPackageRoot()
+        {
+            return Path.GetFullPath(Path.Combine(Application.dataPath, "..", PackageAssetRoot));
+        }
+
+        static string GetFullPathFromAssetPath(string assetPath)
+        {
+            return Path.GetFullPath(Path.Combine(Application.dataPath, "..", assetPath));
+        }
+
+        static void RecreateDirectory(string path)
+        {
+            if (Directory.Exists(path))
+            {
+                DirectoryInfo directory = new DirectoryInfo(path);
+                foreach (FileInfo file in directory.GetFiles("*", SearchOption.AllDirectories))
+                    file.IsReadOnly = false;
+
+                foreach (DirectoryInfo childDirectory in directory.GetDirectories("*", SearchOption.AllDirectories))
+                    childDirectory.Attributes &= ~FileAttributes.ReadOnly;
+
+                directory.Attributes &= ~FileAttributes.ReadOnly;
+                Directory.Delete(path, true);
+            }
+
+            Directory.CreateDirectory(path);
+        }
+
+        static string Slug(string text)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+                return "index";
+
+            string value = Regex.Replace(text.ToLowerInvariant(), "[^a-z0-9]+", "-").Trim('-');
+            return string.IsNullOrWhiteSpace(value) ? "index" : value;
+        }
+    }
+}
+
+#if false
 
 using GraphProcessor;
 
@@ -91,7 +444,6 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
             nodes = nodes.OrderBy(x => x.name).ToList();
             groups = groups.OrderBy(x => x.Key).ToDictionary(x => x.Key, x => x.Value);
 
-            saveImage(nodeDocDir,graph, nodes[0]);
             foreach (GenesisNode n in nodes)
             {
                 createDocFile(System.IO.Path.Combine(nodeDocDir, string.Format("{0}.html", n.name.Replace(" ", ""))), n);                
@@ -107,7 +459,7 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
                 writeGroupPage(nodeDocDir, t.Key, t.Value);                
             }
         }
-
+         
         private static void saveImage(string docDir, GenesisGraph graph, GenesisNode node)
         {
             string name = node.name;
@@ -541,3 +893,4 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
 
     }
 }
+#endif

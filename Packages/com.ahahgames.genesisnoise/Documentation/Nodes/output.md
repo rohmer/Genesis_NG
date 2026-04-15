@@ -12,9 +12,6 @@
 
 ## General
 
-### Texture2D Output
-
-- Menu: `Output/Texture 2D`
-- Source: [Runtime/Nodes/Output/Texture2DOutputNode.cs](../../Runtime/Nodes/Output/Texture2DOutputNode.cs)
-
-Writes the graph result to a 2D texture output.
+| Node | Summary |
+| --- | --- |
+| [Texture2D Output](_nodes/output/texture-2d.md) | Writes the graph result to a 2D texture output. |

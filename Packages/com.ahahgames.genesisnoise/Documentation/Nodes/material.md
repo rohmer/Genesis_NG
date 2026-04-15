@@ -12,20 +12,12 @@
 
 ## HDRP
 
-### HDRP Lit
-
-- Menu: `Material/HDRP/HDRP Lit`
-- Node group: `Material`
-- Source: [Runtime/Nodes/Material/HDRP/HDRPLitMaterial.cs](../../Runtime/Nodes/Material/HDRP/HDRPLitMaterial.cs)
-
-Output a Lit HDRP Material
+| Node | Summary |
+| --- | --- |
+| [HDRP Lit](_nodes/material/hdrp-hdrp-lit.md) | Output a Lit HDRP Material |
 
 ## URP
 
-### URP Lit
-
-- Menu: `Material/URP/Lit`
-- Node group: `Material`
-- Source: [Runtime/Nodes/Material/URP/URPLitMaterial.cs](../../Runtime/Nodes/Material/URP/URPLitMaterial.cs)
-
-Output a Lit URP Material
+| Node | Summary |
+| --- | --- |
+| [URP Lit](_nodes/material/urp-lit.md) | Output a Lit URP Material |

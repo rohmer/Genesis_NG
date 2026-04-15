@@ -12,10 +12,6 @@
 
 ## General
 
-### Debug
-
-- Menu: `Utility/Debug`
-- Node group: `Utility`
-- Source: [Runtime/Nodes/DebugNode.cs](../../Runtime/Nodes/DebugNode.cs)
-
-Inspects values during graph authoring and debugging.
+| Node | Summary |
+| --- | --- |
+| [Debug](_nodes/utility/debug.md) | Inspects values during graph authoring and debugging. |

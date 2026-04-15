@@ -4,9 +4,9 @@
 
 ## Summary
 
-- Unique node classes: 385
+- Unique node classes: 384
 - Top-level categories: 20
-- Inline docs from source: 385
+- Inline docs from source: 384
 - Generated fallback docs: 0
 
 ## Categories
@@ -22,7 +22,7 @@
 | Flow | 1 | 1 | 0 | [Flow](flow.md) |
 | For End | 1 | 1 | 0 | [For End](for-end.md) |
 | Function | 70 | 70 | 0 | [Function](function.md) |
-| Generators | 132 | 132 | 0 | [Generators](generators.md) |
+| Generators | 131 | 131 | 0 | [Generators](generators.md) |
 | Material | 2 | 2 | 0 | [Material](material.md) |
 | Mesh | 2 | 2 | 0 | [Mesh](mesh.md) |
 | Normal | 14 | 14 | 0 | [Normal](normal.md) |
@@ -36,7 +36,8 @@
 
 ## Regenerate
 
-Run:
+- Unity: run `Tools/Genesis Documentation` to capture screenshots and refresh all markdown pages.
+- CLI: run the script below to refresh markdown only from the current source files.
 
 ```powershell
 pwsh ./Documentation/Generate-GenesisNodeDocs.ps1

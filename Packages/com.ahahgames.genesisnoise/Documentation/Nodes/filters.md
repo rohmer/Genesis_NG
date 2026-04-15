@@ -12,306 +12,52 @@
 
 ## Blur
 
-### Anisotropic Kuwahara
-
-- Menu: `Filters/Blur/Anisotropic Kuwahara`
-- Node group: `Blur`
-- Shader: `Hidden/Genesis/AnisotropicKuwahara`
-- Source: [Runtime/Nodes/Filters/Blur/AnisotropicKuwaharaNode.cs](../../Runtime/Nodes/Filters/Blur/AnisotropicKuwaharaNode.cs)
-
-Blur the input texture using a box blur.
-
-### Box Blur
-
-- Menu: `Filters/Blur/Box Blur`
-- Node group: `Blur`
-- Shader: `Hidden/Genesis/BoxBlur`
-- Source: [Runtime/Nodes/Filters/Blur/BoxBlurNode.cs](../../Runtime/Nodes/Filters/Blur/BoxBlurNode.cs)
-
-Blur the input texture using a box blur.
-
-### Directional Box Blur
-
-- Menu: `Filters/Blur/Directional Box Blur`
-- Node group: `Blur`
-- Shader: `Hidden/Genesis/DirectionalBlur`
-- Source: [Runtime/Nodes/Filters/Blur/DirectionalBlurNode.cs](../../Runtime/Nodes/Filters/Blur/DirectionalBlurNode.cs)
-
-Blur the input texture using a Box Blur filter in the specified direction.
-
-### Directional Gaussian Blur
-
-- Menu: `Filters/Blur/Directional Gaussian Blur`
-- Node group: `Blur`
-- Shader: `Hidden/Genesis/DirectionalGaussianBlur`
-- Source: [Runtime/Nodes/Filters/Blur/DirectionalGaussianBlurNode.cs](../../Runtime/Nodes/Filters/Blur/DirectionalGaussianBlurNode.cs)
-
-Blur the input texture using a Gaussian filter in the specified direction.
-
-Note that the kernel uses a fixed number of 32 samples, for high blur radius you may need to use two directional blur nodes.
-
-### Dithering
-
-- Menu: `Filters/Blur/Dithering`
-- Node group: `Blur`
-- Shader: `Hidden/Genesis/Dither`
-- Source: [Runtime/Nodes/Filters/Blur/DitherNode.cs](../../Runtime/Nodes/Filters/Blur/DitherNode.cs)
-
-Dithering with an algorithm selection:
-Equidistant Sampling
-2x2 Ordered dithering offsets
-2 step random dithering offsets
-Random offset per pixel
-
-### Frosted Glass
-
-- Menu: `Filters/Blur/Frosted Glass`
-- Node group: `Blur`
-- Shader: `Hidden/Genesis/FrostedGlass`
-- Source: [Runtime/Nodes/Filters/Blur/FrostedGlassNode.cs](../../Runtime/Nodes/Filters/Blur/FrostedGlassNode.cs)
-
-A frosted glass style effect
-
-### Gaussian Blur
-
-- Menu: `Filters/Blur/Gaussian Blur`
-- Node group: `Blur`
-- Shader: `Hidden/Genesis/GaussianBlur`
-- Source: [Runtime/Nodes/Filters/Blur/GaussianBlurNode.cs](../../Runtime/Nodes/Filters/Blur/GaussianBlurNode.cs)
-
-Multi-Kernel size Gaussian blur
-
-### HQ Blur
-
-- Menu: `Filters/Blur/HQ Blur`
-- Node group: `Blur`
-- Shader: `Hidden/Genesis/BlurHQ`
-- Source: [Runtime/Nodes/Filters/Blur/HQBlurNode.cs](../../Runtime/Nodes/Filters/Blur/HQBlurNode.cs)
-
-High quality blur
-Downsample -> blur -> upsample -> blend
-
-Produces large-radius, smooth, artifact-free blur
-
-Matches Substance's Blur HQ behavior
-
-Works for grayscale and color
-
-### Non-Uniform Blur
-
-- Menu: `Filters/Blur/Non-Uniform Blur`
-- Node group: `Blur`
-- Shader: `Hidden/Genesis/NonUniformBlur`
-- Source: [Runtime/Nodes/Filters/Blur/NonUniformBlurNode.cs](../../Runtime/Nodes/Filters/Blur/NonUniformBlurNode.cs)
-
-Non-Uniform blur where blur radius is determined by the intensity map
-
-### Radial Blur
-
-- Menu: `Filters/Blur/Radial Blur`
-- Node group: `Blur`
-- Shader: `Hidden/Genesis/RadialBlur`
-- Source: [Runtime/Nodes/Filters/Blur/RadialBlurNode.cs](../../Runtime/Nodes/Filters/Blur/RadialBlurNode.cs)
-
-Radial Blur
-
-### Radial Blur
-
-- Menu: `Filters/Blur/Warp Blur`
-- Node group: `Blur`
-- Shader: `Hidden/Genesis/WarpBlur`
-- Source: [Runtime/Nodes/Filters/Blur/WarpBlur.cs](../../Runtime/Nodes/Filters/Blur/WarpBlur.cs)
-
-A warp like blur between 2 input textures.
-
-### Slope Blur
-
-- Menu: `Filters/Blur/Slope Blur`
-- Node group: `Blur`
-- Shader: `Hidden/Genesis/SlopeBlurGrayscale`
-- Source: [Runtime/Nodes/Filters/Blur/SlopeBlurNode.cs](../../Runtime/Nodes/Filters/Blur/SlopeBlurNode.cs)
-
-Directional blur with the direction given as the slope of a grayscale input
+| Node | Summary |
+| --- | --- |
+| [Anisotropic Kuwahara](_nodes/filters/blur-anisotropic-kuwahara.md) | Blur the input texture using a box blur. |
+| [Box Blur](_nodes/filters/blur-box-blur.md) | Blur the input texture using a box blur. |
+| [Directional Box Blur](_nodes/filters/blur-directional-box-blur.md) | Blur the input texture using a Box Blur filter in the specified direction. |
+| [Directional Gaussian Blur](_nodes/filters/blur-directional-gaussian-blur.md) | Blur the input texture using a Gaussian filter in the specified direction. |
+| [Dithering](_nodes/filters/blur-dithering.md) | Dithering with an algorithm selection: |
+| [Frosted Glass](_nodes/filters/blur-frosted-glass.md) | A frosted glass style effect |
+| [Gaussian Blur](_nodes/filters/blur-gaussian-blur.md) | Multi-Kernel size Gaussian blur |
+| [HQ Blur](_nodes/filters/blur-hq-blur.md) | High quality blur |
+| [Non-Uniform Blur](_nodes/filters/blur-non-uniform-blur.md) | Non-Uniform blur where blur radius is determined by the intensity map |
+| [Radial Blur](_nodes/filters/blur-radial-blur.md) | Radial Blur |
+| [Radial Blur](_nodes/filters/blur-warp-blur.md) | A warp like blur between 2 input textures. |
+| [Slope Blur](_nodes/filters/blur-slope-blur.md) | Directional blur with the direction given as the slope of a grayscale input |
 
 ## Distort
 
-### Emboss
-
-- Menu: `Filters/Distort/Emboss`
-- Node group: `Effects`
-- Shader: `Hidden/Genesis/Emboss`
-- Source: [Runtime/Nodes/Filters/Distort/EmbossNode.cs](../../Runtime/Nodes/Filters/Distort/EmbossNode.cs)
-
-- 	A height-based normal offset
-- 	Applied in a user-defined direction
-- 	With positive/negative embossing
-- 	And a soft profile that blends between bump-map-like and relief-map-like shading
-
-### Emboss Anisotropic
-
-- Menu: `Filters/Distort/Emboss Anisotropic`
-- Node group: `Effects`
-- Shader: `Hidden/Genesis/EmbossAnisotropic`
-- Source: [Runtime/Nodes/Filters/Distort/EmbossAnisotropicNode.cs](../../Runtime/Nodes/Filters/Distort/EmbossAnisotropicNode.cs)
-
-- Emboss direction guided by a direction map
-- Optional structure-tensor anisotropy (auto-flow)
-- Height-based embossing
-- Width, depth, profile shaping
-- Direction strength blending
-
-### Kaleidoscope
-
-- Menu: `Filters/Distort/Kaleidoscope`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/Kaleidoscope`
-- Source: [Runtime/Nodes/Filters/Distort/KaleidoscopeNode.cs](../../Runtime/Nodes/Filters/Distort/KaleidoscopeNode.cs)
-
-- Performs angular kaleidoscope folding
-- Applies radial fractal zooming (Mandelbrot-style smooth zoom)
-- Supports 2D / 3D / Cube UV modes
-- Has rotation, zoom speed, swirl, center offset, segment count, and fractal warp
-- Works with any input texture (or procedural source upstream)
-
-### Lens Bloom
-
-- Menu: `Filters/Distort/Lens Bloom`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/LensBloom`
-- Source: [Runtime/Nodes/Filters/Distort/LensBloom.cs](../../Runtime/Nodes/Filters/Distort/LensBloom.cs)
-
-- Soft, cinematic bloom
-- Thresholded bright-pass
-- Multi-radius Gaussian glow
-- Chromatic fringing
-- Lens dirt scattering
-- Physically-inspired bloom rolloff
-
-### Mosaic Filter
-
-- Menu: `Filters/Distort/Mosaic Filter`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/MosaicFilter`
-- Source: [Runtime/Nodes/Filters/Distort/MosaicNode.cs](../../Runtime/Nodes/Filters/Distort/MosaicNode.cs)
-
-Pixelates the input into square tiles
-Adds per-tile jitter for organic variation
-Adds tile shape warp for a hand-drawn look
-Adds edge darkening for stained-glass / mosaic grout
-Fully procedural and deterministic
-
-### Strong Emboss
-
-- Menu: `Filters/Distort/Strong Emboss`
-- Node group: `Effects`
-- Shader: `Hidden/Genesis/UberEmboss`
-- Source: [Runtime/Nodes/Filters/Distort/StrongEmbossNode.cs](../../Runtime/Nodes/Filters/Distort/StrongEmbossNode.cs)
-
-Strong Emboss is one of the most feature-rich shape-to-height operators in the entire library. It's basically a unified emboss engine that blends:
-- Bevel
-- Emboss
-- Inner/Outer height offsets
-- Softness
-- Height profile shaping
-- Light direction
-- Intensity
-- Distance-based falloff
-To recreate this in Genesis CRT, we need to build a height-from-shape gradient solver with:
-- Normal-style gradient from the shape mask
-- Light direction
-- Height profile curve
-- Inner/outer emboss
-- Softness (feathering)
-- Intensity
-- Deterministic, CRT-safe sampling
+| Node | Summary |
+| --- | --- |
+| [Emboss](_nodes/filters/distort-emboss.md) | A height-based normal offset |
+| [Emboss Anisotropic](_nodes/filters/distort-emboss-anisotropic.md) | Emboss direction guided by a direction map |
+| [Kaleidoscope](_nodes/filters/distort-kaleidoscope.md) | Performs angular kaleidoscope folding |
+| [Lens Bloom](_nodes/filters/distort-lens-bloom.md) | Soft, cinematic bloom |
+| [Mosaic Filter](_nodes/filters/distort-mosaic-filter.md) | Pixelates the input into square tiles |
+| [Strong Emboss](_nodes/filters/distort-strong-emboss.md) | Strong Emboss is one of the most feature-rich shape-to-height operators in the entire library. It's basically a unified emboss engine that blends: |
 
 ## Edge Detect
 
-### Combine
-
-- Menu: `Filters/Edge Detect/Difference of Gaussians`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/DoGEdge`
-- Source: [Runtime/Nodes/Filters/Edge Detect/DifferenceOfGaussiansNode.cs](../../Runtime/Nodes/Filters/Edge Detect/DifferenceOfGaussiansNode.cs)
-
-computes a Difference of Gaussians (DoG) edge response. It performs two small separable Gaussian-like blurs at different radii, subtracts them to produce band-pass edges, applies thresholding and optional softening, and can output an edge mask, overlay edges on the source, or show edges only.
-
-### Combine
-
-- Menu: `Filters/Edge Detect/Edge Detection`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/EdgeDetection`
-- Source: [Runtime/Nodes/Filters/Edge Detect/EdgeDetectionNode.cs](../../Runtime/Nodes/Filters/Edge Detect/EdgeDetectionNode.cs)
-
-Edge detection using one of a few different algorithms
+| Node | Summary |
+| --- | --- |
+| [Combine](_nodes/filters/edge-detect-difference-of-gaussians.md) | computes a Difference of Gaussians (DoG) edge response. It performs two small separable Gaussian-like blurs at different radii, subtracts them to produce band-pass edges, applie... |
+| [Combine](_nodes/filters/edge-detect-edge-detection.md) | Edge detection using one of a few different algorithms |
 
 ## Enhance
 
-### Antialias
-
-- Menu: `Filters/Enhance/Antialias`
-- Node group: `Effects`
-- Shader: `Hidden/Genesis/FXAA`
-- Source: [Runtime/Nodes/Filters/Enhance/AntialiasNode.cs](../../Runtime/Nodes/Filters/Enhance/AntialiasNode.cs)
-
-FXAA-style antialiasing for generated textures.
-- Input: source color
-- Output: smoothed color with preserved detail
-- Works on 2D textures, 3D slices, and cube faces
-- Tunable thresholds, span, and subpixel blending
-
-### Sharpen
-
-- Menu: `Filters/Enhance/Sharpen`
-- Shader: `Hidden/Genesis/Sharpen`
-- Source: [Runtime/Nodes/Filters/Enhance/SharpenNode.cs](../../Runtime/Nodes/Filters/Enhance/SharpenNode.cs)
-
-Sharpen the input image using a very simple 3x3 sharpening kernel.
-
-### Symmetric Nearest Neighbor
-
-- Menu: `Filters/Enhance/Symmetric Nearest Neighbor`
-- Shader: `Hidden/Genesis/SymmetricNearestNeighbor`
-- Source: [Runtime/Nodes/Filters/Enhance/SymmetricNearestNeighborNode.cs](../../Runtime/Nodes/Filters/Enhance/SymmetricNearestNeighborNode.cs)
-
-symmetric nearest-neighbor smoothing filter. For each symmetric pair of samples (left/right and up/down) at each radius step the shader picks the sample that is closer in luminance to the center (nearest neighbor in appearance) and accumulates those chosen samples. This preserves edges and fine detail better than a naive box blur while still removing high-frequency noise.
+| Node | Summary |
+| --- | --- |
+| [Antialias](_nodes/filters/enhance-antialias.md) | FXAA-style antialiasing for generated textures. |
+| [Sharpen](_nodes/filters/enhance-sharpen.md) | Sharpen the input image using a very simple 3x3 sharpening kernel. |
+| [Symmetric Nearest Neighbor](_nodes/filters/enhance-symmetric-nearest-neighbor.md) | symmetric nearest-neighbor smoothing filter. For each symmetric pair of samples (left/right and up/down) at each radius step the shader picks the sample that is closer in lumina... |
 
 ## General
 
-### Curve
-
-- Menu: `Filters/Curve`
-- Node group: `Transforms`
-- Shader: `Hidden/Genesis/Curve`
-- Source: [Runtime/Nodes/Filters/CurveNode.cs](../../Runtime/Nodes/Filters/CurveNode.cs)
-
-- Curve remapping
-- Supports grayscale and color
-- Sorted key interpolation
-- Smooth or linear interpolation
-
-### Dialate
-
-- Menu: `Filters/Dialate`
-- Node group: `Effects`
-- Shader: `Hidden/Genesis/DilationFilter`
-- Source: [Runtime/Nodes/Filters/DialateNode.cs](../../Runtime/Nodes/Filters/DialateNode.cs)
-
-performs morphological dilation on a feature mask derived from the source texture. It supports binary dilation (thresholded luminance) and grayscale dilation (max filter on luminance), iterative dilation (multiple passes), and a simple color expansion strategy that expands feature colors into the dilated region
-
-### Distance Map
-
-- Menu: `Filters/Distance Map`
-- Node group: `Effects`
-- Shader: `Hidden/Genesis/DistanceMap`
-- Source: [Runtime/Nodes/Filters/DistanceMapNode.cs](../../Runtime/Nodes/Filters/DistanceMapNode.cs)
-
-computes an approximate distance map from a binary feature mask derived from the source texture. It scans a circular neighborhood up to _MaxRadius texels and returns the minimum Euclidean distance to the nearest feature pixel. Options let you output normalized distance, pixel distance, or a signed distance (inside/outside).
-
-### Slope
-
-- Menu: `Filters/Slope`
-- Shader: `Hidden/Genesis/Slope`
-- Source: [Runtime/Nodes/Filters/SlopeNode.cs](../../Runtime/Nodes/Filters/SlopeNode.cs)
-
-Calculate the slope of the input heightmap. The slope is calculated as the difference between the current pixel and its neighbors, giving you a measure of how steep the terrain is at that point. This can be used for various effects, such as erosion, texturing, or masking based on steepness.
+| Node | Summary |
+| --- | --- |
+| [Curve](_nodes/filters/curve.md) | Curve remapping |
+| [Dialate](_nodes/filters/dialate.md) | performs morphological dilation on a feature mask derived from the source texture. It supports binary dilation (thresholded luminance) and grayscale dilation (max filter on lumi... |
+| [Distance Map](_nodes/filters/distance-map.md) | computes an approximate distance map from a binary feature mask derived from the source texture. It scans a circular neighborhood up to _MaxRadius texels and returns the minimum... |
+| [Slope](_nodes/filters/slope.md) | Calculate the slope of the input heightmap. The slope is calculated as the difference between the current pixel and its neighbors, giving you a measure of how steep the terrain ... |

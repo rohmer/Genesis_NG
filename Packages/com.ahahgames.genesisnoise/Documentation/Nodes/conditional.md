@@ -12,11 +12,6 @@
 
 ## General
 
-### Branch
-
-- Menu: `Conditional/Branch`
-- Aliases: `Conditional/If`
-- Node group: `Conditional`
-- Source: [Runtime/Nodes/FlowControl/Branch.cs](../../Runtime/Nodes/FlowControl/Branch.cs)
-
-Conditionally outputs either the true of false value depending on the condition value.
+| Node | Summary |
+| --- | --- |
+| [Branch](_nodes/conditional/branch.md) | Conditionally outputs either the true of false value depending on the condition value. |

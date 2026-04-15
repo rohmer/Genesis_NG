@@ -7,7 +7,7 @@ Shader "Hidden/Genesis/Shader"
         _Width("Width", Float) = 0.6
         _Separation("Separation", Float) = 0.5
         _Position("Position", Vector, 2) = (0, 0, 0, 0)
-    }
+    } 
     SubShader
     {
         Tags

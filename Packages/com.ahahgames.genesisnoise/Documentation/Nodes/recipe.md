@@ -12,25 +12,8 @@
 
 ## General
 
-### Recipe
-
-- Menu: `Recipe/Recipe`
-- Source: [Runtime/Nodes/Recipe/RecipeNode.cs](../../Runtime/Nodes/Recipe/RecipeNode.cs)
-
-Defines a reusable recipe graph.
-
-### Recipe Node input
-
-- Menu: `Recipe/Recipe Input`
-- Node group: `Recipe`
-- Source: [Runtime/Nodes/Recipe/RecipeInputNode.cs](../../Runtime/Nodes/Recipe/RecipeInputNode.cs)
-
-Declares an input for a reusable recipe graph.
-
-### Recipe Node Output
-
-- Menu: `Recipe/Recipe Output`
-- Node group: `Recipe`
-- Source: [Runtime/Nodes/Recipe/RecipeOutputNode.cs](../../Runtime/Nodes/Recipe/RecipeOutputNode.cs)
-
-Declares an output for a reusable recipe graph.
+| Node | Summary |
+| --- | --- |
+| [Recipe](_nodes/recipe/recipe.md) | Defines a reusable recipe graph. |
+| [Recipe Node input](_nodes/recipe/recipe-input.md) | Declares an input for a reusable recipe graph. |
+| [Recipe Node Output](_nodes/recipe/recipe-output.md) | Declares an output for a reusable recipe graph. |

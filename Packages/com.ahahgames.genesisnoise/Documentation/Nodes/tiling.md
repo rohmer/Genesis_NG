@@ -12,51 +12,8 @@
 
 ## General
 
-### FX Map
-
-- Menu: `Tiling/FX Map`
-- Node group: `Tiling`
-- Shader: `Hidden/Genesis/FXMap`
-- Source: [Runtime/Nodes/Tiling/FXMapNode.cs](../../Runtime/Nodes/Tiling/FXMapNode.cs)
-
-FX Map node behavior: it scatters oriented brush/shape stamps across the surface with controls for scale, spacing, rotation, jitter, density, brush shape, and layering, plus debug outputs (raw points, mask, orientation, shaded). It is deterministic, sampler-free, CRT-safe, supports non-square compensation, and includes a tiling-safe seed option pattern you can adapt.
-
-### Make Tiled
-
-- Menu: `Tiling/Make Tiled`
-- Node group: `Tiling`
-- Shader: `Hidden/Genesis/MakeItTilePatch`
-- Source: [Runtime/Nodes/Tiling/MakeTiledNode.cs](../../Runtime/Nodes/Tiling/MakeTiledNode.cs)
-
-It works by:
-- Cutting the input into patches
-- Offsetting them in a grid
-- Blending the seams using feathering
-- Optionally randomizing rotation/flip
-- Producing a perfectly tileable output
-- Patch grid (NxN)
-- Random offsets per patch
-- Optional rotation/flip
-- Seam feathering
-- Deterministic sampling
-- CRT-safe, no derivatives
-
-### Make Tiled Photo
-
-- Menu: `Tiling/Make Tiled Photo`
-- Node group: `Tiling`
-- Shader: `Hidden/Genesis/MakeItTilePhoto`
-- Source: [Runtime/Nodes/Tiling/MakeTiledPhotoNode.cs](../../Runtime/Nodes/Tiling/MakeTiledPhotoNode.cs)
-
-Ot's more advanced than Make Tiled because it performs:
-- Multi-directional edge analysis
-- Seam removal using mirrored borders
-- Gradient-domain blending
-- Optional random offset
-- Optional patch-based jitter
-- Fully seamless output even for photographic sources
-- Mirrors the image at borders
-- Blends seams using a gradient-domain feather
-- Supports random offset
-- Supports patch jitter
-- Is deterministic and CRT-safe
+| Node | Summary |
+| --- | --- |
+| [FX Map](_nodes/tiling/fx-map.md) | FX Map node behavior: it scatters oriented brush/shape stamps across the surface with controls for scale, spacing, rotation, jitter, density, brush shape, and layering, plus deb... |
+| [Make Tiled](_nodes/tiling/make-tiled.md) | It works by: |
+| [Make Tiled Photo](_nodes/tiling/make-tiled-photo.md) | Ot's more advanced than Make Tiled because it performs: |

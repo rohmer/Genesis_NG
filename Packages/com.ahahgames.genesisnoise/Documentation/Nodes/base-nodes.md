@@ -12,10 +12,6 @@
 
 ## General
 
-### Shader
-
-- Menu: `Base Nodes/Shader`
-- Source: [Runtime/Nodes/ShaderNode.cs](../../Runtime/Nodes/ShaderNode.cs)
-
-ShaderNode is the base class for all shader nodes in the Genesis Noise system.  This node will automatically show the shader properties as
-        inputs that you can connect to other nodes.  It is used to create custom shader nodes that can be used in the noise generation process.
+| Node | Summary |
+| --- | --- |
+| [Shader](_nodes/base-nodes/shader.md) | ShaderNode is the base class for all shader nodes in the Genesis Noise system.  This node will automatically show the shader properties as |

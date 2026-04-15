@@ -11,7 +11,7 @@ This node scatters shape instances around a spiral path, giving you:
 - Per‑instance rotation, scale, jitter
 - Fully deterministic, sampler‑free except for the shape inpu
 
-")]
+")] 
 
     [System.Serializable, NodeMenuItem("Generators/Shapes/Spiral Splatter Shape")]
     public class SpiralSplatterShapeNode : FixedShaderNode

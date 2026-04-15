@@ -12,277 +12,32 @@
 
 ## General
 
-### Blend
-
-- Menu: `Operations/Blend`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/Blend`
-- Source: [Runtime/Nodes/Operations/BlendNode.cs](../../Runtime/Nodes/Operations/BlendNode.cs)
-
-Blend between two textures, you can use different blend mode depending which texture you want to blend (depth, color, ect.).
-
-You also have the possibility to provide a mask texture that will affect the opacity of the blend depending on the mask value.
-The Mask Mode property is used to select which channel you want the mask value to use for the blending operation.
-
-Note that for normal blending, please use the Normal Blend node.
-
-### Channel Split
-
-- Menu: `Operations/Channel Split`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/Split`
-- Source: [Runtime/Nodes/Operations/ChannelSplitNode.cs](../../Runtime/Nodes/Operations/ChannelSplitNode.cs)
-
-Return the R, G, B or A channel from an input
-
-### Cloud Layer Decode
-
-- Menu: `Operations/Cloud Layer Decode`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/CloudLayerDecode`
-- Source: [Runtime/Nodes/Operations/CloudLayerDecodeNode.cs](../../Runtime/Nodes/Operations/CloudLayerDecodeNode.cs)
-
-Decodes a 2D texture into a cubemap, the input texture has to be formated for the HDRP cloud layer system (latlong).
-
-### Cloud Layer Encode
-
-- Menu: `Operations/Cloud Layer Encode`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/CloudLayerEncode`
-- Source: [Runtime/Nodes/Operations/CloudLayerEncode.cs](../../Runtime/Nodes/Operations/CloudLayerEncode.cs)
-
-Encodes a Cubemap texture into a 2D map, the output texture is formated for the HDRP cloud layer system (latlong).
-
-### Combine
-
-- Menu: `Operations/Channel Combine`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/Combine`
-- Source: [Runtime/Nodes/Operations/ChannelCombineNode.cs](../../Runtime/Nodes/Operations/ChannelCombineNode.cs)
-
-Combine up to 4 textures into one, allowing you to choose which channel to write in the output texture.
-
-Note that for creating HDRP Mask and Detail maps, there are dedicated nodes.
-
-### Cross Section
-
-- Menu: `Operations/Cross Section`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/CrossSection`
-- Source: [Runtime/Nodes/Operations/CrossSectionNode.cs](../../Runtime/Nodes/Operations/CrossSectionNode.cs)
-
-The cross section node allow you to generate 2D texture by taking either a slice of a texture 2D or 3D.
-Right now this node is limited to slices on the Y axis.
-
-### Discretize
-
-- Menu: `Operations/Discretize`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/Discretize`
-- Source: [Runtime/Nodes/Operations/DiscreetColorNode.cs](../../Runtime/Nodes/Operations/DiscreetColorNode.cs)
-
-Round the color components to a specified number of steps in the image.
-This node can also be used to make a posterize effect.
-
-By default the input values are considered to be between 0 and 1, you can change these values in the node inspector to adapt the effect to your input data.
-
-### Distance
-
-- Menu: `Operations/Fill`
-- Node group: `Operations`
-- Source: [Runtime/Nodes/Operations/ColorThresholdNode.cs](../../Runtime/Nodes/Operations/ColorThresholdNode.cs)
-
-Execute a flood fill operation on all pixels above the specified threshold.
-
-Note that the computational cost of this node only depends on the texture resolution and not the distance parameter.
-
-Smooth is only in alpha
-
-### Drop Shadow Filter
-
-- Menu: `Operations/Drop Shadow Filter`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/DropShadowFilter`
-- Source: [Runtime/Nodes/Operations/DropShadowFilter.cs](../../Runtime/Nodes/Operations/DropShadowFilter.cs)
-
-- Creates a soft, directional shadow behind any grayscale mask
-- Adjustable offset, softness, opacity, color
-- Optional inner shadow mode
-- Fully procedural and CRT-safe
-
-### Erosion
-
-- Menu: `Operations/Erosion`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/Erosion`
-- Source: [Runtime/Nodes/Operations/ErosionNode.cs](../../Runtime/Nodes/Operations/ErosionNode.cs)
-
-Applies erosion-style wear to the input to help shape weathered heightmaps and natural surface breakup.
-
-### Height Blend
-
-- Menu: `Operations/Height Blend`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/HeightBlend`
-- Source: [Runtime/Nodes/Operations/HeightBlendNode.cs](../../Runtime/Nodes/Operations/HeightBlendNode.cs)
-
-Used for:
-- Layered materials
-- Height-aware masking
-- Height-based compositing
-- Smart material blending
-- Weathering systems
-- Terrain layering
-
-### Hydraulic Erosion
-
-- Menu: `Operations/Hydraulic Erosion`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/HydraulicErosion`
-- Source: [Runtime/Nodes/Operations/HydraulicErosionNode.cs](../../Runtime/Nodes/Operations/HydraulicErosionNode.cs)
-
-Simulates water-driven erosion to carve channels and soften the input heightmap or mask.
-
-### Scatter
-
-- Menu: `Operations/Scatter`
-- Node group: `Operations`
-- Source: [Runtime/Nodes/Operations/ScatterNode.cs](../../Runtime/Nodes/Operations/ScatterNode.cs)
-
-Distribute a set of input textures based on parameter-based patterns.
-Most of the settings of this node are available in the inspector so don't hesitate to pin the node and tweak the parameters until you achieve your goal.
-
-Note that when you connect multiple textures in the ""Splat Textures"" port, they will be randomly selected at each splat operation.
-The limit of different input textures you can connect is 16, after new textures will be ignored.
-
-When you generate the tiles, you can also choose to output the UVs of the tiles using the channel mode in the inspector, this can be useful to generate a noise based on these UVs.
-
-For combining height based tiles, please use the **Height Tile** mode, this special mode will automatically combine the tiles based on their depth with a Z-Buffer.
-All input height maps must use data > 0, every height value <= 0 will be discarded.
-In **Height Tile** mode, this node will output in RG the UVs of the tiles, in B the height of the tile and in A a random value between 0 and 1.
-Note that to keep the depth buffer precision correct, the current max depth of a tile (value in texture + position in  the z axis) is clamped between -10000 and +10000.
-
-### Tile Sampler
-
-- Menu: `Operations/Tile Sampler`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/TileSampler`
-- Source: [Runtime/Nodes/Tiling/TileSamplerNode.cs](../../Runtime/Nodes/Tiling/TileSamplerNode.cs)
-
-Purpose: tile-sample an atlas texture across UV space and pick/transform tiles per grid cell using seeded randomness, pattern modes (including Gaussian variants), optional pattern texture input, and per-instance jitter/rotation/scale/mirror.
-
-Property	Type / Range	Description
-_Atlas	2D texture	Atlas/tileset texture (row-major layout).
-_UseAtlas	Int (0/1)	Enable/disable atlas sampling.
-_Scale	Vector	Grid tiling across UVs (cells per unit).
-_TilesCols	Int	Number of columns in the atlas.
-_TilesRows	Int	Number of rows in the atlas.
-_Density	Range(1,16)	Instances per cell (samples per cell).
-_Jitter	Range(0,1)	Position jitter inside each cell.
-_RotJitter	Range(0,6.283)	Rotation jitter in radians.
-_ScaleMin / _ScaleMax	Range(0.01,2)	Per-instance scale range.
-_MirrorChance	Range(0,1)	Probability of horizontal mirror per instance.
-_Pattern	Enum	Pattern mode selector (see Pattern Types).
-_PatternTex	2D texture	Optional pattern input to bias tile selection.
-_UsePatternTex	Int (0/1)	Enable/disable pattern texture usage.
-_GaussianSigma	Range(0.01,10)	Width of Gaussian for Gaussian pattern modes.
-_BlendSoftness	Range(0.0,1.0)	Softening of tile mask edges.
-_Contrast	Range(0.5,4)	Final contrast exponent applied to output.
-_Seed	Int	Randomization seed for deterministic variation.
-
-Pattern Types
-How tile indices are chosen per cell. The shader maps a scalar in [0,1) to a tile index (0..TilesCols*TilesRows-1). The pattern scalar can be modulated by the optional _PatternTex.
-
-Enum Value	Name	Behavior
-0	Random	Per-instance random selection using seeded hash.
-1	CellIndex	Deterministic hash of cell coordinates (unique per cell).
-2	Rows	Varies by cell row (ip.y).
-3	Columns	Varies by cell column (ip.x).
-4	Diagonal	Varies by ip.x + ip.y (diagonal bands).
-5	Radial	Varies by distance from origin (cell center).
-6	Checker	Alternating pattern like a checkerboard.
-7	GaussianRows	Gaussian weight across rows (centered by default).
-8	GaussianColumns	Gaussian weight across columns.
-9	GaussianRadial	Gaussian falloff with radial distance from origin.
-
-### Tiling
-
-- Menu: `Operations/Tile Random`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/TileRandom`
-- Source: [Runtime/Nodes/Tiling/TilingNode.cs](../../Runtime/Nodes/Tiling/TilingNode.cs)
-
-Tile a texture, both straight tiling or stochastic
-
-### Transform
-
-- Menu: `Operations/Transform`
-- Shader: `Hidden/Genesis/Transform`
-- Source: [Runtime/Nodes/Operations/TransformNode.cs](../../Runtime/Nodes/Operations/TransformNode.cs)
-
-Apply a transformation on the input texture. This node allows you to offset, scale and rotate the input texture based on either another texture or a constant.
-
-Note that the values from the rotation map will be converted to euler angles in the node so that 1 means 360 degree.
-
-### Transformation
-
-- Menu: `Operations/Transformation 2D`
-- Node group: `Transforms`
-- Shader: `Hidden/Genesis/Transform2D`
-- Source: [Runtime/Nodes/Transforms/Transformation2DNode.cs](../../Runtime/Nodes/Transforms/Transformation2DNode.cs)
-
-Translation
-
-Rotation
-
-Uniform / non-uniform scale
-
-Pivot control
-
-Optional tiling or clamping
-
-CRT-safe 2D/3D/Cube behavior
-
-Deterministic, sampler-free UV math
-
-### Vector To Texture
-
-- Menu: `Operations/Vector To Texture`
-- Source: [Runtime/Nodes/Operations/VectorToTexture.cs](../../Runtime/Nodes/Operations/VectorToTexture.cs)
-
-Converts vector data into a texture representation.
-
-### Volume To Vector Field
-
-- Menu: `Operations/Volume To Vector Field`
-- Shader: `Hidden/Genesis/VolumeToVectorField`
-- Source: [Runtime/Nodes/Operations/VolumeToVectorFieldNode.cs](../../Runtime/Nodes/Operations/VolumeToVectorFieldNode.cs)
-
-Converts a volume input into a vector field texture.
-
-### Wind Erosion
-
-- Menu: `Operations/Wind Erosion`
-- Node group: `Operations`
-- Shader: `Hidden/Genesis/WindErosion`
-- Source: [Runtime/Nodes/Operations/WindErosionNode.cs](../../Runtime/Nodes/Operations/WindErosionNode.cs)
-
-Simulates wind-driven erosion to wear exposed areas and add directional surface breakup.
+| Node | Summary |
+| --- | --- |
+| [Blend](_nodes/operations/blend.md) | Blend between two textures, you can use different blend mode depending which texture you want to blend (depth, color, ect.). |
+| [Channel Split](_nodes/operations/channel-split.md) | Return the R, G, B or A channel from an input |
+| [Cloud Layer Decode](_nodes/operations/cloud-layer-decode.md) | Decodes a 2D texture into a cubemap, the input texture has to be formated for the HDRP cloud layer system (latlong). |
+| [Cloud Layer Encode](_nodes/operations/cloud-layer-encode.md) | Encodes a Cubemap texture into a 2D map, the output texture is formated for the HDRP cloud layer system (latlong). |
+| [Combine](_nodes/operations/channel-combine.md) | Combine up to 4 textures into one, allowing you to choose which channel to write in the output texture. |
+| [Cross Section](_nodes/operations/cross-section.md) | The cross section node allow you to generate 2D texture by taking either a slice of a texture 2D or 3D. |
+| [Discretize](_nodes/operations/discretize.md) | Round the color components to a specified number of steps in the image. |
+| [Distance](_nodes/operations/fill.md) | Execute a flood fill operation on all pixels above the specified threshold. |
+| [Drop Shadow Filter](_nodes/operations/drop-shadow-filter.md) | Creates a soft, directional shadow behind any grayscale mask |
+| [Erosion](_nodes/operations/erosion.md) | Applies erosion-style wear to the input to help shape weathered heightmaps and natural surface breakup. |
+| [Height Blend](_nodes/operations/height-blend.md) | Used for: |
+| [Hydraulic Erosion](_nodes/operations/hydraulic-erosion.md) | Simulates water-driven erosion to carve channels and soften the input heightmap or mask. |
+| [Scatter](_nodes/operations/scatter.md) | Distribute a set of input textures based on parameter-based patterns. |
+| [Tile Sampler](_nodes/operations/tile-sampler.md) | Purpose: tile-sample an atlas texture across UV space and pick/transform tiles per grid cell using seeded randomness, pattern modes (including Gaussian variants), optional patte... |
+| [Tiling](_nodes/operations/tile-random.md) | Tile a texture, both straight tiling or stochastic |
+| [Transform](_nodes/operations/transform.md) | Apply a transformation on the input texture. This node allows you to offset, scale and rotate the input texture based on either another texture or a constant. |
+| [Transformation](_nodes/operations/transformation-2d.md) | Translation |
+| [Vector To Texture](_nodes/operations/vector-to-texture.md) | Converts vector data into a texture representation. |
+| [Volume To Vector Field](_nodes/operations/volume-to-vector-field.md) | Converts a volume input into a vector field texture. |
+| [Wind Erosion](_nodes/operations/wind-erosion.md) | Simulates wind-driven erosion to wear exposed areas and add directional surface breakup. |
 
 ## Textures
 
-### Texture Sampler
-
-- Menu: `Operations/Textures/Texture Sampler`
-- Shader: `Hidden/Genesis/TextureSample`
-- Source: [Runtime/Nodes/Operations/TextureSamplerNode.cs](../../Runtime/Nodes/Operations/TextureSamplerNode.cs)
-
-Sample a texture. Note that you can use a custom UV texture as well.
-
-### Tile & Wrap
-
-- Menu: `Operations/Textures/Tile Wrap`
-- Shader: `Hidden/Genesis/TileWrap`
-- Source: [Runtime/Nodes/Operations/TileWrapNode.cs](../../Runtime/Nodes/Operations/TileWrapNode.cs)
-
-Make the input texture tile by wrapping and blending the borders of the texture.
+| Node | Summary |
+| --- | --- |
+| [Texture Sampler](_nodes/operations/textures-texture-sampler.md) | Sample a texture. Note that you can use a custom UV texture as well. |
+| [Tile & Wrap](_nodes/operations/textures-tile-wrap.md) | Make the input texture tile by wrapping and blending the borders of the texture. |

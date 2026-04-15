@@ -12,9 +12,6 @@
 
 ## General
 
-### For Start
-
-- Menu: `Flow/For Start`
-- Source: [Runtime/Nodes/FlowControl/ForStart.cs](../../Runtime/Nodes/FlowControl/ForStart.cs)
-
-Begins a for-loop flow block.
+| Node | Summary |
+| --- | --- |
+| [For Start](_nodes/flow/for-start.md) | Begins a for-loop flow block. |
