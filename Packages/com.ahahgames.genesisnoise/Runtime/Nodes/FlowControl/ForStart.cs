@@ -11,7 +11,7 @@ namespace AhahGames.GenesisNoise.Nodes
 Begins a for-loop flow block.
 ")]
 
-    [System.Serializable, NodeMenuItem("Flow/For Start")]
+    [System.Serializable, NodeMenuItem("Conditional/For Start")]
     public class ForStart : GenesisNode, ILoopStart
     {
         [Input]

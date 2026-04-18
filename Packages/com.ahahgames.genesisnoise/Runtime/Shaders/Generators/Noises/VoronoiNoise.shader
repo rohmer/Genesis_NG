@@ -5,12 +5,11 @@ Shader "Hidden/Genesis/VoronoiNoise"
 		[Tooltip(Custom Noise UV)][InlineTexture(HideInNodeInspector)] _UV_2D("UVs", 2D) = "uv" {}
 		[Tooltip(Custom Noise UV)][InlineTexture(HideInNodeInspector)] _UV_3D("UVs", 3D) = "uv" {}
 		[Tooltip(Custom Noise UV)][InlineTexture(HideInNodeInspector)] _UV_Cube("UVs", Cube) = "uv" {}			
-		[Enum(No, 0, Yes, 1)] _UseScaling("Use Scaling", Float)=0
-		[VisibleIf(_UseScaling,1)] _ScaleFactor("Scaling Factor", Float) = 0
+		[Enum(No, 0, Yes, 1)] _UseScaling("Use Scaling", Float)=1
+		[VisibleIf(_UseScaling,1)] _ScaleFactor("Scaling Factor", Float) = 5
 		[VisibleIf(_UseScaling,1,_ScaleFactor,0), Tooltip(Custom Time Scale)][InlineTexture(HideInNodeInspector)] _SCALE_2D("Scale", 2D) = "scale" {}
 		[VisibleIf(_UseScaling,1,_ScaleFactor,0), Tooltip(Custom Time Scale)][InlineTexture(HideInNodeInspector)] _SCALE_3D("Scale", 3D) = "scale" {}
-		[VisibleIf(_UseScaling,1,_ScaleFactor,0), Tooltip(Custom Time Scale)][InlineTexture(HideInNodeInspector)] _SCALE_Cube("Scale", Cube) = "scale" {}
-		[Enum(No, 0, Yes, 1)] _UseSmoothness("Smoothing", Float)=0.0
+		[VisibleIf(_UseScaling,1,_ScaleFactor,0), Tooltip(Custom Time Scale)][InlineTexture(HideInNodeInspector)] _SCALE_Cube("Scale", Cube) = "scale" {}		
 		[VisibleIf(_UseSmoothness,1), Tooltip(Custom Time Scale)][InlineTexture(HideInNodeInspector)] _SMOOTH_2D("Smoothness", 2D) = "smooth" {}
 		[VisibleIf(_UseSmoothness,1), Tooltip(Custom Time Scale)][InlineTexture(HideInNodeInspector)] _SMOOTH_3D("Smoothness", 3D) = "smooth" {}
 		[VisibleIf(_UseSmoothness,1), Tooltip(Custom Time Scale)][InlineTexture(HideInNodeInspector)] _SMOOTH_Cube("Smoothness", Cube) = "smooth" {}
@@ -18,7 +17,7 @@ Shader "Hidden/Genesis/VoronoiNoise"
 		[Enum(EuclideanSquared, 0, Euclidian, 1, Manhattan, 2, Chebyshev, 3, Minkowski, 4)] _DistanceFunction("Distance Function", Float) = 0
 		[VisibleIf(_DistanceFunction, 4)] _MinkowskiPower("Minkowski Power", Float) = 1
 		[Enum(Cells, 0, Crystal, 1, Glass, 2, Caustic, 3, Distance, 4)] _MethodType("Generation Method", Float) = 0
-		[Enum(Nine, 9, TwentySeven, 27, FortyFive, 45, SixtyThree, 63, EightyOne, 81)] _SearchQuality("Search Quality", Float) = 27
+		[Enum(Nine, 9, TwentySeven, 27, FortyFive, 45, SixtyThree, 63)] _SearchQuality("Search Quality", Float) = 27
 		[IntRange]_Octaves("Octaves", Range(1, 12)) = 5
 		[Enum(NoiseValue, 0, UVValue, 1, IDValue, 2)] _ImageType("Image Type", Float) = 0
 		_Seed("Seed", Int) = 42
