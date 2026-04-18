@@ -267,6 +267,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\MaterialBaseNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Cast\ToVector4NodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Constant\TextureNodeView.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\NoiseScaledPoissonDiskPointsNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Views\ExposedParameterWorkaround.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\HexGridNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisPowerDrawer.cs" />
@@ -349,6 +350,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Math\TanNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Transforms\Downsample2XNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\SplatterShapeColorNode.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\NoiseScaledPoissonDiskPointsNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Constant\StringNodeView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Views\ExposedParameterFieldFactory.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\GrimeNode.cs" />
@@ -418,6 +420,7 @@
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Transforms\SmartUpsampler2Node.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Random\RandomPointInCubeNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Math\MultiplyNodeView.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\VoronoiFromPointsComputeNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Constants\ColorNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Textures\TextureSmoothStepView.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Runtime\NodeGraphProcessor\Runtime\Utils\GraphUtils.cs" />
@@ -970,6 +973,7 @@
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Truchet.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Functions\Discretize.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Editor\Resources\UI Blocks\RecipeBrowser.uxml" />
+    <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\VoronoiFromPoints.compute" />
     <None Include="Packages\com.ahahgames.genesisnoise\GenesisNoiseInspector.uss" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Functions\VolumeToVectorField.shader" />
     <None Include="Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\HeightExtrude.shader" />

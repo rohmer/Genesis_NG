@@ -1,0 +1,125 @@
+#pragma kernel RenderVoronoi
+
+StructuredBuffer<float2> _Points;
+
+int _PointCount;
+int _OutputMode;
+float _DistanceScale;
+float _BorderWidth;
+int _Invert;
+float4 _EmptyColor;
+
+RWTexture2D<float4> _Preview;
+float4 _PreviewResolution;
+
+static const float EPSILON = 1e-6f;
+static const int OUTPUT_MODE_DISTANCE = 0;
+static const int OUTPUT_MODE_BORDERS = 1;
+static const int OUTPUT_MODE_CELL_ID = 2;
+static const int OUTPUT_MODE_CELL_COLOR = 3;
+
+float Hash01(uint value)
+{
+    uint hash = value;
+    hash ^= 2747636419u;
+    hash *= 2654435769u;
+    hash ^= hash >> 16;
+    hash *= 2654435769u;
+    hash ^= hash >> 16;
+    return (hash & 0x00FFFFFFu) / 16777215.0f;
+}
+
+float3 HsvToRgb(float3 hsv)
+{
+    float4 k = float4(1.0f, 2.0f / 3.0f, 1.0f / 3.0f, 3.0f);
+    float3 p = abs(frac(hsv.xxx + k.xyz) * 6.0f - k.www);
+    return hsv.z * lerp(k.xxx, saturate(p - k.xxx), hsv.y);
+}
+
+float4 HashColor(uint value)
+{
+    float hue = Hash01(value);
+    float saturation = lerp(0.55f, 0.85f, Hash01(value * 13u + 7u));
+    float brightness = lerp(0.75f, 1.0f, Hash01(value * 31u + 19u));
+    return float4(HsvToRgb(float3(hue, saturation, brightness)), 1.0f);
+}
+
+float2 GetNormalizedUv(uint2 pixelCoord, uint width, uint height)
+{
+    float u = width > 1u ? pixelCoord.x / max((float)width - 1.0f, 1.0f) : 0.0f;
+    float v = height > 1u ? pixelCoord.y / max((float)height - 1.0f, 1.0f) : 0.0f;
+    return float2(u, v);
+}
+
+[numthreads(8, 8, 1)]
+void RenderVoronoi(uint3 id : SV_DispatchThreadID)
+{
+    uint width = (uint)_PreviewResolution.x;
+    uint height = (uint)_PreviewResolution.y;
+
+    if (id.x >= width || id.y >= height)
+        return;
+
+    if (_PointCount <= 0)
+    {
+        _Preview[id.xy] = _EmptyColor;
+        return;
+    }
+
+    float2 uv = GetNormalizedUv(id.xy, width, height);
+    float nearestDistanceSq = 3.402823466e+38f;
+    float secondNearestDistanceSq = 3.402823466e+38f;
+    uint nearestIndex = 0u;
+
+    [loop]
+    for (int i = 0; i < _PointCount; i++)
+    {
+        float2 delta = _Points[i] - uv;
+        float distanceSq = dot(delta, delta);
+
+        if (distanceSq < nearestDistanceSq)
+        {
+            secondNearestDistanceSq = nearestDistanceSq;
+            nearestDistanceSq = distanceSq;
+            nearestIndex = (uint)i;
+        }
+        else if (distanceSq < secondNearestDistanceSq)
+        {
+            secondNearestDistanceSq = distanceSq;
+        }
+    }
+
+    float4 result;
+
+    if (_OutputMode == OUTPUT_MODE_DISTANCE)
+    {
+        float value = saturate(sqrt(nearestDistanceSq) / max(_DistanceScale, EPSILON));
+        if (_Invert != 0)
+            value = 1.0f - value;
+
+        result = float4(value.xxx, 1.0f);
+    }
+    else if (_OutputMode == OUTPUT_MODE_BORDERS)
+    {
+        float edgeGap = sqrt(secondNearestDistanceSq) - sqrt(nearestDistanceSq);
+        float value = 1.0f - saturate(edgeGap / max(_BorderWidth, EPSILON));
+        if (_Invert != 0)
+            value = 1.0f - value;
+
+        result = float4(value.xxx, 1.0f);
+    }
+    else if (_OutputMode == OUTPUT_MODE_CELL_ID)
+    {
+        float value = Hash01(nearestIndex + 1u);
+        if (_Invert != 0)
+            value = 1.0f - value;
+
+        result = float4(value.xxx, 1.0f);
+    }
+    else
+    {
+        result = HashColor(nearestIndex + 1u);
+    }
+
+    _Preview[id.xy] = result;
+}
