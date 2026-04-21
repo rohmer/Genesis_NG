@@ -9,7 +9,7 @@ Edge detection using one of a few different algorithms
     [System.Serializable, NodeMenuItem("Filters/Edge Detect/Edge Detection")]
     public class EdgeDetectionNode : FixedShaderNode
     {
-        public override string name => "Combine";
+        public override string name => "Edge Detection";
 
         public override string ShaderName => "Hidden/Genesis/EdgeDetection";
         public override string NodeGroup => "Operations";

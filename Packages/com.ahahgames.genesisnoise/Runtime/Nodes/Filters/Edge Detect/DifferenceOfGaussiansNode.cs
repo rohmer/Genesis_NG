@@ -9,7 +9,7 @@ computes a Difference of Gaussians (DoG) edge response. It performs two small se
     [System.Serializable, NodeMenuItem("Filters/Edge Detect/Difference of Gaussians")]
     public class DifferenceOfGaussiansNode : FixedShaderNode
     {
-        public override string name => "Combine";
+        public override string name => "Difference of Gaussians";
 
         public override string ShaderName => "Hidden/Genesis/DoGEdge";
         public override string NodeGroup => "Operations";

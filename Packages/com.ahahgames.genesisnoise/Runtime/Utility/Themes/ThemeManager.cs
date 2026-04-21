@@ -159,7 +159,15 @@ namespace AhahGames.GenesisNoise.Runtime.Utility.Themes
             utility.HeaderTextColor = Color.white;
             utility.BackgroundColor = Color.white;
             groupThemes.Add("Utility", utility);
+            NodeTheme texture = new NodeTheme();
+            texture.BorderColors = new UnityEngine.Color[4] { Color.cyan, Color.cyan, Color.cyan, Color.cyan };
+            texture.HeaderLeftColor = Color.gray1;
+            texture.HeaderRightColor = Color.gray5;
+            texture.HeaderTextColor = Color.white;
+            texture.BackgroundColor = Color.white;
+            groupThemes.Add("Texture", texture);
         }
+        
 
         public Color GetTextColor(string NodeGroup, string Name)
         {
