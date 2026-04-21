@@ -94,7 +94,7 @@ Applies `Smoothstep(0,1,A)` to the source texture per pixel.
             shader.SetTexture(kernel, "output", output);
             shader.SetFloat("lowerBound", LowerBound);
             shader.SetFloat("upperBound", UpperBound);
-            shader.Dispatch(kernel, 256, 256, 1);
+            int size = Mathf.CeilToInt(inputA.width / 8f); shader.Dispatch(kernel,size,size,1);
             preview = ToPreviewTexture((RenderTexture)output);
             return r;
         }

@@ -126,7 +126,7 @@ Multiplies the input textures per pixel.
                 shader.SetInt("mathType", 2);
             }
             shader.SetTexture(kernel, "inputB", inputA);
-            shader.Dispatch(kernel, 256, 256, 1);
+            int size = Mathf.CeilToInt(inputA.width / 8f); shader.Dispatch(kernel,size,size,1);
             preview = ToPreviewTexture((RenderTexture)output);
             return r;
         }

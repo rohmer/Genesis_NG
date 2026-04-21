@@ -2,6 +2,8 @@ using GraphProcessor;
 
 using System;
 
+using Unity.GraphToolkit.Editor;
+
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Windows;
@@ -81,13 +83,14 @@ Applies `LOG(A)` to the source texture per pixel.
             
             if (inputA == null)
                 return true;
+            
             shader = Resources.Load<ComputeShader>("Shaders/Functions/Math/TextureLOG");
 
             int kernel = shader.FindKernel("CSMain");
             shader.SetTexture(kernel, "inputA", inputA);
             shader.SetTexture(kernel, "output", output);
-            
-            shader.Dispatch(kernel, 256, 256, 1);
+            int size = Mathf.CeilToInt(inputA.width / 8f);
+            shader.Dispatch(kernel, size, size, 1);
             preview = ToPreviewTexture((RenderTexture)output);
             return r;
         }

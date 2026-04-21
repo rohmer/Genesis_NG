@@ -128,7 +128,7 @@ Applies `COS(A*B)` to the source texture per pixel.
                 shader.SetFloats("vectorInput", new float[] { v.r, v.g, v.b, v.a });
                 shader.SetInt("mathType", 2);
             }
-            shader.Dispatch(kernel, 256, 256, 1);
+            int size = Mathf.CeilToInt(inputA.width / 8f); shader.Dispatch(kernel,size,size,1);
             preview = ToPreviewTexture((RenderTexture)output);
             return r;
         }

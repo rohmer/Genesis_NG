@@ -87,7 +87,7 @@ Applies `SQRT(1-A^2)` to the source texture per pixel.
             shader.SetTexture(kernel, "inputA", inputA);
             shader.SetTexture(kernel, "output", output);
 
-            shader.Dispatch(kernel, 256, 256, 1);
+            int size = Mathf.CeilToInt(inputA.width / 8f); shader.Dispatch(kernel,size,size,1);
             preview = ToPreviewTexture((RenderTexture)output);
             return r;
         }
