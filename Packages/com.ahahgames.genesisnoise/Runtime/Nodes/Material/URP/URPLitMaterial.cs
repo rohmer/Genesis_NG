@@ -1,15 +1,7 @@
 using GraphProcessor;
 
-using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-
-using UnityEditor;
-
 using UnityEngine;
 using UnityEngine.Rendering;
-
-using static UnityEditor.Rendering.CameraUI;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
@@ -21,11 +13,11 @@ Output a Lit URP Material
     public class URPLitMaterial : GenesisNode
     {
         [Input(name = "Base Map")]
-        Texture baseMap;
+        Texture baseMap = default;
         [Input(name = "Metallic Map")]
-        Texture metallicMap;
+        Texture metallicMap = default;
         [Input(name = "Normal Map")]
-        Texture normalMap;
+        Texture normalMap = default;
         [Input(name = "Height map")]
         Texture heightMap;
         [Input(name = "Occulsion Map")]
@@ -115,7 +107,6 @@ Output a Lit URP Material
             OutputMaterial = new Material(shader);
             if(baseMap!=null)
             {
-                string test=AssetDatabase.GetAssetPath(baseMap);
                 OutputMaterial.SetTexture("_BaseMap", baseMap);
             }
             if(metallicMap!=null)

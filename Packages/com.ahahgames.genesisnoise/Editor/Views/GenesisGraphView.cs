@@ -24,7 +24,6 @@ namespace AhahGames.GenesisNoise.Views
 
         public List<RecipeNodeView> recipeViews = new();
 
-        public event Action<RecipeChanges> onRecipeChanges;
         public GenesisGraphView(EditorWindow window) : base(window)
         {
             initialized += Initialize;
@@ -99,11 +98,6 @@ namespace AhahGames.GenesisNoise.Views
         {
             base.BuildContextualMenu(evt);
 
-            /*// Add Recipe to Contextual Menu
-            evt.menu.AppendSeparator();
-            evt.menu.AppendAction("Create Recipe", CreateRecipeCallback, DropdownMenuAction.AlwaysEnabled);
-            evt.menu.AppendAction("Add Recipe", AddRecipeCallback, DropdownMenuAction.AlwaysEnabled);
-            */
             // Disable the Delete option if there is an output node view selected
             if (selection.Any(s => s is OutputNodeView && !(s is ExternalOutputNodeView)))
             {
@@ -122,12 +116,6 @@ namespace AhahGames.GenesisNoise.Views
             evt.menu.AppendAction("Help/Reimport Main Asset", a => ReimportMainAsset(), DropdownMenuAction.Status.Normal);
         }
 
-        private void AddRecipeCallback(DropdownMenuAction e)
-        {
-            RecipeBrowser browser = new();
-            browser.Show();
-
-        }
         void ReimportMainAsset()
         {
             EditorUtility.SetDirty(AssetDatabase.LoadAssetAtPath<Texture>(graph.mainAssetPath));
@@ -190,22 +178,6 @@ namespace AhahGames.GenesisNoise.Views
         }
 
         bool delayQueued = false;
-
-        void ProcessRecipeWhenChanges(RecipeChanges changes)
-        {
-            if (delayQueued)
-                return;
-            if (changes.recipeAdded != null || changes.recipeRemoved != null)
-            {
-                EditorApplication.update += DelayedProcess;
-                void DelayedProcess()
-                {
-                    delayQueued = false;
-                    EditorApplication.update -= DelayedProcess;
-                }
-                delayQueued = true;
-            }
-        }
 
         void ProcessGraphWhenChanged(GraphChanges changes)
         {

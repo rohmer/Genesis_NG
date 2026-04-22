@@ -11,8 +11,6 @@ using UnityEngine.UIElements;
 
 public class RecipeBrowser : EditorWindow
 {
-    [SerializeField]
-    private VisualTreeAsset m_VisualTreeAsset = default;
     private TreeView treeView;
     private Toggle builtinOnly;
     private Button select;

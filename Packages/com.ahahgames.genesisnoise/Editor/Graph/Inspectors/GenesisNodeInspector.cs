@@ -450,6 +450,7 @@ namespace AhahGames.GenesisNoise.Graph
 
         public event Action pinnedNodeUpdate;
 
+        [NonSerialized]
         public List<BaseNodeView> pinnedNodes = new();
 
         public void AddPinnedView(BaseNodeView view)

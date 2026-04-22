@@ -1,12 +1,7 @@
 ﻿using GraphProcessor;
 
-using System;
-
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Windows;
-
-using static UnityEditor.Rendering.CameraUI;
 
 namespace AhahGames.GenesisNoise.Nodes
 {

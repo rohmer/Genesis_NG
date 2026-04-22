@@ -12,7 +12,7 @@ Casts the input value to Vector3Int.
     [System.Serializable, NodeMenuItem("Function/Cast/To Vector3Int")]
     public class ToVector3IntNode : ConstantNode
     {
-        [Input] object X, Y, Z;
+        [Input] object X = default, Y = default, Z = default;
 
         [Output]
         public Vector3Int output;

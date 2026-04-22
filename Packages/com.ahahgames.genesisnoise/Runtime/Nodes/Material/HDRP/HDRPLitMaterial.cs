@@ -1,17 +1,9 @@
 using GraphProcessor;
 
-using Microsoft.SqlServer.Server;
-
-using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-
 using UnityEditor;
 
 using UnityEngine;
 using UnityEngine.Rendering;
-
-using static UnityEditor.Rendering.CameraUI;
 
 namespace AhahGames.GenesisNoise.Nodes
 {
@@ -91,21 +83,21 @@ Output a Lit HDRP Material
         }
 
         [Input(name = "Base Map")]
-        Texture baseMap;
+        Texture baseMap = default;
         [Input(name = "Mask Map")]
-        Texture maskMap;
+        Texture maskMap = default;
         [Input(name = "Height map")]
-        Texture heightMap;
+        Texture heightMap = default;
         [Input(name = "Normal Map")]
-        Texture normalMap;
+        Texture normalMap = default;
         [Input(name = "Bent normal map")]
-        Texture bentNormalMap;
+        Texture bentNormalMap = default;
         [Input(name = "Coat Mask")]
-        Texture coatMask;
+        Texture coatMask = default;
         [Input(name = "Emission Map")]
-        Texture emissionMap;
+        Texture emissionMap = default;
         [Input(name = "Detail Map")]
-        Texture detailMap;
+        Texture detailMap = default;
         [Input(name = "Emissive Map")]
         Texture emissiveMap;
         [Output(name = "Lit Material")]

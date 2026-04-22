@@ -14,7 +14,7 @@ Inspects values during graph authoring and debugging.
     [System.Serializable, NodeMenuItem("Utility/Debug")]
     public class DebugNode : GenesisNode
     {
-        [Input] object Input;
+        [Input] object Input = default;
 
         [SerializeField]
         public string value;

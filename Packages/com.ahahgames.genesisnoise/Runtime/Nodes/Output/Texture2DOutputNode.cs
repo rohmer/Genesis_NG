@@ -6,8 +6,6 @@ using UnityEngine;
 
 using UnityEngine.Rendering;
 
-using static UnityEditor.Rendering.CameraUI;
-
 namespace AhahGames.GenesisNoise.Nodes
 {
     public enum External2DOutputType
@@ -51,8 +49,6 @@ Writes the graph result to a 2D texture output.
         public override Texture previewTexture => Output;
 
         public override string name => "Texture2D Output";
-
-        public event Action onTempRenderTextureUpdated;
 
         protected override void Enable()
         {

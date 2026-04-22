@@ -44,10 +44,7 @@ Raises the input to a power.
             {
                 bool t1 = (bool)TypeCaster.ToType(inputA, TypeCaster.genesisTypes.BOOL);
                 bool t2 = (bool)TypeCaster.ToType(inputB, TypeCaster.genesisTypes.BOOL);
-                int v1 = 0, v2 = 0;
-                if(t1)
-                    return true;
-                output = false;
+                output = t1 && t2;
             }
             if (outputType == typeof(float))
             {

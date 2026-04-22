@@ -6,7 +6,6 @@ using Unity.GraphToolkit.Editor;
 
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Windows;
 
 namespace AhahGames.GenesisNoise.Nodes
 {

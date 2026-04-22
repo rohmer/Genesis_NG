@@ -20,9 +20,11 @@ public class RelayNode : BaseNode
     }
 
     [Input(name = "In")]
+    [NonSerialized]
     public PackedRelayData input;
 
     [Output(name = "Out")]
+    [NonSerialized]
     public PackedRelayData output;
 
     public bool unpackOutput = false;

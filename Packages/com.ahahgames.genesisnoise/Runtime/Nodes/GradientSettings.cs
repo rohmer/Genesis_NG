@@ -8,10 +8,10 @@ namespace AhahGames.GenesisNoise.Nodes
     [Serializable]
     public class GradientSettings
     {
-        [SerializeField] private List<GradientColorKey> _colorKeysHorizontalTop = new();
-        [SerializeField] private List<GradientColorKey> _colorKeysHorizontalBottom = new();
-        [SerializeField] private List<GradientAlphaKey> _alphaKeysHorizontalTop = new();
-        [SerializeField] private List<GradientAlphaKey> _alphaKeysHorizontalBottom = new();
+        private List<GradientColorKey> _colorKeysHorizontalTop = new();
+        private List<GradientColorKey> _colorKeysHorizontalBottom = new();
+        private List<GradientAlphaKey> _alphaKeysHorizontalTop = new();
+        private List<GradientAlphaKey> _alphaKeysHorizontalBottom = new();
         [SerializeField] private AnimationCurve _verticalLerp = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
         public static GradientSettings CreateDefault()

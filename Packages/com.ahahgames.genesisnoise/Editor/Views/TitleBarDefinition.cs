@@ -382,8 +382,8 @@ namespace AhahGames.GenesisNoise.Views
                         Color final = Color.Lerp(c2, c, lrDistance);
                         titleBarImage.SetPixel(x, y, final);
                     }
-                    return titleBarImage;
                 }
+                return titleBarImage;
             }
 
             // This is a solid color BG

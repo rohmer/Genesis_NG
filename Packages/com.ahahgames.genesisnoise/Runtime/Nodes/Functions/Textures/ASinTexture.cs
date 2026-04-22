@@ -4,7 +4,6 @@ using System;
 
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Windows;
 
 namespace AhahGames.GenesisNoise.Nodes
 {

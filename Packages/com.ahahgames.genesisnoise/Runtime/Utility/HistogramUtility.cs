@@ -13,7 +13,9 @@ namespace AhahGames.GenesisNoise
     public class HistogramData
     {
         // TODO: compute buffer, latest stats, mode, ect...
+        [System.NonSerialized]
         public ComputeBuffer histogram;
+        [System.NonSerialized]
         public ComputeBuffer histogramData;
         public HistogramMode mode;
         public int bucketCount;

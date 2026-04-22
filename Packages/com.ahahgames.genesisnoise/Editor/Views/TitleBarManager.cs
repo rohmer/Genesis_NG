@@ -75,12 +75,14 @@ namespace AhahGames.GenesisNoise.Views
             }
             catch (Exception ex)
             {
-                // We failed to write, this is no-bueno
-#if GENESIS_DEBUG
-                Debug.LogException(ex);
-#endif
-
+                LogSaveException(ex);
             }
+        }
+
+        [System.Diagnostics.Conditional("GENESIS_DEBUG")]
+        private static void LogSaveException(Exception ex)
+        {
+            Debug.LogException(ex);
         }
 
         public int nodesDefined

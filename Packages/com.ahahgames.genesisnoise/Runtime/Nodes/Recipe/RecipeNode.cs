@@ -17,7 +17,9 @@ Defines a reusable recipe graph.
     [Serializable, NodeMenuItem("Recipe/Recipe")]
     public class RecipeNode : GraphProcessor.Group
     {
+        [NonSerialized]
         public List<Port> inputPorts = new();
+        [NonSerialized]
         public List<Port> outputPorts = new();
 
         // For serialization loading
@@ -37,7 +39,7 @@ Defines a reusable recipe graph.
         /// <summary>
         /// Called when the Group is created
         /// </summary>
-        public virtual void OnCreated()
+        public override void OnCreated()
         {
             size = new Vector2(400, 400);
             position.size = size;

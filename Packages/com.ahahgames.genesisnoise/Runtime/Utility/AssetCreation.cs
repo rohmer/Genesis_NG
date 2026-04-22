@@ -54,7 +54,9 @@ namespace AhahGames.GenesisNoise.Utility
         [OnOpenAsset(0)]
         public static bool OnBaseGraphOpened(int instanceID, int line)
         {
+#pragma warning disable CS0618
             var asset = EditorUtility.EntityIdToObject(instanceID) as GenesisGraph;
+#pragma warning restore CS0618
             if (asset != null)
             {
                 var path = AssetDatabase.GetAssetPath(asset);

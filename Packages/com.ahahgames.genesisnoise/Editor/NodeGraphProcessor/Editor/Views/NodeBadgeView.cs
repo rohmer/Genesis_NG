@@ -52,10 +52,10 @@ namespace GraphProcessor
             visualStyle = badgeText.GetHashCode().ToString();
         }
 
-        protected override void ExecuteDefaultAction(EventBase evt)
+        protected override void HandleEventBubbleUp(EventBase evt)
         {
             // When the mouse enter the icon, this will add the label to the hierarchy
-            base.ExecuteDefaultAction(evt);
+            base.HandleEventBubbleUp(evt);
 
             if (evt.eventTypeId == MouseEnterEvent.TypeId())
             {
