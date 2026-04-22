@@ -2,7 +2,6 @@ using log4net;
 using log4net.Appender;
 using log4net.Config;
 using log4net.Core;
-using log4net.Repository.Hierarchy;
 
 using Seq.Client.Log4Net;
 
@@ -20,7 +19,6 @@ namespace AhahGames.Telemetry
     {
         private static TelemetryLogger instance;        
         private string uniqueID = SystemInfo.deviceUniqueIdentifier;
-        private static Hierarchy hierarchy = null;
         private ILog logger;
         private static Guid sessionID= Guid.NewGuid();
         public static TelemetryLogger Logger { 
@@ -53,7 +51,6 @@ namespace AhahGames.Telemetry
         private static IAppender CreateUnityAppender()
         {
             UnityAppender ua = new UnityAppender();
-            var h = (Hierarchy)LogManager.GetRepository();
 #if GENESIS_DEBUG
             ua.Threshold = Level.All;
 #else
@@ -191,7 +188,7 @@ namespace AhahGames.Telemetry
                 case LogType.Exception:
                     LogException(logString, stackTrace);
                     break;
-                case LogType: Info:
+                case LogType.Log:
                     LogInfo(logString, stackTrace);
                     break;
              
