@@ -6,50 +6,62 @@
 
 ## Overview
 
-The BlueNoise node generates a higha'quality, tilea'free, spatially uniform bluea'noise mask using a Hilberta'curve R1 quasirandom sequence.
-This pattern is ideal for:
+The BlueNoise node generates deterministic, sampler-free blue-noise-style masks in 2D, 3D, or Cube space.
+Blue noise suppresses low-frequency clustering and keeps randomness concentrated in fine detail, making it useful for:
 - Dithering
 - Stochastic sampling
 - Procedural scattering
 - Pattern breakup
-- Antia'aliasing
-- Poissona'like distributions
-Blue noise avoids clustering and lowa'frequency artifacts, producing visually pleasing, evenly spaced randomness.
+- Anti-aliasing
+- Poisson-like distributions
+The node supports frequency, seed, output range, tiling, custom UVs, and multi-channel evaluation.
 
 ## Details
 
 - Shader: `Hidden/Genesis/BlueNoise`
 - Category: `Generators`
 - Source: [Runtime/Shaders/Generators/Noises/BlueNoise.shader](../../../../Runtime/Shaders/Generators/Noises/BlueNoise.shader)
-- Texture inputs: 0
-- Parameters: 4
+- Texture inputs: 3
+- Parameters: 8
 - Linked nodes: 1
 
 ## Texture Inputs
 
-_None._
+| Property | Label | Type | Default | Tooltip | Attributes |
+| --- | --- | --- | --- | --- | --- |
+| `_UV_2D` | UVs | `2D` | `"uv" {}` |  | InlineTexture(HideInNodeInspector) |
+| `_UV_3D` | UVs | `3D` | `"uv" {}` |  | InlineTexture(HideInNodeInspector) |
+| `_UV_Cube` | UVs | `Cube` | `"uv" {}` |  | InlineTexture(HideInNodeInspector) |
 
 ## Parameters
 
 | Property | Label | Type | Default | Tooltip | Attributes |
 | --- | --- | --- | --- | --- | --- |
-| `_Scale` | Scale | `Float` | `32.0` | Frequency and tiling of the blue noise |  |
-| `_Offset` | Offset | `Vector` | `(0,0,0,0)` | Offset in noise space |  |
-| `_Contrast` | Contrast | `Range(0.5,4)` | `1.0` | Contrast shaping |  |
-| `_Amplitude` | Amplitude | `Range(0,2)` | `1.0` | Amplitude |  |
+| `_TilingMode` | Tiling Mode | `Float` | `0` |  | KeywordEnum(None, Tiled) |
+| `_UVMode` | UV Mode | `Float` | `0` |  | ShowInInspector, Enum(2D, 0, 3D, 1) |
+| `_OutputRange` | Output Range | `Vector` | `(0, 1, 0, 0)` |  | ShowInInspector, GenesisVector2 |
+| `_Frequency` | Frequency | `Float` | `64` |  |  |
+| `_BlueAmount` | Blue Amount | `Range(0, 1)` | `1` |  |  |
+| `_Contrast` | Contrast | `Range(0.25, 4)` | `1` |  |  |
+| `_Seed` | Seed | `Int` | `42` |  |  |
+| `_Channels` | Channels | `Int` | `0` | Select how many noise values to generate and which channels to write. More channels cost more noise evaluations. | ShowInInspector, Enum(RRRR, 0, R, 1, RG, 2, RGB, 3, RGBA, 4) |
 
 ## Includes
 
 - [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl](../../../../Runtime/Shaders/GenesisFixed.hlsl)
+- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/NoiseUtils.hlsl](../../../../Runtime/Shaders/NoiseUtils.hlsl)
 
 ## Pragmas
 
-- Entry point: `vertex   CustomRenderTextureVertexShader`
+- Target: `target 3.0`
+- Entry point: `vertex CustomRenderTextureVertexShader`
 - Entry point: `fragment GenesisFragment`
 - Shader feature: `shader_feature CRT_2D CRT_3D CRT_CUBE`
+- Shader feature: `shader_feature _ USE_CUSTOM_UV`
+- Shader feature: `shader_feature _TILINGMODE_NONE _TILINGMODE_TILED`
 
 ## Used By Nodes
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Blue Noise](../../../Nodes/_nodes/generators/noise-blue-noise.md) | `Generators/Noise/Blue Noise` | The BlueNoise node generates a higha'quality, tilea'free, spatially uniform bluea'noise mask using a Hilberta'curve R1 quasirandom sequence. |
+| [Blue Noise](../../../Nodes/_nodes/generators/noise-blue-noise.md) | `Generators/Noise/Blue Noise` | The BlueNoise node generates deterministic, sampler-free blue-noise-style masks in 2D, 3D, or Cube space. |

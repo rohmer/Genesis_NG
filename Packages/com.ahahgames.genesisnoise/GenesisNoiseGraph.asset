@@ -13,8 +13,18 @@ MonoBehaviour:
   m_Name: GenesisNoiseGraph
   m_EditorClassIdentifier: Genesis Noise::AhahGames.GenesisNoise.Graph.GenesisGraph
   serializedNodes: []
-  nodes: []
-  edges: []
+  nodes:
+  - rid: 9042686467118202942
+  - rid: 9042686467118202943
+  edges:
+  - GUID: 90ebfd56-0053-4374-a223-9387a0fe5f70
+    owner: {fileID: 11400000}
+    inputNodeGUID: 3ebebfa4-8f2e-4293-83cb-88e01ec161db
+    outputNodeGUID: 667cb559-a13a-43d0-802f-224e197d654b
+    inputFieldName: inputTrue
+    outputFieldName: output
+    inputPortIdentifier: True
+    outputPortIdentifier: output
   groups: []
   stackNodes: []
   pinnedElements:
@@ -33,11 +43,12 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: -72, y: -1178, z: 0}
-  scale: {x: 0.57175326, y: 0.57175326, z: 1}
+  position: {x: 1657, y: -1028, z: 0}
+  scale: {x: 0.65751624, y: 0.65751624, z: 1}
   objectReferences:
   - {fileID: 5176272817356564484}
   - {fileID: 8472339062943445791}
+  - {fileID: 6116643579960252488}
   defaultNodeInheritanceMode: -2
   _mainOutputTexture: {fileID: 2800000, guid: c7438d47471f3be45be0495b30e42462, type: 3}
   Filename: 
@@ -84,6 +95,191 @@ MonoBehaviour:
       data:
         isHidden: 0
         expanded: 1
+    - rid: 9042686467118202942
+      type: {class: ApplyPaletteNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 667cb559-a13a-43d0-802f-224e197d654b
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: -1965.6676
+          y: 1708.0398
+          width: 325
+          height: 818
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 1120
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: b31a988bcc06efe4c9f48fec9efc8c9d, type: 3}
+        material: {fileID: 6116643579960252488}
+        exposedProperties:
+        - displayName: Input
+          referenceName: _UV_2D
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Mode
+          referenceName: _Mode
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Steps
+          referenceName: _Steps
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Dither Strength
+          referenceName: _Dither
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Color 0
+          referenceName: _Color0
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Color 1
+          referenceName: _Color1
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Color 2
+          referenceName: _Color2
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Color 3
+          referenceName: _Color3
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Color 4
+          referenceName: _Color4
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Color 5
+          referenceName: _Color5
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Color 6
+          referenceName: _Color6
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Color 7
+          referenceName: _Color7
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Color, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Color Count
+          referenceName: _ColorCount
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Seed
+          referenceName: _Seed
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: b31a988bcc06efe4c9f48fec9efc8c9d
+    - rid: 9042686467118202943
+      type: {class: Branch, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 3ebebfa4-8f2e-4293-83cb-88e01ec161db
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: -1541
+          y: 2096
+          width: 300
+          height: 128
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 128
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -2
+          dimension: -2
+          outputChannels: -2
+          outputPrecision: -2
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -2
+          filterMode: -2
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        condition: 0
+        inputType:
+          serializedType: System.Object, mscorlib, Version=4.0.0.0, Culture=neutral,
+            PublicKeyToken=b77a5c561934e089
 --- !u!21 &5176272817356564484
 Material:
   serializedVersion: 8
@@ -149,6 +345,61 @@ Material:
     - _FloatVal: 0
     - _MathMode: 0
     m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &6116643579960252488
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/ApplyPalette
+  m_Shader: {fileID: 4800000, guid: b31a988bcc06efe4c9f48fec9efc8c9d, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _UV_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UV_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorCount: 2
+    - _Contrast: 1
+    - _Dither: 0
+    - _Mode: 0
+    - _Seed: 1
+    - _Steps: 4
+    m_Colors:
+    - _Color0: {r: 0, g: 0, b: 0, a: 1}
+    - _Color1: {r: 1, g: 1, b: 1, a: 1}
+    - _Color2: {r: 1, g: 0, b: 0, a: 1}
+    - _Color3: {r: 0, g: 1, b: 0, a: 1}
+    - _Color4: {r: 0, g: 0, b: 1, a: 1}
+    - _Color5: {r: 1, g: 1, b: 0, a: 1}
+    - _Color6: {r: 1, g: 0, b: 1, a: 1}
+    - _Color7: {r: 0, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!21 &8472339062943445791

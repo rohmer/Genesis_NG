@@ -3,16 +3,15 @@ using GraphProcessor;
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-The BlueNoise node generates a high‑quality, tile‑free, spatially uniform blue‑noise mask using a Hilbert‑curve R1 quasirandom sequence.
-This pattern is ideal for:
+The BlueNoise node generates deterministic, sampler-free blue-noise-style masks in 2D, 3D, or Cube space.
+Blue noise suppresses low-frequency clustering and keeps randomness concentrated in fine detail, making it useful for:
 - Dithering
 - Stochastic sampling
 - Procedural scattering
 - Pattern breakup
-- Anti‑aliasing
-- Poisson‑like distributions
-Blue noise avoids clustering and low‑frequency artifacts, producing visually pleasing, evenly spaced randomness.
-
+- Anti-aliasing
+- Poisson-like distributions
+The node supports frequency, seed, output range, tiling, custom UVs, and multi-channel evaluation.
 ")]
 
     [System.Serializable, NodeMenuItem("Generators/Noise/Blue Noise")]
@@ -21,6 +20,5 @@ Blue noise avoids clustering and low‑frequency artifacts, producing visually p
         public override string name => "Blue Noise";
 
         public override string ShaderName => "Hidden/Genesis/BlueNoise";
-        public override string NodeGroup => "Noise";
     }
 }

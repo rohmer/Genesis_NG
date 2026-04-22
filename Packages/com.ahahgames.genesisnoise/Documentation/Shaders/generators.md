@@ -6,8 +6,8 @@
 
 ## Overview
 
-- Shader count: 134
-- Linked to Genesis nodes: 119
+- Shader count: 139
+- Linked to Genesis nodes: 124
 - Orphan shaders: 15
 
 ## General
@@ -22,7 +22,8 @@
 | Shader | Hidden Name | Nodes | Summary |
 | --- | --- | ---: | --- |
 | [AnisotropicNoise](_shaders/generators/noises-anisotropicnoise.md) | `Hidden/Genesis/AnisotropicNoise` | 2 | Anisotropic noise with a controllable direction vector, anisotropy amount, and optional rotation. This noise type produces stretched patterns along the specified direction, idea... |
-| [BlueNoise](_shaders/generators/noises-bluenoise.md) | `Hidden/Genesis/BlueNoise` | 1 | The BlueNoise node generates a higha'quality, tilea'free, spatially uniform bluea'noise mask using a Hilberta'curve R1 quasirandom sequence. |
+| [BlueNoise](_shaders/generators/noises-bluenoise.md) | `Hidden/Genesis/BlueNoise` | 1 | The BlueNoise node generates deterministic, sampler-free blue-noise-style masks in 2D, 3D, or Cube space. |
+| [BrownianNoise](_shaders/generators/noises-browniannoise.md) | `Hidden/Genesis/BrownianNoise` | 1 | The BrownianNoise node generates deterministic, sampler-free Brownian noise in 2D, 3D, or Cube space. |
 | [CellularNoise](_shaders/generators/noises-cellularnoise.md) | `Hidden/Genesis/CellularNoise` | 1 | The CellularNoise node generates Worleya'style cellular noise in 2D, 3D, or Cube space, with full control over: |
 | [Circles](_shaders/generators/noises-circles.md) | `Circles` | 0 | Genesis shader implementation backed by `Circles`. |
 | [CurlNoise](_shaders/generators/noises-curlnoise.md) | `Hidden/Genesis/CurlNoise` | 1 | The CurlNoise node generates 2D or 3D curl noise derived from Perlin FBM. |
@@ -33,18 +34,22 @@
 | [GaussianNoise](_shaders/generators/noises-gaussiannoise.md) | `Hidden/Genesis/GaussianNoise` | 1 | Deterministic, sampler-free Gaussian noise |
 | [GaussianSpots4](_shaders/generators/noises-gaussianspots4.md) | `Hidden/Genesis/GaussianSpots4` | 1 | Ink-bloom diffusion |
 | [Grass](_shaders/generators/noises-grass.md) | `Hidden/Genesis/Grass` | 1 | Generates a grass-like pattern useful for organic masks, terrain breakup, and stylized foliage textures. |
+| [GreyNoise](_shaders/generators/noises-greynoise.md) | `Hidden/Genesis/GreyNoise` | 1 | The GreyNoise node generates deterministic, sampler-free grey noise in 2D, 3D, or Cube space. |
 | [Honeycomb](_shaders/generators/noises-honeycombnoise.md) | `Hidden/Genesis/Honeycomb` | 1 | The Honeycomb node generates hexagonal and stara'shaped cellular patterns using a custom hasha'driven lattice evaluation. |
 | [MoistureNoise](_shaders/generators/noises-moisturenoise.md) | `Hidden/Genesis/MoistureNoise` | 1 | It's not Perlin, not Worley, not Clouds - it's a hybrid pattern that looks like: |
 | [PerlinNoise](_shaders/generators/noises-perlinnoise.md) | `Hidden/Genesis/PerlinNoise` | 1 | The PerlinNoise node generates 2D or 3D Perlin FBM noise with full control over: |
+| [PinkNoise](_shaders/generators/noises-pinknoise.md) | `Hidden/Genesis/PinkNoise` | 1 | The PinkNoise node generates deterministic, sampler-free pink noise in 2D, 3D, or Cube space. |
 | [RidgedCellularNoise](_shaders/generators/noises-ridgedcellularnoise.md) | `Hidden/Genesis/RidgedCellularNoise` | 1 | The RidgedCellularNoise node generates higha'contrast, ridgea'enhanced cellular noise in 2D, 3D, or Cube space. |
 | [RidgedPerlinNoise](_shaders/generators/noises-ridgedperlinnoise.md) | `Hidden/Genesis/RidgedPerlinNoise` | 1 | The RidgedPerlinNoise node generates higha'contrast, ridgea'enhanced Perlin FBM noise in 2D, 3D, or Cube space. |
 | [Simplex2D](_shaders/generators/noises-simplexnoise.md) | `Hidden/Genesis/Simplex2D` | 1 | The Simplex2D node generates 2D simplex noise using a clean, deterministic implementation of Inigo Quilez's classic simplex algorithm. |
 | [Simplex3D](_shaders/generators/noises-simplex3d.md) | `Hidden/Genesis/Simplex3D` | 1 | The Simplex3D node generates 3D simplex noise or 3D simplex FBM depending on the selected mode. |
 | [ValueNoise_2D3D4D](_shaders/generators/noises-valuenoise-2d3d4d.md) | `Hidden/Genesis/ValueNoise_2D3D4D` | 1 | The ValueNoise (2D / 3D / 4D) node generates deterministic, sampler-free value noise in 2D, 3D, or 4D space. |
 | [ValueVoronoiSuite2D](_shaders/generators/noises-valuevoronoisuite2d.md) | `Hidden/Genesis/ValueVoronoiSuite2D` | 1 | Generates a variety of noise types based on a dropdown |
+| [VelvetNoise](_shaders/generators/noises-velvetnoise.md) | `Hidden/Genesis/VelvetNoise` | 1 | The VelvetNoise node generates deterministic, sampler-free velvet noise in 2D, 3D, or Cube space. |
+| [VioletNoise](_shaders/generators/noises-violetnoise.md) | `Hidden/Genesis/VioletNoise` | 1 | The VioletNoise node generates deterministic, sampler-free violet-noise-style masks in 2D, 3D, or Cube space. |
 | [VoronoiNoise](_shaders/generators/noises-voronoinoise.md) | `Hidden/Genesis/VoronoiNoise` | 1 | The VoronoiNoise node generates 2D, 3D, or Cubea'space Voronoi (Worley) noise with an extensive set of controls: |
 | [WarpNoise](_shaders/generators/noises-warpnoise.md) | `Hidden/Genesis/WarpNoise` | 1 | The WarpNoise node performs procedural UV warping, chromatic aberration, and optional color generation using a combination of: |
-| [WhiteNoise](_shaders/generators/noises-whitenoise.md) | `Hidden/Genesis/WhiteNoise` | 1 | The WhiteNoise node generates pure, uncorrelated white noise in 2D, 3D, or Cube space. |
+| [WhiteNoise](_shaders/generators/noises-whitenoise.md) | `Hidden/Genesis/WhiteNoise` | 1 | The WhiteNoise node generates deterministic, sampler-free white noise in 2D, 3D, or Cube space. |
 | [Worley](_shaders/generators/noises-whorley.md) | `Hidden/Genesis/Worley` | 1 | The Worley node generates a hybrid procedural noise by combining: |
 
 ## Other

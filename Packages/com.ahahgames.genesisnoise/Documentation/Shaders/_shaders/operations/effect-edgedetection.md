@@ -49,4 +49,4 @@ Edge detection using one of a few different algorithms
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Combine](../../../Nodes/_nodes/filters/edge-detect-edge-detection.md) | `Filters/Edge Detect/Edge Detection` | Edge detection using one of a few different algorithms |
+| [Edge Detection](../../../Nodes/_nodes/filters/edge-detect-edge-detection.md) | `Filters/Edge Detect/Edge Detection` | Edge detection using one of a few different algorithms |

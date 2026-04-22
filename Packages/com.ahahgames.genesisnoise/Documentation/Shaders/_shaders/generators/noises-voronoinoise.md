@@ -28,7 +28,7 @@ This node is extremely flexible and ideal for:
 - Category: `Generators`
 - Source: [Runtime/Shaders/Generators/Noises/VoronoiNoise.shader](../../../../Runtime/Shaders/Generators/Noises/VoronoiNoise.shader)
 - Texture inputs: 9
-- Parameters: 11
+- Parameters: 10
 - Linked nodes: 1
 
 ## Texture Inputs
@@ -49,14 +49,13 @@ This node is extremely flexible and ideal for:
 
 | Property | Label | Type | Default | Tooltip | Attributes |
 | --- | --- | --- | --- | --- | --- |
-| `_UseScaling` | Use Scaling | `Float` | `0` |  | Enum(No, 0, Yes, 1) |
-| `_ScaleFactor` | Scaling Factor | `Float` | `0` |  | VisibleIf(_UseScaling,1) |
-| `_UseSmoothness` | Smoothing | `Float` | `0.0` |  | Enum(No, 0, Yes, 1) |
+| `_UseScaling` | Use Scaling | `Float` | `1` |  | Enum(No, 0, Yes, 1) |
+| `_ScaleFactor` | Scaling Factor | `Float` | `5` |  | VisibleIf(_UseScaling,1) |
 | `_TilingMode` | Tiling Mode | `Float` | `1` |  | Enum(None, 0, Tiled, 1) |
 | `_DistanceFunction` | Distance Function | `Float` | `0` |  | Enum(EuclideanSquared, 0, Euclidian, 1, Manhattan, 2, Chebyshev, 3, Minkowski, 4) |
 | `_MinkowskiPower` | Minkowski Power | `Float` | `1` |  | VisibleIf(_DistanceFunction, 4) |
 | `_MethodType` | Generation Method | `Float` | `0` |  | Enum(Cells, 0, Crystal, 1, Glass, 2, Caustic, 3, Distance, 4) |
-| `_SearchQuality` | Search Quality | `Float` | `27` |  | Enum(Nine, 9, TwentySeven, 27, FortyFive, 45, SixtyThree, 63, EightyOne, 81) |
+| `_SearchQuality` | Search Quality | `Float` | `27` |  | Enum(Nine, 9, TwentySeven, 27, FortyFive, 45, SixtyThree, 63) |
 | `_Octaves` | Octaves | `Range(1, 12)` | `5` |  | IntRange |
 | `_ImageType` | Image Type | `Float` | `0` |  | Enum(NoiseValue, 0, UVValue, 1, IDValue, 2) |
 | `_Seed` | Seed | `Int` | `42` |  |  |

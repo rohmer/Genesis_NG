@@ -1,12 +1,10 @@
 using GraphProcessor;
 
-using System.Collections.Generic;
-
 namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
-The WhiteNoise node generates pure, uncorrelated white noise in 2D, 3D, or Cube space.
-It is a lightweight, deterministic, sampler‑free noise source ideal for:
+The WhiteNoise node generates deterministic, sampler-free white noise in 2D, 3D, or Cube space.
+It is a lightweight noise source ideal for:
 - Random masks
 - Dithering
 - Stochastic sampling
@@ -14,24 +12,15 @@ It is a lightweight, deterministic, sampler‑free noise source ideal for:
 - Randomized FX
 - Seeded variation
 - Debugging procedural graphs
-The node supports single‑channel, RGB, and RGBA output modes.
+The node supports frequency, seed, output range, tiling, custom UVs, and multi-channel evaluation.
 ")]
 
     [System.Serializable, NodeMenuItem("Generators/Noise/White Noise")]
-    public class WhiteNoise : FixedShaderNode
+    public class WhiteNoise : FixedNoiseNode
     {
         public override string name => "White Noise";
 
-
         public override string ShaderName => "Hidden/Genesis/WhiteNoise";
-
-        public override bool DisplayMaterialInspector => true;
-
-        // Enumerate the list of material properties that you don't want to be turned into a connectable port.
-        protected override IEnumerable<string> filteredOutProperties => new string[] { };
-        public override string NodeGroup => "Noise";
-
-
     }
 }
 

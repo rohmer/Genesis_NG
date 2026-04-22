@@ -13,11 +13,11 @@ namespace AhahGames.GenesisNoise.Graph
 {
     public class GenesisParameterView : ExposedParameterView
     {
-        static readonly string mixtureParameterStyleSheet = "MixtureParameterView";
+        static readonly string genesisParameterStyleSheet = "GenesisParameterView";
 
         public GenesisParameterView()
         {
-            var style = Resources.Load<StyleSheet>(mixtureParameterStyleSheet);
+            var style = Resources.Load<StyleSheet>(genesisParameterStyleSheet);
             if (style != null)
                 styleSheets.Add(style);
         }

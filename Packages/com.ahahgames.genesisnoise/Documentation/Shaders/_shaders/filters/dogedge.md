@@ -56,4 +56,4 @@ computes a Difference of Gaussians (DoG) edge response. It performs two small se
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Combine](../../../Nodes/_nodes/filters/edge-detect-difference-of-gaussians.md) | `Filters/Edge Detect/Difference of Gaussians` | computes a Difference of Gaussians (DoG) edge response. It performs two small separable Gaussian-like blurs at different radii, subtracts them to produce band-pass edges, applie... |
+| [Difference of Gaussians](../../../Nodes/_nodes/filters/edge-detect-difference-of-gaussians.md) | `Filters/Edge Detect/Difference of Gaussians` | computes a Difference of Gaussians (DoG) edge response. It performs two small separable Gaussian-like blurs at different radii, subtracts them to produce band-pass edges, applie... |

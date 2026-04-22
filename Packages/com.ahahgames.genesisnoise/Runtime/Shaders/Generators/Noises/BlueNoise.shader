@@ -1,100 +1,109 @@
 Shader "Hidden/Genesis/BlueNoise"
 {
-    Properties
-    {
-        [Tooltip(Frequency and tiling of the blue noise)]
-        _Scale("Scale", Float) = 32.0
+	Properties
+	{
+		[InlineTexture(HideInNodeInspector)] _UV_2D("UVs", 2D) = "uv" {}
+		[InlineTexture(HideInNodeInspector)] _UV_3D("UVs", 3D) = "uv" {}
+		[InlineTexture(HideInNodeInspector)] _UV_Cube("UVs", Cube) = "uv" {}
 
-        [Tooltip(Offset in noise space)]
-        _Offset("Offset", Vector) = (0,0,0,0)
+		[KeywordEnum(None, Tiled)] _TilingMode("Tiling Mode", Float) = 0
+		[ShowInInspector][Enum(2D, 0, 3D, 1)] _UVMode("UV Mode", Float) = 0
+		[ShowInInspector][GenesisVector2]_OutputRange("Output Range", Vector) = (0, 1, 0, 0)
+		_Frequency("Frequency", Float) = 64
+		_BlueAmount("Blue Amount", Range(0, 1)) = 1
+		_Contrast("Contrast", Range(0.25, 4)) = 1
+		_Seed("Seed", Int) = 42
+		[Tooltip(Select how many noise values to generate and which channels to write. More channels cost more noise evaluations.)]
+		[ShowInInspector][Enum(RRRR, 0, R, 1, RG, 2, RGB, 3, RGBA, 4)]_Channels("Channels", Int) = 0
+	}
 
-        [Tooltip(Contrast shaping)]
-        _Contrast("Contrast", Range(0.5,4)) = 1.0
+	SubShader
+	{
+		Tags { "RenderType"="Opaque" }
+		LOD 100
 
-        [Tooltip(Amplitude)]
-        _Amplitude("Amplitude", Range(0,2)) = 1.0
-    }
+		Pass
+		{
+			HLSLPROGRAM
+			#include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"
+			#include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/NoiseUtils.hlsl"
+			#pragma vertex CustomRenderTextureVertexShader
+			#pragma fragment GenesisFragment
+			#pragma target 3.0
 
-    SubShader
-    {
-        Tags { "RenderType"="Opaque" }
-        LOD 100
+			#pragma shader_feature CRT_2D CRT_3D CRT_CUBE
+			#pragma shader_feature _ USE_CUSTOM_UV
+			#pragma shader_feature _TILINGMODE_NONE _TILINGMODE_TILED
 
-        Pass
-        {
-            HLSLPROGRAM
-            #define BUILTIN_TARGET_API
-            #include "Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"
+			TEXTURE_SAMPLER_X(_UV);
 
-            #pragma vertex   CustomRenderTextureVertexShader
-            #pragma fragment GenesisFragment
-            #pragma shader_feature CRT_2D CRT_3D CRT_CUBE
+			float _Frequency;
+			float _BlueAmount;
+			float _Contrast;
+			float2 _OutputRange;
+			int _Seed;
+			int _Channels;
+			int _UVMode;
 
-            float _Scale;
-            float4 _Offset;
-            float _Contrast;
-            float _Amplitude;
+			float3 PositiveModulo(float3 value, float period)
+			{
+				period = max(period, 1.0);
+				return value - period * floor(value / period);
+			}
 
-            // ---------------------------------------------------------
-            // Blue-noise inspired hash (tile-free, decorrelated)
-            float hash(float2 p)
-            {
-                p = frac(p * float2(123.34, 456.21));
-                p += dot(p, p + 34.345);
-                return frac(p.x * p.y);
-            }
+			float BlueHash(float3 cell, float period, int seed)
+			{
+				#ifdef _TILINGMODE_TILED
+					cell = PositiveModulo(cell, period);
+				#endif
 
-            // Poisson-like blue noise kernel
-            float blueNoise2D(float2 uv)
-            {
-                float2 p = uv * _Scale + _Offset.xy;
+				return WhiteNoise(cell + RandomOffset3(seed));
+			}
 
-                float v = 0.0;
-                float w = 0.0;
+			float BlueNoise01(float3 uvs, int seed)
+			{
+				float frequency = max(_Frequency, 1.0);
 
-                // 8-tap Poisson kernel
-                const float2 K[8] = {
-                    float2( 0.75,  0.12),
-                    float2(-0.33,  0.88),
-                    float2( 0.55, -0.66),
-                    float2(-0.88, -0.22),
-                    float2( 0.22,  0.44),
-                    float2(-0.44,  0.55),
-                    float2( 0.66, -0.33),
-                    float2(-0.12, -0.75)
-                };
+				#ifdef _TILINGMODE_TILED
+					frequency = round(frequency);
+				#endif
 
-                [unroll]
-                for (int i = 0; i < 8; i++)
-                {
-                    float h = hash(p + K[i]);
-                    v += h;
-                    w += 1.0;
-                }
+				float3 cell = floor(uvs * frequency);
+				float center = BlueHash(cell, frequency, seed);
 
-                return v / w;
-            }
+				float neighborAverage = 0.0;
+				neighborAverage += BlueHash(cell + float3( 1,  0,  0), frequency, seed);
+				neighborAverage += BlueHash(cell + float3(-1,  0,  0), frequency, seed);
+				neighborAverage += BlueHash(cell + float3( 0,  1,  0), frequency, seed);
+				neighborAverage += BlueHash(cell + float3( 0, -1,  0), frequency, seed);
+				neighborAverage += BlueHash(cell + float3( 1,  1,  0), frequency, seed);
+				neighborAverage += BlueHash(cell + float3(-1,  1,  0), frequency, seed);
+				neighborAverage += BlueHash(cell + float3( 1, -1,  0), frequency, seed);
+				neighborAverage += BlueHash(cell + float3(-1, -1,  0), frequency, seed);
+				neighborAverage *= 0.125;
 
-            // ---------------------------------------------------------
-            float evaluateNoise(float3 uv)
-            {
-                float2 p = uv.xy;
-                float v = blueNoise2D(p);
+				float highPass = saturate((center - neighborAverage) * _Contrast + 0.5);
+				return lerp(center, highPass, saturate(_BlueAmount));
+			}
 
-                v = pow(v, _Contrast);
-                v *= _Amplitude;
+			float GenerateNoise(v2f_customrendertexture i, int seed)
+			{
+				float3 uvs = GetNoiseUVs(i, SAMPLE_X(_UV, i.localTexcoord.xyz, i.direction), seed);
 
-                return saturate(v);
-            }
+				#ifdef CRT_2D
+					if (_UVMode == 0)
+						uvs.z = 0.5;
+				#endif
 
-            // ---------------------------------------------------------
-            float4 genesis(v2f_customrendertexture i) : SV_Target
-            {
-                float v = evaluateNoise(i.localTexcoord.xyz);
-                return float4(v, v, v, 1.0);
-            }
+				float noise = BlueNoise01(uvs, seed);
+				return RemapClamp(noise, 0, 1, _OutputRange.x, _OutputRange.y);
+			}
 
-            ENDHLSL
-        }
-    }
+			float4 genesis(v2f_customrendertexture i)
+			{
+				return GenerateNoiseForChannels(i, _Channels, _Seed);
+			}
+			ENDHLSL
+		}
+	}
 }

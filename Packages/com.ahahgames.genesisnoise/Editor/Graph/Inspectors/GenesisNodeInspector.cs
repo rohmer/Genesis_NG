@@ -37,7 +37,7 @@ namespace AhahGames.GenesisNoise.Graph
         protected override void OnHeaderGUI()
         {
             base.OnHeaderGUI();
-            // EditorGUILayout.LabelField(new GUIContent("Node Inspector", GenesisUtils.icon));
+            EditorGUILayout.LabelField(new GUIContent("Node Inspector", GenesisNoiseUtility.icon));
         }
 
         protected override void OnEnable()

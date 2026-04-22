@@ -6,8 +6,8 @@
 
 ## Overview
 
-The WhiteNoise node generates pure, uncorrelated white noise in 2D, 3D, or Cube space.
-It is a lightweight, deterministic, samplera'free noise source ideal for:
+The WhiteNoise node generates deterministic, sampler-free white noise in 2D, 3D, or Cube space.
+It is a lightweight noise source ideal for:
 - Random masks
 - Dithering
 - Stochastic sampling
@@ -15,26 +15,35 @@ It is a lightweight, deterministic, samplera'free noise source ideal for:
 - Randomized FX
 - Seeded variation
 - Debugging procedural graphs
-The node supports singlea'channel, RGB, and RGBA output modes.
+The node supports frequency, seed, output range, tiling, custom UVs, and multi-channel evaluation.
 
 ## Details
 
 - Shader: `Hidden/Genesis/WhiteNoise`
 - Category: `Generators`
 - Source: [Runtime/Shaders/Generators/Noises/WhiteNoise.shader](../../../../Runtime/Shaders/Generators/Noises/WhiteNoise.shader)
-- Texture inputs: 0
-- Parameters: 1
+- Texture inputs: 3
+- Parameters: 6
 - Linked nodes: 1
 
 ## Texture Inputs
 
-_None._
+| Property | Label | Type | Default | Tooltip | Attributes |
+| --- | --- | --- | --- | --- | --- |
+| `_UV_2D` | UVs | `2D` | `"uv" {}` |  | InlineTexture(HideInNodeInspector) |
+| `_UV_3D` | UVs | `3D` | `"uv" {}` |  | InlineTexture(HideInNodeInspector) |
+| `_UV_Cube` | UVs | `Cube` | `"uv" {}` |  | InlineTexture(HideInNodeInspector) |
 
 ## Parameters
 
 | Property | Label | Type | Default | Tooltip | Attributes |
 | --- | --- | --- | --- | --- | --- |
-| `_Mode` | Mode | `Float` | `0` |  | Enum(Single Channel, 0, RGB, 1, RGBA, 2) |
+| `_TilingMode` | Tiling Mode | `Float` | `0` |  | KeywordEnum(None, Tiled) |
+| `_UVMode` | UV Mode | `Float` | `0` |  | ShowInInspector, Enum(2D, 0, 3D, 1) |
+| `_OutputRange` | Output Range | `Vector` | `(0, 1, 0, 0)` |  | ShowInInspector, GenesisVector2 |
+| `_Frequency` | Frequency | `Float` | `256` |  |  |
+| `_Seed` | Seed | `Int` | `42` |  |  |
+| `_Channels` | Channels | `Int` | `0` | Select how many noise values to generate and which channels to write. More channels cost more hash evaluations. | ShowInInspector, Enum(RRRR, 0, R, 1, RG, 2, RGB, 3, RGBA, 4) |
 
 ## Includes
 
@@ -47,9 +56,11 @@ _None._
 - Entry point: `vertex CustomRenderTextureVertexShader`
 - Entry point: `fragment GenesisFragment`
 - Shader feature: `shader_feature CRT_2D CRT_3D CRT_CUBE`
+- Shader feature: `shader_feature _ USE_CUSTOM_UV`
+- Shader feature: `shader_feature _TILINGMODE_NONE _TILINGMODE_TILED`
 
 ## Used By Nodes
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [White Noise](../../../Nodes/_nodes/generators/noise-white-noise.md) | `Generators/Noise/White Noise` | The WhiteNoise node generates pure, uncorrelated white noise in 2D, 3D, or Cube space. |
+| [White Noise](../../../Nodes/_nodes/generators/noise-white-noise.md) | `Generators/Noise/White Noise` | The WhiteNoise node generates deterministic, sampler-free white noise in 2D, 3D, or Cube space. |

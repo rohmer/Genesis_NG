@@ -6,8 +6,8 @@
 
 ## Overview
 
-- Shader count: 23
-- Linked to Genesis nodes: 19
+- Shader count: 24
+- Linked to Genesis nodes: 20
 - Orphan shaders: 4
 
 ## General
@@ -29,6 +29,7 @@
 | [ScaleBias](_shaders/functions/scalebias.md) | `Hidden/Genesis/ScaleBias` | 1 | Apply a Scale and Bias on the input texture color. |
 | [Slope](_shaders/functions/slope.md) | `Hidden/Genesis/Slope` | 1 | Calculate the slope of the input heightmap. The slope is calculated as the difference between the current pixel and its neighbors, giving you a measure of how steep the terrain ... |
 | [StochasticTiling](_shaders/functions/stochastictiling.md) | `Hidden/Genesis/StochasticTiling` | 0 | Genesis shader implementation backed by `Hidden/Genesis/StochasticTiling`. |
+| [ThermalErosion](_shaders/functions/thermalerosion.md) | `Hidden/Genesis/ThermalErosion` | 1 | Applies thermal erosion to a heightmap by transferring material from steep cells to lower neighboring cells. |
 | [Transform](_shaders/functions/transform.md) | `Hidden/Genesis/Transform` | 1 | Apply a transformation on the input texture. This node allows you to offset, scale and rotate the input texture based on either another texture or a constant. |
 | [Transform2D](_shaders/functions/transform2d.md) | `Hidden/Genesis/Transform2D` | 1 | Translation |
 | [UVDistort](_shaders/functions/uvdistort.md) | `Hidden/Genesis/UVDistort` | 0 | Genesis shader implementation backed by `Hidden/Genesis/UVDistort`. |
