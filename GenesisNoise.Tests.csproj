@@ -54,12 +54,15 @@
   <ItemGroup>
     <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Constants\BoolNodeTests.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\Math\AddTests.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Generators\GeneratorNodeContractTests.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\Common\TestGraph.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\Math\SubtractTests.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\Graph\BaseGraphTests.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\NodeTests\GenericNodeCreation.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\NodeTests\GenericTestNode.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Constants\ColorNodeTests.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Generators\Noise\FixedNoiseNodeTests.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Generators\Noise\VelvetNoisePointsNodeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\com.ahahgames.genesisnoise\Tests\Tests.asmdef" />

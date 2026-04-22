@@ -42,7 +42,6 @@ namespace AhahGames.GenesisNoise.Tests
             Assert.IsTrue(MathA.Add(1.0f, new Vector3Int(1, 1, 2)) == new Vector3Int(2, 2, 3));
             Assert.IsTrue(MathA.Add(1.0f, true) == 2);
             Assert.IsTrue(MathA.Add(1.0f, new Color(0, 0, 0, 0)) == new Color(1, 1, 1, 1));
-            float f = 1.0f;
             Assert.IsTrue(MathA.Add(1.0f, " number") == "1 number");
             Assert.IsTrue(MathA.Add(1.0f, new Quaternion(1, 2, 3, 4)) == new Quaternion(2, 3, 4, 5));
         }
