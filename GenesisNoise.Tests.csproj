@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Constants\BoolNodeTests.cs" />
+    <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Functions\FunctionNodeContractTests.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\Math\AddTests.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Generators\GeneratorNodeContractTests.cs" />
     <Compile Include="Packages\com.ahahgames.genesisnoise\Tests\Common\TestGraph.cs" />
