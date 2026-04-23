@@ -18,7 +18,7 @@ Export a texture from the graph, the texture can also be exported outside of uni
 Note that for 2D textures, the file is exported either in png or exr depending on the current floating precision.
 For 3D and Cube textures, the file is exported as a .asset and can be use in another Unity project.
 ")]
-    [Serializable, NodeMenuItem("External Output")]
+    [Serializable, NodeMenuItem("Output/External Output")]
     public class ExternalOutputNode : OutputNode
     {
 

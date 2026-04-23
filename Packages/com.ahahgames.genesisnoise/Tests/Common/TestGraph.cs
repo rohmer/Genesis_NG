@@ -27,7 +27,7 @@ namespace AhahGames.GenesisNoise.Tests
             }
             else
             {
-                //filename = System.IO.Path.Combine(tmp, filename + ".asset");                
+                filename = System.IO.Path.Combine(tmp, filename + ".asset");                
             }
 
             var graph = ScriptableObject.CreateInstance<GenesisGraph>();
