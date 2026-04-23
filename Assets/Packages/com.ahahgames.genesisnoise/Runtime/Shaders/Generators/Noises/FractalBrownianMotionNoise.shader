@@ -1,0 +1,59 @@
+﻿Shader "Hidden/Genesis/FractalBrownianMotionNoise"
+{	
+	Properties
+	{
+		[InlineTexture(HideInNodeInspector)] _UV_2D("UVs", 2D) = "uv" {}
+		[InlineTexture(HideInNodeInspector)] _UV_3D("UVs", 3D) = "uv" {}
+		[InlineTexture(HideInNodeInspector)] _UV_Cube("UVs", Cube) = "uv" {}
+
+		[GenesisVector2]_OutputRange("Output Range", Vector) = (-1, 1, 0, 0)
+		[ShowInInspector]_Lacunarity("Lacunarity", Float) = 2
+		_Frequency("Frequency", Float) = 5
+		_Persistance("Persistance", Float) = 0.5
+		[IntRange]_Octaves("Octaves", Range(1, 12)) = 5
+		_Seed("Seed", Int) = 42
+	}
+	SubShader
+	{
+		Tags { "RenderType"="Opaque" }
+		LOD 100
+
+		Pass
+		{
+			HLSLPROGRAM
+			#include "Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl"
+			#include "Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/FBMNoise.hlsl"
+            #pragma vertex CustomRenderTextureVertexShader
+			#pragma fragment GenesisFragment
+			#pragma target 3.0
+
+			// The list of defines that will be active when processing the node with a certain dimension
+            #pragma shader_feature CRT_2D CRT_3D CRT_CUBE
+			#pragma shader_feature _ USE_CUSTOM_UV
+
+			// This macro will declare a version for each dimention (2D, 3D and Cube)
+			TEXTURE_SAMPLER_X(_UV);
+			float _Octaves;
+			float2 _OutputRange;
+			float _Lacunarity;
+			float _Frequency;
+			float _Persistance;
+			int _Seed;
+
+			float4 genesis(v2f_customrendertexture i)
+			{
+				float3 uvs = GetNoiseUVs(i, SAMPLE_X(_UV, i.localTexcoord.xyz, i.direction), _Seed);
+				SetupNoiseTiling(_Lacunarity, _Frequency);
+
+#ifdef CRT_2D
+				float4 noise = GeneratePerlin2D_FBM(uvs.xy * _Frequency, _Seed).r;
+#else
+				float4 noise = GeneratePerlin3DNoise(uvs, _Frequency, _Octaves, _Persistance, _Lacunarity, _Seed).r;
+#endif
+
+				return GenesisRemap(noise, 0, 1, _OutputRange.x, _OutputRange.y);
+			}
+			ENDHLSL
+		}
+	}
+}

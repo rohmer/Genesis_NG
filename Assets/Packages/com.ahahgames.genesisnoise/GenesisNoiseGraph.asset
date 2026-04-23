@@ -1,0 +1,277 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &-2760147734257523062
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919442661075d414080cdd70882ecfb6, type: 3}
+  m_Name: GenesisNoiseGraph
+  m_EditorClassIdentifier: Genesis Noise::AhahGames.GenesisNoise.Graph.GenesisGraph
+  serializedNodes: []
+  nodes: []
+  edges: []
+  groups: []
+  stackNodes: []
+  pinnedElements:
+  - position:
+      serializedVersion: 2
+      x: 3
+      y: 24
+      width: 150
+      height: 200
+    opened: 0
+    editorType:
+      serializedType: AhahGames.GenesisNoise.Graph.GenesisParameterView, Genesis
+        Noise, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  exposedParameters:
+  - rid: 9042686300973432864
+  serializedParameterList: []
+  stickyNotes: []
+  nodeInspectorReference: {fileID: 0}
+  position: {x: 1635, y: -1343, z: 0}
+  scale: {x: 0.65751624, y: 0.65751624, z: 1}
+  objectReferences:
+  - {fileID: 5176272817356564484}
+  - {fileID: 8472339062943445791}
+  - {fileID: 1061020964589926975}
+  - {fileID: -2760147734257523062}
+  defaultNodeInheritanceMode: -2
+  _mainOutputTexture: {fileID: 2800000, guid: c7438d47471f3be45be0495b30e42462, type: 3}
+  Filename: 
+  _outputTextures: []
+  settings:
+    widthScale: 1
+    heightScale: 1
+    depthScale: 1
+    width: 4096
+    height: 4096
+    depth: 4096
+    potSize: 4096
+    sizeMode: 0
+    dimension: 2
+    outputChannels: 1
+    outputPrecision: 3
+    editFlags: 0
+    doubleBuffered: 0
+    wrapMode: 0
+    filterMode: 0
+    refreshMode: 0
+    period: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 9042686300973432864
+      type: {class: BoundsIntParameter, ns: GraphProcessor, asm: Genesis Noise}
+      data:
+        guid: a853d47a-e7a4-4504-b104-d622c9f8ded7
+        name: New Bounds Int
+        type: 
+        serializedValue:
+          serializedType: 
+          serializedName: 
+          serializedValue: 
+        input: 1
+        settings:
+          rid: 9042686300973432865
+        val:
+          m_Position: {x: 0, y: 0, z: 0}
+          m_Size: {x: 0, y: 0, z: 0}
+    - rid: 9042686300973432865
+      type: {class: ExposedParameter/Settings, ns: GraphProcessor, asm: Genesis Noise}
+      data:
+        isHidden: 0
+        expanded: 1
+--- !u!21 &1061020964589926975
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/FinalCopy
+  m_Shader: {fileID: 4800000, guid: 513c040fbfb854aebb92cf147e30125a, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &5176272817356564484
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/ShaderNodeDefault
+  m_Shader: {fileID: 4800000, guid: 68e563587669b3e4d8b523655cfd80bf, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SourceA_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceA_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceA_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceB_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceB_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceB_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _FloatVal: 0
+    - _MathMode: 0
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
+--- !u!21 &8472339062943445791
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/ShaderNodeDefault
+  m_Shader: {fileID: 0}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - CRT_2D
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Source_2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_3D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Source_Cube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats: []
+    m_Colors: []
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
