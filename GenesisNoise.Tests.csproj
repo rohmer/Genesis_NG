@@ -52,26 +52,8 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.5.0b4\Editor\Data\BCLExtensions\TargetingPacks\netstandard2.1\analyzers\dotnet\roslyn4.0\cs\System.Text.Json.SourceGeneration.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Effects\FixedEffectNodeTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Generators\Noise\LloydRelaxedPointsNodeTests.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\Math\SubtractTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Constants\BoolNodeTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\GenericTestNode.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\GenericNodeCreation.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\Common\TestGraph.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\Math\AddTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\Graph\BaseGraphTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Functions\MathNodeBehaviorTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Generators\GeneratorNodeContractTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Generators\Noise\FixedNoiseNodeTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Conditional\ForEndContractTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Generators\Noise\VelvetNoisePointsNodeTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Conditional\SwitchNodeContractTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Conditional\ConditionalNodeContractTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Conditional\ExpandedFlowControlNodeTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\NodeMenuContractTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Functions\FunctionNodeContractTests.cs" />
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\Constants\ColorNodeTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\Tests.asmdef" />
