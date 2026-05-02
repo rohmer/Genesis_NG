@@ -46,7 +46,7 @@ Enum Value	Name	Behavior
 
 - Shader: `Hidden/Genesis/TileSampler`
 - Category: `Tiling`
-- Source: [Runtime/Shaders/Tiling/TileSampler.shader](../../../../Runtime/Shaders/Tiling/TileSampler.shader)
+- Source: [Runtime/Shaders/Tiling/TileSampler.shader](../../../Doxygen/html/_tile_sampler_8shader_source.html)
 - Texture inputs: 9
 - Parameters: 30
 - Linked nodes: 1
@@ -102,7 +102,7 @@ Enum Value	Name	Behavior
 
 ## Includes
 
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl](../../../../Runtime/Shaders/GenesisFixed.hlsl)
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl`
 
 ## Pragmas
 
@@ -114,4 +114,4 @@ Enum Value	Name	Behavior
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Tile Sampler](../../../Nodes/_nodes/operations/tile-sampler.md) | `Tiling/Tile Sampler` | Purpose: tile-sample an atlas texture across UV space and pick/transform tiles per grid cell using seeded randomness, pattern modes (including Gaussian variants), optional patte... |
+| [Tile Sampler](../../../Nodes/_nodes/tiling/tile-sampler.md) | `Tiling/Tile Sampler` | Purpose: tile-sample an atlas texture across UV space and pick/transform tiles per grid cell using seeded randomness, pattern modes (including Gaussian variants), optional patte... |

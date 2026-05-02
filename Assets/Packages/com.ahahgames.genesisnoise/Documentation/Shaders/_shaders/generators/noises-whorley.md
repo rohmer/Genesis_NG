@@ -28,7 +28,7 @@ The node outputs a single scalar noise value with amplitude and contrast shaping
 
 - Shader: `Hidden/Genesis/Worley`
 - Category: `Generators`
-- Source: [Runtime/Shaders/Generators/Noises/Worley.shader](../../../../Runtime/Shaders/Generators/Noises/Worley.shader)
+- Source: [Runtime/Shaders/Generators/Noises/Whorley.shader](../../../Doxygen/html/_whorley_8shader_source.html)
 - Texture inputs: 0
 - Parameters: 4
 - Linked nodes: 1
@@ -48,7 +48,7 @@ _None._
 
 ## Includes
 
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl](../../../../Runtime/Shaders/GenesisFixed.hlsl)
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl`
 
 ## Pragmas
 
@@ -60,4 +60,4 @@ _None._
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Worley](../../../Nodes/_nodes/generators/noise-whorley.md) | `Generators/Noise/Worley` | The Worley node generates a hybrid procedural noise by combining: |
+| [Worley](../../../Nodes/_nodes/generators/noise-worley.md) | `Generators/Noise/Worley` | The Worley node generates a hybrid procedural noise by combining: |

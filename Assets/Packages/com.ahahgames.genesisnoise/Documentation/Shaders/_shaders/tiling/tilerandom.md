@@ -12,7 +12,7 @@ Tile a texture, both straight tiling or stochastic
 
 - Shader: `Hidden/Genesis/TileRandom`
 - Category: `Tiling`
-- Source: [Runtime/Shaders/Tiling/TileRandom.shader](../../../../Runtime/Shaders/Tiling/TileRandom.shader)
+- Source: [Runtime/Shaders/Tiling/TileRandom.shader](../../../Doxygen/html/_tile_random_8shader_source.html)
 - Texture inputs: 4
 - Parameters: 25
 - Linked nodes: 1
@@ -58,7 +58,7 @@ Tile a texture, both straight tiling or stochastic
 
 ## Includes
 
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl](../../../../Runtime/Shaders/GenesisFixed.hlsl)
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl`
 
 ## Pragmas
 
@@ -70,4 +70,4 @@ Tile a texture, both straight tiling or stochastic
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Tiling](../../../Nodes/_nodes/operations/tile-random.md) | `Tiling/Tile Random` | Tile a texture, both straight tiling or stochastic |
+| [Tiling](../../../Nodes/_nodes/tiling/tile-random.md) | `Tiling/Tile Random` | Tile a texture, both straight tiling or stochastic |

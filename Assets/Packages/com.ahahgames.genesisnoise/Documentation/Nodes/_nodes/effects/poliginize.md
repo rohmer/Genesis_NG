@@ -10,11 +10,11 @@
 
 ## Details
 
-- Menu: `Effects/Polygonize`
+- Menu: `Effects/Poliginize`
 - Aliases: `Effects/Polygonize`
 - Node group: `Effects`
 - Shader: `Hidden/Genesis/Poliginization`
-- Source: [Runtime/Nodes/Effects/Effects/PolygonizeNode.cs](../../../../Runtime/Nodes/Effects/Effects/PolygonizeNode.cs)
+- Source: [Runtime/Nodes/Effects/Effects/PolygonizeNode.cs](../../../Doxygen/html/_polygonize_node_8cs_source.html)
 
 ## Documentation
 

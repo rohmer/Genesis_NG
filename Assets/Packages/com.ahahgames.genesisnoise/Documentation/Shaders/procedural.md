@@ -7,16 +7,16 @@
 ## Overview
 
 - Shader count: 6
-- Linked to Genesis nodes: 5
-- Orphan shaders: 1
+- Linked to Genesis nodes: 6
+- Orphan shaders: 0
 
 ## Fractals
 
 | Shader | Hidden Name | Nodes | Summary |
 | --- | --- | ---: | --- |
 | [Julia](_shaders/procedural/fractals-julia.md) | `Hidden/Genesis/Julia` | 1 | Generates two different julia fractals |
-| [Mandelbrot](_shaders/procedural/fractals-mandelbrot.md) | `Hidden/Genesis/Mandelbrot` | 1 | Generates two different mandelbrot fractals |
-| [MengerSponge](_shaders/procedural/fractals-mengersponge.md) | `Hidden/Genesis/MengerSponge` | 0 | Genesis shader implementation backed by `Hidden/Genesis/MengerSponge`. |
+| [Mandelbrot](_shaders/procedural/fractals-mandelbrot.md) | `Hidden/Genesis/Mandelbrot` | 1 | Generates two different Mandelbrot fractals |
+| [MengerSponge](_shaders/procedural/fractals-mengersponge.md) | `Hidden/Genesis/MengerSponge` | 1 | Generates a Menger sponge style fractal mask or UV visualization. |
 
 ## General
 

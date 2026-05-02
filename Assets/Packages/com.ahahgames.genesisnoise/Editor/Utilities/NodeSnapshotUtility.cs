@@ -25,6 +25,7 @@ namespace AhahGames.GenesisNoise
         const float minViewportSize = 64.0f;
         const float minZoom = 0.05f;
         const float maxZoom = 2.0f;
+        const int postCreateProcessingWaitFrames = 2;
 
         sealed class SnapshotRequest
         {
@@ -49,7 +50,12 @@ namespace AhahGames.GenesisNoise
             public Vector3 originalViewPosition;
             public Vector3 originalViewScale;
             public int waitFrames;
+            public int postProcessingWaitFrames;
             public bool isFinished;
+            public bool waitForProcessingAfterNodeCreation;
+            public bool isWaitingForPostCreateProcessing;
+            public bool hasCompletedPostCreateProcessing;
+            public Action processingCompletedHandler;
         }
 
         static readonly List<SnapshotRequest> pendingRequests = new();
@@ -90,6 +96,7 @@ namespace AhahGames.GenesisNoise
                 destroyGraphAfterCapture = false,
                 closeWindowAfterCapture = false,
                 restoreViewAfterCapture = true,
+                waitForProcessingAfterNodeCreation = false,
             });
         }
 
@@ -127,6 +134,7 @@ namespace AhahGames.GenesisNoise
                 destroyGraphAfterCapture = true,
                 closeWindowAfterCapture = true,
                 restoreViewAfterCapture = false,
+                waitForProcessingAfterNodeCreation = true,
             });
         }
 
@@ -209,7 +217,9 @@ namespace AhahGames.GenesisNoise
             if (request.shouldAddNode && !request.graph.nodes.Contains(request.node))
             {
                 request.node.OnNodeCreated();
+                BeginWaitingForPostCreateProcessing(request);
                 request.window.view.AddNode(request.node);
+                request.window.view.ProcessGraph(request.node);
                 EditorUtility.SetDirty(request.graph);
                 request.window.Repaint();
                 return;
@@ -231,6 +241,24 @@ namespace AhahGames.GenesisNoise
             {
                 request.window.Repaint();
                 return;
+            }
+
+            if (request.isWaitingForPostCreateProcessing)
+            {
+                if (!request.hasCompletedPostCreateProcessing)
+                {
+                    request.window.Repaint();
+                    return;
+                }
+
+                if (request.postProcessingWaitFrames > 0)
+                {
+                    request.postProcessingWaitFrames--;
+                    request.window.Repaint();
+                    return;
+                }
+
+                EndWaitingForPostCreateProcessing(request);
             }
 
             if (!request.hasStoredViewState)
@@ -262,6 +290,38 @@ namespace AhahGames.GenesisNoise
                 request.captureQueued = true;
                 request.window.Repaint();
             }
+        }
+
+        static void BeginWaitingForPostCreateProcessing(SnapshotRequest request)
+        {
+            if (!request.waitForProcessingAfterNodeCreation || request.graph == null)
+                return;
+
+            EndWaitingForPostCreateProcessing(request);
+
+            request.isWaitingForPostCreateProcessing = true;
+            request.hasCompletedPostCreateProcessing = false;
+            request.postProcessingWaitFrames = 0;
+            request.processingCompletedHandler = () =>
+            {
+                if (request.isFinished)
+                    return;
+
+                request.hasCompletedPostCreateProcessing = true;
+                request.postProcessingWaitFrames = Mathf.Max(request.postProcessingWaitFrames, postCreateProcessingWaitFrames);
+                request.window?.Repaint();
+            };
+
+            request.graph.afterCommandBufferExecuted += request.processingCompletedHandler;
+        }
+
+        static void EndWaitingForPostCreateProcessing(SnapshotRequest request)
+        {
+            if (request.processingCompletedHandler != null && request.graph != null)
+                request.graph.afterCommandBufferExecuted -= request.processingCompletedHandler;
+
+            request.processingCompletedHandler = null;
+            request.isWaitingForPostCreateProcessing = false;
         }
 
         static GenesisGraphWindow FindExistingWindow(GenesisGraph graph)
@@ -395,6 +455,8 @@ namespace AhahGames.GenesisNoise
 
         static void CleanupRequest(SnapshotRequest request)
         {
+            EndWaitingForPostCreateProcessing(request);
+
             if (request.captureOverlay != null)
             {
                 request.captureOverlay.RemoveFromHierarchy();

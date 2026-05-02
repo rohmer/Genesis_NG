@@ -12,7 +12,7 @@ More randomized and curled scratches
 
 - Shader: `Hidden/Genesis/OrganicScratches`
 - Category: `Generators`
-- Source: [Runtime/Shaders/Generators/Patterns/OrganicScratches.shader](../../../../Runtime/Shaders/Generators/Patterns/OrganicScratches.shader)
+- Source: [Runtime/Shaders/Generators/Patterns/OrganicScratches.shader](../../../Doxygen/html/_organic_scratches_8shader_source.html)
 - Texture inputs: 3
 - Parameters: 8
 - Linked nodes: 1
@@ -40,7 +40,7 @@ More randomized and curled scratches
 
 ## Includes
 
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl](../../../../Runtime/Shaders/GenesisFixed.hlsl)
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl`
 
 ## Pragmas
 
@@ -53,4 +53,4 @@ More randomized and curled scratches
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Organic Scratches](../../../Nodes/_nodes/generators/pattern-organicscratches.md) | `Generators/Pattern/Organic Scratches` | More randomized and curled scratches |
+| [Organic Scratches](../../../Nodes/_nodes/generators/pattern-organic-scratches.md) | `Generators/Pattern/Organic Scratches` | More randomized and curled scratches |

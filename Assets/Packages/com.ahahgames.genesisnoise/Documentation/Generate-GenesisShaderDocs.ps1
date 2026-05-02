@@ -8,6 +8,14 @@ $shaderPagesDir = Join-Path $outputDir "_shaders"
 $shadersRoot = Join-Path $packageRoot "Runtime/Shaders"
 $nodesRoot = Join-Path $packageRoot "Runtime/Nodes"
 $nodeDocsRoot = Join-Path $scriptDir "Nodes"
+$doxygenHelperPath = Join-Path $scriptDir "Documentation.Doxygen.ps1"
+
+if (-not (Test-Path $doxygenHelperPath)) {
+    throw "The Doxygen helper script was not found: $doxygenHelperPath"
+}
+
+. $doxygenHelperPath
+Initialize-DoxygenLinkSupport -ScriptDirectory $scriptDir
 
 function New-Slug {
     param([string]$Text)
@@ -633,8 +641,8 @@ function Write-ShaderPage {
     $pageDirectory = Split-Path -Parent $pagePath
     $readmePath = Join-Path $outputDir "README.md"
     $categoryPath = Join-Path $outputDir $Shader.CategoryFileName
-    $sourceFullPath = Join-Path $packageRoot ($Shader.SourcePath -replace "/", "\")
     $builder = New-Object System.Text.StringBuilder
+    $sourceLink = Get-GenesisDocumentationSourceLink -FromFilePath $pagePath -SourcePath $Shader.SourcePath -PackageRoot $packageRoot
 
     Ensure-Directory $pageDirectory
 
@@ -652,7 +660,7 @@ function Write-ShaderPage {
     [void]$builder.AppendLine()
     [void]$builder.AppendLine("- Shader: ``$($Shader.ShaderName)``")
     [void]$builder.AppendLine("- Category: ``$($Shader.Category)``")
-    [void]$builder.AppendLine("- Source: [$($Shader.SourcePath)]($(Get-MarkdownRelativePath -FromFilePath $pagePath -ToPath $sourceFullPath))")
+    [void]$builder.AppendLine("- Source: [$($Shader.SourcePath)]($sourceLink)")
     [void]$builder.AppendLine("- Texture inputs: $($Shader.TextureProperties.Count)")
     [void]$builder.AppendLine("- Parameters: $($Shader.ParameterProperties.Count)")
     [void]$builder.AppendLine("- Linked nodes: $($Shader.LinkedNodes.Count)")
@@ -676,8 +684,7 @@ function Write-ShaderPage {
             $includeSourcePath = [string](Get-OptionalPropertyValue -Object $include -Name "SourcePath" -Default "")
 
             if (-not [string]::IsNullOrWhiteSpace($includeSourcePath)) {
-                $includeFullPath = Join-Path $packageRoot ($includeSourcePath -replace "/", "\")
-                $includeLink = Get-MarkdownRelativePath -FromFilePath $pagePath -ToPath $includeFullPath
+                $includeLink = Get-GenesisDocumentationSourceLink -FromFilePath $pagePath -SourcePath $includeSourcePath -PackageRoot $packageRoot
                 [void]$builder.AppendLine("- [$includePathValue]($includeLink)")
             }
             else {
@@ -854,7 +861,11 @@ foreach ($category in $categories) {
 [void]$readme.AppendLine()
 [void]$readme.AppendLine("## Regenerate")
 [void]$readme.AppendLine()
+[void]$readme.AppendLine("- Unity: run ``Tools/Genesis Documentation`` to rebuild the Doxygen source browser and refresh the markdown pages.")
+[void]$readme.AppendLine("- CLI: run the scripts below to rebuild the Doxygen source browser and then refresh shader markdown from the current source files.")
+[void]$readme.AppendLine()
 [void]$readme.AppendLine('```powershell')
+[void]$readme.AppendLine("pwsh ./Documentation/Generate-GenesisDoxygen.ps1")
 [void]$readme.AppendLine("pwsh ./Documentation/Generate-GenesisShaderDocs.ps1")
 [void]$readme.AppendLine('```')
 

@@ -12,7 +12,7 @@ Replace the source color by the target color in the image.
 
 - Shader: `Hidden/Genesis/ColorSwap`
 - Category: `Color`
-- Source: [Runtime/Shaders/Color/ColorSwap.shader](../../../../Runtime/Shaders/Color/ColorSwap.shader)
+- Source: [Runtime/Shaders/Color/ColorSwap.shader](../../../Doxygen/html/_color_swap_8shader_source.html)
 - Texture inputs: 3
 - Parameters: 5
 - Linked nodes: 1
@@ -37,7 +37,7 @@ Replace the source color by the target color in the image.
 
 ## Includes
 
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl](../../../../Runtime/Shaders/GenesisFixed.hlsl)
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl`
 
 ## Pragmas
 
@@ -50,4 +50,4 @@ Replace the source color by the target color in the image.
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Swap Color](../../../Nodes/_nodes/color/replace-color-colorswapnode.md) | `Color/Swap Color` | Replace the source color by the target color in the image. |
+| [Swap Color](../../../Nodes/_nodes/color/swap-color.md) | `Color/Swap Color` | Replace the source color by the target color in the image. |

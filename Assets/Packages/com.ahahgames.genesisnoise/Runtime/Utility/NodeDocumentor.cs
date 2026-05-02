@@ -11,14 +11,13 @@ using System.Text.RegularExpressions;
 using UnityEditor;
 
 using UnityEngine;
-using System.Threading;
 
 namespace AhahGames.GenesisNoise.Runtime.Utility
 {
     public static class NodeDocumentor
     {
         const string PackageName = "com.ahahgames.genesisnoise";
-        const string PackageAssetRoot = "Packages/" + PackageName;
+        const string PackageAssetRoot = "Assets/Packages/" + PackageName;
         const float SnapshotPadding = 24.0f;
         static readonly Regex NodeMenuRegex = new Regex("NodeMenuItem\\(\"([^\"]+)\"", RegexOptions.Compiled);
         static readonly List<CaptureJob> captureQueue = new List<CaptureJob>();
@@ -97,8 +96,7 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
             try
             {
                 node = (GenesisNode)Activator.CreateInstance(job.NodeType);
-                node.OnNodeCreated();               
-                Thread.Sleep(1000);
+                node.OnNodeCreated();
                 if (node.position.position == Vector2.zero)
                     node.position = new Rect(64.0f, 64.0f, node.position.width, node.position.height);
             }
@@ -127,9 +125,14 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
 
         static void FinishGeneration()
         {
-            EditorUtility.DisplayProgressBar("Genesis Documentation", "Refreshing markdown pages...", 1.0f);
+            EditorUtility.DisplayProgressBar("Genesis Documentation", "Running Doxygen...", 0.95f);
+            bool doxygenSucceeded = RunDocumentationScript("Generate-GenesisDoxygen.ps1", "Doxygen");
 
-            bool markdownSucceeded = RunMarkdownGenerator();
+            EditorUtility.DisplayProgressBar("Genesis Documentation", "Refreshing node pages...", 0.975f);
+            bool nodeDocsSucceeded = RunDocumentationScript("Generate-GenesisNodeDocs.ps1", "node documentation");
+
+            EditorUtility.DisplayProgressBar("Genesis Documentation", "Refreshing shader pages...", 1.0f);
+            bool shaderDocsSucceeded = RunDocumentationScript("Generate-GenesisShaderDocs.ps1", "shader documentation");
             AssetDatabase.Refresh();
 
             StringBuilder summary = new StringBuilder();
@@ -148,12 +151,20 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
                     summary.AppendLine(string.Format("- ...and {0} more.", captureFailures.Count - 10));
             }
 
-            if (!markdownSucceeded)
-                summary.AppendLine("Markdown regeneration failed. Check the console output for details.");
+            if (!doxygenSucceeded)
+                summary.AppendLine("Doxygen generation failed. Check the console output for details.");
+
+            if (!nodeDocsSucceeded)
+                summary.AppendLine("Node markdown regeneration failed. Check the console output for details.");
+
+            if (!shaderDocsSucceeded)
+                summary.AppendLine("Shader markdown regeneration failed. Check the console output for details.");
+
+            bool hadCaptureFailures = captureFailures.Count > 0;
 
             Cleanup();
 
-            if (captureFailures.Count > 0 || !markdownSucceeded)
+            if (hadCaptureFailures || !doxygenSucceeded || !nodeDocsSucceeded || !shaderDocsSucceeded)
                 Debug.LogWarning(summary.ToString().TrimEnd());
             else
                 Debug.Log(summary.ToString().TrimEnd());
@@ -240,26 +251,26 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
             return jobs.OrderBy(job => job.PrimaryMenu).ToList();
         }
 
-        static bool RunMarkdownGenerator()
+        static bool RunDocumentationScript(string scriptFileName, string description)
         {
-            string scriptPath = Path.Combine(packageRoot, "Documentation", "Generate-GenesisNodeDocs.ps1");
+            string scriptPath = Path.Combine(packageRoot, "Documentation", scriptFileName);
             if (!File.Exists(scriptPath))
             {
-                Debug.LogError("Documentation generator script was not found: " + scriptPath);
+                Debug.LogError(string.Format("The {0} script was not found: {1}", description, scriptPath));
                 return false;
             }
 
             string[] shells = { "pwsh", "powershell" };
             foreach (string shell in shells)
             {
-                if (TryRunMarkdownGenerator(shell, scriptPath))
+                if (TryRunDocumentationScript(shell, scriptPath, description))
                     return true;
             }
 
             return false;
         }
 
-        static bool TryRunMarkdownGenerator(string shellExecutable, string scriptPath)
+        static bool TryRunDocumentationScript(string shellExecutable, string scriptPath, string description)
         {
             try
             {
@@ -278,7 +289,7 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
                 {
                     if (process == null)
                     {
-                        Debug.LogError("Failed to start the markdown generator process.");
+                        Debug.LogError(string.Format("Failed to start the {0} process.", description));
                         return false;
                     }
 
@@ -299,7 +310,8 @@ namespace AhahGames.GenesisNoise.Runtime.Utility
 
                     string errorMessage = string.IsNullOrWhiteSpace(stderr) ? "No error output was provided." : stderr.Trim();
                     Debug.LogError(string.Format(
-                        "Markdown generation failed via {0} with exit code {1}. {2}",
+                        "{0} failed via {1} with exit code {2}. {3}",
+                        description,
                         shellExecutable,
                         process.ExitCode,
                         errorMessage));

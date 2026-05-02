@@ -73,3 +73,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Generated package documentation browser output
+Documentation/Doxygen/html/
+Documentation/Doxygen/xml/
+Documentation/Doxygen/latex/
+.buildcheck/

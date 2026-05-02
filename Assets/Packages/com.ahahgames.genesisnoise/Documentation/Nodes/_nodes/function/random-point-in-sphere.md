@@ -12,7 +12,7 @@
 
 - Menu: `Function/Random/Point in Sphere`
 - Node group: `Random`
-- Source: [Runtime/Nodes/Functions/Random/RandomPointInSphereNode.cs](../../../../Runtime/Nodes/Functions/Random/RandomPointInSphereNode.cs)
+- Source: [Runtime/Nodes/Functions/Random/RandomPointInSphereNode.cs](../../../Doxygen/html/_random_point_in_sphere_node_8cs_source.html)
 
 ## Documentation
 

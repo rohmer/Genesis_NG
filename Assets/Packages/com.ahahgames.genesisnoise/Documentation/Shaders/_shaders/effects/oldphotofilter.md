@@ -18,7 +18,7 @@
 
 - Shader: `Hidden/Genesis/OldPhotoFilter`
 - Category: `Effects`
-- Source: [Runtime/Shaders/Effects/OldPhotoFilter.shader](../../../../Runtime/Shaders/Effects/OldPhotoFilter.shader)
+- Source: [Runtime/Shaders/Effects/OldPhotoFilter.shader](../../../Doxygen/html/_old_photo_filter_8shader_source.html)
 - Texture inputs: 4
 - Parameters: 12
 - Linked nodes: 1
@@ -51,8 +51,8 @@
 
 ## Includes
 
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl](../../../../Runtime/Shaders/GenesisFixed.hlsl)
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/NoiseUtils.hlsl](../../../../Runtime/Shaders/NoiseUtils.hlsl)
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl`
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/NoiseUtils.hlsl`
 
 ## Pragmas
 
@@ -67,4 +67,4 @@
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Old Photo](../../../Nodes/_nodes/effects/old-photo.md) | `Filters/Artistic/Old Photo` | Sepia toning |
+| [Old Photo](../../../Nodes/_nodes/filters/artistic-old-photo.md) | `Filters/Artistic/Old Photo` | Sepia toning |

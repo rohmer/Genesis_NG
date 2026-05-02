@@ -12,7 +12,7 @@ Checkerboard Noise generator.
 
 - Shader: `Hidden/Genesis/Checkerboard`
 - Category: `Generators`
-- Source: [Runtime/Shaders/Generators/Shapes/Checkerboard.shader](../../../../Runtime/Shaders/Generators/Shapes/Checkerboard.shader)
+- Source: [Runtime/Shaders/Generators/Shapes/Checkerboard.shader](../../../Doxygen/html/_checkerboard_8shader_source.html)
 - Texture inputs: 3
 - Parameters: 2
 - Linked nodes: 1
@@ -34,8 +34,8 @@ Checkerboard Noise generator.
 
 ## Includes
 
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl](../../../../Runtime/Shaders/GenesisFixed.hlsl)
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/PerlinNoise.hlsl](../../../../Runtime/Shaders/PerlinNoise.hlsl)
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl`
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/PerlinNoise.hlsl`
 
 ## Pragmas
 
@@ -49,4 +49,4 @@ Checkerboard Noise generator.
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Checkerboard](../../../Nodes/_nodes/generators/shapes-checkboard.md) | `Generators/Shapes/Checkerboard` | Checkerboard Noise generator. |
+| [Checkerboard](../../../Nodes/_nodes/generators/shapes-checkerboard.md) | `Generators/Shapes/Checkerboard` | Checkerboard Noise generator. |

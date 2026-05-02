@@ -6,6 +6,14 @@ $packageRoot = Split-Path -Parent $scriptDir
 $outputDir = Join-Path $scriptDir "Nodes"
 $nodePagesDir = Join-Path $outputDir "_nodes"
 $imageDir = Join-Path $outputDir "_images"
+$doxygenHelperPath = Join-Path $scriptDir "Documentation.Doxygen.ps1"
+
+if (-not (Test-Path $doxygenHelperPath)) {
+    throw "The Doxygen helper script was not found: $doxygenHelperPath"
+}
+
+. $doxygenHelperPath
+Initialize-DoxygenLinkSupport -ScriptDirectory $scriptDir
 
 function New-Slug {
     param([string]$Text)
@@ -360,8 +368,8 @@ function Write-NodePage {
     $imagePath = Join-Path $outputDir ($Node.ImageRelativePath -replace "/", "\")
     $categoryPath = Join-Path $outputDir $Node.CategoryFileName
     $readmePath = Join-Path $outputDir "README.md"
-    $sourceFullPath = Join-Path $packageRoot ($Node.SourcePath -replace "/", "\")
     $builder = New-Object System.Text.StringBuilder
+    $sourceLink = Get-GenesisDocumentationSourceLink -FromFilePath $pagePath -SourcePath $Node.SourcePath -PackageRoot $packageRoot
 
     Ensure-Directory $pageDirectory
 
@@ -400,7 +408,7 @@ function Write-NodePage {
         [void]$builder.AppendLine("- Shader: ``$($Node.ShaderName)``")
     }
 
-    [void]$builder.AppendLine("- Source: [$($Node.SourcePath)]($(Get-MarkdownRelativePath -FromFilePath $pagePath -ToPath $sourceFullPath))")
+    [void]$builder.AppendLine("- Source: [$($Node.SourcePath)]($sourceLink)")
     [void]$builder.AppendLine()
     [void]$builder.AppendLine("## Documentation")
     [void]$builder.AppendLine()
@@ -529,10 +537,11 @@ foreach ($category in $categories) {
 [void]$readme.AppendLine()
 [void]$readme.AppendLine("## Regenerate")
 [void]$readme.AppendLine()
-[void]$readme.AppendLine("- Unity: run ``Tools/Genesis Documentation`` to capture screenshots and refresh all markdown pages.")
-[void]$readme.AppendLine("- CLI: run the script below to refresh markdown only from the current source files.")
+[void]$readme.AppendLine("- Unity: run ``Tools/Genesis Documentation`` to capture screenshots, rebuild the Doxygen source browser, and refresh all markdown pages.")
+[void]$readme.AppendLine("- CLI: run the scripts below to rebuild the Doxygen source browser and then refresh markdown from the current source files.")
 [void]$readme.AppendLine()
 [void]$readme.AppendLine('```powershell')
+[void]$readme.AppendLine("pwsh ./Documentation/Generate-GenesisDoxygen.ps1")
 [void]$readme.AppendLine("pwsh ./Documentation/Generate-GenesisNodeDocs.ps1")
 [void]$readme.AppendLine('```')
 

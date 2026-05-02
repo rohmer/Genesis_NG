@@ -6,8 +6,8 @@
 
 ## Overview
 
-- Node count: 146
-- Inline docs from source: 146
+- Node count: 151
+- Inline docs from source: 151
 - Generated fallback docs: 0
 
 ## Noise
@@ -17,31 +17,34 @@
 | [Anisotropic Noise](_nodes/generators/noise-anisotropic-noise.md) | Anisotropic noise with a controllable direction vector, anisotropy amount, and optional rotation. This noise type produces stretched patterns along the specified direction, idea... |
 | [Blue Noise](_nodes/generators/noise-blue-noise.md) | The BlueNoise node generates deterministic, sampler-free blue-noise-style masks in 2D, 3D, or Cube space. |
 | [Brownian Noise](_nodes/generators/noise-brownian-noise.md) | The BrownianNoise node generates deterministic, sampler-free Brownian noise in 2D, 3D, or Cube space. |
-| [Cellular Noise](_nodes/generators/noise-cellular-noise.md) | The CellularNoise node generates Worleya'style cellular noise in 2D, 3D, or Cube space, with full control over: |
+| [Cellular Noise](_nodes/generators/noise-cellular-noise.md) | The CellularNoise node generates Worley-style cellular noise in 2D, 3D, or Cube space, with full control over: |
 | [Curl Noise](_nodes/generators/noise-curl-noise.md) | The CurlNoise node generates 2D or 3D curl noise derived from Perlin FBM. |
-| [Derivitive FBM Noise](_nodes/generators/noise-derivative-fbm.md) | The FBMD node generates multia'dimensional fractal noise, outputting three correlated channels (X, Y, Z). |
+| [Derivitive FBM Noise](_nodes/generators/noise-derivative-fbm.md) | The FBMD node generates multi-dimensional fractal noise, outputting three correlated channels (X, Y, Z). |
 | [FBM Noise](_nodes/generators/noise-fbm.md) | The FBM node generates fractal noise by layering multiple octaves of a base noise function. |
 | [Fractal Brownian Motion](_nodes/generators/noise-fractal-brownian-motion.md) | Generates classic fractal Brownian motion noise by layering Perlin noise across multiple octaves. |
 | [Fractal Sum Base](_nodes/generators/noise-fractal-sum-base.md) | A configurable multi-octave fractal noise engine |
+| [Gabor Noise](_nodes/generators/noise-gabor-noise.md) | Sparse-convolution Gabor noise for brushed, fibrous, scratchy, and directional surface breakup. |
 | [Gaussian Noise](_nodes/generators/noise-gaussian-noise.md) | Deterministic, sampler-free Gaussian noise |
 | [Grey Noise](_nodes/generators/noise-grey-noise.md) | The GreyNoise node generates deterministic, sampler-free grey noise in 2D, 3D, or Cube space. |
-| [Honeycomb Noise](_nodes/generators/noise-honeycomb-noise.md) | The Honeycomb node generates hexagonal and stara'shaped cellular patterns using a custom hasha'driven lattice evaluation. |
+| [Honeycomb Noise](_nodes/generators/noise-honeycomb-noise.md) | The Honeycomb node generates hexagonal and star-shaped cellular patterns using a custom hash-driven lattice evaluation. |
+| [Hybrid Multifractal](_nodes/generators/noise-hybrid-multifractal.md) | Hybrid multifractal terrain noise built on a gradient-noise basis. |
 | [Moisture Noise](_nodes/generators/noise-moisture-noise.md) | It's not Perlin, not Worley, not Clouds - it's a hybrid pattern that looks like: |
 | [Multi Noise](_nodes/generators/noise-multi-noise.md) | Generates a variety of noise types based on a dropdown |
+| [OpenSimplex2](_nodes/generators/noise-opensimplex2.md) | Generates OpenSimplex2 noise using the package's ImproveXY-style lattice mapping. |
 | [Perlin Noise](_nodes/generators/noise-perlin-noise.md) | The PerlinNoise node generates 2D or 3D Perlin FBM noise with full control over: |
 | [Pink Noise](_nodes/generators/noise-pink-noise.md) | The PinkNoise node generates deterministic, sampler-free pink noise in 2D, 3D, or Cube space. |
-| [Ridged Cellular Noise](_nodes/generators/noise-ridged-cellular-noise.md) | The RidgedCellularNoise node generates higha'contrast, ridgea'enhanced cellular noise in 2D, 3D, or Cube space. |
-| [Ridged Perlin Noise](_nodes/generators/noise-ridged-perlin-noise.md) | The RidgedPerlinNoise node generates higha'contrast, ridgea'enhanced Perlin FBM noise in 2D, 3D, or Cube space. |
+| [Ridged Cellular Noise](_nodes/generators/noise-ridged-cellular-noise.md) | The RidgedCellularNoise node generates high-contrast, ridge-enhanced cellular noise in 2D, 3D, or Cube space. |
+| [Ridged Perlin Noise](_nodes/generators/noise-ridged-perlin-noise.md) | The RidgedPerlinNoise node generates high-contrast, ridge-enhanced Perlin FBM noise in 2D, 3D, or Cube space. |
 | [Simplex Noise 2D](_nodes/generators/noise-simplex-2d.md) | The Simplex2D node generates 2D simplex noise using a clean, deterministic implementation of Inigo Quilez's classic simplex algorithm. |
 | [Simplex Noise 3D](_nodes/generators/noise-simplex-3d.md) | The Simplex3D node generates 3D simplex noise or 3D simplex FBM depending on the selected mode. |
 | [Value](_nodes/generators/noise-value.md) | The ValueNoise (2D / 3D / 4D) node generates deterministic, sampler-free value noise in 2D, 3D, or 4D space. |
 | [Velvet Noise](_nodes/generators/noise-velvet-noise.md) | The VelvetNoise node generates deterministic, sampler-free velvet noise in 2D, 3D, or Cube space. |
 | [Violet Noise](_nodes/generators/noise-violet-noise.md) | The VioletNoise node generates deterministic, sampler-free violet-noise-style masks in 2D, 3D, or Cube space. |
 | [Voronoi From Points (Compute)](_nodes/generators/noise-voronoi-from-points-compute.md) | Builds a Voronoi texture from an input list of normalized 2D points on the GPU. |
-| [Voronoi Noise](_nodes/generators/noise-voronoi-noise.md) | The VoronoiNoise node generates 2D, 3D, or Cubea'space Voronoi (Worley) noise with an extensive set of controls: |
+| [Voronoi Noise](_nodes/generators/noise-voronoi-noise.md) | The VoronoiNoise node generates 2D, 3D, or Cube-space Voronoi (Worley) noise with an extensive set of controls: |
 | [Warp](_nodes/generators/noise-warp-noise.md) | The WarpNoise node performs procedural UV warping, chromatic aberration, and optional color generation using a combination of: |
 | [White Noise](_nodes/generators/noise-white-noise.md) | The WhiteNoise node generates deterministic, sampler-free white noise in 2D, 3D, or Cube space. |
-| [Worley](_nodes/generators/noise-whorley.md) | The Worley node generates a hybrid procedural noise by combining: |
+| [Worley](_nodes/generators/noise-worley.md) | The Worley node generates a hybrid procedural noise by combining: |
 
 ## Other
 
@@ -50,7 +53,8 @@
 | [Aurora](_nodes/generators/other-aurora.md) | Simulates an Aurora |
 | [Cantor Set](_nodes/generators/other-cantor-set.md) | Generates a Cantor set, a fractal that consists of an infinite number of points, but has zero measure. It is created by repeatedly removing the middle third of a line segment, r... |
 | [Julia](_nodes/generators/other-julia.md) | Generates two different julia fractals |
-| [Mandelbrot](_nodes/generators/other-mandelbrot.md) | Generates two different mandelbrot fractals |
+| [Mandelbrot](_nodes/generators/other-mandelbrot.md) | Generates two different Mandelbrot fractals |
+| [Menger Sponge](_nodes/generators/other-menger-sponge.md) | Generates a Menger sponge style fractal mask or UV visualization. |
 | [Minkowski Sausage](_nodes/generators/other-minkowski-sausage.md) | 6-map Minkowski IFS (classic + rotated + mirrored segments) |
 | [Rauzy](_nodes/generators/other-rauzy.md) | The Rauzy fractal is one of the most beautiful substitution-system fractals, but unlike Mandelbrot/Julia, it's not defined by complex iteration. It comes from: |
 | [Sky Generator](_nodes/generators/other-sky-generator.md) | Creates a unique multilayer noise image |
@@ -97,10 +101,10 @@
 | [Leaks 1](_nodes/generators/pattern-leaks-1.md) | Leak origins |
 | [Leaks 2](_nodes/generators/pattern-leaks-2.md) | Heavier leak origins (bigger blotches) |
 | [Marble](_nodes/generators/pattern-marble.md) | Creates a marbalized texture, including an option for further colorization. |
-| [Organic Scratches](_nodes/generators/pattern-organicscratches.md) | More randomized and curled scratches |
+| [Organic Scratches](_nodes/generators/pattern-organic-scratches.md) | More randomized and curled scratches |
 | [Plasma](_nodes/generators/pattern-plasma.md) | It's not just "FBM" and not just "noise turbulence"-it's a fractal interference pattern built from: |
 | [Scratches](_nodes/generators/pattern-scratches.md) | Generates scratch marks for worn, damaged, or weathered surface details. |
-| [Scratches Dirty](_nodes/generators/pattern-scratches-dirty.md) | a" Long directional scratches |
+| [Scratches Dirty](_nodes/generators/pattern-scratches-dirty.md) | Long directional scratches |
 | [Scratches Fine](_nodes/generators/pattern-scratches-fine.md) | Deterministic hash-based noise |
 | [Scratches Generator](_nodes/generators/pattern-scratches-generator.md) | This is not a texture lookup. |
 | [Smudges](_nodes/generators/pattern-smudges.md) | Generates soft smudged streaks for dirt, fingerprints, and directional surface breakup. |
@@ -115,6 +119,7 @@
 | [Blue Noise Points](_nodes/generators/points-blue-noise.md) | Generates a blue-noise style point set using Poisson disk sampling and outputs both a point image and the generated coordinates. |
 | [Brownian Noise Points](_nodes/generators/points-brownian-noise-points.md) | Generates random 2D points from an internally generated Brownian-noise density field. |
 | [Grey Noise Points](_nodes/generators/points-grey-noise-points.md) | Generates random 2D points from an internally generated grey-noise density field. |
+| [Lloyd Relaxed Points](_nodes/generators/points-lloyd-relaxed-points.md) | Generates a Lloyd-relaxed point distribution and outputs both the preview image and normalized UV coordinates. |
 | [Pink Noise Points](_nodes/generators/points-pink-noise-points.md) | Generates random 2D points from an internally generated pink-noise density field. |
 | [Poisson Disk Points](_nodes/generators/points-poisson-disk-points.md) | Generates a 2D Poisson disk point set and outputs both a point image and the generated coordinates. |
 | [Poisson Disk Points From Noise](_nodes/generators/points-poisson-disk-points-from-noise.md) | Generates adaptive Poisson disk points using a noise texture to scale the local disk size. |
@@ -129,7 +134,7 @@
 | [Arc Bricks](_nodes/generators/shapes-arc-bricks.md) | Generates concentric arcs, bricks along arcs, per-arc and per-brick randomization, non-square compensation, and a height mask suitable for feeding into your existing Height->Nor... |
 | [Bacteria](_nodes/generators/shapes-bacteria.md) | Generates a bacteria like noise pattern |
 | [Bricks](_nodes/generators/shapes-bricks.md) | Generates a brick wall pattern |
-| [Checkerboard](_nodes/generators/shapes-checkboard.md) | Checkerboard Noise generator. |
+| [Checkerboard](_nodes/generators/shapes-checkerboard.md) | Checkerboard Noise generator. |
 | [Circular Gradient](_nodes/generators/shapes-circular-gradient.md) | A clean radial gradient (center -> edge) |
 | [Cylinder](_nodes/generators/shapes-cylinder.md) | Generates a line pattern. In 3D this node generate cylinders using a signed distance field function. |
 | [Disk](_nodes/generators/shapes-disk.md) | Generate a Disk, in 3D this node generate a solid spheres. |

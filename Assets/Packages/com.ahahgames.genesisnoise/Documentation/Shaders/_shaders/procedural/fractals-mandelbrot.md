@@ -6,13 +6,13 @@
 
 ## Overview
 
-Generates two different mandelbrot fractals
+Generates two different Mandelbrot fractals
 
 ## Details
 
 - Shader: `Hidden/Genesis/Mandelbrot`
 - Category: `Procedural`
-- Source: [Runtime/Shaders/Procedural/Fractals/Mandelbrot.shader](../../../../Runtime/Shaders/Procedural/Fractals/Mandelbrot.shader)
+- Source: [Runtime/Shaders/Procedural/Fractals/Mandelbrot.shader](../../../Doxygen/html/_procedural_2_fractals_2_mandelbrot_8shader_source.html)
 - Texture inputs: 3
 - Parameters: 4
 - Linked nodes: 1
@@ -36,7 +36,7 @@ Generates two different mandelbrot fractals
 
 ## Includes
 
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl](../../../../Runtime/Shaders/GenesisFixed.hlsl)
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl`
 
 ## Pragmas
 
@@ -50,4 +50,4 @@ Generates two different mandelbrot fractals
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Mandelbrot](../../../Nodes/_nodes/generators/other-mandelbrot.md) | `Generators/Other/Mandelbrot` | Generates two different mandelbrot fractals |
+| [Mandelbrot](../../../Nodes/_nodes/generators/other-mandelbrot.md) | `Generators/Other/Mandelbrot` | Generates two different Mandelbrot fractals |

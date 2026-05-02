@@ -13,8 +13,8 @@
 - Menu: `Generators/Other/Mandelbrot`
 - Node group: `Other`
 - Shader: `Hidden/Genesis/Mandelbrot`
-- Source: [Runtime/Nodes/Generator/MandelbrotNode.cs](../../../../Runtime/Nodes/Generator/MandelbrotNode.cs)
+- Source: [Runtime/Nodes/Generator/MandelbrotNode.cs](../../../Doxygen/html/_mandelbrot_node_8cs_source.html)
 
 ## Documentation
 
-Generates two different mandelbrot fractals
+Generates two different Mandelbrot fractals

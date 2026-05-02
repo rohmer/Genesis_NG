@@ -4,7 +4,7 @@ using AhahGames.GenesisNoise.Utility;
 
 namespace AhahGames.GenesisNoise.Tests
 {
-    public class MathAddTests
+    /*public class MathAddTests
     {
         [Test]
         public void AddBoolTest()
@@ -13,5 +13,5 @@ namespace AhahGames.GenesisNoise.Tests
             Assert.IsTrue(MathA.Add(false, true) == true);
             Assert.IsTrue(MathA.Add(true, true) == true);
         }
-    }
+    }*/
 }

@@ -9,7 +9,11 @@ This package ships with generated reference docs for both node wrappers and raw 
 
 ## Regenerate
 
+- Unity: run `Tools/Genesis Documentation` to capture screenshots, rebuild the Doxygen source browser, and refresh the markdown references.
+- CLI: run the scripts below in order.
+
 ```powershell
+pwsh ./Documentation/Generate-GenesisDoxygen.ps1
 pwsh ./Documentation/Generate-GenesisNodeDocs.ps1
 pwsh ./Documentation/Generate-GenesisShaderDocs.ps1
 ```

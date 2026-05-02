@@ -15,7 +15,7 @@
 
 - Shader: `Hidden/Genesis/CartoonFilter`
 - Category: `Effects`
-- Source: [Runtime/Shaders/Effects/CartoonFilter.shader](../../../../Runtime/Shaders/Effects/CartoonFilter.shader)
+- Source: [Runtime/Shaders/Effects/CartoonFilter.shader](../../../Doxygen/html/_cartoon_filter_8shader_source.html)
 - Texture inputs: 4
 - Parameters: 9
 - Linked nodes: 1
@@ -45,8 +45,8 @@
 
 ## Includes
 
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl](../../../../Runtime/Shaders/GenesisFixed.hlsl)
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/NoiseUtils.hlsl](../../../../Runtime/Shaders/NoiseUtils.hlsl)
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl`
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/NoiseUtils.hlsl`
 
 ## Pragmas
 
@@ -61,4 +61,4 @@
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Cartoon](../../../Nodes/_nodes/effects/cartoon.md) | `Filters/Artistic/Cartoon` | Edge detection (Sobel-style) |
+| [Cartoon](../../../Nodes/_nodes/filters/artistic-cartoon.md) | `Filters/Artistic/Cartoon` | Edge detection (Sobel-style) |

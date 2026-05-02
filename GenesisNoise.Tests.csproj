@@ -52,8 +52,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.5.0b4\Editor\Data\BCLExtensions\TargetingPacks\netstandard2.1\analyzers\dotnet\roslyn4.0\cs\System.Text.Json.SourceGeneration.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\Math\SubtractTests.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\GenericTestNode.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\Common\TestGraph.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\Math\AddTests.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\NodeTests\Nodes\AssemblyNodeLifecycleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Tests\Tests.asmdef" />

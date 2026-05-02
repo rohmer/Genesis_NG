@@ -1,0 +1,56 @@
+PROJECT_NAME           = "Genesis Noise"
+PROJECT_BRIEF          = "Source browser for the Genesis Noise package"
+OUTPUT_DIRECTORY       = Documentation/Doxygen
+CREATE_SUBDIRS         = NO
+ALLOW_UNICODE_NAMES    = NO
+OUTPUT_LANGUAGE        = English
+MARKDOWN_SUPPORT       = YES
+AUTOLINK_SUPPORT       = YES
+FULL_PATH_NAMES        = YES
+STRIP_FROM_PATH        = .
+INPUT                  = Runtime \
+                         Editor
+FILE_PATTERNS          = *.cs \
+                         *.shader \
+                         *.cginc \
+                         *.hlsl \
+                         *.compute
+RECURSIVE              = YES
+EXCLUDE_PATTERNS       = */Documentation/* \
+                         */Tests/*
+EXTRACT_ALL            = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+EXTRACT_LOCAL_METHODS  = YES
+HIDE_UNDOC_MEMBERS     = NO
+HIDE_UNDOC_CLASSES     = NO
+SORT_MEMBER_DOCS       = NO
+SORT_BRIEF_DOCS        = NO
+WARN_IF_UNDOCUMENTED   = NO
+WARN_IF_DOC_ERROR      = YES
+QUIET                  = YES
+SHOW_FILES             = YES
+SHOW_INCLUDE_FILES     = NO
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = YES
+REFERENCES_LINK_SOURCE = YES
+VERBATIM_HEADERS       = NO
+SEARCHENGINE           = YES
+GENERATE_TREEVIEW      = YES
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+GENERATE_XML           = YES
+XML_OUTPUT             = xml
+GENERATE_LATEX         = NO
+GENERATE_RTF           = NO
+GENERATE_MAN           = NO
+GENERATE_DOCBOOK       = NO
+GENERATE_QHP           = NO
+GENERATE_ECLIPSEHELP   = NO
+GENERATE_SQLITE3       = NO
+HAVE_DOT               = NO
+EXTENSION_MAPPING      = cs=C# \
+                         shader=C++ \
+                         cginc=C++ \
+                         hlsl=C++ \
+                         compute=C++

@@ -13,7 +13,7 @@
 - Menu: `Generators/Noise/Worley`
 - Node group: `Noise`
 - Shader: `Hidden/Genesis/Worley`
-- Source: [Runtime/Nodes/Generator/Noise/WorleyNode.cs](../../../../Runtime/Nodes/Generator/Noise/WorleyNode.cs)
+- Source: [Runtime/Nodes/Generator/Noise/WorleyNode.cs](../../../Doxygen/html/_worley_node_8cs_source.html)
 
 ## Documentation
 

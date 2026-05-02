@@ -16,7 +16,7 @@
 
 - Shader: `Hidden/Genesis/CanvasTexture`
 - Category: `Effects`
-- Source: [Runtime/Shaders/Effects/CanvasTexture.shader](../../../../Runtime/Shaders/Effects/CanvasTexture.shader)
+- Source: [Runtime/Shaders/Effects/CanvasTexture.shader](../../../Doxygen/html/_canvas_texture_8shader_source.html)
 - Texture inputs: 3
 - Parameters: 8
 - Linked nodes: 1
@@ -44,8 +44,8 @@
 
 ## Includes
 
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl](../../../../Runtime/Shaders/GenesisFixed.hlsl)
-- [Packages/com.ahahgames.genesisnoise/Runtime/Shaders/NoiseUtils.hlsl](../../../../Runtime/Shaders/NoiseUtils.hlsl)
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisFixed.hlsl`
+- `Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/NoiseUtils.hlsl`
 
 ## Pragmas
 
@@ -60,4 +60,4 @@
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Canvas](../../../Nodes/_nodes/effects/canvas.md) | `Filters/Artistic/Canvas` | Paper/canvas fiber grain |
+| [Canvas](../../../Nodes/_nodes/filters/artistic-canvas.md) | `Filters/Artistic/Canvas` | Paper/canvas fiber grain |

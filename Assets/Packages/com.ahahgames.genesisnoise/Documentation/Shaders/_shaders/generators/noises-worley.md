@@ -28,7 +28,7 @@ The node outputs a single scalar noise value with amplitude and contrast shaping
 
 - Shader: `Hidden/Genesis/Worley`
 - Category: `Generators`
-- Source: [Runtime/Shaders/Generators/Noises/Worley.shader](../../../../Runtime/Shaders/Generators/Noises/Worley.shader)
+- Source: [Runtime/Shaders/Generators/Noises/Worley.shader](../../../Doxygen/html/_worley_8shader_source.html)
 - Texture inputs: 0
 - Parameters: 4
 - Linked nodes: 1
