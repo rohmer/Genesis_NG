@@ -1,5 +1,41 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!21 &-8841537996705225944
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Hidden/Genesis/Clouds3
+  m_Shader: {fileID: 4800000, guid: 8e0fb0670c46453459bc59c0524342e3, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - CRT_2D
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _Chunkiness: 0.65
+    - _Contrast: 1.4
+    - _Offset: 0
+    - _Softness: 2
+    - _WarpAmount: 0.35
+    - _WarpScale: 6
+    m_Colors:
+    - _Scale: {r: 3, g: 3, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!21 &-2760147734257523062
 Material:
   serializedVersion: 8
@@ -54,8 +90,18 @@ MonoBehaviour:
   m_Name: GenesisNoiseGraph
   m_EditorClassIdentifier: Genesis Noise::AhahGames.GenesisNoise.Graph.GenesisGraph
   serializedNodes: []
-  nodes: []
-  edges: []
+  nodes:
+  - rid: 9042686530855895074
+  - rid: 9042686530855895075
+  edges:
+  - GUID: d029d520-bf2d-435d-87af-f27753ecadde
+    owner: {fileID: 11400000}
+    inputNodeGUID: b131954d-af41-42dc-b122-376d395c4f48
+    outputNodeGUID: 52d235d7-0283-4950-a8ed-729ced1babe7
+    inputFieldName: input
+    outputFieldName: output
+    inputPortIdentifier: input
+    outputPortIdentifier: output
   groups: []
   stackNodes: []
   pinnedElements:
@@ -74,14 +120,15 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 1635, y: -1343, z: 0}
-  scale: {x: 0.65751624, y: 0.65751624, z: 1}
+  position: {x: 2024, y: -2043, z: 0}
+  scale: {x: 0.8695652, y: 0.8695652, z: 1}
   objectReferences:
   - {fileID: 5176272817356564484}
   - {fileID: 8472339062943445791}
   - {fileID: 1061020964589926975}
   - {fileID: -2760147734257523062}
-  defaultNodeInheritanceMode: -2
+  - {fileID: -8841537996705225944}
+  defaultNodeInheritanceMode: -1
   _mainOutputTexture: {fileID: 2800000, guid: c7438d47471f3be45be0495b30e42462, type: 3}
   Filename: 
   _outputTextures: []
@@ -127,6 +174,143 @@ MonoBehaviour:
       data:
         isHidden: 0
         expanded: 1
+    - rid: 9042686530855895074
+      type: {class: Clouds3Node, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: 52d235d7-0283-4950-a8ed-729ced1babe7
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: -2273.5007
+          y: 2475.3
+          width: 300
+          height: 769
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 769
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -1
+          dimension: -1
+          outputChannels: -1
+          outputPrecision: -1
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -1
+          filterMode: -1
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 7
+        previewSRGB: 0
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        output: {fileID: 0}
+        shader: {fileID: 4800000, guid: 8e0fb0670c46453459bc59c0524342e3, type: 3}
+        material: {fileID: -8841537996705225944}
+        exposedProperties:
+        - displayName: Base Scale
+          referenceName: _Scale
+          tooltip: 
+          type:
+            serializedType: UnityEngine.Vector4, UnityEngine.CoreModule, Version=0.0.0.0,
+              Culture=neutral, PublicKeyToken=null
+        - displayName: Chunkiness
+          referenceName: _Chunkiness
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Warp Amount
+          referenceName: _WarpAmount
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Warp Scale
+          referenceName: _WarpScale
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Softness
+          referenceName: _Softness
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Contrast
+          referenceName: _Contrast
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        - displayName: Value Offset
+          referenceName: _Offset
+          tooltip: 
+          type:
+            serializedType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+              PublicKeyToken=b77a5c561934e089
+        shaderGUID: 8e0fb0670c46453459bc59c0524342e3
+    - rid: 9042686530855895075
+      type: {class: Texture2DOutputNode, ns: AhahGames.GenesisNoise.Nodes, asm: Genesis Noise}
+      data:
+        nodeCustomName: 
+        GUID: b131954d-af41-42dc-b122-376d395c4f48
+        computeOrder: 1
+        position:
+          serializedVersion: 2
+          x: -1786.7003
+          y: 2475
+          width: 300
+          height: 532
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        height: 189
+        settings:
+          widthScale: 1
+          heightScale: 1
+          depthScale: 1
+          width: 1024
+          height: 1024
+          depth: 1
+          potSize: 2048
+          sizeMode: -1
+          dimension: -1
+          outputChannels: -1
+          outputPrecision: -1
+          editFlags: -257
+          doubleBuffered: 0
+          wrapMode: -1
+          filterMode: -1
+          refreshMode: 0
+          period: 0
+        isPreviewCollapsed: 0
+        previewMode: 15
+        previewSRGB: 1
+        previewMip: 0
+        previewVisible: 1
+        previewEV100: 0
+        previewSlice: 0
+        isPinned: 0
+        setPosition: 0
+        asset: {fileID: 0}
+        wrapMode: 0
+        filterMode: 1
+        hasMipMaps: 0
 --- !u!21 &1061020964589926975
 Material:
   serializedVersion: 8

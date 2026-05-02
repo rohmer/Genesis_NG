@@ -1,10 +1,5 @@
-using AhahGames.GenesisNoise.Utility;
-
 using GraphProcessor;
 
-using System;
-
-using UnityEngine;
 using UnityEngine.Rendering;
 
 namespace AhahGames.GenesisNoise.Nodes
@@ -12,7 +7,6 @@ namespace AhahGames.GenesisNoise.Nodes
     [Documentation(@"
 Clamps the input to a specified range.
 ")]
-
     [System.Serializable, NodeMenuItem("Function/Math/Clamp")]
     public class ClampNode : ConstantNode
     {
@@ -27,28 +21,14 @@ Clamps the input to a specified range.
 
         [Output]
         public object output;
+
         public override string name => "Clamp";
         public override string NodeGroup => "Math";
+
         protected override bool ProcessNode(CommandBuffer cmd)
         {
-            if (min == null)
-            {
-                output = null;
-                return true;
-            }
-            if (max == null)
-            {
-                output = null;
-                return true;
-            }
-            if (value == null)
-            {
-                output = null;
-                return true;
-            }
-            value = Mathf.Clamp(TypeCaster.ToFloat(value), TypeCaster.ToFloat(min), TypeCaster.ToFloat(max));
+            output = MathOperationUtility.ClampValue(value, min, max);
             return true;
         }
     }
 }
-

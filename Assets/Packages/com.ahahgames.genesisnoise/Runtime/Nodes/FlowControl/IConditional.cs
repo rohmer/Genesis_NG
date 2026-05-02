@@ -1,7 +1,12 @@
+using System;
+
 namespace AhahGames.GenesisNoise.Nodes
 {
     public interface ILoopStart
     {
+        object CurrentLoopValue { get; set; }
+
+        Type GetLoopValueType();
         void PrepareLoopStart();
         bool IsLastIteration();
     }

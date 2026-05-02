@@ -3,8 +3,8 @@
 
 float _TextureDimension;
 
-#include "Assets/Packages/com.ahahgames.genesisnoiseCustomTexture.hlsl"
-#include "Assets/Packages/com.ahahgames.genesisnoiseGenesisUtils.hlsl"
+#include "Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/CustomTexture.hlsl"
+#include "Assets/Packages/com.ahahgames.genesisnoise/Runtime/Shaders/GenesisUtils.hlsl" 
 
 bool Is2D() { return _TextureDimension == 2; }
 bool Is3D() { return _TextureDimension == 3; }

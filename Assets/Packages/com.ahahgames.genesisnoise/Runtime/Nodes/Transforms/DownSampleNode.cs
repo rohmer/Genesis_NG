@@ -7,7 +7,7 @@ namespace AhahGames.GenesisNoise.Nodes
  Downsamples an input texture by 2x.
 ")]
 
-    [System.Serializable, NodeMenuItem("Transform/Downsample 2X")]
+    [System.Serializable, NodeMenuItem("Transform/Downsample")]
     public class DownsampleNode : FixedNoiseNode
     {
         public override string name => "Downsample";

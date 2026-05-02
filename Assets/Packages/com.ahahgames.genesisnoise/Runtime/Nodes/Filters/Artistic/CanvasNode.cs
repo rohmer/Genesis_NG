@@ -11,11 +11,11 @@ namespace AhahGames.GenesisNoise.Nodes
 - Optional color tinting
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Canvas")]
+    [System.Serializable, NodeMenuItem("Filters/Artistic/Canvas")]
     public class CanvasNode : FixedNoiseNode
     {
         public override string name => "Canvas";
-        public override string NodeGroup => "Modifiers";
+        public override string NodeGroup => "Artistic";
         public override string ShaderName => "Hidden/Genesis/CanvasTexture";
     }
 }

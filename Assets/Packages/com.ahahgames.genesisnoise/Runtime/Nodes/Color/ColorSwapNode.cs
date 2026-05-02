@@ -8,7 +8,7 @@ namespace AhahGames.GenesisNoise.Nodes
 Replace the source color by the target color in the image.
 ")]
 
-    [System.Serializable, NodeMenuItem("Color/Replace Color")]
+    [System.Serializable, NodeMenuItem("Color/Swap Color")]
     public class ColorSwapNode : FixedShaderNode
     {
         public override string name => "Swap Color";

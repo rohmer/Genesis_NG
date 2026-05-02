@@ -286,9 +286,7 @@ namespace AhahGames.GenesisNoise.Nodes
             previewSRGB = defaultPreviewSRGB;
 
             // Patch up inheritance mode with default value in graph
-            onEnabled += () => settings.SyncInheritanceMode(graph.defaultNodeInheritanceMode);
-
-            Telemetry.TelemetryLogger.Logger.LogTelemetry("createNode", this.name);
+            onEnabled += () => settings.SyncInheritanceMode(graph.defaultNodeInheritanceMode);            
         }
 
         protected GenesisNoiseSettings Get2DOnlyRTSettings(GenesisNoiseSettings defaultSettings)

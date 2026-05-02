@@ -169,7 +169,6 @@ namespace AhahGames.GenesisNoise.Graph
 
         void GenesisGraph_onEnabled()
         {
-            Telemetry.TelemetryLogger.Logger.LogMachineInfo();
             // Check that object references are really ours (just in case the asset was duplicated)
             objectReferences.RemoveAll(obj =>
             {

@@ -8,12 +8,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace AhahGames.GenesisNoise.Node
+namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
 Make the input texture tile by wrapping and blending the borders of the texture.
 ")]
-
+    [UnityEngine.Scripting.APIUpdating.MovedFrom(false, sourceNamespace: "AhahGames.GenesisNoise.Node", sourceAssembly: "Genesis Noise", sourceClassName: "TileWrapNode")]
     [System.Serializable, NodeMenuItem("Operations/Textures/Tile Wrap")]
     public class TileWrapNode : FixedShaderNode
     {
@@ -41,7 +41,8 @@ Make the input texture tile by wrapping and blending the borders of the texture.
             {
                 default:
                 case TextureDimension.Cube:
-                    throw new NotImplementedException();
+                    Debug.LogWarning("Tile Wrap does not support cubemap outputs.");
+                    return false;
                 case TextureDimension.Tex2D:
                     updateZones = new CustomRenderTextureUpdateZone[] {
                         new() {

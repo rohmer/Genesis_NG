@@ -7,12 +7,12 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering;
 using UnityEngine.Rendering;
 
-namespace Mixture
+namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
 Converts vector data into a texture representation.
 ")]
-
+    [UnityEngine.Scripting.APIUpdating.MovedFrom(false, sourceNamespace: "Mixture", sourceAssembly: "Genesis Noise", sourceClassName: "VectorToTexture")]
     [System.Serializable, NodeMenuItem("Operations/Vector To Texture")]
     public class VectorToTexture : GenesisNode
     {

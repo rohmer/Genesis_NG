@@ -10,14 +10,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-namespace Genesis
+namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
 Closes a for-loop flow block.
 ")]
-
-    [System.Serializable]
-    // [NodeMenuItem("For End")]
+    [UnityEngine.Scripting.APIUpdating.MovedFrom(false, sourceNamespace: "Genesis", sourceAssembly: "Genesis Noise", sourceClassName: "ForEnd")]
+    [System.Serializable, NodeMenuItem("Conditional/For End")]
     public class ForEnd : GenesisNode, ILoopEnd
     {
         public enum AggregationMode
@@ -34,6 +33,7 @@ Closes a for-loop flow block.
         public object output;
 
         public override string name => "For End";
+        public override string NodeGroup => "Conditional";
 
         public override bool hasPreview => false;
         public override bool hasSettings => false;

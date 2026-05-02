@@ -5,12 +5,12 @@ using GraphProcessor;
 
 using System.Collections.Generic;
 
-namespace Genesis
+namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
 Generate a rectangle pattern. In 3D this node generates cuboid shapes.
 ")]
-
+    [UnityEngine.Scripting.APIUpdating.MovedFrom(false, sourceNamespace: "Genesis", sourceAssembly: "Genesis Noise", sourceClassName: "RectanglesNode")]
     [System.Serializable, NodeMenuItem("Generators/Shapes/Rectangles")]
     public class RectanglesNode : FixedShaderNode
     {

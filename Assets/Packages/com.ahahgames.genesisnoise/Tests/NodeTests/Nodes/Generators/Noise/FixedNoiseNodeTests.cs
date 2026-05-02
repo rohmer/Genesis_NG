@@ -22,6 +22,13 @@ namespace AhahGames.GenesisNoise.Tests.Nodes.Generators.Noise
             yield return CreateCase<VioletNoise>("Violet Noise", "Hidden/Genesis/VioletNoise");
             yield return CreateCase<GreyNoise>("Grey Noise", "Hidden/Genesis/GreyNoise");
             yield return CreateCase<VelvetNoise>("Velvet Noise", "Hidden/Genesis/VelvetNoise");
+            yield return CreateCase<OpenSimplex2Node>("OpenSimplex2", "Hidden/Genesis/OpenSimplexSuite");
+            yield return CreateCase<OpenSimplex2SNode>("OpenSimplex2S", "Hidden/Genesis/OpenSimplexSuite");
+            yield return CreateCase<GaborNoiseNode>("Gabor Noise", "Hidden/Genesis/GaborNoise");
+            yield return CreateCase<HybridMultifractalNode>("Hybrid Multifractal", "Hidden/Genesis/TerrainFractalSuite");
+            yield return CreateCase<HeteroTerrainNode>("Hetero Terrain", "Hidden/Genesis/TerrainFractalSuite");
+            yield return CreateCase<PingPongMultifractalNode>("Ping Pong Multifractal", "Hidden/Genesis/TerrainFractalSuite");
+            yield return CreateCase<RidgedMultifractalNode>("Ridged Multifractal", "Hidden/Genesis/TerrainFractalSuite");
         }
 
         static TestCaseData CreateCase<TNode>(string displayName, string shaderName)

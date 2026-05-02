@@ -6,10 +6,10 @@ namespace AhahGames.GenesisNoise.Nodes
 Checkerboard Noise generator.
 ")]
 
-    [System.Serializable, NodeMenuItem("Generators/Shapes/Checkboard")]
+    [System.Serializable, NodeMenuItem("Generators/Shapes/Checkerboard")]
     public class CheckerboardNode : FixedNoiseNode
     {
-        public override string name => "Checkerboard Noise";
+        public override string name => "Checkerboard";
         public override string ShaderName => "Hidden/Genesis/Checkerboard";
         public override string NodeGroup => "Shape";
     }

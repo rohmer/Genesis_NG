@@ -13,11 +13,11 @@ namespace AhahGames.GenesisNoise.Nodes
 - Edge wear
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Old Photo")]
+    [System.Serializable, NodeMenuItem("Filters/Artistic/Old Photo")]
     public class OldPhotoNode : FixedNoiseNode
     {
         public override string name => "Old Photo";
-        public override string NodeGroup => "Modifiers";
+        public override string NodeGroup => "Artistic";
         public override string ShaderName => "Hidden/Genesis/OldPhotoFilter";
     }
 }

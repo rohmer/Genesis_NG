@@ -1,5 +1,3 @@
-using AhahGames.Telemetry;
-
 using System;
 
 using UnityEngine;
@@ -41,7 +39,6 @@ namespace AhahGames.GenesisNoise.Nodes
             {
                 if (shader == null)
                 {
-                    TelemetryLogger.Logger.LogError(string.Format("{0} shader could not be found", ShaderName));
                     return;
                 }
                 material = new Material(shader);

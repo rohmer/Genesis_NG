@@ -40,12 +40,12 @@ Enum Value	Name	Behavior
 9	GaussianRadial	Gaussian falloff with radial distance from origin.
 ")]
 
-    [System.Serializable, NodeMenuItem("Operations/Tile Sampler")]
+    [System.Serializable, NodeMenuItem("Tiling/Tile Sampler")]
     public class TileSamplerNode : FixedShaderNode
     {
         public override string name => "Tile Sampler";
 
-        public override string NodeGroup => "Operations";
+        public override string NodeGroup => "Tiling";
         public override string ShaderName => "Hidden/Genesis/TileSampler";
 
         public override bool DisplayMaterialInspector => true;

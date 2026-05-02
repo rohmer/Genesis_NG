@@ -1,5 +1,6 @@
 using GraphProcessor;
 
+using System;
 using System.Collections.Generic;
 
 using UnityEngine;
@@ -39,6 +40,12 @@ Begins a for-loop flow block.
         public override bool hasSettings => false;
         public override bool showDefaultInspector => true;
         public override float nodeWidth => GenesisNoiseUtility.smallNodeWidth;
+
+        public object CurrentLoopValue
+        {
+            get => output;
+            set => output = value;
+        }
 
         [CustomPortBehavior(nameof(input))]
         public IEnumerable<PortData> InputPortType(List<SerializableEdge> edges)
@@ -93,6 +100,8 @@ Begins a for-loop flow block.
         }
 
         public bool IsLastIteration() => index == inputCount || inputCount <= 0;
+
+        public Type GetLoopValueType() => inputType.type;
 
         public void PrepareLoopStart()
         {

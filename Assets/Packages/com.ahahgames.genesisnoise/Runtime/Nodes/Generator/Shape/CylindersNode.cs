@@ -4,12 +4,12 @@ using AhahGames.GenesisNoise.Nodes;
 using GraphProcessor;
 
 using System.Collections.Generic;
-namespace Genesis
+namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
 Generates a line pattern. In 3D this node generate cylinders using a signed distance field function.
 ")]
-
+    [UnityEngine.Scripting.APIUpdating.MovedFrom(false, sourceNamespace: "Genesis", sourceAssembly: "Genesis Noise", sourceClassName: "CylinderNode")]
     [System.Serializable, NodeMenuItem("Generators/Shapes/Cylinder")]
     public class CylinderNode : FixedShaderNode
     {

@@ -20,7 +20,7 @@ CRT‑safe 2D/3D/Cube behavior
 Deterministic, sampler‑free UV math
 ")]
 
-    [System.Serializable, NodeMenuItem("Operations/Transformation 2D")]
+    [System.Serializable, NodeMenuItem("Transform/Transformation 2D")]
     public class Transformation2DNode : FixedShaderNode
     {
         public override string name => "Transformation";

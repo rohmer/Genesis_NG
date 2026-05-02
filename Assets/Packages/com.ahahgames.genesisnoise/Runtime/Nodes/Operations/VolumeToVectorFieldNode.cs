@@ -6,12 +6,12 @@ using GraphProcessor;
 
 using System.Collections.Generic;
 
-namespace Mixture
+namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
 Converts a volume input into a vector field texture.
 ")]
-
+    [UnityEngine.Scripting.APIUpdating.MovedFrom(false, sourceNamespace: "Mixture", sourceAssembly: "Genesis Noise", sourceClassName: "VolumeToVectorFieldNode")]
     [System.Serializable, NodeMenuItem("Operations/Volume To Vector Field")]
     public class VolumeToVectorFieldNode : FixedShaderNode
     {

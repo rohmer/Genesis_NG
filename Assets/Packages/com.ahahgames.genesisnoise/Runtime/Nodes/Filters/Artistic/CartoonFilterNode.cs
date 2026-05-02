@@ -10,11 +10,11 @@ namespace AhahGames.GenesisNoise.Nodes
 - Optional halftone dots
 ")]
 
-    [System.Serializable, NodeMenuItem("Effects/Cartoon")]
+    [System.Serializable, NodeMenuItem("Filters/Artistic/Cartoon")]
     public class CartoonNode : FixedNoiseNode
     {
         public override string name => "Cartoon";
-        public override string NodeGroup => "Modifiers";
+        public override string NodeGroup => "Artistic";
         public override string ShaderName => "Hidden/Genesis/CartoonFilter";
     }
 }

@@ -223,6 +223,7 @@ namespace AhahGames.GenesisNoise.Graph
             if (EditorGUI.EndChangeCheck())
                 graphView.ProcessGraph();
 
+            /*
             EditorGUI.BeginChangeCheck();
 
             var newDimension = (OutputDimension)EditorGUILayout.EnumPopup((TextureType)graph.settings.dimension, EditorStyles.toolbarDropDown, GUILayout.Width(114));
@@ -255,6 +256,7 @@ namespace AhahGames.GenesisNoise.Graph
 
                 graphView.ProcessGraph();
             }
+            */
         }
 
         void ShowImproveGenesisWindow()

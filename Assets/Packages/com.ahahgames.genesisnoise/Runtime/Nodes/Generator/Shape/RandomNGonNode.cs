@@ -6,12 +6,12 @@ using GraphProcessor;
 
 using System.Collections.Generic;
 
-namespace Genesis
+namespace AhahGames.GenesisNoise.Nodes
 {
     [Documentation(@"
 Generates a random N-sided polygon.
 ")]
-
+    [UnityEngine.Scripting.APIUpdating.MovedFrom(false, sourceNamespace: "Genesis", sourceAssembly: "Genesis Noise", sourceClassName: "RandomNGonNode")]
     [System.Serializable, NodeMenuItem("Generators/Shapes/Random N-Gon")]
     public class RandomNGonNode : FixedShaderNode
     {
