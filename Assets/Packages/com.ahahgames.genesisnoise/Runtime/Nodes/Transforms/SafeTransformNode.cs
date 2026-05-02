@@ -1,5 +1,3 @@
-using AhahGames.GenesisNoise.Graph;
-
 using GraphProcessor;
 
 using System.Collections.Generic;
@@ -18,19 +16,17 @@ This version focuses on the core Safe Transform workflow:
 - Optional safe rotation snapping
 - X / Y symmetry
 - Manual mip selection for sharper minified results
+
+The node operates on the incoming image input and supports 2D, 3D, and cubemap textures.
 ")]
     [System.Serializable, NodeMenuItem("Transform/Safe Transform")]
-    public class SafeTransformNode : FixedNoiseNode
+    public class SafeTransformNode : FixedShaderNode
     {
         public override string name => "Safe Transform";
         public override string NodeGroup => "Transforms";
         public override string ShaderName => "Hidden/Genesis/SafeTransform";
+        public override bool DisplayMaterialInspector => true;
 
-        protected override GenesisNoiseSettings defaultSettings => Get2DOnlyRTSettings(base.defaultSettings);
-
-        public override List<OutputDimension> supportedDimensions => new()
-        {
-            OutputDimension.Texture2D,
-        };
+        protected override IEnumerable<string> filteredOutProperties => new string[] { };
     }
 }

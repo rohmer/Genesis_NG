@@ -712,11 +712,6 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Views\GenesisNodeView.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="assets\packages\com.ahahgames.genesisnoise\documentation\docs\CreatingAShaderNode.md" />
-    <None Include="assets\packages\com.ahahgames.genesisnoise\documentation\docs\CSharpNode.md" />
-    <None Include="assets\packages\com.ahahgames.genesisnoise\documentation\docs\CustomEditor.md" />
-    <None Include="assets\packages\com.ahahgames.genesisnoise\documentation\docs\HLSLShader.md" />
-    <None Include="assets\packages\com.ahahgames.genesisnoise\documentation\docs\index.md" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_g_n_alpha_key.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_linear_to_s_r_g_b_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_blue_noise_8cs.xml" />
@@ -4548,8 +4543,5 @@
     <ProjectCapability Remove="ReferenceManagerCOM" />
     <ProjectCapability Remove="AssemblyReferences" />
     <ProjectCapability Remove="ReferenceManagerAssemblies" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Docs\" />
   </ItemGroup>
 </Project>

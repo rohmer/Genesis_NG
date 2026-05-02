@@ -12,7 +12,7 @@ Shader "Hidden/Genesis/SafeTransform"
         _Offset("Offset", Vector) = (0.0, 0.0, 0.0, 0.0)
         _Rotation("Rotation (turns)", Range(0, 1)) = 0.0
         [Toggle] _TileSafeRotation("Tile Safe Rotation", Float) = 1
-        [Enum(None,0,X,1,Y,2,X+Y,3)] _Symmetry("Symmetry", Float) = 0
+        [Enum(None,0,X,1,Y,2,XY,3)] _Symmetry("Symmetry", Float) = 0
         _BackgroundColor("Background Color", Color) = (0.0, 0.0, 0.0, 1.0)
         [KeywordEnum(Automatic, Manual)] _MipmapMode("Mipmap Mode", Float) = 0
         _MipmapLevel("Mipmap Level", Range(0, 10)) = 0
@@ -114,34 +114,72 @@ Shader "Hidden/Genesis/SafeTransform"
                 return uv;
             }
 
-            float4 SampleSafe(float2 uv, float3 dir)
+            float2 GetSafeSampleUV(float2 uv, out bool insideBounds)
             {
                 float tile = max(_Tile, 1.0);
                 float2 tiledUv = SnapToOutputPixelGrid(TransformUV(uv) * tile);
+                insideBounds = true;
 
             #if defined(_TILINGMODE_TILED)
-                float2 sampleUv = frac(tiledUv);
+                return frac(tiledUv);
             #else
-                bool inside = all(tiledUv >= 0.0) && all(tiledUv <= tile);
-                if (!inside)
-                    return _BackgroundColor;
-
-                float2 sampleUv = saturate(tiledUv / tile);
+                insideBounds = all(tiledUv >= 0.0) && all(tiledUv <= tile);
+                return saturate(tiledUv / tile);
             #endif
+            }
 
+            float GetEffectiveLod()
+            {
+                float tile = max(_Tile, 1.0);
                 float lod = 0.0;
             #if defined(_MIPMAPMODE_MANUAL)
                 lod = _MipmapLevel;
             #else
                 lod = max(0.0, log2(tile));
             #endif
+                return lod;
+            }
 
-                return SAMPLE_LOD_X(_Source, float3(sampleUv, 0.5), dir, lod);
+            float4 SampleSafe2DOr3D(float3 uv, float3 dir)
+            {
+                bool insideBounds;
+                float2 sampleUv = GetSafeSampleUV(uv.xy, insideBounds);
+
+            #if defined(_TILINGMODE_NONE)
+                if (!insideBounds)
+                    return _BackgroundColor;
+            #endif
+
+                float3 sampleCoord = float3(sampleUv, 0.5);
+
+            #if defined(CRT_3D)
+                sampleCoord.z = uv.z;
+            #endif
+
+                return SAMPLE_LOD_X(_Source, sampleCoord, dir, GetEffectiveLod());
+            }
+
+            float4 SampleSafeCube(float3 dir)
+            {
+                bool insideBounds;
+                float2 sampleUv = GetSafeSampleUV(dir.xy * 0.5 + 0.5, insideBounds);
+
+            #if defined(_TILINGMODE_NONE)
+                if (!insideBounds)
+                    return _BackgroundColor;
+            #endif
+
+                float3 sampleDir = normalize(float3(sampleUv * 2.0 - 1.0, dir.z));
+                return SAMPLE_LOD_X(_Source, float3(sampleUv, 0.5), sampleDir, GetEffectiveLod());
             }
 
             float4 genesis(v2f_customrendertexture i) : SV_Target
             {
-                return SampleSafe(i.localTexcoord.xy, i.direction);
+            #if defined(CRT_CUBE)
+                return SampleSafeCube(i.direction);
+            #else
+                return SampleSafe2DOr3D(i.localTexcoord.xyz, i.direction);
+            #endif
             }
 
             ENDHLSL
