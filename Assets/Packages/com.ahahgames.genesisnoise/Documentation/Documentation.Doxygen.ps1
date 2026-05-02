@@ -142,3 +142,38 @@ function Get-GenesisDocumentationSourceLink {
     $sourceFullPath = Join-Path $PackageRoot ($SourcePath -replace "/", "\")
     return Get-MarkdownRelativePath -FromFilePath $FromFilePath -ToPath $sourceFullPath
 }
+
+function Copy-GenesisDocumentationMarkdownFiles {
+    param(
+        [string]$ScriptDirectory,
+        [string]$OutputDirectory
+    )
+
+    $sourceRoot = Join-Path $ScriptDirectory "Docs"
+    if (-not (Test-Path $sourceRoot)) {
+        return @()
+    }
+
+    $sourceRootFullPath = [IO.Path]::GetFullPath($sourceRoot)
+    if (-not $sourceRootFullPath.EndsWith([IO.Path]::DirectorySeparatorChar)) {
+        $sourceRootFullPath += [IO.Path]::DirectorySeparatorChar
+    }
+
+    $copiedFiles = New-Object System.Collections.Generic.List[string]
+    $sourceFiles = Get-ChildItem -Path $sourceRoot -Recurse -File -Filter *.md
+
+    foreach ($sourceFile in $sourceFiles) {
+        $relativePath = $sourceFile.FullName.Substring($sourceRootFullPath.Length)
+        $destinationPath = Join-Path $OutputDirectory $relativePath
+        $destinationDirectory = Split-Path -Parent $destinationPath
+
+        if (-not (Test-Path $destinationDirectory)) {
+            New-Item -ItemType Directory -Path $destinationDirectory | Out-Null
+        }
+
+        Copy-Item -LiteralPath $sourceFile.FullName -Destination $destinationPath -Force
+        $copiedFiles.Add($destinationPath)
+    }
+
+    return $copiedFiles
+}

@@ -17,11 +17,14 @@
 
 ## Documentation
 
-The node you drop in when you want to transform UVs without ever breaking tiling, aspect ratio, or bounds. It's essentially a bounded, aspect-aware, non-destructive transform wrapper around:
-- Translation
-- Rotation
-- Uniform scaling
-- Optional pivot
-- Optional safe-region clamping
-The key idea:
-No matter what transform you apply, the UVs stay inside 0-1 and never produce invalid sampling.
+A tiling-safe version of Transform 2D inspired by Substance Designer's Safe Transform node.
+
+It lets you tile, offset, rotate, mirror, and optionally fill out-of-bounds space without the usual softening you get from tiny sub-pixel moves.
+
+This version focuses on the core Safe Transform workflow:
+- Tile count
+- Manual or pseudo-random offset
+- Rotation in turns
+- Optional safe rotation snapping
+- X / Y symmetry
+- Manual mip selection for sharper minified results

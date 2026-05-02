@@ -546,3 +546,5 @@ foreach ($category in $categories) {
 [void]$readme.AppendLine('```')
 
 Set-Content -Path (Join-Path $outputDir "README.md") -Value $readme.ToString().TrimEnd() -Encoding utf8
+
+[void](Copy-GenesisDocumentationMarkdownFiles -ScriptDirectory $scriptDir -OutputDirectory $scriptDir)

@@ -2,25 +2,20 @@ Shader "Hidden/Genesis/SafeTransform"
 {
     Properties
     {
-        // Input texture
         [InlineTexture]_Source_2D("Source", 2D) = "white" {}
         [InlineTexture]_Source_3D("Source", 3D) = "white" {}
         [InlineTexture]_Source_Cube("Source", Cube) = "white" {}
 
-        // Transform controls
-        _Offset("Offset (X,Y)", Vector) = (0.0, 0.0, 0, 0)
-        _Scale("Uniform Scale", Range(0.1, 4)) = 1.0
+        [KeywordEnum(None, Tiled)] _TilingMode("Tiling Mode", Float) = 1
+        _Tile("Tile", Range(1, 16)) = 1
+        [KeywordEnum(Manual, Random)] _OffsetMode("Offset Mode", Float) = 0
+        _Offset("Offset", Vector) = (0.0, 0.0, 0.0, 0.0)
         _Rotation("Rotation (turns)", Range(0, 1)) = 0.0
-
-        // Pivot for rotation/scale
-        _Pivot("Pivot", Vector) = (0.5, 0.5, 0.5, 0)
-
-        // Safe region clamp
-        _SafeMin("Safe Min", Vector) = (0.0, 0.0, 0.0, 0)
-        _SafeMax("Safe Max", Vector) = (1.0, 1.0, 1.0, 0)
-
-        // Wrap mode: 0 = Wrap, 1 = Clamp
-        [Enum(Wrap,0,Clamp,1)]_Mode("Wrap Mode", Int) = 0
+        [Toggle] _TileSafeRotation("Tile Safe Rotation", Float) = 1
+        [Enum(None,0,X,1,Y,2,X+Y,3)] _Symmetry("Symmetry", Float) = 0
+        _BackgroundColor("Background Color", Color) = (0.0, 0.0, 0.0, 1.0)
+        [KeywordEnum(Automatic, Manual)] _MipmapMode("Mipmap Mode", Float) = 0
+        _MipmapLevel("Mipmap Level", Range(0, 10)) = 0
     }
 
     SubShader
@@ -37,77 +32,116 @@ Shader "Hidden/Genesis/SafeTransform"
             #pragma target 3.0
 
             #pragma shader_feature CRT_2D CRT_3D CRT_CUBE
+            #pragma shader_feature _TILINGMODE_NONE _TILINGMODE_TILED
+            #pragma shader_feature _OFFSETMODE_MANUAL _OFFSETMODE_RANDOM
+            #pragma shader_feature _MIPMAPMODE_AUTOMATIC _MIPMAPMODE_MANUAL
 
             TEXTURE_SAMPLER_X(_Source);
 
             float4 _Offset;
-            float _Scale;
+            float _Tile;
             float _Rotation;
-            float4 _Pivot;
-            float4 _SafeMin;
-            float4 _SafeMax;
-            int _Mode;
+            float _TileSafeRotation;
+            float _Symmetry;
+            float4 _BackgroundColor;
+            float _MipmapLevel;
 
-            float3 SampleSource(float3 uv, float3 dir)
+            float2 Rotate2D(float2 p, float angle)
             {
-                return SAMPLE_X(_Source, uv, dir).rgb;
-            }
-
-            float3 WrapOrClamp(float3 uv)
-            {
-                return (_Mode == 0) ? frac(uv) : saturate(uv);
-            }
-             
-            float3 Rotate(float2 p, float ang)
-            {
-                float s = sin(ang);
-                float c = cos(ang);
-                return float3(
+                float s = sin(angle);
+                float c = cos(angle);
+                return float2(
                     p.x * c - p.y * s,
-                    p.x * s + p.y * c,
-                    0
+                    p.x * s + p.y * c
                 );
             }
 
-            float3 SafeTransformUV(float3 uv)
+            float2 Hash22(float2 p)
             {
-                float3 pivot = _Pivot.xyz;
+                float3 p3 = frac(float3(p.xyx) * float3(0.1031, 0.1030, 0.0973));
+                p3 += dot(p3, p3.yzx + 33.33);
+                return frac((p3.xx + p3.yz) * p3.zy);
+            }
 
-                // Move to pivot
-                uv -= pivot;
+            float2 GetEffectiveOffset()
+            {
+            #if defined(_OFFSETMODE_RANDOM)
+                return Hash22(_Offset.xy * 37.0 + float2(_Tile, _Tile));
+            #else
+                return _Offset.xy;
+            #endif
+            }
 
-                // Apply uniform scale
-                uv *= _Scale;
+            float GetEffectiveRotationTurns()
+            {
+                float turns = _Rotation;
 
-                // Apply rotation (turns → radians)
-                float ang = _Rotation * 6.2831853;
-                uv = Rotate(uv, ang);
+                // Substance only documents "safe" snapping behavior, not the
+                // exact snap list. Quarter-turn snapping is the blur-safe
+                // equivalent for Genesis' texture-space implementation.
+                if (_TileSafeRotation > 0.5)
+                    turns = round(turns * 4.0) * 0.25;
 
-                // Move back
-                uv += pivot;
+                return turns;
+            }
 
-                // Apply offset
-                uv += _Offset.xyz;
+            float2 ApplySymmetry(float2 uv)
+            {
+                float2 centered = uv - 0.5;
 
-                // Clamp to safe region
-                uv = clamp(uv, _SafeMin.xyz, _SafeMax.xyz);
+                if (_Symmetry == 1.0 || _Symmetry == 3.0)
+                    centered.x = -abs(centered.x);
 
+                if (_Symmetry == 2.0 || _Symmetry == 3.0)
+                    centered.y = -abs(centered.y);
+
+                return centered + 0.5;
+            }
+
+            float2 SnapToOutputPixelGrid(float2 tiledUv)
+            {
+                float2 resolution = float2(_CustomRenderTextureWidth, _CustomRenderTextureHeight);
+                return (floor(tiledUv * resolution) + 0.5) / resolution;
+            }
+
+            float2 TransformUV(float2 uv)
+            {
+                float2 centered = uv - 0.5;
+                centered = Rotate2D(centered, GetEffectiveRotationTurns() * 6.28318530718);
+                uv = centered + 0.5;
+                uv += GetEffectiveOffset();
+                uv = ApplySymmetry(uv);
                 return uv;
+            }
+
+            float4 SampleSafe(float2 uv, float3 dir)
+            {
+                float tile = max(_Tile, 1.0);
+                float2 tiledUv = SnapToOutputPixelGrid(TransformUV(uv) * tile);
+
+            #if defined(_TILINGMODE_TILED)
+                float2 sampleUv = frac(tiledUv);
+            #else
+                bool inside = all(tiledUv >= 0.0) && all(tiledUv <= tile);
+                if (!inside)
+                    return _BackgroundColor;
+
+                float2 sampleUv = saturate(tiledUv / tile);
+            #endif
+
+                float lod = 0.0;
+            #if defined(_MIPMAPMODE_MANUAL)
+                lod = _MipmapLevel;
+            #else
+                lod = max(0.0, log2(tile));
+            #endif
+
+                return SAMPLE_LOD_X(_Source, float3(sampleUv, 0.5), dir, lod);
             }
 
             float4 genesis(v2f_customrendertexture i) : SV_Target
             {
-                float3 uv = i.localTexcoord.xyz;
-
-                // Apply safe transform
-                uv = SafeTransformUV(uv);
-
-                // Wrap or clamp
-                uv = WrapOrClamp(uv);
-
-                float3 col = SampleSource(uv, i.direction);
-
-                return float4(col, 1);
+                return SampleSafe(i.localTexcoord.xy, i.direction);
             }
 
             ENDHLSL

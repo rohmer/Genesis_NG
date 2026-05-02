@@ -28,7 +28,7 @@
 | [Non-Uniform Rotation](_nodes/transform/non-uniform-rotation.md) | Non-Uniform Rotation is a killer addition to your coordinate-space toolkit - it's the rotational equivalent of Non-Square Transform. Instead of scaling X and Y independently, we... |
 | [Polar to Cartesian](_nodes/transform/polar-to-cartesian.md) | Polar -> Cartesian is the perfect companion to your Cartesian -> Polar node. Together they form a complete bidirectional coordinate-space toolkit - essential for: |
 | [Quad Transform](_nodes/transform/quad-transform.md) | Maps any quadrilateral -> any quadrilateral, which means: |
-| [Safe Transform](_nodes/transform/safe-transform.md) | The node you drop in when you want to transform UVs without ever breaking tiling, aspect ratio, or bounds. It's essentially a bounded, aspect-aware, non-destructive transform wr... |
+| [Safe Transform](_nodes/transform/safe-transform.md) | A tiling-safe version of Transform 2D inspired by Substance Designer's Safe Transform node. |
 | [Skew](_nodes/transform/skew.md) | Slanted patterns |
 | [Smart Upsampler 1](_nodes/transform/smart-upsampler-1.md) | Smart Upsampler 1 takes a low-resolution noise and reconstructs a higher-resolution version that preserves the character of the original while adding subtle detail. It's not jus... |
 | [Smart Upsampler 2](_nodes/transform/smart-upsampler-2.md) | Smart Upsampler 2 is the natural evolution of Noise Upscale 1 - sharper, more contrast-preserving, and more structure-aware. |

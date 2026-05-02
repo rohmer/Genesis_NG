@@ -6,14 +6,17 @@
 
 ## Overview
 
-The node you drop in when you want to transform UVs without ever breaking tiling, aspect ratio, or bounds. It's essentially a bounded, aspect-aware, non-destructive transform wrapper around:
-- Translation
-- Rotation
-- Uniform scaling
-- Optional pivot
-- Optional safe-region clamping
-The key idea:
-No matter what transform you apply, the UVs stay inside 0-1 and never produce invalid sampling.
+A tiling-safe version of Transform 2D inspired by Substance Designer's Safe Transform node.
+
+It lets you tile, offset, rotate, mirror, and optionally fill out-of-bounds space without the usual softening you get from tiny sub-pixel moves.
+
+This version focuses on the core Safe Transform workflow:
+- Tile count
+- Manual or pseudo-random offset
+- Rotation in turns
+- Optional safe rotation snapping
+- X / Y symmetry
+- Manual mip selection for sharper minified results
 
 ## Details
 
@@ -21,7 +24,7 @@ No matter what transform you apply, the UVs stay inside 0-1 and never produce in
 - Category: `Transform`
 - Source: [Runtime/Shaders/Transform/SafeTransform.shader](../../../Doxygen/html/_safe_transform_8shader_source.html)
 - Texture inputs: 3
-- Parameters: 7
+- Parameters: 10
 - Linked nodes: 1
 
 ## Texture Inputs
@@ -36,13 +39,16 @@ No matter what transform you apply, the UVs stay inside 0-1 and never produce in
 
 | Property | Label | Type | Default | Tooltip | Attributes |
 | --- | --- | --- | --- | --- | --- |
-| `_Offset` | Offset (X,Y) | `Vector` | `(0.0, 0.0, 0, 0)` |  |  |
-| `_Scale` | Uniform Scale | `Range(0.1, 4)` | `1.0` |  |  |
+| `_TilingMode` | Tiling Mode | `Float` | `1` |  | KeywordEnum(None, Tiled) |
+| `_Tile` | Tile | `Range(1, 16)` | `1` |  |  |
+| `_OffsetMode` | Offset Mode | `Float` | `0` |  | KeywordEnum(Manual, Random) |
+| `_Offset` | Offset | `Vector` | `(0.0, 0.0, 0.0, 0.0)` |  |  |
 | `_Rotation` | Rotation (turns) | `Range(0, 1)` | `0.0` |  |  |
-| `_Pivot` | Pivot | `Vector` | `(0.5, 0.5, 0.5, 0)` |  |  |
-| `_SafeMin` | Safe Min | `Vector` | `(0.0, 0.0, 0.0, 0)` |  |  |
-| `_SafeMax` | Safe Max | `Vector` | `(1.0, 1.0, 1.0, 0)` |  |  |
-| `_Mode` | Wrap Mode | `Int` | `0` |  | Enum(Wrap,0,Clamp,1) |
+| `_TileSafeRotation` | Tile Safe Rotation | `Float` | `1` |  | Toggle |
+| `_Symmetry` | Symmetry | `Float` | `0` |  | Enum(None,0,X,1,Y,2,X+Y,3) |
+| `_BackgroundColor` | Background Color | `Color` | `(0.0, 0.0, 0.0, 1.0)` |  |  |
+| `_MipmapMode` | Mipmap Mode | `Float` | `0` |  | KeywordEnum(Automatic, Manual) |
+| `_MipmapLevel` | Mipmap Level | `Range(0, 10)` | `0` |  |  |
 
 ## Includes
 
@@ -54,9 +60,12 @@ No matter what transform you apply, the UVs stay inside 0-1 and never produce in
 - Entry point: `vertex CustomRenderTextureVertexShader`
 - Entry point: `fragment GenesisFragment`
 - Shader feature: `shader_feature CRT_2D CRT_3D CRT_CUBE`
+- Shader feature: `shader_feature _TILINGMODE_NONE _TILINGMODE_TILED`
+- Shader feature: `shader_feature _OFFSETMODE_MANUAL _OFFSETMODE_RANDOM`
+- Shader feature: `shader_feature _MIPMAPMODE_AUTOMATIC _MIPMAPMODE_MANUAL`
 
 ## Used By Nodes
 
 | Node | Menu | Summary |
 | --- | --- | --- |
-| [Safe Transform](../../../Nodes/_nodes/transform/safe-transform.md) | `Transform/Safe Transform` | The node you drop in when you want to transform UVs without ever breaking tiling, aspect ratio, or bounds. It's essentially a bounded, aspect-aware, non-destructive transform wr... |
+| [Safe Transform](../../../Nodes/_nodes/transform/safe-transform.md) | `Transform/Safe Transform` | A tiling-safe version of Transform 2D inspired by Substance Designer's Safe Transform node. |
