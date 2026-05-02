@@ -4,10 +4,10 @@ Genesis Noise is a procedural content generation tool for Unity that allows you 
 Thank you for your purchase
 
 ## Getting Started ##
-To get started with Genesis Noise, you can check out the [Getting Started Guide](GettingStarted.md) which will walk you through the basics of using the tool and creating your first noise texture.
+To get started with Genesis Noise, you can check out the [Getting Started Guide](Assets/Packages/com.ahahgames.genesisnoise/Documentation/Docs/GettingStarted.md) which will walk you through the basics of using the tool and creating your first noise texture.
 
 ## Node Documentation ##
-[Genesis Nodes](Nodes/README.md) are the building blocks of your noise graphs. Each node performs a specific function, such as generating a type of noise, applying a transformation, or combining multiple inputs. You can find detailed documentation for each node in the [Nodes](Nodes/README.md) section.
+[Genesis Nodes](Assets/Packages//com.ahahgames.genesisnoise/Documentation//Nodes/README.md) are the building blocks of your noise graphs. Each node performs a specific function, such as generating a type of noise, applying a transformation, or combining multiple inputs. You can find detailed documentation for each node in the [Nodes](Assets/Packages//com.ahahgames.genesisnoise/Documentation//Nodes/README.md) section.
 
 ## Extending Genesis Noise ##
-[Creating a Custom Shader Node](CreatingAShaderNode.md) allows you to create your own custom nodes using HLSL shaders. This is a powerful way to extend the functionality of Genesis Noise and create unique effects that are not available with the built-in nodes.
+[Creating a Custom Shader Node](Assets/Packages//com.ahahgames.genesisnoise/Documentation/CreatingAShaderNode.md) allows you to create your own custom nodes using HLSL shaders. This is a powerful way to extend the functionality of Genesis Noise and create unique effects that are not available with the built-in nodes.
