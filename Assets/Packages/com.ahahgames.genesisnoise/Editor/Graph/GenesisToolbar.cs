@@ -87,13 +87,11 @@ namespace AhahGames.GenesisNoise.Graph
             public override void OnGUI(Rect rect)
             {
                 if (GUILayout.Button(Styles.documentation, Styles.improveButtonStyle))
-                    Application.OpenURL(@"https://alelievr.github.io/Genesis/");
+                    Application.OpenURL(@"https://github.com/rohmer/Genesis_NG");
                 if (GUILayout.Button(Styles.bugReport, Styles.improveButtonStyle))
-                    Application.OpenURL(@"https://github.com/alelievr/Genesis/issues/new?assignees=alelievr&labels=bug&template=bug_report.md&title=%5BBUG%5D");
+                    Application.OpenURL(@"");
                 if (GUILayout.Button(Styles.featureRequest, Styles.improveButtonStyle))
-                    Application.OpenURL(@"https://github.com/alelievr/Genesis/issues/new?assignees=alelievr&labels=enhancement&template=feature_request.md&title=");
-                if (GUILayout.Button(Styles.discord, Styles.improveButtonStyle))
-                    Application.OpenURL(@"https://discord.gg/DGxZRP3qeg");
+                    Application.OpenURL(@"");                
             }
         }
 
@@ -223,7 +221,6 @@ namespace AhahGames.GenesisNoise.Graph
             if (EditorGUI.EndChangeCheck())
                 graphView.ProcessGraph();
 
-            /*
             EditorGUI.BeginChangeCheck();
 
             var newDimension = (OutputDimension)EditorGUILayout.EnumPopup((TextureType)graph.settings.dimension, EditorStyles.toolbarDropDown, GUILayout.Width(114));
@@ -256,7 +253,6 @@ namespace AhahGames.GenesisNoise.Graph
 
                 graphView.ProcessGraph();
             }
-            */
         }
 
         void ShowImproveGenesisWindow()
