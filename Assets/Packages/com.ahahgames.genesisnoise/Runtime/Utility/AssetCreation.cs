@@ -45,6 +45,20 @@ namespace AhahGames.GenesisNoise.Utility
 
         }
 
+        [MenuItem("Assets/Genesis Noise/C# Fixed Shader Node",false,200)]
+        public static void CreateCSharpFixedShaderNode()
+        {
+            var template = Resources.Load<TextAsset>(shaderNodeCSharpTemplate);
+            ProjectWindowUtil.CreateScriptAssetFromTemplateFile(AssetDatabase.GetAssetPath(template), shaderNodeDefaultName);
+        }
+
+        [MenuItem("Assets/Genesis Noise/Fixed Shader", false, 201)]
+        public static void CreateCGFixedShaderNode()
+        {
+            var template = Resources.Load<TextAsset>(shaderNodeCGTemplate);
+            ProjectWindowUtil.CreateScriptAssetFromTemplateFile(AssetDatabase.GetAssetPath(template), shaderName);
+        }
+
         public static void SelectionChanged()
         {
             EditorGUIUtility.SetIconForObject(Selection.activeObject, EditorUtilities.logo);
