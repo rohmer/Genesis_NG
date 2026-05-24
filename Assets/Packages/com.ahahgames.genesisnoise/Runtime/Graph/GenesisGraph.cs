@@ -402,7 +402,7 @@ namespace AhahGames.GenesisNoise.Graph
                 {
                     dimension = external.settings.GetResolvedTextureDimension(this);
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     dimension = TextureDimension.Tex2D;
                 }
