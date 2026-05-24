@@ -103,12 +103,16 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\RectanglesNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\Crystal1Node.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\PointGenerator\BrownianNoisePointsNode.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\ChintzNode.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\OgeeNode.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\DamaskNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Filters\Distort\KaleidoscopeNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\ShapeGlowNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Callbacks\NodeGraphProcessorMenuItems.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\AmbientOcclusionNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\OutputTextureSetttings.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Cast\ToBoolNodeView.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\GinghamNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Textures\SmoothStepTexture.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Filters\Blur\BoxBlurNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Math\CoshNode.cs" />
@@ -122,6 +126,7 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Operations\ThermalErosionNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\MosaicNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\NodeGraphProcessor\Runtime\Utils\JsonSerializer.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\GreekKeyNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Color\QuantizeSimpleNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\Fibers2Node.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\BacteriaNode.cs" />
@@ -138,6 +143,7 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Color\HistogramRangeNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Constant\Vector4NodeView.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Random\RandomPointInSphereNodeView.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\PaisleyNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Constant\Vector3IntNodeView.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisRangeDrawer.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\FlowControl\ForEachStart.cs" />
@@ -212,10 +218,12 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\FlowEffectNodeBase.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Utils\FieldFactory.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Material\HDRP\HDRPLitMaterial.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\FleurDeLisNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\PolygonNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Math\AddNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Math\MathOperationUtility.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Filters\Blur\SlopeBlurNode.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\BrocadeNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\PointGenerator\LloydRelaxedPointsNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\SplatterShapeNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\CavityNode.cs" />
@@ -224,6 +232,7 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\WeaveComplexNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Filters\Distort\StrongEmbossNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Cast\ToFloatNodeView.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\ZebraNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Constants\Vector3Node.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\WoodGrainNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Color\ScaleBiasNode.cs" />
@@ -334,6 +343,7 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Transforms\PolarToCartesianNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Utility\NodeTextureUtils.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\NodeGraphProcessor\Runtime\Elements\RelayNode.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\TrellisNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\ShadowsNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\PointGenerator\PinkNoisePointsNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Graph\GenesisNoiseSettings.cs" />
@@ -387,6 +397,7 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Utils\BaseEdgeConnector.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Cast\ToVector3Node.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\Dirt3Node.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\BasketweaveNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Pattern\MarbleNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Views\Function\Constant\TextureNodeView.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\MandelbrotNode.cs" />
@@ -437,6 +448,7 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Operations\BlendNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Textures\LogATexture.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Operations\HeightBlendNode.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\JacquardNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\VectorMorphNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\SpiralArmsFalloffShapeSplatterNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\IUseCustomRenderTextureProcessing.cs" />
@@ -469,6 +481,7 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\Mesh1Node.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Views\EnumSwitchNodeView.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\NodeGraphProcessor\Runtime\Graph\BaseGraph.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\ChinoiserieNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\WeaveDiagonalNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\SmoothWaveNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\NodeGraphProcessor\Runtime\Utils\GraphUtils.cs" />
@@ -527,6 +540,7 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Graph\DefaultNoiseSettings.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Views\RecipeNodeView.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\VelvetNoise.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\MoroccanLatticeNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\GraphInspector.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Views\GenesisGraphView.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Filters\Edge Detect\EdgeDetectionNode.cs" />
@@ -550,6 +564,7 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Noise\OpenSimplexNodes.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Filters\Blur\DirectionalGaussianBlurNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Views\PinnedElementView.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\TartanNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Operations\TextureSamplerNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\PolygonizeNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Filters\Blur\DitherNode.cs" />
@@ -582,6 +597,7 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\CurvatureSmoothNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\RoundedPolygonNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Filters\Blur\RadialBlurNode.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\HarlequinNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\PropertyDrawers\GenesisBlurMatrixDrawer.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Functions\Textures\CosABNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Color\GrayscaleNode.cs" />
@@ -662,6 +678,7 @@
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\TriangleGridNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Graph\RecipeData.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\FlowControl\IConditional.cs" />
+    <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Generator\Shape\LeopardNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Filters\Enhance\AntialiasNode.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Views\ProcessorView.cs" />
     <Compile Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Nodes\Effects\Effects\NonUniformDirWarpNode.cs" />
@@ -773,10 +790,13 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_non_uniform_directional_warp_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_dirt2_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_to_quaternion_node_view_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_moroccan_lattice_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\CA1D\InitialConditionsCA1D.compute" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_anisotropic_noise_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_symmetry_slice_node_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_greek_key_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Rectangles.shader" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_harlequin_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_cloud_layer_decode.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_floodfill_to_color_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_luminance_high_pass_8shader.xml" />
@@ -790,6 +810,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_uber_emboss_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\Separate.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_output_node_view.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_smearing_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_anisotropic_node3.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_weave3_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_replace_color_node_8cs.xml" />
@@ -833,6 +854,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_f583169e99b43ed73664d6d1ff995ffd.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_graph_1_1_genesis_main_window.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_runtime_preview_generator_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\MoroccanLattice.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_fluid2_d_8compute.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_shader_text_texture2_d_template_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_stylized_pebbles_8shader.xml" />
@@ -840,18 +862,22 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_gaussian_spots3_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_gaussian_blur_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_external_output_node_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_smearing_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_anisotropic_node2.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\Grime9.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_grime10_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_sinh_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_5f6df779646abcf2e95716d9037c9d78.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_symmetry_node_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Chinoiserie.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_cos_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Functions\HydraulicErosion.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_while_do_start_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_external_output_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_jacquard_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\BevelSmooth.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_smart_upsampler_curvature_aware_node_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_brocade_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_constants_8_physical_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_support_variables.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_exp_tween_8cs.xml" />
@@ -863,6 +889,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_float_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_parameter_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_scratches_generator_8shader.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_ogee_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_genesis_noise_util_8hlsl.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Noises\PinkNoise.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_channel_combine_node_8cs.xml" />
@@ -897,6 +924,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_multiply_node_wiew.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_exposed_parameter_property_view.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\TerrainTopology\TerrainCurvatureFunctions.hlsl" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_ogee_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_mosaic_filter_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\FinalCopy.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_lloyd_relaxed_points_node_view_8cs.xml" />
@@ -915,6 +943,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_blue_noise.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_u_v_polar_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_genesis_node_inspector_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_damask_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_wind_erosion_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_texture_l_o_g_8compute.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_random_float_node.xml" />
@@ -1073,6 +1102,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_rounded_rectangle_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_honeycomb_noise.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\NonUniformDirectionalWarp.shader" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_basketweave_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_scale_bias_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_type_extension_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_texture_node_8shader.xml" />
@@ -1084,6 +1114,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\GaussianSpots3.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_0a4656cae3c5c8f648136bdb6c33b93a.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_b_w_spots3_8shader.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_zebra_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_aurora_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_texture_division_8compute.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\mathx_8exponential_8cs.xml" />
@@ -1092,6 +1123,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\EdgeDetection.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_unity_1_1_mathematics_1_1_s_d_f.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_voronoi_noise_8shader.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_greek_key_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_blue_noise_points_node_view.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_height_blend_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_u_r_p_lit_material.xml" />
@@ -1141,6 +1173,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_spynx_fractal_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_open_simplex_node_base.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\GenesisVoronoi.hlsl" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_gingham_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Utils\SelfInitialization.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\struct_ahah_games_1_1_genesis_noise_1_1_graph_1_1_processing_scope.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_grey_noise_points_node.xml" />
@@ -1199,6 +1232,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_luminance_high_pass_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_d9e1ee8b7eeef5aeb2ba14118d89af59.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_custom_texture_shader_template_8shader.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Trellis.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_leather_wear_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_flood_fill_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_levels_node_view.xml" />
@@ -1254,7 +1288,9 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_tanh_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_e8254ce2416394caa4c75da71f615b45.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_plasma_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Paisley.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\Terrain\PointGenerator\FastNoise.compute" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_paisley_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_voronoi_noise_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Utils\Swizzle.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_cantor_set_node_8cs.xml" />
@@ -1300,6 +1336,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_channel_split_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_title_bar_definition_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_stack_node_view_provider.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Harlequin.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_truchet_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_tile_random_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_normal_rotate_8shader.xml" />
@@ -1315,6 +1352,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_i_loop_start_extensions_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_i_type_adapter.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_genesis_noise_inspector_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_gingham_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_9a37aeffadacbc1efbb7b772fb75da6f.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_h_d_r_p_lit_material_node_view_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_highpass_color_node.xml" />
@@ -1325,6 +1363,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_grime1_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\ShaderNodeDefault.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_glow_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Damask.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_histogram_shift_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_i_o_r_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_debug_node_view.xml" />
@@ -1339,6 +1378,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_splatter_shape_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_difference_of_gaussians_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_swirl_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_tartan_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_rust_wear_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\BWSpots.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_marble_8shader.xml" />
@@ -1365,6 +1405,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_hex_grid_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_random_point_in_cube_node_view.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_flood_fill_to_color_node_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_chintz_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_whorley_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_1b7e992225ba8154ec6cd86af46f15f7.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_texture_node.xml" />
@@ -1415,6 +1456,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_smart_upsampler_curvature_aware_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_normal_normalize_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_hex_lattice_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_harlequin_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_julia_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_splatter_color_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\Shaders\Functions\Math\TextureMinimum.compute" />
@@ -1505,6 +1547,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_port_data.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_skew_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_diffusion_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\GreekKey.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_recipe_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\CurvatureSobel.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_terrain_voronoi_data_8hlsl.xml" />
@@ -1539,6 +1582,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\Shaders\Functions\Math\TextureSmoothStep.compute" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_gabor_noise_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_cross_section_node_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_brocade_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_spiral_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_texture_a_t_a_n2_8compute.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_curve_node.xml" />
@@ -1602,6 +1646,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Other\CantorSet.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\mathx_8common_8quaternion_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_material_texture_settings_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Jacquard.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_to_quaternion_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_shape_glow_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\mathx_8logic_8float_8cs.xml" />
@@ -1621,6 +1666,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_cloud_layer_decode_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\ray_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_subtract_texture_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Brocade.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_base_node_1_1_node_field_information.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_texture_multiplication_8compute.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\WarpBlur.shader" />
@@ -1635,6 +1681,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_bacteria___a_s_e_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_random_int_node_view_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Normal\NormalVectorRotation.shader" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Ogee.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_dots_generator_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_genesis_vector3_drawer_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_genesis_main_window_8cs.xml" />
@@ -1653,6 +1700,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_extend_shape_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_flood_fill_to_random_grayscale_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_value_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Chintz.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\Filth.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_tanh_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_anisotropic_kuwahara_node.xml" />
@@ -1676,6 +1724,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\Downsample4X.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\mathx_8rounding_8uint_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\Exposure.shader" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_chintz_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\struct_unity_1_1_mathematics_1_1color.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Utils\TextureNode.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_input_attribute.xml" />
@@ -1783,12 +1832,14 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_mini_map_view_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_to_bool_node_view_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_grime9_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_fleur_de_lis_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\namespace_ahah_games_1_1_genesis_noise.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_float_node_view_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_h_d_r_p_lit_material.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_break_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\Error.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_flood_fill_to_shape_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_jacquard_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_marching_cubes_constants_8hlsl.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_to_vector2_node_view_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_leaks_node2_8cs.xml" />
@@ -1836,6 +1887,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_min_texture_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Splatter.hlsl" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_dirt_gradient_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Gingham.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_multiplication_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_hexagons_8hlsl.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\AnisotropicNoise2.shader" />
@@ -1963,6 +2015,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_b_w_spots2_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\NoiseUpscale3.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_1363a8798d8209cb762122132500f053.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_moroccan_lattice_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_mandelbrot_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_f942a3b668c8fa5769e897471ff004f0.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_histogram_shift_node_8cs.xml" />
@@ -1972,6 +2025,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_mesh_to_volume_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_utility_1_1_math_a.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\namespace_ahah_games_1_1_genesis_noise_1_1_runtime.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_trellis_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_self_initialization_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_59299799124442b2f5fd41578d15655d.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_66ee974e55687b50750ae93636e10b26.xml" />
@@ -2004,6 +2058,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\mathx_8_mathf_8translations_8repeat_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_pixelize_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_brownian_noise_points_node_view_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_fleur_de_lis_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_fabric_wear_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_fractal_brownian_motion_noise_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_graph_utils_1_1_traversal_graph.xml" />
@@ -2029,6 +2084,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_procedural_2_fractals_2_mandelbrot_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Functions\Math\TextureAddition.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_fast_functions_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_leopard_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_moisture_noise_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_curvature_smooth_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\namespace_ahah_games.xml" />
@@ -2052,6 +2108,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_menger_sponge_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_noise_scaled_poisson_disk_points_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Filters\SymmetricNearestNeighbor.shader" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_trellis_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_jobify_extensions_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_sky_generator_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_curvature_sobel_node.xml" />
@@ -2097,6 +2154,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_quad_transform_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_clouds3_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_random_points_node_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_damask_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_grunge_leaks1_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_asset_creation_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_genesis_exposed_parameter_property_view_8cs.xml" />
@@ -2128,6 +2186,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_curve_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_quantize_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_genesis_hash_8hlsl.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_ogee_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_gabor_noise_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\Shaders\Functions\Math\TextureLog2.compute" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_10c4812d17ae0e09ba8ff475b1368ef6.xml" />
@@ -2146,6 +2205,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_1dbe8656a470ef3244137849701f0c7b.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\TriangleGrid.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_to_vector4_node_view.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_damask_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Noises\TerrainFractalSuite.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\Colorize.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_base_graph_window.xml" />
@@ -2206,6 +2266,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_math_operation_utility.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_gaussian_spots_node4_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Resources\Templates\ShaderTextTexture2DTemplate.shader" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_harlequin_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Resources\Templates\ShaderTextTextureCubeTemplate.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_wetness_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_extend_shape_8shader.xml" />
@@ -2243,6 +2304,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\GaussianAxial.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_property_drawers_1_1_genesis_power_drawer.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_to_vector2_node_view.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_greek_key_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Resources\NodeTemplate.cs.txt" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_fractal_sum_base_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_houndstooth_node.xml" />
@@ -2259,10 +2321,12 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_exposure_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Noises\VioletNoise.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_0eddbb7dc2c196f6f0ae1941d22e9eb2.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_brocade_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\ColorMatte.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_mesh_to_u_d_f.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_fibers1_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_random_float_node_view_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_trellis_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\MosaicFilter.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Noises\CurlNoise.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_log2_a_texture_8cs.xml" />
@@ -2273,6 +2337,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\HistogramSelect.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_to_int_node_view_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_material_base_node_view.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Tartan.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_whirl_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_a_cos_texture_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_genesis_toolbar_8cs.xml" />
@@ -2296,6 +2361,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_vector_morph_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_rect_parameter.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_genesis_vector2_drawer_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_leopard_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_fast_cosine_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_edge_view.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_vector4_node_8cs.xml" />
@@ -2365,6 +2431,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_warp_blur_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_d93ac84e12d4ad577d642b8b91bf39c2.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_to_vector3_node_view_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Zebra.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_group_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_pink_noise_points_node_view.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\struct_relay_node_1_1_packed_relay_data.xml" />
@@ -2375,6 +2442,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_stripes_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_vector_to_texture_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_vector3_int_node_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_tartan_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_colorize_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_h_q_blur_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_55863bc279ce4d3f54721db443142a10.xml" />
@@ -2384,12 +2452,14 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_grime10_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\Emboss.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_grime2_node_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_gingham_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_job_graph_processor_1_1_graph_schedule_list.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_property_drawers_1_1_genesis_shape_type_drawer.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_wood_grain_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_irradiance_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\NodeGraphProcessor\Editor\Resources\GraphProcessorStyles\BaseNodeView.uss" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_lloyd_relaxed_points_node_view.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_paisley_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Filters\AnisotropicKuwahara.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_auto_crop_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_gradient_settings.xml" />
@@ -2430,6 +2500,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_random_int_node_view.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_value_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_create_node_menu_window_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Leopard.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_graph_1_1_genesis_parameter_view.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_multi_noise_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\struct_unity_1_1_mathematics_1_1bounds.xml" />
@@ -2464,6 +2535,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_histogram_scan_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_group.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_gradient_node_view_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\Basketweave.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_48fed79a6c564aef25e5fe8e2c1037f8.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_glow_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Truchet.shader" />
@@ -2667,6 +2739,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_ad6ad07c4c6f2b2c994470d7656b3311.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_cantor_set_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_divide_texture_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_basketweave_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_cbc90448c1787c7ac923e76e2fcff05c.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_sub_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_to_float_node.xml" />
@@ -2679,6 +2752,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_height_normal_blender_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_hex_lattice_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_histogram_view.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_fleur_de_lis_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Math\Remap.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_node_port_container.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_gradient_circular_node.xml" />
@@ -2734,6 +2808,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\RoundedRectangle.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\MeshToSDF.compute" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_exposure_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_paisley_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\TextureMatte.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_graph_inspector_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Functions\HeightBlend.shader" />
@@ -2749,6 +2824,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_lloyd_relaxed_points_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Noises\MoistureNoise.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_zig_zag_node.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_basketweave_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\Smudges.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_grime3_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_random_float_node_view.xml" />
@@ -2856,6 +2932,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_rectangles_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\mathx_8logic_8byte_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Noises\FractalBrownianMotionNoise.shader" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_zebra_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_vector2_node_view_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_acos_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_curl_noise_8cs.xml" />
@@ -2866,19 +2943,23 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\DiffusionAnisotropic.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_base_edge_connector_listener.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Tiling\Tiling.shader" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_smearing_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_node_settings_view.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_directional_gaussian_blur_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_cellular_noise_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_genesis_tiling_pattern_drawer_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_tartan_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_copy_paste_helper.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_relay_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Color\QuantizeColor.shader" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_chinoiserie_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Procedural\Fractals\MengerSponge.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_cobblestone_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_diffusion_anisotropic_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\GenesisBlit.hlsl" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\mathx_8floatx_8gen_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_genesis_graph_view_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Shapes\FleurDeLis.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\Grime10.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_spynx_fractal_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_dots_8shader.xml" />
@@ -2896,8 +2977,10 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_bricks_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_random_point_in_sphere_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_contrast_8shader.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_chinoiserie_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\Downsample2X.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\AutoCrop.shader" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_leopard_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_message_type_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_brownian_noise_points_node_view.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_fibers_node1_8cs.xml" />
@@ -2940,6 +3023,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_smart_upsampler3_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_constants_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_terrain_multifractal_nodes_8cs.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_chintz_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_serrializable_object_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Wear\MetalWeathering.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_clouds1_node_8cs.xml" />
@@ -2947,6 +3031,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Editor\Resources\UI Blocks\OutputTexture.uxml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\mathx_8rounding_8signed_8float_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\Shaders\Functions\Math\TextureMaximum.compute" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_moroccan_lattice_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Transform\NoiseUpscale3_EdgeAware.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_views_1_1_to_int_node_view.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_f_b_m_d_noise_8cs.xml" />
@@ -3096,6 +3181,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\namespace_unity_editor_1_1_experimental_1_1_graph_view.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\namespace_unity.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\TerrainTopology\TerrainLandformFunctions.hlsl" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_zebra_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_math_operation_utility_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_node_provider_1_1_node_descriptions.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Operations\Effect\FloodFillToShape.shader" />
@@ -3248,6 +3334,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_height_blend_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_pattern_generator_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_pebbles_8shader.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_jacquard_node_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_ahah_games_1_1_genesis_noise_1_1_nodes_1_1_crystal_h_q_node.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_material_extension_8cs.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\class_graph_processor_1_1_animation_curve_parameter.xml" />
@@ -3260,6 +3347,7 @@
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Shaders\Generators\Patterns\BWSpots3.shader" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_02a9331c15b29a93d280c5b239d90336.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_1c4bc7cd47b7f5ac848d9b831ced923b.xml" />
+    <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\_chinoiserie_8shader.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_4c6b2f34f7a734392dbaa9ec46a7c476.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Documentation\Doxygen\xml\dir_870b48562e00f812aeff3d3e2e8c2794.xml" />
     <None Include="Assets\Packages\com.ahahgames.genesisnoise\Runtime\Resources\GenesisNoise\MarchingCubes.compute" />

@@ -6,7 +6,7 @@ Shader "Hidden/Genesis/Gingham"
         [Tooltip(Rotation in radians)] _Angle("Angle", Range(0,6.283)) = 0.0
 
         [Tooltip(Width of each gingham band)] _BandWidth("Band Width", Range(0.05,0.95)) = 0.5
-        [Tooltip(Darkness of single-direction bands)] _BandStrength("Band Strength", Range(0,1)) = 0.45
+        [Tooltip(Darkness of single direction bands)] _BandStrength("Band Strength", Range(0,1)) = 0.45
         [Tooltip(Darkness of overlapping bands)] _OverlapStrength("Overlap Strength", Range(0,1)) = 0.9
         [Tooltip(Fine woven thread detail)] _ThreadDetail("Thread Detail", Range(0,1)) = 0.35
 

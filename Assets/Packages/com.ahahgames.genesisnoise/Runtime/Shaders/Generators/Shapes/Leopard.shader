@@ -11,7 +11,7 @@ Shader "Hidden/Genesis/Leopard"
         [Tooltip(Amount of small filler spots)] _Filler("Filler", Range(0,1)) = 0.45
 
         [Tooltip(Soft edge)] _Softness("Softness", Range(0,0.25)) = 0.035
-        [Tooltip(Fur-like tonal grain)] _FurDetail("Fur Detail", Range(0,1)) = 0.35
+        [Tooltip(Furlike tonal grain)] _FurDetail("Fur Detail", Range(0,1)) = 0.35
         [Tooltip(Contrast shaping)] _Contrast("Contrast", Range(0.5,4)) = 1.2
 
         [Tooltip(Random variation amount)] _Randomness("Randomness", Range(0,1)) = 0.65

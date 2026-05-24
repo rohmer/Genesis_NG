@@ -7,7 +7,7 @@ Shader "Hidden/Genesis/Basketweave"
 
         [Tooltip(Thread width inside each cell)] _Width("Width", Range(0.01,1)) = 0.62
         [Tooltip(Gap between neighboring threads)] _Gap("Gap", Range(0,1)) = 0.22
-        [Tooltip(Number of adjacent threads in each over/under block)] _BlockSize("Block Size", Range(1,8)) = 2
+        [Tooltip(Number of adjacent threads in each overunder block)] _BlockSize("Block Size", Range(1,8)) = 2
 
         [Tooltip(Soft edge)] _Softness("Softness", Range(0,0.5)) = 0.04
         [Tooltip(Rounded thread highlight)] _Ridge("Ridge", Range(0,1)) = 0.35
