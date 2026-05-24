@@ -59,6 +59,20 @@ namespace AhahGames.GenesisNoise.Utility
             ProjectWindowUtil.CreateScriptAssetFromTemplateFile(AssetDatabase.GetAssetPath(template), shaderName);
         }
 
+        [MenuItem("Assets/Genesis Noise/C# Compute Shader Node", false, 201)]
+        public static void CreateCGComputeShaderNode()
+        {
+            var template = Resources.Load<TextAsset>(csharpComputeShaderNodeTemplate);
+            ProjectWindowUtil.CreateScriptAssetFromTemplateFile(AssetDatabase.GetAssetPath(template), shaderName);
+        }
+
+        [MenuItem("Assets/Genesis Noise/Compute Shader", false, 201)]
+        public static void CreateCGComputeShader()
+        {
+            var template = Resources.Load<TextAsset>(computeShaderTemplate);
+            ProjectWindowUtil.CreateScriptAssetFromTemplateFile(AssetDatabase.GetAssetPath(template), shaderName);
+        }
+
         public static void SelectionChanged()
         {
             EditorGUIUtility.SetIconForObject(Selection.activeObject, EditorUtilities.logo);

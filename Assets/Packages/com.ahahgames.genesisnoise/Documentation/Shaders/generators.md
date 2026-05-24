@@ -6,8 +6,8 @@
 
 ## Overview
 
-- Shader count: 143
-- Linked to Genesis nodes: 128
+- Shader count: 160
+- Linked to Genesis nodes: 145
 - Orphan shaders: 15
 
 ## General
@@ -130,26 +130,40 @@
 | --- | --- | ---: | --- |
 | [ArcPavement](_shaders/generators/shapes-arcpavement.md) | `Hidden/Genesis/ArcPavement` | 1 | Generates concentric arcs, bricks along arcs, per-arc and per-brick randomization, non-square compensation, and a height mask suitable for feeding into your existing Height->Nor... |
 | [Bacteria](_shaders/generators/shapes-bacteria.md) | `Hidden/Genesis/Bacteria` | 1 | Generates a bacteria like noise pattern |
+| [Basketweave](_shaders/generators/shapes-basketweave.md) | `Hidden/Genesis/Basketweave` | 1 | Basketweave Shape Generator |
 | [Bricks](_shaders/generators/shapes-bricks.md) | `Hidden/Genesis/Bricks` | 1 | Generates a brick wall pattern |
+| [Brocade](_shaders/generators/shapes-brocade.md) | `Hidden/Genesis/Brocade` | 1 | Brocade Shape Generator |
 | [Checkerboard](_shaders/generators/shapes-checkerboard.md) | `Hidden/Genesis/Checkerboard` | 1 | Checkerboard Noise generator. |
+| [Chinoiserie](_shaders/generators/shapes-chinoiserie.md) | `Hidden/Genesis/Chinoiserie` | 1 | Chinoiserie Shape Generator |
+| [Chintz](_shaders/generators/shapes-chintz.md) | `Hidden/Genesis/Chintz` | 1 | Chintz Shape Generator |
 | [Cylinder](_shaders/generators/shapes-cylinder.md) | `Hidden/Genesis/Cylinder` | 1 | Generates a line pattern. In 3D this node generate cylinders using a signed distance field function. |
+| [Damask](_shaders/generators/shapes-damask.md) | `Hidden/Genesis/Damask` | 1 | Damask Shape Generator |
 | [DotsShader](_shaders/generators/shapes-dots.md) | `Hidden/Genesis/DotsShader` | 1 | Dots generator. |
 | [Ellipse](_shaders/generators/shapes-elipse.md) | `Hidden/Genesis/Ellipse` | 1 | Generates a circle or elipse |
+| [FleurDeLis](_shaders/generators/shapes-fleurdelis.md) | `Hidden/Genesis/FleurDeLis` | 1 | Fleur-de-Lis Shape Generator |
 | [Gaussian1](_shaders/generators/shapes-gaussian1.md) | `Hidden/Genesis/Gaussian1` | 1 | A single soft Gaussian blob per cell |
 | [GaussianAxial](_shaders/generators/shapes-gaussianaxial.md) | `Hidden/Genesis/GaussianAxial` | 1 | A 1D Gaussian stretched along an axis |
 | [GaussianSpots1](_shaders/generators/shapes-gaussianspots1.md) | `Hidden/Genesis/GaussianSpots1` | 1 | Soft Gaussian blobs |
 | [GaussianSpots2](_shaders/generators/shapes-gaussianspots2.md) | `Hidden/Genesis/GaussianSpots2` | 1 | Larger, softer Gaussian blobs |
 | [GaussianSpots3](_shaders/generators/shapes-gaussianspots3.md) | `Hidden/Genesis/GaussianSpots3` | 1 | Large, soft, drifting blobs |
+| [Gingham](_shaders/generators/shapes-gingham.md) | `Hidden/Genesis/Gingham` | 1 | Gingham Shape Generator |
 | [GradientCircular](_shaders/generators/shapes-gradientcircular.md) | `Hidden/Genesis/GradientCircular` | 1 | A clean radial gradient (center -> edge) |
 | [GradientLinear](_shaders/generators/shapes-gradientlinear1.md) | `Hidden/Genesis/GradientLinear` | 1 | A full function gradient generator that supports the following modes: |
+| [GreekKey](_shaders/generators/shapes-greekkey.md) | `Hidden/Genesis/GreekKey` | 1 | Greek Key Shape Generator |
 | [Grid](_shaders/generators/shapes-grid.md) | `Hidden/Genesis/Grid` | 1 | Generates a grid pattern |
+| [Harlequin](_shaders/generators/shapes-harlequin.md) | `Hidden/Genesis/Harlequin` | 1 | Harlequin Shape Generator |
 | [Herringbone](_shaders/generators/shapes-herringbone.md) | `Hidden/Genesis/Herringbone` | 1 | Herringbone Shape Generator |
 | [HexGrid](_shaders/generators/shapes-hexgrid.md) | `Hidden/Genesis/HexGrid` | 1 | Generates a hexagonal grid pattern |
 | [HexLattice](_shaders/generators/shapes-hexlattice.md) | `Hidden/Genesis/HexLattice` | 1 | Generates a hexagonal lattice pattern |
 | [Houndstooth](_shaders/generators/shapes-houndstooth.md) | `Hidden/Genesis/Houndstooth` | 1 | Generates a houndstooth pattern |
+| [Jacquard](_shaders/generators/shapes-jacquard.md) | `Hidden/Genesis/Jacquard` | 1 | Jacquard Shape Generator |
+| [Leopard](_shaders/generators/shapes-leopard.md) | `Hidden/Genesis/Leopard` | 1 | Leopard Shape Generator |
 | [Lines](_shaders/generators/shapes-lines.md) | `Lines` | 0 | Per-line random color |
 | [Mesh1](_shaders/generators/shapes-mesh1.md) | `Hidden/Genesis/Mesh1` | 1 | generates: |
 | [Mesh2](_shaders/generators/shapes-mesh2.md) | `Hidden/Genesis/Mesh2` | 1 | A clean hexagonal mesh (regular hex tiling) |
+| [MoroccanLattice](_shaders/generators/shapes-moroccanlattice.md) | `Hidden/Genesis/MoroccanLattice` | 1 | Moroccan Lattice Shape Generator |
+| [Ogee](_shaders/generators/shapes-ogee.md) | `Hidden/Genesis/Ogee` | 1 | Ogee Shape Generator |
+| [Paisley](_shaders/generators/shapes-paisley.md) | `Hidden/Genesis/Paisley` | 1 | Paisley Shape Generator |
 | [RandomNGon](_shaders/generators/shapes-randomngon.md) | `RandomNGon` | 0 | Genesis shader implementation backed by `RandomNGon`. |
 | [Rectangles](_shaders/generators/shapes-rectangles.md) | `Rectangles` | 0 | Hash-based pseudo-random generator |
 | [RoundedPolygon](_shaders/generators/shapes-roundedpolygon.md) | `Hidden/Genesis/RoundedPolygon` | 1 | Generates a n-sided polygon with optional rounding |
@@ -168,12 +182,15 @@
 | [SplatterColor](_shaders/generators/shapes-splattercolor.md) | `Hidden/Genesis/SplatterColor` | 1 | This Splatter Shape Color gives you: |
 | [SplatterColorMultiPaletteMultiShape](_shaders/generators/shapes-splattercolormultipalettemultishape.md) | `Hidden/Genesis/SplatterColorMultiPaletteMultiShape` | 1 | This node supports: |
 | [Stripes](_shaders/generators/shapes-stripes.md) | `Hidden/Genesis/Stripes` | 1 | Generates a striping pattern |
+| [Tartan](_shaders/generators/shapes-tartan.md) | `Hidden/Genesis/Tartan` | 1 | Tartan Shape Generator |
 | [Tile](_shaders/generators/shapes-tile.md) | `Hidden/Genesis/Tile` | 0 | Tile count X,Y |
 | [TileSamplerColor](_shaders/generators/shapes-tilesamplercolor.md) | `Hidden/Genesis/TileSamplerColor` | 0 | Tile count X,Y |
 | [Torus](_shaders/generators/shapes-torus.md) | `Torus` | 0 | === Utility === |
+| [Trellis](_shaders/generators/shapes-trellis.md) | `Hidden/Genesis/Trellis` | 1 | Trellis Shape Generator |
 | [TriangleGrid](_shaders/generators/shapes-trianglegrid.md) | `Hidden/Genesis/TriangleGrid` | 1 | Generates a repeating triangular grid pattern. |
 | [Weave](_shaders/generators/shapes-weave.md) | `Hidden/Genesis/Weave` | 1 | This node produces a woven over/under pattern using two perpendicular stripe sets, with: |
 | [Weave2](_shaders/generators/shapes-weave2.md) | `Hidden/Genesis/Weave2` | 1 | Where the core weave alternates over/under in a checkerboard, Weave 2 introduces a diagonal shift, giving you that iconic twill slant. |
 | [Weave3](_shaders/generators/shapes-weave3.md) | `Hidden/Genesis/Weave3` | 1 | Weave Complex is where things get really interesting - this is the complex twill variant: |
 | [Whirl](_shaders/generators/shapes-whirl.md) | `Hidden/Genesis/Whirl` | 1 | Generates a Whirl pattern |
+| [Zebra](_shaders/generators/shapes-zebra.md) | `Hidden/Genesis/Zebra` | 1 | Zebra Shape Generator |
 | [ZigZag](_shaders/generators/shapes-zigzag.md) | `Hidden/Genesis/ZigZag` | 1 | Generates a Zig-Zag pattern |

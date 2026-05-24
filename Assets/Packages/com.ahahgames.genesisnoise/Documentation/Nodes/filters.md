@@ -6,8 +6,8 @@
 
 ## Overview
 
-- Node count: 30
-- Inline docs from source: 30
+- Node count: 31
+- Inline docs from source: 31
 - Generated fallback docs: 0
 
 ## Artistic
@@ -34,6 +34,7 @@
 | [Radial Blur](_nodes/filters/blur-radial-blur.md) | Radial Blur |
 | [Radial Blur](_nodes/filters/blur-warp-blur.md) | A warp like blur between 2 input textures. |
 | [Slope Blur](_nodes/filters/blur-slope-blur.md) | Directional blur with the direction given as the slope of a grayscale input |
+| [Smearing](_nodes/filters/blur-smearing.md) | Substance-style smearing driven by a grayscale slope map. |
 
 ## Distort
 

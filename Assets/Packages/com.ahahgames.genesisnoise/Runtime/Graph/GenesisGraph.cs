@@ -397,7 +397,15 @@ namespace AhahGames.GenesisNoise.Graph
             {
                 Texture outputTexture = null;
 
-                TextureDimension dimension = external.settings.GetResolvedTextureDimension(this);
+                TextureDimension dimension;
+                try
+                {
+                    dimension = external.settings.GetResolvedTextureDimension(this);
+                }
+                catch (Exception e)
+                {
+                    dimension = TextureDimension.Tex2D;
+                }
                 GraphicsFormat format = (GraphicsFormat)external.settings.GetGraphicsFormat(this);
                 var rtSettings = external.settings;
 

@@ -18,6 +18,8 @@ This version focuses on the core Safe Transform workflow:
 - X / Y symmetry
 - Manual mip selection for sharper minified results
 
+The node operates on the incoming image input and supports 2D, 3D, and cubemap textures.
+
 ## Details
 
 - Shader: `Hidden/Genesis/SafeTransform`
@@ -45,7 +47,7 @@ This version focuses on the core Safe Transform workflow:
 | `_Offset` | Offset | `Vector` | `(0.0, 0.0, 0.0, 0.0)` |  |  |
 | `_Rotation` | Rotation (turns) | `Range(0, 1)` | `0.0` |  |  |
 | `_TileSafeRotation` | Tile Safe Rotation | `Float` | `1` |  | Toggle |
-| `_Symmetry` | Symmetry | `Float` | `0` |  | Enum(None,0,X,1,Y,2,X+Y,3) |
+| `_Symmetry` | Symmetry | `Float` | `0` |  | Enum(None,0,X,1,Y,2,XY,3) |
 | `_BackgroundColor` | Background Color | `Color` | `(0.0, 0.0, 0.0, 1.0)` |  |  |
 | `_MipmapMode` | Mipmap Mode | `Float` | `0` |  | KeywordEnum(Automatic, Manual) |
 | `_MipmapLevel` | Mipmap Level | `Range(0, 10)` | `0` |  |  |

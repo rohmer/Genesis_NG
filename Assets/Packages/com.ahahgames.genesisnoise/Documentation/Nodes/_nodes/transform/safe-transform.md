@@ -28,3 +28,5 @@ This version focuses on the core Safe Transform workflow:
 - Optional safe rotation snapping
 - X / Y symmetry
 - Manual mip selection for sharper minified results
+
+The node operates on the incoming image input and supports 2D, 3D, and cubemap textures.

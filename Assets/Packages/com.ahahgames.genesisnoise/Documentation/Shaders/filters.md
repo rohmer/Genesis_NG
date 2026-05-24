@@ -6,8 +6,8 @@
 
 ## Overview
 
-- Shader count: 18
-- Linked to Genesis nodes: 15
+- Shader count: 19
+- Linked to Genesis nodes: 16
 - Orphan shaders: 3
 
 ## General
@@ -31,4 +31,5 @@
 | [RadialBlur](_shaders/filters/radialblur.md) | `Hidden/Genesis/RadialBlur` | 1 | Radial Blur |
 | [Sharpen](_shaders/filters/sharpen.md) | `Hidden/Genesis/Sharpen` | 1 | Sharpen the input image using a very simple 3x3 sharpening kernel. |
 | [SlopeBlurGrayscale](_shaders/filters/slopeblurgrayscale.md) | `Hidden/Genesis/SlopeBlurGrayscale` | 1 | Directional blur with the direction given as the slope of a grayscale input |
+| [Smearing](_shaders/filters/smearing.md) | `Hidden/Genesis/Smearing` | 1 | Substance-style smearing driven by a grayscale slope map. |
 | [SymmetricNearestNeighbor](_shaders/filters/symmetricnearestneighbor.md) | `Hidden/Genesis/SymmetricNearestNeighbor` | 1 | symmetric nearest-neighbor smoothing filter. For each symmetric pair of samples (left/right and up/down) at each radius step the shader picks the sample that is closer in lumina... |

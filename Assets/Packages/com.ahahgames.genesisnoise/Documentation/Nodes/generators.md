@@ -6,8 +6,8 @@
 
 ## Overview
 
-- Node count: 151
-- Inline docs from source: 151
+- Node count: 168
+- Inline docs from source: 168
 - Generated fallback docs: 0
 
 ## Noise
@@ -133,31 +133,45 @@
 | --- | --- |
 | [Arc Bricks](_nodes/generators/shapes-arc-bricks.md) | Generates concentric arcs, bricks along arcs, per-arc and per-brick randomization, non-square compensation, and a height mask suitable for feeding into your existing Height->Nor... |
 | [Bacteria](_nodes/generators/shapes-bacteria.md) | Generates a bacteria like noise pattern |
+| [Basketweave](_nodes/generators/shapes-basketweave.md) | Basketweave Shape Generator |
 | [Bricks](_nodes/generators/shapes-bricks.md) | Generates a brick wall pattern |
+| [Brocade](_nodes/generators/shapes-brocade.md) | Brocade Shape Generator |
 | [Checkerboard](_nodes/generators/shapes-checkerboard.md) | Checkerboard Noise generator. |
+| [Chinoiserie](_nodes/generators/shapes-chinoiserie.md) | Chinoiserie Shape Generator |
+| [Chintz](_nodes/generators/shapes-chintz.md) | Chintz Shape Generator |
 | [Circular Gradient](_nodes/generators/shapes-circular-gradient.md) | A clean radial gradient (center -> edge) |
 | [Cylinder](_nodes/generators/shapes-cylinder.md) | Generates a line pattern. In 3D this node generate cylinders using a signed distance field function. |
+| [Damask](_nodes/generators/shapes-damask.md) | Damask Shape Generator |
 | [Disk](_nodes/generators/shapes-disk.md) | Generate a Disk, in 3D this node generate a solid spheres. |
 | [Dots Generator](_nodes/generators/shapes-dots.md) | Dots generator. |
 | [Ellipse](_nodes/generators/shapes-ellipse.md) | Generates a circle or elipse |
 | [Fibers 1](_nodes/generators/shapes-fibers.md) | Generates a fibrous pattern useful for fabric, paper, hairline streaks, and brushed surfaces. |
 | [Fibers 2](_nodes/generators/shapes-fibers-2.md) | Generates a denser fibrous pattern variant for cloth, paper, or brushed-surface detail. |
+| [Fleur-de-Lis](_nodes/generators/shapes-fleur-de-lis.md) | Fleur-de-Lis Shape Generator |
 | [Gaussian Axis](_nodes/generators/shapes-gaussian-axis.md) | A 1D Gaussian stretched along an axis |
 | [Gaussian Cells](_nodes/generators/shapes-gaussian-cells.md) | A single soft Gaussian blob per cell |
 | [Gaussian Spots 1](_nodes/generators/shapes-gaussian-spots-1.md) | Soft Gaussian blobs |
 | [Gaussian Spots 2](_nodes/generators/shapes-gaussian-spots-2.md) | Larger, softer Gaussian blobs |
 | [Gaussian Spots 3](_nodes/generators/shapes-gaussian-spots-3.md) | Large, soft, drifting blobs |
 | [Gaussian Spots 4](_nodes/generators/shapes-gaussian-spots-4.md) | Ink-bloom diffusion |
+| [Gingham](_nodes/generators/shapes-gingham.md) | Gingham Shape Generator |
+| [Greek Key](_nodes/generators/shapes-greek-key.md) | Greek Key Shape Generator |
 | [Grid](_nodes/generators/shapes-grid.md) | Generates a grid pattern |
+| [Harlequin](_nodes/generators/shapes-harlequin.md) | Harlequin Shape Generator |
 | [Herringbone](_nodes/generators/shapes-herringbone.md) | Herringbone Shape Generator |
 | [Hex Grid](_nodes/generators/shapes-hex-grid.md) | Generates a hexagonal grid pattern |
 | [Hex Lattice](_nodes/generators/shapes-hex-lattice.md) | Generates a hexagonal lattice pattern |
 | [Hexagonal Mesh](_nodes/generators/shapes-hexagonal-mesh.md) | A clean hexagonal mesh (regular hex tiling) |
 | [Houndstooth](_nodes/generators/shapes-houndstooth.md) | Generates a houndstooth pattern |
+| [Jacquard](_nodes/generators/shapes-jacquard.md) | Jacquard Shape Generator |
+| [Leopard](_nodes/generators/shapes-leopard.md) | Leopard Shape Generator |
 | [Linear Gradient](_nodes/generators/shapes-linear-gradient.md) | A full function gradient generator that supports the following modes: |
 | [Lines](_nodes/generators/shapes-lines.md) | Generates a line pattern. In 3D this node generate cylinders using a signed distance field function. |
 | [Mesh](_nodes/generators/shapes-mesh.md) | generates: |
+| [Moroccan Lattice](_nodes/generators/shapes-moroccan-lattice.md) | Moroccan Lattice Shape Generator |
 | [Multi Splatter Shape Color](_nodes/generators/shapes-multi-splatter-shape-color.md) | This node supports: |
+| [Ogee](_nodes/generators/shapes-ogee.md) | Ogee Shape Generator |
+| [Paisley](_nodes/generators/shapes-paisley.md) | Paisley Shape Generator |
 | [Pattern Generator](_nodes/generators/shapes-pattern.md) | Pattern generator. |
 | [Polygon Node](_nodes/generators/shapes-polygon-2d.md) | Generates a 2D polygon shape. |
 | [Random N-Gon Node](_nodes/generators/shapes-random-n-gon.md) | Generates a random N-sided polygon. |
@@ -177,6 +191,8 @@
 | [Splatter Shape Color](_nodes/generators/shapes-splatter-shape-color.md) | This Splatter Shape Color gives you: |
 | [Stripes](_nodes/generators/shapes-stripes.md) | Generates a striping pattern |
 | [SuperShape](_nodes/generators/shapes-supershape.md) | Generates procedural shapes based on the Superformula (Gielis formula). |
+| [Tartan](_nodes/generators/shapes-tartan.md) | Tartan Shape Generator |
+| [Trellis](_nodes/generators/shapes-trellis.md) | Trellis Shape Generator |
 | [Triangle Grid](_nodes/generators/shapes-triangle-grid.md) | Generates a repeating triangular grid pattern. |
 | [Truchet](_nodes/generators/shapes-truchet.md) | Generates a Truchet pattern |
 | [Vector Field](_nodes/generators/shapes-vector-field.md) | Generates a vector field using presets to achieve different patterns. The mode property is used to control the pattern to use for the vector field. |
@@ -184,4 +200,5 @@
 | [Weave Complex](_nodes/generators/shapes-weave-complex.md) | Weave Complex is where things get really interesting - this is the complex twill variant: |
 | [Weave Diagonal](_nodes/generators/shapes-weave-diagonal.md) | Where the core weave alternates over/under in a checkerboard, Weave 2 introduces a diagonal shift, giving you that iconic twill slant. |
 | [Whirl](_nodes/generators/shapes-whirl.md) | Generates a Whirl pattern |
+| [Zebra](_nodes/generators/shapes-zebra.md) | Zebra Shape Generator |
 | [Zig Zag](_nodes/generators/shapes-zig-zag.md) | Generates a Zig-Zag pattern |

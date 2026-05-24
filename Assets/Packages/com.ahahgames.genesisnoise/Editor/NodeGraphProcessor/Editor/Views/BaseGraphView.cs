@@ -365,6 +365,8 @@ namespace GraphProcessor
                                     foreach (var edge in pv.GetEdges().ToList())
                                         Disconnect(edge);
 
+                            if (!nodeInspector)
+                                return true;
                             nodeInspector.NodeViewRemoved(nodeView);
                             ExceptionToLog.Call(() => nodeView.OnRemoved());
                             graph.RemoveNode(nodeView.nodeTarget);
@@ -609,11 +611,17 @@ namespace GraphProcessor
 
         bool DoesSelectionContainsInspectorNodes()
         {
-            var selectedNodes = selection.Where(s => s is BaseNodeView).ToList();
-            var selectedNodesNotInInspector = selectedNodes.Except(nodeInspector.selectedNodes).ToList();
-            var nodeInInspectorWithoutSelectedNodes = nodeInspector.selectedNodes.Except(selectedNodes).ToList();
+            try
+            {
+                var selectedNodes = selection.Where(s => s is BaseNodeView).ToList();
+                var selectedNodesNotInInspector = selectedNodes.Except(nodeInspector.selectedNodes).ToList();
+                var nodeInInspectorWithoutSelectedNodes = nodeInspector.selectedNodes.Except(selectedNodes).ToList();
 
-            return selectedNodesNotInInspector.Any() || nodeInInspectorWithoutSelectedNodes.Any();
+                return selectedNodesNotInInspector.Any() || nodeInInspectorWithoutSelectedNodes.Any();
+            } catch
+            {
+                return false;
+            }
         }
 
         void DragPerformedCallback(DragPerformEvent e)

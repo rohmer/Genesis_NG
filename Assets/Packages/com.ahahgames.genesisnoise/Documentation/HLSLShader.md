@@ -69,6 +69,7 @@ This line defines the name of the shader. The "Hidden/" prefix means that this s
 ```
 Properties define the parameters that can be set on the shader from C#. Each property has a name, a type, and a default value. The attributes (like [InlineTexture] and Range) provide additional information about how the property should be displayed in the editor.
 See [Shader Properties](ShaderProperties.md) for more details on shader properties in Genesis Noise
+These are just example properties from the Levels node, you can define any properties you need for your shader.
 
 Remember, you must define a variable in HLSL for each property you want to use in your shader code. The variable name must match the property name (with an underscore prefix). For example, the _MainTex property corresponds to a variable named _MainTex in the HLSL code.
 ```hlsl
