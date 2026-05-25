@@ -4,9 +4,9 @@
 
 ## Summary
 
-- Unique shader files: 373
+- Unique shader files: 377
 - Top-level categories: 12
-- Shaders linked to Genesis nodes: 322
+- Shaders linked to Genesis nodes: 326
 - Orphan shaders: 51
 
 ## Categories
@@ -14,7 +14,7 @@
 | Category | Shaders | Linked | Orphans | File |
 | --- | ---: | ---: | ---: | --- |
 | Color | 38 | 34 | 4 | [Color](color.md) |
-| Effects | 8 | 7 | 1 | [Effects](effects.md) |
+| Effects | 12 | 11 | 1 | [Effects](effects.md) |
 | Filters | 19 | 16 | 3 | [Filters](filters.md) |
 | Functions | 24 | 20 | 4 | [Functions](functions.md) |
 | Generators | 160 | 145 | 15 | [Generators](generators.md) |

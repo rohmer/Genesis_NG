@@ -30,7 +30,7 @@ _None._
 | `_Scale` | Scale | `Vector` | `(8,8,0,0)` | Global tiling |  |
 | `_Angle` | Angle | `Range(0,6.283)` | `0.0` | Rotation in radians |  |
 | `_BandWidth` | Band Width | `Range(0.05,0.95)` | `0.5` | Width of each gingham band |  |
-| `_BandStrength` | Band Strength | `Range(0,1)` | `0.45` | Darkness of single-direction bands |  |
+| `_BandStrength` | Band Strength | `Range(0,1)` | `0.45` | Darkness of single direction bands |  |
 | `_OverlapStrength` | Overlap Strength | `Range(0,1)` | `0.9` | Darkness of overlapping bands |  |
 | `_ThreadDetail` | Thread Detail | `Range(0,1)` | `0.35` | Fine woven thread detail |  |
 | `_Softness` | Softness | `Range(0,0.25)` | `0.025` | Soft edge |  |

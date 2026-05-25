@@ -31,7 +31,7 @@ _None._
 | `_Angle` | Angle | `Range(0,6.283)` | `0.0` | Rotation in radians |  |
 | `_Width` | Width | `Range(0.01,1)` | `0.62` | Thread width inside each cell |  |
 | `_Gap` | Gap | `Range(0,1)` | `0.22` | Gap between neighboring threads |  |
-| `_BlockSize` | Block Size | `Range(1,8)` | `2` | Number of adjacent threads in each over/under block |  |
+| `_BlockSize` | Block Size | `Range(1,8)` | `2` | Number of adjacent threads in each overunder block |  |
 | `_Softness` | Softness | `Range(0,0.5)` | `0.04` | Soft edge |  |
 | `_Ridge` | Ridge | `Range(0,1)` | `0.35` | Rounded thread highlight |  |
 | `_Contrast` | Contrast | `Range(0.5,4)` | `1.0` | Contrast shaping |  |

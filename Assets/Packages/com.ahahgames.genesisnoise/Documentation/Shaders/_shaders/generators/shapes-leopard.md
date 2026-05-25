@@ -34,7 +34,7 @@ _None._
 | `_Breakup` | Breakup | `Range(0,1)` | `0.55` | Amount of broken ring gaps |  |
 | `_Filler` | Filler | `Range(0,1)` | `0.45` | Amount of small filler spots |  |
 | `_Softness` | Softness | `Range(0,0.25)` | `0.035` | Soft edge |  |
-| `_FurDetail` | Fur Detail | `Range(0,1)` | `0.35` | Fur-like tonal grain |  |
+| `_FurDetail` | Fur Detail | `Range(0,1)` | `0.35` | Furlike tonal grain |  |
 | `_Contrast` | Contrast | `Range(0.5,4)` | `1.2` | Contrast shaping |  |
 | `_Randomness` | Randomness | `Range(0,1)` | `0.65` | Random variation amount |  |
 | `_Seed` | Seed | `int` | `307` | Random seed |  |

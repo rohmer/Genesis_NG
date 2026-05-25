@@ -6,18 +6,22 @@
 
 ## Overview
 
-- Shader count: 8
-- Linked to Genesis nodes: 7
+- Shader count: 12
+- Linked to Genesis nodes: 11
 - Orphan shaders: 1
 
 ## General
 
 | Shader | Hidden Name | Nodes | Summary |
 | --- | --- | ---: | --- |
+| [BarrelLensDistortion](_shaders/effects/barrellensdistortion.md) | `Hidden/Genesis/BarrelLensDistortion` | 1 | Barrel Lens Distortion Effect |
 | [CanvasTexture](_shaders/effects/canvastexture.md) | `Hidden/Genesis/CanvasTexture` | 1 | Paper/canvas fiber grain |
 | [CartoonFilter](_shaders/effects/cartoonfilter.md) | `Hidden/Genesis/CartoonFilter` | 1 | Edge detection (Sobel-style) |
 | [Dithering](_shaders/effects/dithering.md) | `Hidden/Genesis/Dithering` | 0 | Dithering Algorithm |
+| [FresnelLens](_shaders/effects/fresnellens.md) | `Hidden/Genesis/FresnelLens` | 1 | Fresnel Lens Effect |
+| [MustacheLensDistortion](_shaders/effects/mustachelensdistortion.md) | `Hidden/Genesis/MustacheLensDistortion` | 1 | Mustache Lens Distortion Effect |
 | [OldPhotoFilter](_shaders/effects/oldphotofilter.md) | `Hidden/Genesis/OldPhotoFilter` | 1 | Sepia toning |
+| [PincushionLensDistortion](_shaders/effects/pincushionlensdistortion.md) | `Hidden/Genesis/PincushionLensDistortion` | 1 | Pincushion Lens Distortion Effect |
 | [Poliginization](_shaders/effects/poliginization.md) | `Hidden/Genesis/Poliginization` | 1 | Applies a low-poly polygonization effect by triangulating the source image into jittered cells and simplifying the color inside each triangle. |
 | [RainEffect](_shaders/effects/raineffect.md) | `Hidden/Genesis/RainEffect` | 1 | Effect that simulates rain on the 'Camera' |
 | [Watercolor](_shaders/effects/watercolor.md) | `Hidden/Genesis/Watercolor` | 1 | Scale controls blotch size. Use larger X/Y to stretch blotches. |

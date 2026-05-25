@@ -53,8 +53,8 @@
 | [VoronoiNoise](_shaders/generators/noises-voronoinoise.md) | `Hidden/Genesis/VoronoiNoise` | 1 | The VoronoiNoise node generates 2D, 3D, or Cube-space Voronoi (Worley) noise with an extensive set of controls: |
 | [WarpNoise](_shaders/generators/noises-warpnoise.md) | `Hidden/Genesis/WarpNoise` | 1 | The WarpNoise node performs procedural UV warping, chromatic aberration, and optional color generation using a combination of: |
 | [WhiteNoise](_shaders/generators/noises-whitenoise.md) | `Hidden/Genesis/WhiteNoise` | 1 | The WhiteNoise node generates deterministic, sampler-free white noise in 2D, 3D, or Cube space. |
-| [Worley](_shaders/generators/noises-whorley.md) | `Hidden/Genesis/Worley` | 1 | The Worley node generates a hybrid procedural noise by combining: |
 | [Worley](_shaders/generators/noises-worley.md) | `Hidden/Genesis/Worley` | 1 | The Worley node generates a hybrid procedural noise by combining: |
+| [Worley](_shaders/generators/noises-whorley.md) | `Hidden/Genesis/Worley` | 1 | The Worley node generates a hybrid procedural noise by combining: |
 
 ## Other
 

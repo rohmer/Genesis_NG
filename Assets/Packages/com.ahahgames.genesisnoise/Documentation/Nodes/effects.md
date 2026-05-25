@@ -6,8 +6,8 @@
 
 ## Overview
 
-- Node count: 42
-- Inline docs from source: 42
+- Node count: 46
+- Inline docs from source: 46
 - Generated fallback docs: 0
 
 ## General
@@ -15,6 +15,7 @@
 | Node | Summary |
 | --- | --- |
 | [Ambient Occlusion](_nodes/effects/ambient-occlusion.md) | Builds a broad ambient-occlusion style mask from the incoming height field. |
+| [Barrel Lens Distortion](_nodes/effects/barrel-lens-distortion.md) | Barrel Lens Distortion Effect |
 | [Bevel](_nodes/effects/bevel.md) | A height-to-normal conversion |
 | [Bevel Smooth](_nodes/effects/bevel-smooth.md) | A height-to-normal conversion |
 | [Cavity](_nodes/effects/cavity.md) | Extracts concave cavity information from a height field. |
@@ -34,12 +35,15 @@
 | [Flood Fill to Grayscale](_nodes/effects/flood-fill-to-grayscale.md) | Each region gets one random grayscale value |
 | [Flood Fill to Grayscale](_nodes/effects/flood-fill-to-random-vector.md) | This node is the vector-based sibling of: |
 | [Flow Accumulation](_nodes/effects/flow-accumulation.md) | Builds a grayscale flow and pooling mask from the source texture's luminance. |
+| [Fresnel Lens](_nodes/effects/fresnel-lens.md) | Fresnel Lens Effect |
 | [Fur](_nodes/effects/fur.md) | Simulates fur on a texture, color based on another texture |
 | [Glow](_nodes/effects/glow.md) | It's a procedural halo generator that creates: |
 | [Irradiance](_nodes/effects/irradiance.md) | Essentially a real-time hemispherical light integration node. It computes a soft, view-independent irradiance term by: |
 | [Mosaic](_nodes/effects/mosaic.md) | Voronoi-style cell partitioning |
 | [Multi-Direction Warp](_nodes/effects/multi-direction-warp.md) | Samples the source multiple times along several directions |
 | [Multi-Direction Warp](_nodes/effects/non-uniform-directional-warp.md) | Takes a source image |
+| [Mustache Lens Distortion](_nodes/effects/mustache-lens-distortion.md) | Mustache Lens Distortion Effect |
+| [Pincushion Lens Distortion](_nodes/effects/pincushion-lens-distortion.md) | Pincushion Lens Distortion Effect |
 | [Pixelize](_nodes/effects/pixelize.md) | Pixelization node with scan line support |
 | [Polygonize](_nodes/effects/poliginize.md) | Applies a low-poly polygonization effect by triangulating the source image into jittered cells and simplifying the color inside each triangle. |
 | [Rain Effect](_nodes/effects/rain.md) | Effect that simulates rain on the 'Camera' |

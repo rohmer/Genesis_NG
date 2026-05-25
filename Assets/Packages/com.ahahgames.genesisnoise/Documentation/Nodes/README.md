@@ -4,9 +4,9 @@
 
 ## Summary
 
-- Unique node classes: 451
+- Unique node classes: 455
 - Top-level categories: 17
-- Inline docs from source: 451
+- Inline docs from source: 455
 - Generated fallback docs: 0
 
 ## Categories
@@ -16,7 +16,7 @@
 | Base Nodes | 1 | 1 | 0 | [Base Nodes](base-nodes.md) |
 | Color | 33 | 33 | 0 | [Color](color.md) |
 | Conditional | 12 | 12 | 0 | [Conditional](conditional.md) |
-| Effects | 42 | 42 | 0 | [Effects](effects.md) |
+| Effects | 46 | 46 | 0 | [Effects](effects.md) |
 | Filters | 31 | 31 | 0 | [Filters](filters.md) |
 | Function | 81 | 81 | 0 | [Function](function.md) |
 | Generators | 168 | 168 | 0 | [Generators](generators.md) |

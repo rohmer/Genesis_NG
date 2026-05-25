@@ -34,7 +34,7 @@ _None._
 | `_Waviness` | Waviness | `Range(0,1)` | `0.55` | Amount of stripe waviness |  |
 | `_Branching` | Branching | `Range(0,1)` | `0.35` | Amount of branching and pinching |  |
 | `_Softness` | Softness | `Range(0,0.25)` | `0.035` | Soft edge |  |
-| `_FurDetail` | Fur Detail | `Range(0,1)` | `0.35` | Fur-like tonal grain |  |
+| `_FurDetail` | Fur Detail | `Range(0,1)` | `0.35` | Furlike tonal grain |  |
 | `_Contrast` | Contrast | `Range(0.5,4)` | `1.15` | Contrast shaping |  |
 | `_Randomness` | Randomness | `Range(0,1)` | `0.35` | Random variation amount |  |
 | `_Seed` | Seed | `int` | `331` | Random seed |  |
